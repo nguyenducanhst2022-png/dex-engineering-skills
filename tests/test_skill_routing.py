@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 Pytest suite for DEX Engineering Skills Pack v3.0: Routing Matrix Verification.
-Tests the Master Orchestrator and dynamic skill routing engine across 10 realistic scenarios (A through J).
+Tests the Master Orchestrator and dynamic skill routing engine across 12 realistic scenarios (A through L).
 """
 
 import pytest
@@ -57,6 +57,16 @@ SCENARIOS = {
         "primary_skills": ["dex-chaos-experiments", "dex-reliability-engineering", "dex-performance-optimization"],
         "complementary_skills": ["dex-production-monitoring", "dex-property-based-testing", "dex-capacity-planning"],
     },
+    "Scenario K: Hermetic Offline Integration Testing & Mock Virtualization": {
+        "description": "Run integration tests against third-party payments and logistics APIs completely offline without network flakes.",
+        "primary_skills": ["dex-api-mocking-virtualization", "dex-testing-engineering", "dex-api-engineering"],
+        "complementary_skills": ["dex-code-verification", "dex-cicd-automation"],
+    },
+    "Scenario L: Defensive Binary & Web Bundle Security Auditing": {
+        "description": "Inspect compiled release executables (PE/ELF) and production JavaScript bundles for exposed endpoints and ASLR/DEP flags.",
+        "primary_skills": ["dex-binary-inspection", "dex-javascript-bundle-deobfuscation", "dex-rea-adapter"],
+        "complementary_skills": ["dex-security-audit", "dex-threat-modeling"],
+    },
 }
 
 class RoutingEngine:
@@ -68,12 +78,6 @@ class RoutingEngine:
         spec = SCENARIOS.get(scenario_name)
         if not spec:
             raise ValueError(f"Unknown scenario: {scenario_name}")
-        
-        # Verify all selected skills exist in the catalog
-        for s in spec["primary_skills"] + spec["complementary_skills"]:
-            if s not in self.catalog:
-                # Check for possible aliased legacy names if any
-                pass
         return spec["primary_skills"], spec["complementary_skills"]
 
 @pytest.fixture
@@ -96,8 +100,6 @@ def test_scenario_routing_validity(scenario_key, available_skills):
         assert skill in available_skills, f"Primary skill '{skill}' from {scenario_key} not found in skills catalog"
 
     for skill in complementaries:
-        # Note: dex-error-budget-slo in scenario F or legacy naming
         if skill == "dex-error-budget-slo":
-            # in v3 catalog, SLO is handled by dex-reliability-engineering / dex-production-monitoring
             continue
         assert skill in available_skills, f"Complementary skill '{skill}' from {scenario_key} not found in skills catalog"

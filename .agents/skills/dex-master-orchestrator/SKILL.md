@@ -32,6 +32,15 @@ Triết lý cốt lõi:
 - **Nguyên tắc cốt lõi**: Tuân thủ triệt để nguyên lý vận hành xác định và ranh giới trách nhiệm của chuẩn Agent Skills.
 - **Tính nhất quán hệ thống**: Mọi thao tác phải có thể kiểm chứng độc lập với kết quả đo lường rõ ràng.
 - **Ngăn ngừa hồi quy**: Bất kỳ sửa đổi nào cũng phải bảo vệ tính tương thích ngược và chất lượng đã được nghiệm thu.
+- **Giao thức Ưu tiên Kỹ năng (Skill Precedence Protocol)**:
+  1. *Priority 1 (Native DEX Skills 01–90)*: Luôn là lựa chọn mặc định và ưu tiên cao nhất cho mọi tác vụ kỹ thuật phần mềm cốt lõi.
+  2. *Priority 2 (Integrated Upstream Skills)*: Kích hoạt các kỹ năng đã được chuẩn hóa khi có yêu cầu chuyên sâu đặc thù:
+     - `dex-api-mocking-virtualization`: Khi cần cô lập hoàn toàn mạng bên ngoài để chạy integration tests với MSW/WireMock.
+     - `dex-binary-inspection`: Khi cần kiểm tra tĩnh tệp nhị phân đã biên dịch (PE/ELF headers, ASLR/DEP mitigation flags, DLL dependencies).
+     - `dex-javascript-bundle-deobfuscation`: Khi cần kiểm toán an ninh gói bundle Web/Electron, tái tạo sourcemap và phát hiện endpoint nội bộ lộ lọt.
+  3. *Priority 3 (MCP Adapter Skills)*:
+     - `dex-rea-adapter`: Khi người dùng yêu cầu phân tích binary sâu (decompile hàm, CFG graph) qua REA MCP Server, kèm chẩn đoán khả dụng và cơ chế dự phòng không gây ảo giác.
+- **Quyền lực Điều phối Tối thượng**: Master Orchestrator là điểm điều khiển duy nhất; không một router bên ngoài nào được phép can thiệp hoặc thay đổi các rào chắn bảo mật và 10 Quality Gates của DEX.
 
 ## 6. Step-by-Step Execution Workflow
 ### Bước 1: Phân tích Ý định & Phân loại Nhiệm vụ (Triage & Classification)
@@ -48,9 +57,9 @@ Triết lý cốt lõi:
    - **Architecture / Database Change**: Thiết kế hệ thống, thay đổi schema dữ liệu.
    - **Release & Deployment**: Đóng gói, nâng version, phát hành.
    - **Greenfield Project**: Xây dựng dự án mới từ con số không.
+   - **Specialized Auditing & Binary Inspection**: Kiểm tra tệp nhị phân, decompile hàm qua REA MCP, hoặc deobfuscate JavaScript bundle.
 
 ### Bước 2: Lựa chọn Chế độ Thực thi Thông minh (Execution Mode Selection)
-Căn cứ vào ma trận rủi ro ([mode-selection.md](references/mode-selection.md)):
 - **QUICK MODE** (Rủi ro thấp):
   - *Áp dụng*: Sửa lỗi nhỏ, sửa chính tả/UI text, chỉnh sửa cấu hình đơn giản.
   - *Chu trình*: Analyze → Implement → Verify → Report.
@@ -62,13 +71,14 @@ Căn cứ vào ma trận rủi ro ([mode-selection.md](references/mode-selection
   - *Chu trình*: Specification → Impact Analysis → Risk Assessment → Plan → Implement → Tests → Security Review → Quality Gates → Approval → Release.
 
 ### Bước 3: Định tuyến Kỹ năng Tối thiểu (Skill Routing)
-Chỉ kích hoạt tập kỹ năng thực sự cần thiết theo [routing-rules.md](references/routing-rules.md):
+Chỉ kích hoạt tập kỹ năng thực sự cần thiết:
 - **Bug Fix**: `dex-root-cause-debugging` → `dex-code-verification` → `dex-testing-engineering` → `dex-git-workflow`.
 - **Feature Upgrade**: `dex-specification-driven` → `dex-change-impact-analysis` → `dex-development-workflow` → `dex-testing-engineering` → `dex-code-review` → `dex-git-workflow`.
 - **Performance**: `dex-performance-optimization` → `dex-testing-engineering` → `dex-code-review`.
 - **Security**: `dex-security-audit` → `dex-code-verification` → `dex-testing-engineering`.
+- **Binary Inspection & Reverse Engineering**: `dex-binary-inspection` (Static) → `dex-rea-adapter` (Dynamic/Decompile qua MCP nếu có) → `dex-security-audit`.
+- **Offline Integration Testing**: `dex-api-mocking-virtualization` → `dex-testing-engineering` → `dex-code-verification`.
 - **Release**: `dex-testing-engineering` → `dex-security-audit` (nếu cần) → `dex-release-engineering` → `dex-git-workflow`.
-- **Greenfield**: `dex-specification-driven` → `dex-software-architecture` → `dex-task-delegation` → `dex-development-workflow` → `dex-testing-engineering` → `dex-git-workflow`.
 
 ### Bước 4: Kiểm soát Chuyển Giai đoạn & Quality Gates
 Tại mỗi mốc chuyển giao giữa các skill, Master Orchestrator kiểm tra các Quality Gates tương ứng (từ QG-01 đến QG-10).
@@ -91,7 +101,7 @@ dex verify --skill dex-master-orchestrator
 ## 8. Anti-Patterns & Common Traps
 - **Anti-Pattern 1**: Bỏ qua các bước xác minh tự động và dựa vào giả định chủ quan.
 - **Anti-Pattern 2**: Thay đổi diện rộng vượt ngoài phạm vi (Scope Creep) làm mất kiểm soát rủi ro.
-- **Trap**: Thực hiện thao tác phá hủy hoặc thay đổi trạng thái sản xuất khi chưa qua cổng kiểm duyệt an toàn.
+- **Trap**: Cho phép router hoặc playbook bên ngoài thay thế quyền kiểm soát của Master Orchestrator hoặc bỏ qua các rào chắn Quality Gates.
 
 ## 9. Quality Gates & Acceptance Criteria
 Master Orchestrator kiểm soát 10 cổng chất lượng:
@@ -125,6 +135,8 @@ Master Orchestrator kiểm soát 10 cổng chất lượng:
 
 ## 13. Related & Complementary Skills
 - `dex-master-orchestrator`: Điều phối trung tâm.
+- `dex-rea-adapter`: Cầu nối MCP cho các tác vụ dịch ngược sâu.
+- `dex-binary-inspection`: Kiểm tra tĩnh nhị phân phòng vệ.
 
 ## 14. Realistic Usage Example
 ### Tình huống triển khai thực tế:

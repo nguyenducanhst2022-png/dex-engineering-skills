@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "version": "1.0.0",
+  "description": "Allowlist and governance rules for external Agent Skills sources integrated into DEX Engineering Skills",
+  "approved_sources": [
+    {
+      "source_id": "SOURCE_A_AAS",
+      "name": "Agentic Awesome Skills",
+      "repository_url": "https://github.com/sickn33/agentic-awesome-skills",
+      "allowed_licenses": ["MIT", "Apache-2.0"],
+      "allowed_domains": [
+        "Software Engineering",
+        "Debugging",
+        "Testing",
+        "Architecture",
+        "AI Agent Engineering",
+        "DevOps",
+        "Developer Productivity"
+      ],
+      "prohibited_patterns": [
+        "eval(",
+        "exec(",
+        "curl -s | bash",
+        "wget -q | sh",
+        "powershell -enc"
+      ],
+      "auto_import_allowed": false,
+      "requires_manual_audit": true
+    },
+    {
+      "source_id": "SOURCE_B_REVERSE",
+      "name": "Reverse Skill",
+      "repository_url": "https://github.com/zhaoxuya520/reverse-skill",
+      "allowed_licenses": ["MIT", "Apache-2.0"],
+      "allowed_domains": [
+        "Static Binary Inspection",
+        "JavaScript Bundle Auditing",
+        "Digital Forensics Evidence",
+        "Authorized Code Review"
+      ],
+      "prohibited_patterns": [
+        "bypass",
+        "exploit",
+        "cve_payload",
+        "credential_dump",
+        "privilege_escalation_exploit"
+      ],
+      "auto_import_allowed": false,
+      "requires_manual_audit": true
+    },
+    {
+      "source_id": "SOURCE_C_REA",
+      "name": "Reverse Engineer Anything (REA)",
+      "repository_url": "https://github.com/morluto/rea",
+      "allowed_licenses": ["MIT", "Apache-2.0"],
+      "allowed_domains": [
+        "MCP Adapter",
+        "Local Binary Analysis Bridge",
+        "Evidence Reporting"
+      ],
+      "prohibited_patterns": [
+        "sudo rm -rf",
+        "format C:"
+      ],
+      "auto_import_allowed": false,
+      "requires_manual_audit": true
+    }
+  ],
+  "governance_rules": {
+    "enforce_14_sections": true,
+    "require_upstream_attribution": true,
+    "block_destructive_commands": true,
+    "block_unauthorized_penetration": true,
+    "require_manifest_ledger_entry": true
+  }
+}

@@ -163,3 +163,15 @@ Tuân thủ nghiêm ngặt đặc tả [Agent Skills Specification](https://agen
 | **88** | [`dex-experimentation-metrics`](.agents/skills/dex-experimentation-metrics/SKILL.md) | Feature flags, A/B testing infrastructure, statistical p-value, and telemetry. | QG-01, QG-08 |
 | **89** | [`dex-api-contract-evolution`](.agents/skills/dex-api-contract-evolution/SKILL.md) | Backward compatibility diffing, RFC 8594 Sunset headers, and adapters. | QG-06, QG-10 |
 | **90** | [`dex-incident-postmortems`](.agents/skills/dex-incident-postmortems/SKILL.md) | Blameless postmortems, chronological timeline, 5 Whys, and action items. | QG-01, QG-10 |
+
+
+---
+
+## Integrated Upstream Skills (Standardized & Audited)
+
+| STT | Tên Kỹ Năng (`name`) | Nguồn Gốc (Origin) | Giấy Phép | Trách Nhiệm Kỹ Thuật | Cổng Chất Lượng |
+|:---|:---|:---|:---|:---|:---|
+| **INT-01** | [`dex-api-mocking-virtualization`](.agents/skills/dex-api-mocking-virtualization/SKILL.md) | Agentic Awesome Skills (Source A) | MIT | Hermetic API mocking, WireMock, Mock Service Worker (MSW), synthetic fixtures. | QG-01, QG-04 |
+| **INT-02** | [`dex-binary-inspection`](.agents/skills/dex-binary-inspection/SKILL.md) | Reverse Skill (Source B) | MIT | Defensive static binary inspection, PE/ELF header analysis, symbol tables, ASLR/DEP flags. | QG-01, QG-09 |
+| **INT-03** | [`dex-javascript-bundle-deobfuscation`](.agents/skills/dex-javascript-bundle-deobfuscation/SKILL.md) | Reverse Skill (Source B) | MIT | Client-side JavaScript/Electron bundle auditing, sourcemap reconstruction, endpoint auditing. | QG-01, QG-09 |
+| **INT-04** | [`dex-rea-adapter`](.agents/skills/dex-rea-adapter/SKILL.md) | REA (Source C) | Apache-2.0 | Model Context Protocol (MCP) bridge connecting to local REA toolchain with zero-hallucination. | QG-01, QG-10 |

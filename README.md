@@ -1,12 +1,12 @@
 # DEX Engineering Skills Pack v3.0
 
-> **90 Specialized Agent Skills + 1 Master Orchestrator (91 Skills Total)**  
+> **90 Specialized Agent Skills + 1 Master Orchestrator (91 Native Skills) + Upstream Integration Engine**  
 > Production-ready, deterministic engineering skills library adhering strictly to the [Agent Skills Specification](https://agentskills.io/specification).
 
 [![Validate DEX Skills](https://img.shields.io/badge/Validate%20DEX%20Skills-100%25%20passed-brightgreen.svg?logo=githubactions&logoColor=white)](https://github.com/nguyenducanhst2022-png/dex-engineering-skills)
 [![Version](https://img.shields.io/badge/version-3.0.0-blue.svg)](CHANGELOG.md)
 [![Agent Skills Spec](https://img.shields.io/badge/Agent%20Skills-Standard%20Compliant-green.svg)](https://agentskills.io/specification)
-[![Python Tests](https://img.shields.io/badge/tests-103%20passed-brightgreen.svg)](tests/)
+[![Python Tests](https://img.shields.io/badge/tests-passed-brightgreen.svg)](tests/)
 
 ---
 
@@ -16,9 +16,10 @@
 
 ### Key Capabilities
 - **Exact 90+1 Architecture**: 90 specialized skills spanning 9 core engineering domains plus 1 Master Orchestrator.
+- **Skill Integration Engine**: Dedicated CLI (`scripts/dex_skill_importer.py`) to discover, audit, duplicate-check, and safely import external skills from GitHub upstream repositories.
 - **14 Mandatory Sections**: Every skill contains 14 structured technical sections (Purpose, Activation, Preconditions, Concepts, Workflow, Examples, Anti-Patterns, Quality Gates, Security, Platform Adapters, Deliverables, Related Skills, Realistic Usage).
 - **Quality Gates (QG-01 to QG-10)**: Automated technical acceptance gates eliminating unverified claims and hallucinations.
-- **Automated Validation Suite**: Built-in Python validator (`scripts/validate_skills.py`) and 103-test pytest suite (`tests/`) ensuring 100% compliance.
+- **Automated Validation Suite**: Built-in Python validator (`scripts/validate_skills.py`) and pytest test suite (`tests/`) ensuring 100% compliance.
 
 ---
 
@@ -41,7 +42,37 @@ Tra cứu chi tiết từng kỹ năng tại: [SKILLS_INDEX.md](SKILLS_INDEX.md)
 
 ---
 
-## 3. Quickstart & Integration
+## 3. Skill Integration Engine (Upstream Ingestion)
+
+DEX includes an industrial-strength integration CLI ([`scripts/dex_skill_importer.py`](scripts/dex_skill_importer.py)) to discover, audit, duplicate-check, normalize, and rollback skills from external repositories:
+- **Source A (Agentic Awesome Skills)**: `https://github.com/sickn33/agentic-awesome-skills`
+- **Source B (Reverse Skill)**: `https://github.com/zhaoxuya520/reverse-skill`
+- **Source C (Reverse Engineer Anything - REA)**: `https://github.com/morluto/rea`
+
+### Integrated Specialized Skills:
+- [`dex-api-mocking-virtualization`](.agents/skills/dex-api-mocking-virtualization/SKILL.md): Hermetic API mocking, MSW, WireMock.
+- [`dex-binary-inspection`](.agents/skills/dex-binary-inspection/SKILL.md): Defensive static PE/ELF header analysis, ASLR/DEP validation.
+- [`dex-javascript-bundle-deobfuscation`](.agents/skills/dex-javascript-bundle-deobfuscation/SKILL.md): Sourcemap reconstruction and bundle auditing.
+- [`dex-rea-adapter`](.agents/skills/dex-rea-adapter/SKILL.md): Model Context Protocol (MCP) bridge to local REA engine.
+
+### CLI Usage:
+```bash
+# Discover candidates from upstream
+python scripts/dex_skill_importer.py discover
+
+# Audit security and license
+python scripts/dex_skill_importer.py audit --candidate dex-binary-inspection
+
+# Check duplicate classification against DEX catalog
+python scripts/dex_skill_importer.py compare --candidate dex-binary-inspection
+
+# Probe REA MCP environment
+python scripts/rea_mcp_probe.py --check
+```
+
+---
+
+## 4. Quickstart & Integration
 
 ### A. Clone Repository
 ```bash
@@ -62,7 +93,7 @@ pytest tests/ -v
 Copy `.agents/` directly into your workspace or target repository root. Point your agent instructions to `dex-master-orchestrator`:
 ```markdown
 # AGENTS.md
-You have access to the DEX Engineering Skills Pack v3.0 in `.agents/skills/`.
+You have access to the DEX Engineering Skills Pack in `.agents/skills/`.
 For every task, begin by invoking `dex-master-orchestrator` to classify complexity,
 select the required specialized skills, and enforce the 10 Quality Gates.
 ```
@@ -71,7 +102,7 @@ See [INSTALL.md](INSTALL.md) for detailed platform setup instructions.
 
 ---
 
-## 4. Quality Gates & Acceptance System
+## 5. Quality Gates & Acceptance System
 
 All technical deliverables produced under the DEX framework must clear the 10 Quality Gates:
 - **QG-01**: Specification & Input Contract

@@ -1,12 +1,13 @@
 # -*- coding: utf-8 -*-
 """
 Pytest suite for DEX Engineering Skills Pack v3.0: Structural Verification.
-Validates that all 91 skills adhere strictly to Agent Skills Specification
-and contain the 14 mandatory sections with valid YAML frontmatter.
+Validates that all skills (91 Native + Imported Upstream Skills) adhere strictly
+to Agent Skills Specification and contain the 14 mandatory sections with valid YAML frontmatter.
 """
 
 import os
 import re
+import json
 import pytest
 
 ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
@@ -37,8 +38,19 @@ def get_all_skills():
 ALL_SKILLS = get_all_skills()
 
 def test_total_skill_count():
-    """Verify exactly 91 skills exist (1 master orchestrator + 90 specialized)."""
-    assert len(ALL_SKILLS) == 91, f"Expected 91 skills, found {len(ALL_SKILLS)}"
+    """Verify skill count matches 91 native + imported manifest skills."""
+    manifest_path = os.path.join(ROOT_DIR, "data", "imported_skills_manifest.json")
+    imported_count = 0
+    if os.path.exists(manifest_path):
+        try:
+            with open(manifest_path, "r", encoding="utf-8") as f:
+                data = json.load(f)
+                imported_count = len(data.get("imported_skills", {}))
+        except Exception:
+            pass
+
+    expected_count = 91 + imported_count
+    assert len(ALL_SKILLS) == expected_count, f"Expected {expected_count} skills, found {len(ALL_SKILLS)}"
 
 def test_master_orchestrator_exists():
     """Verify dex-master-orchestrator is present."""

@@ -133,3 +133,30 @@ The Dynamic Routing Matrix maps real-world engineering objectives to specialized
 - **Complementary Skills**: `dex-production-monitoring`, `dex-property-based-testing`, `dex-capacity-planning`.
 - **Enforced Quality Gates**: QG-04, QG-07, QG-08, QG-10.
 - **Key Deliverables**: Chaos experiment specification, circuit breaker policy configuration, and resilience audit report.
+
+
+---
+
+### Scenario K: Hermetic Offline Integration Testing & Mock Virtualization
+- **Context**: Run integration tests against third-party payments and logistics APIs completely offline without network flakes or rate limits.
+- **Complexity**: STANDARD MODE (Score 6)
+- **Primary Skills**:
+  - `dex-api-mocking-virtualization`: Setup MSW network interceptors and WireMock fault simulations.
+  - `dex-testing-engineering`: Execute integration test suite with synthetic fixtures.
+  - `dex-api-engineering`: Assert mock response schemas conform strictly to OpenAPI specs.
+- **Complementary Skills**: `dex-code-verification`, `dex-cicd-automation`.
+- **Enforced Quality Gates**: QG-01, QG-03, QG-04, QG-06, QG-10.
+- **Key Deliverables**: Offline mock server configuration, hermetic integration test suite, and schema contract assertion report.
+
+---
+
+### Scenario L: Defensive Binary & Web Bundle Security Auditing
+- **Context**: Inspect compiled release executables (PE/ELF) and production JavaScript bundles for exposed endpoints, unmitigated compiler flags, and REA decompilation.
+- **Complexity**: STRICT MODE (Score 8)
+- **Primary Skills**:
+  - `dex-binary-inspection`: Verify ASLR, DEP/NX compiler mitigation flags, and imported DLL dependencies.
+  - `dex-javascript-bundle-deobfuscation`: Extract sourcemaps, detect leaked staging endpoints and third-party SDKs.
+  - `dex-rea-adapter`: Probe REA MCP availability for decompilation of suspicious native functions.
+- **Complementary Skills**: `dex-security-audit`, `dex-threat-modeling`, `dex-incident-postmortems`.
+- **Enforced Quality Gates**: QG-01, QG-04, QG-07, QG-09, QG-10.
+- **Key Deliverables**: Binary security audit report, bundle exposure catalog, and REA evidence report.

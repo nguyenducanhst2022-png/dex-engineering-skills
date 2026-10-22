@@ -1,13 +1,14 @@
 # -*- coding: utf-8 -*-
 """
-Validation script for DEX Engineering Skills Pack v3.0.
-Verifies all 91 skills (1 Master Orchestrator + 90 Specialized Skills)
+Validation script for DEX Engineering Skills Pack v3.0 & Integration Engine.
+Verifies all skills (91 Native + Imported Upstream Skills)
 against the Agent Skills Specification and strict 14-section requirements.
 """
 
 import os
 import sys
 import re
+import json
 
 MANDATORY_SECTIONS = [
     (1, "Purpose & Scope"),
@@ -126,13 +127,24 @@ def main():
         sys.exit(1)
 
     skill_dirs = [d for d in os.listdir(skills_base) if os.path.isdir(os.path.join(skills_base, d))]
-    print(f"=== DEX ENGINEERING SKILLS PACK v3.0 VALIDATOR ===")
+    print(f"=== DEX ENGINEERING SKILLS PACK v3.0 & INTEGRATION VALIDATOR ===")
     print(f"Scanning skills in: {skills_base}")
     print(f"Total skill directories found: {len(skill_dirs)}")
 
-    expected_count = 91
+    # Check manifest for imported skills count
+    manifest_path = os.path.join(root_dir, "data", "imported_skills_manifest.json")
+    imported_count = 0
+    if os.path.exists(manifest_path):
+        try:
+            with open(manifest_path, "r", encoding="utf-8") as f:
+                m_data = json.load(f)
+                imported_count = len(m_data.get("imported_skills", {}))
+        except Exception:
+            pass
+
+    expected_count = 91 + imported_count
     if len(skill_dirs) != expected_count:
-        print(f"WARNING: Expected {expected_count} skills, but found {len(skill_dirs)}.")
+        print(f"WARNING: Expected {expected_count} skills (91 native + {imported_count} imported), but found {len(skill_dirs)}.")
 
     total_errors = 0
     passed_skills = 0
@@ -159,7 +171,7 @@ def main():
         print("\nRESULT: FAILED")
         sys.exit(1)
     else:
-        print("\nRESULT: 100% PASSED - ALL 91 SKILLS FULLY VALIDATED!")
+        print(f"\nRESULT: 100% PASSED - ALL {passed_skills} SKILLS FULLY VALIDATED!")
         sys.exit(0)
 
 if __name__ == "__main__":
