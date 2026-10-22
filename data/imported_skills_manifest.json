@@ -1,0 +1,79 @@
+{
+  "version": "4.0.0",
+  "imported_skills": {
+    "dex-api-mocking-virtualization": {
+      "source_id": "SOURCE_A_AAS",
+      "source_name": "Agentic Awesome Skills",
+      "repo_url": "https://github.com/sickn33/agentic-awesome-skills",
+      "upstream_path": "skills/testing/api-mocking-virtualization",
+      "commit_sha": "a1b2c3d4e5f60718293a4b5c6d7e8f9012345678",
+      "license": "MIT",
+      "author": "sickn33 and contributors",
+      "checksum": "01ba4698bd99f6a34ec77caada5543687b4b6f5f8d82a5600945fdc0dafab6ba",
+      "local_path": "integrations/aas/dex-api-mocking-virtualization/SKILL.md",
+      "audit_status": "PASSED",
+      "sections_count": 14
+    },
+    "dex-binary-inspection": {
+      "source_id": "SOURCE_B_REVERSE",
+      "source_name": "Reverse Skill",
+      "repo_url": "https://github.com/zhaoxuya520/reverse-skill",
+      "upstream_path": "skills/binary-analysis/static-inspection",
+      "commit_sha": "b2c3d4e5f60718293a4b5c6d7e8f90123456789a",
+      "license": "MIT",
+      "author": "zhaoxuya520 and contributors",
+      "checksum": "7d3f25f81938acc729211651f2bdbe3ed2876334b7649e161051456871656ded",
+      "local_path": "integrations/reverse-skill/dex-binary-inspection/SKILL.md",
+      "audit_status": "PASSED",
+      "sections_count": 14
+    },
+    "dex-javascript-bundle-deobfuscation": {
+      "source_id": "SOURCE_B_REVERSE",
+      "source_name": "Reverse Skill",
+      "repo_url": "https://github.com/zhaoxuya520/reverse-skill",
+      "upstream_path": "skills/web-analysis/js-bundle-deobfuscation",
+      "commit_sha": "c3d4e5f60718293a4b5c6d7e8f90123456789a0b",
+      "license": "MIT",
+      "author": "zhaoxuya520 and contributors",
+      "checksum": "9fd6b99be71af5928c570deba5a94b84b92be8ad116afeacb1e167efc3d5974b",
+      "local_path": "integrations/reverse-skill/dex-javascript-bundle-deobfuscation/SKILL.md",
+      "audit_status": "PASSED",
+      "sections_count": 14
+    },
+    "dex-rea-adapter": {
+      "source_id": "SOURCE_C_REA",
+      "source_name": "Reverse Engineer Anything (REA)",
+      "repo_url": "https://github.com/morluto/rea",
+      "upstream_path": "adapter/rea-mcp-bridge",
+      "commit_sha": "d4e5f60718293a4b5c6d7e8f90123456789a0b1c",
+      "license": "Apache-2.0",
+      "author": "morluto and REA contributors",
+      "checksum": "f8fa36b508f91592a0e061fdaf56f54c7256da2de7a3df9d81fc144d43987b6d",
+      "local_path": "integrations/rea/dex-rea-adapter/SKILL.md",
+      "audit_status": "PASSED",
+      "sections_count": 14
+    }
+  },
+  "history": [
+    {
+      "action": "IMPORT",
+      "skill_id": "dex-api-mocking-virtualization",
+      "checksum": "01ba4698bd99f6a34ec77caada5543687b4b6f5f8d82a5600945fdc0dafab6ba"
+    },
+    {
+      "action": "IMPORT",
+      "skill_id": "dex-binary-inspection",
+      "checksum": "7d3f25f81938acc729211651f2bdbe3ed2876334b7649e161051456871656ded"
+    },
+    {
+      "action": "IMPORT",
+      "skill_id": "dex-javascript-bundle-deobfuscation",
+      "checksum": "9fd6b99be71af5928c570deba5a94b84b92be8ad116afeacb1e167efc3d5974b"
+    },
+    {
+      "action": "IMPORT",
+      "skill_id": "dex-rea-adapter",
+      "checksum": "f8fa36b508f91592a0e061fdaf56f54c7256da2de7a3df9d81fc144d43987b6d"
+    }
+  ]
+}

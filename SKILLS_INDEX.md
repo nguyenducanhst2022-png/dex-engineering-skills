@@ -1,6 +1,6 @@
-# DEX Skills Index & Quick Reference Catalog v3.0
+# DEX Skills Index & Quick Reference Catalog v4.0
 
-Bảng tra cứu nhanh toàn diện cho toàn bộ **91 Kỹ năng (1 Master Orchestrator + 90 Kỹ năng Chuyên biệt)** thuộc **DEX Engineering Skills Pack v3.0.0**.
+Bảng tra cứu nhanh toàn diện cho toàn bộ **121 Kỹ năng (1 Master Orchestrator + 120 Kỹ năng Chuyên biệt)** thuộc **DEX Engineering Skills Pack v4.0.0**.
 
 Tuân thủ nghiêm ngặt đặc tả [Agent Skills Specification](https://agentskills.io/specification) và chuẩn hóa đầy đủ 14 mục kỹ thuật bắt buộc.
 
@@ -12,16 +12,16 @@ Tuân thủ nghiêm ngặt đặc tả [Agent Skills Specification](https://agen
 
 | STT | Tên Kỹ Năng (`name`) | Phân Nhóm | Trách Nhiệm Cốt Lõi | Cổng Chất Lượng Kiểm Soát |
 |:---|:---|:---|:---|:---|
-| **00** | [`dex-master-orchestrator`](.agents/skills/dex-master-orchestrator/SKILL.md) | **Master Orchestration** | Điều phối toàn bộ 90 skills, phân loại độ phức tạp (QUICK, STANDARD, STRICT), kiểm soát 10 Quality Gates và báo cáo kiểm chứng minh bạch. | QG-01 đến QG-10 |
+| **00** | [`dex-master-orchestrator`](.agents/skills/dex-master-orchestrator/SKILL.md) | **Master Control Plane** | Điều phối toàn bộ 120 specialized skills, phân loại độ phức tạp (QUICK, STANDARD, STRICT), kiểm soát 12 Quality Gates và xuất báo cáo kiểm chứng minh bạch. | QG-01 đến QG-12 |
 
 
 ---
 
 
-## 90 Kỹ Năng Chuyên Biệt Theo 9 Phân Nhóm Chuyên Ngành
+## 120 Kỹ Năng Chuyên Biệt Theo 12 Phân Nhóm Chuyên Ngành (Groups A–L)
 
 
-### GROUP A: Core Engineering (Bài 1–10)
+### GROUP A: Core Engineering (01–10)
 
 | STT | Tên Kỹ Năng (`name`) | Trách Nhiệm Kỹ Thuật | Cổng Chất Lượng (Quality Gates) |
 |:---|:---|:---|:---|
@@ -37,7 +37,7 @@ Tuân thủ nghiêm ngặt đặc tả [Agent Skills Specification](https://agen
 | **10** | [`dex-release-engineering`](.agents/skills/dex-release-engineering/SKILL.md) | SemVer tagging, packaging artifacts, and changelog automation. | QG-06, QG-10 |
 
 
-### GROUP B: Software Architecture & AI Agents (Bài 11–20)
+### GROUP B: Software Architecture & AI Agents (11–20)
 
 | STT | Tên Kỹ Năng (`name`) | Trách Nhiệm Kỹ Thuật | Cổng Chất Lượng (Quality Gates) |
 |:---|:---|:---|:---|
@@ -53,7 +53,7 @@ Tuân thủ nghiêm ngặt đặc tả [Agent Skills Specification](https://agen
 | **20** | [`dex-specification-driven`](.agents/skills/dex-specification-driven/SKILL.md) | Specification-driven development (SDD) and Given-When-Then criteria. | QG-01, QG-04 |
 
 
-### GROUP C: Production Engineering (Bài 21–30)
+### GROUP C: Production Engineering (21–30)
 
 | STT | Tên Kỹ Năng (`name`) | Trách Nhiệm Kỹ Thuật | Cổng Chất Lượng (Quality Gates) |
 |:---|:---|:---|:---|
@@ -101,7 +101,7 @@ Tuân thủ nghiêm ngặt đặc tả [Agent Skills Specification](https://agen
 | **50** | [`dex-scheduled-workflows`](.agents/skills/dex-scheduled-workflows/SKILL.md) | Distributed cron orchestration, missed execution handling, and stateful DAGs. | QG-07, QG-10 |
 
 
-### GROUP F: Data & Infrastructure (51–60)
+### GROUP F: Data Engineering (51–60)
 
 | STT | Tên Kỹ Năng (`name`) | Trách Nhiệm Kỹ Thuật | Cổng Chất Lượng (Quality Gates) |
 |:---|:---|:---|:---|
@@ -133,7 +133,7 @@ Tuân thủ nghiêm ngặt đặc tả [Agent Skills Specification](https://agen
 | **70** | [`dex-dataset-curation`](.agents/skills/dex-dataset-curation/SKILL.md) | Instruction dataset generation, PII sanitization, and JSONL validation. | QG-03, QG-09 |
 
 
-### GROUP H: Developer Experience & Platform (71–80)
+### GROUP H: Developer Experience (71–80)
 
 | STT | Tên Kỹ Năng (`name`) | Trách Nhiệm Kỹ Thuật | Cổng Chất Lượng (Quality Gates) |
 |:---|:---|:---|:---|
@@ -149,7 +149,7 @@ Tuân thủ nghiêm ngặt đặc tả [Agent Skills Specification](https://agen
 | **80** | [`dex-semantic-version-automation`](.agents/skills/dex-semantic-version-automation/SKILL.md) | SemVer 2.0, Conventional Commits parsing, and automated GitHub releases. | QG-01, QG-10 |
 
 
-### GROUP I: Security, Reliability & Product (81–90)
+### GROUP I: Security & Reliability (81–90)
 
 | STT | Tên Kỹ Năng (`name`) | Trách Nhiệm Kỹ Thuật | Cổng Chất Lượng (Quality Gates) |
 |:---|:---|:---|:---|
@@ -163,3 +163,73 @@ Tuân thủ nghiêm ngặt đặc tả [Agent Skills Specification](https://agen
 | **88** | [`dex-experimentation-metrics`](.agents/skills/dex-experimentation-metrics/SKILL.md) | Feature flags, A/B testing infrastructure, statistical p-value, and telemetry. | QG-01, QG-08 |
 | **89** | [`dex-api-contract-evolution`](.agents/skills/dex-api-contract-evolution/SKILL.md) | Backward compatibility diffing, RFC 8594 Sunset headers, and adapters. | QG-06, QG-10 |
 | **90** | [`dex-incident-postmortems`](.agents/skills/dex-incident-postmortems/SKILL.md) | Blameless postmortems, chronological timeline, 5 Whys, and action items. | QG-01, QG-10 |
+
+
+### GROUP J: Cloud & Infrastructure (91–100)
+
+| STT | Tên Kỹ Năng (`name`) | Trách Nhiệm Kỹ Thuật | Cổng Chất Lượng (Quality Gates) |
+|:---|:---|:---|:---|
+| **91** | [`dex-container-image-engineering`](.agents/skills/dex-container-image-engineering/SKILL.md) | Multi-stage builds, minimal base images, non-root users, SBOM, and Trivy. | QG-01, QG-07 |
+| **92** | [`dex-kubernetes-deployment`](.agents/skills/dex-kubernetes-deployment/SKILL.md) | Deployments, probes, resource limits, PodDisruptionBudgets, and rolling updates. | QG-01, QG-05 |
+| **93** | [`dex-infrastructure-as-code`](.agents/skills/dex-infrastructure-as-code/SKILL.md) | Terraform/OpenTofu, remote state locking, drift detection, and Checkov scan. | QG-01, QG-07 |
+| **94** | [`dex-cloud-service-integration`](.agents/skills/dex-cloud-service-integration/SKILL.md) | Workload Identity, exponential backoff with jitter, and least privilege IAM. | QG-03, QG-07 |
+| **95** | [`dex-zero-downtime-rollouts`](.agents/skills/dex-zero-downtime-rollouts/SKILL.md) | Blue-green, Argo canary, progressive traffic shifting, and instant rollback. | QG-01, QG-09 |
+| **96** | [`dex-service-mesh-networking`](.agents/skills/dex-service-mesh-networking/SKILL.md) | Istio/Linkerd mTLS, traffic routing, circuit breaking, and Envoy outlier detection. | QG-01, QG-07 |
+| **97** | [`dex-network-troubleshooting`](.agents/skills/dex-network-troubleshooting/SKILL.md) | DNS, TLS cert chains, TCP SYN/RST, HTTP latency, and tcpdump packet analysis. | QG-01, QG-06 |
+| **98** | [`dex-slo-error-budgets`](.agents/skills/dex-slo-error-budgets/SKILL.md) | SLIs, SLOs, rolling error budgets, multi-window burn rate alerts, and freeze rules. | QG-01, QG-08 |
+| **99** | [`dex-distributed-tracing`](.agents/skills/dex-distributed-tracing/SKILL.md) | OpenTelemetry, W3C tracecontext propagation, span lifecycle, and latency bottlenecks. | QG-01, QG-07 |
+| **100** | [`dex-cloud-cost-finops`](.agents/skills/dex-cloud-cost-finops/SKILL.md) | Cloud cost allocation tags, right-sizing, idle asset cleanup, and unit economics. | QG-01, QG-08 |
+
+
+### GROUP K: Mobile & Desktop Engineering (101–110)
+
+| STT | Tên Kỹ Năng (`name`) | Trách Nhiệm Kỹ Thuật | Cổng Chất Lượng (Quality Gates) |
+|:---|:---|:---|:---|
+| **101** | [`dex-android-app-architecture`](.agents/skills/dex-android-app-architecture/SKILL.md) | Jetpack Compose, MVVM/MVI, StateFlow, Room database, and Hilt DI. | QG-01, QG-07 |
+| **102** | [`dex-ios-app-architecture`](.agents/skills/dex-ios-app-architecture/SKILL.md) | SwiftUI, Swift Concurrency, NavigationStack, Observation, and SwiftData. | QG-01, QG-07 |
+| **103** | [`dex-electron-security`](.agents/skills/dex-electron-security/SKILL.md) | contextIsolation, nodeIntegration disabled, sandbox, minimal contextBridge, and CSP. | QG-01, QG-07 |
+| **104** | [`dex-tauri-desktop-integration`](.agents/skills/dex-tauri-desktop-integration/SKILL.md) | Tauri v2, Rust backend commands, strict capabilities, and minimal memory footprint. | QG-01, QG-07 |
+| **105** | [`dex-mobile-offline-sync`](.agents/skills/dex-mobile-offline-sync/SKILL.md) | Offline-first SQLite/WatermelonDB, mutation sync queues, CRDT/LWW, and workers. | QG-01, QG-08 |
+| **106** | [`dex-mobile-release-pipelines`](.agents/skills/dex-mobile-release-pipelines/SKILL.md) | Fastlane automation, keystore signing, Match provisioning, and store uploads. | QG-01, QG-07 |
+| **107** | [`dex-mobile-performance-profiling`](.agents/skills/dex-mobile-performance-profiling/SKILL.md) | Startup time (TTID/TTFD), frame jank (60/120 fps), LeakCanary, and battery. | QG-01, QG-08 |
+| **108** | [`dex-desktop-ipc-design`](.agents/skills/dex-desktop-ipc-design/SKILL.md) | Type-safe IPC schemas (Zod/JSON Schema), bi-directional events, and validation. | QG-01, QG-07 |
+| **109** | [`dex-native-device-integration`](.agents/skills/dex-native-device-integration/SKILL.md) | Camera, Geolocation, Bluetooth BLE, Biometrics, and graceful hardware fallbacks. | QG-01, QG-07 |
+| **110** | [`dex-desktop-update-delivery`](.agents/skills/dex-desktop-update-delivery/SKILL.md) | Auto-updates, cryptographic signatures (Minisign/Ed25519), and atomic rollbacks. | QG-01, QG-07 |
+
+
+### GROUP L: Product & Operations Engineering (111–120)
+
+| STT | Tên Kỹ Năng (`name`) | Trách Nhiệm Kỹ Thuật | Cổng Chất Lượng (Quality Gates) |
+|:---|:---|:---|:---|
+| **111** | [`dex-privacy-impact-assessment`](.agents/skills/dex-privacy-impact-assessment/SKILL.md) | GDPR/CCPA DPIA, personal data classification, minimization, and user rights. | QG-01, QG-07 |
+| **112** | [`dex-compliance-control-mapping`](.agents/skills/dex-compliance-control-mapping/SKILL.md) | SOC 2 Type II, ISO 27001, HIPAA control mapping, and automated evidence collection. | QG-01, QG-08 |
+| **113** | [`dex-audit-trail-integrity`](.agents/skills/dex-audit-trail-integrity/SKILL.md) | Tamper-evident hash chaining, S3 Object Lock (WORM), and CloudEvents schema. | QG-01, QG-07 |
+| **114** | [`dex-configuration-drift`](.agents/skills/dex-configuration-drift/SKILL.md) | ArgoCD/Flux GitOps reconciliation, Terraform drift, and automated self-healing. | QG-01, QG-08 |
+| **115** | [`dex-product-discovery`](.agents/skills/dex-product-discovery/SKILL.md) | Jobs-to-be-Done (JTBD), Opportunity Solution Trees, and assumption spike testing. | QG-01, QG-02 |
+| **116** | [`dex-feature-prioritization`](.agents/skills/dex-feature-prioritization/SKILL.md) | RICE scoring, Value vs Effort matrix, WSJF, and dependency graph resolution. | QG-01, QG-04 |
+| **117** | [`dex-analytics-instrumentation`](.agents/skills/dex-analytics-instrumentation/SKILL.md) | Strict tracking plans, object_action taxonomy, Zod schemas, and PII scrubbing. | QG-01, QG-07 |
+| **118** | [`dex-feedback-triage`](.agents/skills/dex-feedback-triage/SKILL.md) | High-velocity bug/feedback classification, deduplication, and reproduction recipes. | QG-01, QG-08 |
+| **119** | [`dex-runbook-automation`](.agents/skills/dex-runbook-automation/SKILL.md) | Guarded executable runbooks (SOPs), interactive approval gates, and rollbacks. | QG-01, QG-09 |
+| **120** | [`dex-operational-readiness-review`](.agents/skills/dex-operational-readiness-review/SKILL.md) | Production launch readiness review across reliability, security, support, and DR. | QG-01, QG-09 |
+
+
+---
+
+
+## Segregated Upstream Integration Modules (`integrations/`)
+
+
+Các kỹ năng mở rộng được nhập khẩu từ nguồn bên ngoài và lưu trữ độc lập trong thư mục `integrations/`, không tính gộp vào danh mục 120 kỹ năng bản địa:
+
+
+| Module | Nguồn Gốc | Đường Dẫn | Trách Nhiệm |
+
+|:---|:---|:---|:---|
+
+| **API Mocking & Virtualization** | Source A: Agentic Awesome Skills | [`integrations/aas/dex-api-mocking-virtualization`](integrations/aas/dex-api-mocking-virtualization/SKILL.md) | Hermetic offline API mocking, WireMock, Mock Service Worker (MSW). |
+
+| **Defensive Binary Inspection** | Source B: Reverse Skill | [`integrations/reverse-skill/dex-binary-inspection`](integrations/reverse-skill/dex-binary-inspection/SKILL.md) | Static PE/ELF header analysis, ASLR/DEP flags, and library dependencies. |
+
+| **JavaScript Bundle Deobfuscation** | Source B: Reverse Skill | [`integrations/reverse-skill/dex-javascript-bundle-deobfuscation`](integrations/reverse-skill/dex-javascript-bundle-deobfuscation/SKILL.md) | Sourcemap reconstruction and web/Electron bundle security auditing. |
+
+| **REA MCP Adapter** | Source C: Reverse Engineer Anything | [`integrations/rea/dex-rea-adapter`](integrations/rea/dex-rea-adapter/SKILL.md) | Standardized MCP adapter bridge to local REA reverse engineering engine. |
