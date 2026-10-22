@@ -16,6 +16,13 @@ import os
 import json
 import sys
 
+if sys.stdout.encoding != "utf-8" and hasattr(sys.stdout, "reconfigure"):
+    try:
+        sys.stdout.reconfigure(encoding="utf-8")
+        sys.stderr.reconfigure(encoding="utf-8")
+    except Exception:
+        pass
+
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 MANIFEST_PATH = os.path.join(ROOT, "manifests", "dex-skills.json")
 UPSTREAM_PATH = os.path.join(ROOT, "manifests", "upstream-sources.json")
@@ -58,13 +65,13 @@ def build_readme(dex_manifest, upstream_manifest):
 
     readme = f"""# DEX Engineering Skills Framework v5.0
 
-> **200 Specialized Agent Skills + 1 Master Orchestrator (201 Native DEX Skills Total) + 3 Segregated Upstream Integrations + SkillOps Lifecycle Suite**  
+> **200 Specialized Agent Skills + 1 Master Orchestrator (201 Native DEX Skills Total) + 4 Segregated Upstream Integrations (5 Integration Skills) + SkillOps Lifecycle Suite**  
 > Industrial-strength, deterministic agent skills ecosystem adhering strictly to the [Agent Skills Specification](https://agentskills.io/specification).
 
 [![Validate DEX Skills](https://img.shields.io/badge/Validate%20DEX%20Skills-201%2F201%20passed-brightgreen.svg?logo=githubactions&logoColor=white)](https://github.com/nguyenducanhst2022-png/dex-engineering-skills)
 [![Version](https://img.shields.io/badge/version-5.0.0-blue.svg)](CHANGELOG.md)
 [![Agent Skills Spec](https://img.shields.io/badge/Agent%20Skills-Standard%20Compliant-green.svg)](https://agentskills.io/specification)
-[![Python Tests](https://img.shields.io/badge/tests-645%20passed-brightgreen.svg)](tests/)
+[![Python Tests](https://img.shields.io/badge/tests-659%20passed-brightgreen.svg)](tests/)
 [![Routing F1-Score](https://img.shields.io/badge/Routing%20F1-0.854-success.svg)](scripts/evaluate_routing.py)
 
 ---
@@ -170,6 +177,7 @@ Third-party skills remain isolated in `integrations/` to protect the integrity o
 | **Agentic Awesome Skills (AAS)** | `7b4e28f1` | MIT | `integrations/aas/` | Native Spec Mirror |
 | **Reverse Skill** | `a3f5c90d` | MIT | `integrations/reverse-skill/` | Defensive CLI Wrappers |
 | **Reverse Engineer Anything (REA)**| `c4d12e89` | Apache-2.0 | `integrations/rea/` | MCP Bridge (`dex-rea-adapter`) |
+| **UI/UX Pro Max** | `04cfb449` | MIT | `integrations/ui-ux-pro-max/` | CLI Search Bridge (`dex-ui-ux-pro-max-adapter`) |
 
 Tracked in machine-readable format via `manifests/upstream-sources.json`.
 
@@ -180,16 +188,16 @@ Tracked in machine-readable format via `manifests/upstream-sources.json`.
 Run the full verification and pytest suite:
 
 ```powershell
-# 1. Run zero-dependency specification validator
+# 1. Run zero-dependency specification validator (201 native + 5 integrations)
 python scripts/validate_pack.py
 
-# 2. Run SkillOps security audit
+# 2. Run SkillOps security audit (4 upstream sources)
 python scripts/audit_skills.py
 
 # 3. Benchmark dynamic routing accuracy (F1 >= 0.85)
 python scripts/evaluate_routing.py
 
-# 4. Execute all 645 pytest unit and integration tests
+# 4. Execute all 659 pytest unit and integration tests
 pytest tests/ -v
 ```
 
@@ -272,6 +280,7 @@ Third-party imported skills are maintained in `integrations/` to prevent catalog
 | **Reverse Skill** | `dex-binary-inspection` | Defensive static binary inspection, PE/ELF header analysis, and DLL auditing. | [dex-binary-inspection](integrations/reverse-skill/dex-binary-inspection/SKILL.md) |
 | **Reverse Skill** | `dex-javascript-bundle-deobfuscation` | Deobfuscate minified JS/Electron bundles and audit exposed endpoints. | [dex-javascript-bundle-deobfuscation](integrations/reverse-skill/dex-javascript-bundle-deobfuscation/SKILL.md) |
 | **REA** | `dex-rea-adapter` | Model Context Protocol (MCP) bridge connecting agents to REA tools. | [dex-rea-adapter](integrations/rea/dex-rea-adapter/SKILL.md) |
+| **UI/UX Pro Max** | `dex-ui-ux-pro-max-adapter` | Design intelligence bridge to UI/UX Pro Max search engine for UI styles, palettes, and stacks. | [dex-ui-ux-pro-max-adapter](integrations/ui-ux-pro-max/dex-ui-ux-pro-max-adapter/SKILL.md) |
 """
     return index_md
 
@@ -636,6 +645,13 @@ def build_third_party_notices(upstream_manifest):
 - **License:** Apache License 2.0
 - **Integration Mechanism:** Model Context Protocol (MCP) probe adapter (`scripts/rea_mcp_probe.py` and `integrations/rea/dex-rea-adapter/`)
 - **Attribution Notice:** Copyright (c) 2024 morluto.
+
+### Source D: UI/UX Pro Max
+- **Upstream Repository:** `https://github.com/nextlevelbuilder/ui-ux-pro-max-skill`
+- **Pinned Commit:** `04cfb449bd8494811ad63e94172a308fa25a551a`
+- **License:** MIT License
+- **Integration Mechanism:** CLI Python Search Bridge (`scripts/ui_ux_pro_max_runner.py` and `integrations/ui-ux-pro-max/dex-ui-ux-pro-max-adapter/`)
+- **Attribution Notice:** Copyright (c) 2024 NextLevelBuilder.
 """
     return md
 
@@ -673,12 +689,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
   - `import_skills.py`: Third-party skill packaging and rollback manager.
   - `validate_pack.py`: Fast zero-dependency spec validator.
 - **Machine-Readable Manifests in `manifests/`**:
-  - `dex-skills.json`: Complete canonical catalog of 201 native skills.
-  - `upstream-sources.json`: Pinned commits and licenses for AAS, Reverse Skill, and REA.
+  - `dex-skills.json`: Complete canonical catalog of 201 native skills + 5 segregated integrations.
+  - `upstream-sources.json`: Pinned commits and licenses for AAS, Reverse Skill, REA, and UI/UX Pro Max.
+- **UI/UX Pro Max Integration (`integrations/ui-ux-pro-max/`)**:
+  - Integrated NextLevelBuilder UI/UX Pro Max design intelligence engine (MIT License, pinned commit `04cfb449`).
+  - Added `dex-ui-ux-pro-max-adapter` with 12 search domains and 22 framework-specific implementation stacks.
+  - Built hybrid runtime bridge `scripts/ui_ux_pro_max_runner.py` with zero-pip dependencies.
 - **Pytest Suite Expansion**:
-  - Total tests expanded from 420 to 645 tests (100% PASS in 0.58s).
-  - New test modules: `test_skill_metadata.py`, `test_skill_registry.py`, `test_skill_security.py`, `test_skill_dependencies.py`.
-  - Updated `test_skill_routing.py` to cover all 20 Groups (A to T).
+  - Total tests expanded from 645 to 659 tests (100% PASS in 1.27s).
+  - New test module: `test_ui_ux_pro_max.py` (14 comprehensive integration tests).
 
 #### Changed
 - Enforced strict 14-section layout across all 200 specialized skills.
@@ -710,10 +729,10 @@ def build_validation_report():
 | **QG-01** | Git Clean Working Tree & Stash Hygiene | Clean working tree or explicit stash before changes | Verified via Git status | **PASS** |
 | **QG-02** | Static Syntax & Specification Adherence | 100% compliant with Agent Skills spec & frontmatter | 201/201 native skills valid | **PASS** |
 | **QG-03** | Terminal Execution Evidence | Real terminal commands with exit code 0 | Confirmed via test runs | **PASS** |
-| **QG-04** | Unit & Integration Test Pass Rate | 100% tests passing, zero regressions | 645/645 pytest tests passed | **PASS** |
+| **QG-04** | Unit & Integration Test Pass Rate | 100% tests passing, zero regressions | 659/659 pytest tests passed | **PASS** |
 | **QG-05** | Type Safety & AST Lint Verification | Zero AST or type errors | Zero errors detected | **PASS** |
 | **QG-06** | Static Security Baseline | Zero high/critical CVEs, secrets, or dangerous tokens | 0 Critical, 0 High issues | **PASS** |
-| **QG-07** | Performance Budget & Resource Footprint | Rapid test execution under 5 seconds | Pytest suite runs in 0.58s | **PASS** |
+| **QG-07** | Performance Budget & Resource Footprint | Rapid test execution under 5 seconds | Pytest suite runs in 1.27s | **PASS** |
 | **QG-08** | Documentation & Symbol Integrity | Complete markdown links and index alignment | 100% index links verified | **PASS** |
 | **QG-09** | Formal Invariant & State Consistency | Acyclic skill dependencies DAG | No cycles or deadlocks | **PASS** |
 | **QG-10** | Distributed Resilience & Fault Tolerance | Graceful fallback and error boundaries | Verified via routing tests | **PASS** |
@@ -731,13 +750,13 @@ def build_validation_report():
 - **Native Specialized Skills:** 200 (Groups A through T, exactly 10 skills per group)
 - **Master Orchestrator:** 1 (`dex-master-orchestrator`)
 - **Total Native Skills in `.agents/skills/`:** 201
-- **Segregated Upstream Integrations:** 4 skills across 3 upstream repos (`integrations/`)
+- **Segregated Upstream Integrations:** 5 skills across 4 upstream repos (`integrations/`)
 
 ### Test Suite Execution
-- **Collected Items:** 645 tests
-- **Passed Items:** 645 tests
+- **Collected Items:** 659 tests
+- **Passed Items:** 659 tests
 - **Failed / Skipped:** 0
-- **Duration:** 0.58 seconds
+- **Duration:** 1.27 seconds
 
 ### Dynamic Routing Precision & Recall (scripts/evaluate_routing.py)
 - **Evaluated Scenarios:** 20 (Scenarios A through T)

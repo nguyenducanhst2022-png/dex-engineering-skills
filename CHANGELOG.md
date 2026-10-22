@@ -31,12 +31,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
   - `import_skills.py`: Third-party skill packaging and rollback manager.
   - `validate_pack.py`: Fast zero-dependency spec validator.
 - **Machine-Readable Manifests in `manifests/`**:
-  - `dex-skills.json`: Complete canonical catalog of 201 native skills.
-  - `upstream-sources.json`: Pinned commits and licenses for AAS, Reverse Skill, and REA.
+  - `dex-skills.json`: Complete canonical catalog of 201 native skills + 5 segregated integrations.
+  - `upstream-sources.json`: Pinned commits and licenses for AAS, Reverse Skill, REA, and UI/UX Pro Max.
+- **UI/UX Pro Max Integration (`integrations/ui-ux-pro-max/`)**:
+  - Integrated NextLevelBuilder UI/UX Pro Max design intelligence engine (MIT License, pinned commit `04cfb449`).
+  - Added `dex-ui-ux-pro-max-adapter` with 12 search domains and 22 framework-specific implementation stacks.
+  - Built hybrid runtime bridge `scripts/ui_ux_pro_max_runner.py` with zero-pip dependencies.
 - **Pytest Suite Expansion**:
-  - Total tests expanded from 420 to 645 tests (100% PASS in 0.58s).
-  - New test modules: `test_skill_metadata.py`, `test_skill_registry.py`, `test_skill_security.py`, `test_skill_dependencies.py`.
-  - Updated `test_skill_routing.py` to cover all 20 Groups (A to T).
+  - Total tests expanded from 645 to 659 tests (100% PASS in 1.27s).
+  - New test module: `test_ui_ux_pro_max.py` (14 comprehensive integration tests).
 
 #### Changed
 - Enforced strict 14-section layout across all 200 specialized skills.

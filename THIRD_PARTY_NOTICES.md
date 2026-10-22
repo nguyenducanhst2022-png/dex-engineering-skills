@@ -13,6 +13,7 @@
 | `source-a-aas` | **Agentic Awesome Skills** | [https://github.com/sickn33/agentic-awesome-skills](https://github.com/sickn33/agentic-awesome-skills) | `7b4e28f1` | MIT | `integrations/aas/` |
 | `source-b-reverse-skill` | **Reverse Skill** | [https://github.com/zhaoxuya520/reverse-skill](https://github.com/zhaoxuya520/reverse-skill) | `a3f5c90d` | MIT | `integrations/reverse-skill/` |
 | `source-c-rea` | **Reverse Engineer Anything (REA)** | [https://github.com/morluto/rea](https://github.com/morluto/rea) | `c4d12e89` | Apache-2.0 | `integrations/rea/` |
+| `source-d-ui-ux-pro-max` | **UI/UX Pro Max** | [https://github.com/nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) | `04cfb449` | MIT | `integrations/ui-ux-pro-max/` |
 
 ---
 
@@ -38,3 +39,10 @@
 - **License:** Apache License 2.0
 - **Integration Mechanism:** Model Context Protocol (MCP) probe adapter (`scripts/rea_mcp_probe.py` and `integrations/rea/dex-rea-adapter/`)
 - **Attribution Notice:** Copyright (c) 2024 morluto.
+
+### Source D: UI/UX Pro Max
+- **Upstream Repository:** `https://github.com/nextlevelbuilder/ui-ux-pro-max-skill`
+- **Pinned Commit:** `04cfb449bd8494811ad63e94172a308fa25a551a`
+- **License:** MIT License
+- **Integration Mechanism:** CLI Python Search Bridge (`scripts/ui_ux_pro_max_runner.py` and `integrations/ui-ux-pro-max/dex-ui-ux-pro-max-adapter/`)
+- **Attribution Notice:** Copyright (c) 2024 NextLevelBuilder.

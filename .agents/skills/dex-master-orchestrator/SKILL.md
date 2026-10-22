@@ -52,7 +52,7 @@ Triết lý cốt lõi v5.0:
   18. **Group R (171–180) Product Design & User Research**: User journey mapping, information architecture, usability study design, accessibility automation, design handoff verification, product requirements writing, conversion funnel analysis, feature adoption analysis, user consent UX, supportability engineering.
   19. **Group S (181–190) Application Security Specialists**: SAST finding triage, DAST scoping, API abuse prevention, web security headers, browser extension hardening, SBOM verification, vulnerability remediation, security logging and detection, cryptographic API review, secure build runners.
   20. **Group T (191–200) SkillOps Engineering**: Skill discovery indexer, skill license provenance, skill semantic deduplication, skill security screening, skill import packaging, skill upstream sync, skill activation evaluation, skill host adapters, skill dependency graph, skill quality benchmarking.
-- **Ranh Giới Kỹ Năng Tích Hợp Thứ Ba (`integrations/`)**: Các kỹ năng mở rộng từ bên ngoài (`integrations/aas`, `integrations/reverse-skill`, `integrations/rea`) được quản lý trong không gian riêng biệt, không tính gộp vào 200 kỹ năng bản địa, chỉ kích hoạt khi có yêu cầu đặc thù và luôn chịu sự giám sát an ninh của Master Orchestrator.
+- **Ranh Giới Kỹ Năng Tích Hợp Thứ Ba (`integrations/`)**: Các kỹ năng mở rộng từ bên ngoài (`integrations/aas`, `integrations/reverse-skill`, `integrations/rea`, `integrations/ui-ux-pro-max`) được quản lý trong không gian riêng biệt, không tính gộp vào 200 kỹ năng bản địa, chỉ kích hoạt khi có yêu cầu đặc thù và luôn chịu sự giám sát an ninh của Master Orchestrator.
 
 ## 6. Step-by-Step Execution Workflow
 ### Bước 1: Tiếp nhận, Phân loại & Xác định Phạm vi (Triage & Scoping)
@@ -73,6 +73,7 @@ Triết lý cốt lõi v5.0:
 
 ### Bước 3: Định tuyến Kỹ năng Chuyên biệt Tối thiểu (Skill Routing)
 Master Orchestrator tra cứu bảng ma trận định tuyến (`ROUTING_MATRIX.md`) và kích hoạt tổ hợp kỹ năng phù hợp:
+- **UI/UX Design Intelligence & Interface Engineering**: `dex-ui-ux-pro-max-adapter` (tra cứu phong cách UI, màu sắc, font chữ từ UI/UX Pro Max) → `dex-design-system-tokens` → `dex-ui-component-contracts` → `dex-ux-accessibility` → `dex-visual-regression`. (*Chặn kích hoạt trên các tác vụ backend, database hoặc DevOps*).
 - **Advanced Verification & Test Hardening**: `dex-coverage-risk-analysis` → `dex-mutation-testing` → `dex-api-fuzz-testing` → `dex-flaky-test-remediation`.
 - **Distributed Resilience & Traffic Control**: `dex-load-and-stress-testing` → `dex-traffic-shaping-backpressure` → `dex-rate-limiting-quotas` → `dex-service-failover`.
 - **Advanced Cloud & GitOps Governance**: `dex-cloud-iam-policy-review` → `dex-cloud-network-design` → `dex-gitops-workflows` → `dex-kubernetes-policy-enforcement`.

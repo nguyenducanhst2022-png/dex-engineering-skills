@@ -1,12 +1,12 @@
 # DEX Engineering Skills Framework v5.0
 
-> **200 Specialized Agent Skills + 1 Master Orchestrator (201 Native DEX Skills Total) + 3 Segregated Upstream Integrations + SkillOps Lifecycle Suite**  
+> **200 Specialized Agent Skills + 1 Master Orchestrator (201 Native DEX Skills Total) + 4 Segregated Upstream Integrations (5 Integration Skills) + SkillOps Lifecycle Suite**  
 > Industrial-strength, deterministic agent skills ecosystem adhering strictly to the [Agent Skills Specification](https://agentskills.io/specification).
 
 [![Validate DEX Skills](https://img.shields.io/badge/Validate%20DEX%20Skills-201%2F201%20passed-brightgreen.svg?logo=githubactions&logoColor=white)](https://github.com/nguyenducanhst2022-png/dex-engineering-skills)
 [![Version](https://img.shields.io/badge/version-5.0.0-blue.svg)](CHANGELOG.md)
 [![Agent Skills Spec](https://img.shields.io/badge/Agent%20Skills-Standard%20Compliant-green.svg)](https://agentskills.io/specification)
-[![Python Tests](https://img.shields.io/badge/tests-645%20passed-brightgreen.svg)](tests/)
+[![Python Tests](https://img.shields.io/badge/tests-659%20passed-brightgreen.svg)](tests/)
 [![Routing F1-Score](https://img.shields.io/badge/Routing%20F1-0.854-success.svg)](scripts/evaluate_routing.py)
 
 ---
@@ -127,6 +127,7 @@ Third-party skills remain isolated in `integrations/` to protect the integrity o
 | **Agentic Awesome Skills (AAS)** | `7b4e28f1` | MIT | `integrations/aas/` | Native Spec Mirror |
 | **Reverse Skill** | `a3f5c90d` | MIT | `integrations/reverse-skill/` | Defensive CLI Wrappers |
 | **Reverse Engineer Anything (REA)**| `c4d12e89` | Apache-2.0 | `integrations/rea/` | MCP Bridge (`dex-rea-adapter`) |
+| **UI/UX Pro Max** | `04cfb449` | MIT | `integrations/ui-ux-pro-max/` | CLI Search Bridge (`dex-ui-ux-pro-max-adapter`) |
 
 Tracked in machine-readable format via `manifests/upstream-sources.json`.
 
@@ -137,16 +138,16 @@ Tracked in machine-readable format via `manifests/upstream-sources.json`.
 Run the full verification and pytest suite:
 
 ```powershell
-# 1. Run zero-dependency specification validator
+# 1. Run zero-dependency specification validator (201 native + 5 integrations)
 python scripts/validate_pack.py
 
-# 2. Run SkillOps security audit
+# 2. Run SkillOps security audit (4 upstream sources)
 python scripts/audit_skills.py
 
 # 3. Benchmark dynamic routing accuracy (F1 >= 0.85)
 python scripts/evaluate_routing.py
 
-# 4. Execute all 645 pytest unit and integration tests
+# 4. Execute all 659 pytest unit and integration tests
 pytest tests/ -v
 ```
 

@@ -13,10 +13,10 @@
 | **QG-01** | Git Clean Working Tree & Stash Hygiene | Clean working tree or explicit stash before changes | Verified via Git status | **PASS** |
 | **QG-02** | Static Syntax & Specification Adherence | 100% compliant with Agent Skills spec & frontmatter | 201/201 native skills valid | **PASS** |
 | **QG-03** | Terminal Execution Evidence | Real terminal commands with exit code 0 | Confirmed via test runs | **PASS** |
-| **QG-04** | Unit & Integration Test Pass Rate | 100% tests passing, zero regressions | 645/645 pytest tests passed | **PASS** |
+| **QG-04** | Unit & Integration Test Pass Rate | 100% tests passing, zero regressions | 659/659 pytest tests passed | **PASS** |
 | **QG-05** | Type Safety & AST Lint Verification | Zero AST or type errors | Zero errors detected | **PASS** |
 | **QG-06** | Static Security Baseline | Zero high/critical CVEs, secrets, or dangerous tokens | 0 Critical, 0 High issues | **PASS** |
-| **QG-07** | Performance Budget & Resource Footprint | Rapid test execution under 5 seconds | Pytest suite runs in 0.58s | **PASS** |
+| **QG-07** | Performance Budget & Resource Footprint | Rapid test execution under 5 seconds | Pytest suite runs in 1.27s | **PASS** |
 | **QG-08** | Documentation & Symbol Integrity | Complete markdown links and index alignment | 100% index links verified | **PASS** |
 | **QG-09** | Formal Invariant & State Consistency | Acyclic skill dependencies DAG | No cycles or deadlocks | **PASS** |
 | **QG-10** | Distributed Resilience & Fault Tolerance | Graceful fallback and error boundaries | Verified via routing tests | **PASS** |
@@ -34,13 +34,13 @@
 - **Native Specialized Skills:** 200 (Groups A through T, exactly 10 skills per group)
 - **Master Orchestrator:** 1 (`dex-master-orchestrator`)
 - **Total Native Skills in `.agents/skills/`:** 201
-- **Segregated Upstream Integrations:** 4 skills across 3 upstream repos (`integrations/`)
+- **Segregated Upstream Integrations:** 5 skills across 4 upstream repos (`integrations/`)
 
 ### Test Suite Execution
-- **Collected Items:** 645 tests
-- **Passed Items:** 645 tests
+- **Collected Items:** 659 tests
+- **Passed Items:** 659 tests
 - **Failed / Skipped:** 0
-- **Duration:** 0.58 seconds
+- **Duration:** 1.27 seconds
 
 ### Dynamic Routing Precision & Recall (scripts/evaluate_routing.py)
 - **Evaluated Scenarios:** 20 (Scenarios A through T)

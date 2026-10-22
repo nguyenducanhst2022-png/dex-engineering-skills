@@ -31,7 +31,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install pytest pyyaml
 
-      - name: Validate Native Skills Specification (201 Native + 4 Integrations)
+      - name: Validate Native Skills Specification (201 Native + 5 Integrations)
         run: |
           python scripts/validate_pack.py
 
@@ -43,6 +43,6 @@ jobs:
         run: |
           python scripts/evaluate_routing.py
 
-      - name: Run Pytest Test Suite (645 Tests)
+      - name: Run Pytest Test Suite (659 Tests)
         run: |
           pytest tests/ -v

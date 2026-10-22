@@ -11,6 +11,13 @@ import sys
 import re
 import json
 
+if sys.stdout.encoding != "utf-8" and hasattr(sys.stdout, "reconfigure"):
+    try:
+        sys.stdout.reconfigure(encoding="utf-8")
+        sys.stderr.reconfigure(encoding="utf-8")
+    except Exception:
+        pass
+
 MANDATORY_SECTIONS = [
     (1, "Purpose & Scope"),
     (2, "When to Use"),

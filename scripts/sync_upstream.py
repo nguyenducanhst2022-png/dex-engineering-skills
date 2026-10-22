@@ -41,7 +41,7 @@ def check_upstream_sources(manifest_path, dry_run=True):
         root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
         local_path = os.path.join(root_dir, mount)
         if os.path.exists(local_path):
-            skills = [s for s in os.listdir(local_path) if os.path.isdir(os.path.join(local_path, s))]
+            skills = [s for s in os.listdir(local_path) if os.path.isdir(os.path.join(local_path, s)) and os.path.isfile(os.path.join(local_path, s, "SKILL.md"))]
             print(f"  - Mounted Skills ({len(skills)}): {', '.join(skills)}")
         else:
             print(f"  - WARNING: Mount path {mount} does not exist locally")

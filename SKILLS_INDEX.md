@@ -327,3 +327,4 @@ Third-party imported skills are maintained in `integrations/` to prevent catalog
 | **Reverse Skill** | `dex-binary-inspection` | Defensive static binary inspection, PE/ELF header analysis, and DLL auditing. | [dex-binary-inspection](integrations/reverse-skill/dex-binary-inspection/SKILL.md) |
 | **Reverse Skill** | `dex-javascript-bundle-deobfuscation` | Deobfuscate minified JS/Electron bundles and audit exposed endpoints. | [dex-javascript-bundle-deobfuscation](integrations/reverse-skill/dex-javascript-bundle-deobfuscation/SKILL.md) |
 | **REA** | `dex-rea-adapter` | Model Context Protocol (MCP) bridge connecting agents to REA tools. | [dex-rea-adapter](integrations/rea/dex-rea-adapter/SKILL.md) |
+| **UI/UX Pro Max** | `dex-ui-ux-pro-max-adapter` | Design intelligence bridge to UI/UX Pro Max search engine for UI styles, palettes, and stacks. | [dex-ui-ux-pro-max-adapter](integrations/ui-ux-pro-max/dex-ui-ux-pro-max-adapter/SKILL.md) |

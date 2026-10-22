@@ -2981,6 +2981,12 @@
       "name": "dex-javascript-bundle-deobfuscation",
       "description": "Analyze and deobfuscate minified client-side JavaScript and Electron bundles, reconstruct sourcemap trees, extract third-party SDK dependencies, and audit exposed API endpoints for authorized defensive security reviews. Use when auditing web bundles or Electron apps.",
       "path": "integrations/reverse-skill/dex-javascript-bundle-deobfuscation/SKILL.md"
+    },
+    {
+      "id": "dex-ui-ux-pro-max-adapter",
+      "name": "dex-ui-ux-pro-max-adapter",
+      "description": "Design intelligence bridge connecting DEX AI agents to UI/UX Pro Max search engine for data-driven UI styles, color palettes, typography pairings, design system generation, and 22 framework-specific implementation guidelines. Use when designing user interfaces, redesigning web/mobile screens, or establishing design tokens.",
+      "path": "integrations/ui-ux-pro-max/dex-ui-ux-pro-max-adapter/SKILL.md"
     }
   ]
 }
