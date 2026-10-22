@@ -1,74 +1,93 @@
-# DEX Engineering Skills Pack v4.0 — Technical Architecture
+# DEX Engineering Skills Framework v5.0 — Architectural Specification
 
-## 1. Architectural Mission & Overview
+> **Principal Architecture Blueprint for 200 Specialized Skills + Master Orchestrator + SkillOps Framework**
 
-**DEX Engineering Skills Pack v4.0** is an enterprise-grade, deterministic AI Agent Skills Framework comprising:
-- **120 Specialized Engineering Skills** across 12 distinct engineering domains.
-- **1 Master Orchestrator** (`dex-master-orchestrator`) acting as root control plane.
-- **Total: Exactly 121 Native DEX Skills** in `.agents/skills/`.
-- **Segregated Multi-Source Integration Layer** (`integrations/`) managing third-party skills without polluting native numbering.
+---
 
-```mermaid
-graph TD
-    UserReq[User Request] --> MasterOrch[dex-master-orchestrator]
-    
-    subgraph DEX Core Domain Engine 120 Skills
-        GrpA[Group A: Core Engineering 01-10]
-        GrpB[Group B: Architecture & AI Agents 11-20]
-        GrpC[Group C: Production Engineering 21-30]
-        GrpD[Group D: Frontend Engineering 31-40]
-        GrpE[Group E: Backend & Integration 41-50]
-        GrpF[Group F: Data Engineering 51-60]
-        GrpG[Group G: AI & LLM Engineering 61-70]
-        GrpH[Group H: Developer Experience 71-80]
-        GrpI[Group I: Security & Reliability 81-90]
-        GrpJ[Group J: Cloud & Infrastructure 91-100]
-        GrpK[Group K: Mobile & Desktop 101-110]
-        GrpL[Group L: Product & Operations 111-120]
-    end
+## 1. System Topology & Directory Structure
 
-    subgraph External Upstream Integrations integrations/
-        AAS[integrations/aas - Mocking]
-        RevSkill[integrations/reverse-skill - Binary/JS Audit]
-        REA[integrations/rea - REA MCP Adapter]
-    end
+DEX v5.0 is organized into three strictly separated tiers: Native Skills Catalog, Segregated Integrations, and SkillOps Toolchain.
 
-    MasterOrch --> GrpA & GrpB & GrpC & GrpD & GrpE & GrpF & GrpG & GrpH & GrpI & GrpJ & GrpK & GrpL
-    MasterOrch -.->|Delegated Playbooks & Tools| AAS & RevSkill & REA
+```
+dex-engineering-skills/
+├── .agents/skills/                    # Native DEX Catalog (Exactly 201 skills)
+│   ├── dex-master-orchestrator/       # Master Control Plane (Skill 000)
+│   ├── dex-development-workflow/      # Skill 001 (Group A)
+│   │   └── SKILL.md                   # 14 Mandatory Sections
+│   └── ...                            # Skills 002 to 200 (Groups A to T)
+├── integrations/                      # Segregated Third-Party Upstream Integrations
+│   ├── aas/                           # Agentic Awesome Skills (MIT)
+│   ├── reverse-skill/                 # Reverse Skill (MIT)
+│   └── rea/                           # Reverse Engineer Anything (Apache-2.0, MCP Adapter)
+├── manifests/                         # Machine-Readable Catalog Registry
+│   ├── dex-skills.json                # Complete metadata index of 201 native skills
+│   └── upstream-sources.json          # Pinned commits and licensing for upstream repos
+├── scripts/                           # SkillOps Lifecycle Toolchain
+│   ├── discover_skills.py             # Catalog indexing and taxonomy normalization
+│   ├── audit_skills.py                # Static AST and security screening (QG-06, QG-15)
+│   ├── evaluate_routing.py            # Dynamic routing accuracy benchmark (F1 >= 0.85)
+│   ├── sync_upstream.py               # Upstream provenance verification
+│   ├── import_skills.py               # Packaging and rollback engine
+│   └── validate_pack.py               # Zero-dependency specification validator
+├── tests/                             # Comprehensive Pytest Test Suite (645 tests)
+│   ├── test_skill_structure.py        # Validates directory and file presence
+│   ├── test_skill_metadata.py         # Validates YAML frontmatter conformity
+│   ├── test_skill_registry.py         # Asserts exact 200+1 counts and group taxonomy
+│   ├── test_skill_security.py         # Screens against unsafe tokens and injection
+│   ├── test_skill_dependencies.py     # DAG cycle detection and dangling links
+│   └── test_skill_routing.py          # 20-scenario routing matrix validation
+└── docs/                              # Framework Specifications & Audit Trails
 ```
 
 ---
 
-## 2. The 12 Technical Disciplines
+## 2. 20-Group Domain Taxonomy (Groups A through T)
 
-1. **Group A: Core Engineering (01–10)**: Task breakdown, atomic Git, scientific debugging, profiling, security audit, release engineering.
-2. **Group B: Architecture & AI Agents (11–20)**: Production telemetry, refactoring, Clean Architecture, database engineering, testing pyramid, agent governance.
-3. **Group C: Production Engineering (21–30)**: Blast radius calculation, dependency pinning, resilience, state synchronization, a11y, feature flags.
-4. **Group D: Frontend Engineering (31–40)**: Component contracts, design tokens, unidirectional data flow, Zod forms, client routing, Web Vitals, SSR/SEO.
-5. **Group E: Backend & Integration (41–50)**: Domain-Driven Design, async worker queues, caching, WebSockets/SSE, search, event-driven streaming, idempotent operations.
-6. **Group F: Data Engineering (51–60)**: Data contracts, batch/streaming ETL, data quality audits, OpenLineage, schema evolution, query plans, storage lifecycle.
-7. **Group G: AI & LLM Engineering (61–70)**: LLM integration, RAG vector pipelines, retrieval evaluation (RAGAS), prompt evaluation, model evaluation, tool calling contracts.
-8. **Group H: Developer Experience (71–80)**: Project scaffolding, monorepo governance, CLI engineering, plugin architecture, cross-platform portability, WinGet packaging.
-9. **Group I: Security & Reliability (81–90)**: Auth session lifecycle, Row-Level Security tenancy, secret scanning, CycloneDX SBOM, STRIDE threat modeling, chaos engineering.
-10. **Group J: Cloud & Infrastructure (91–100)**: Container image engineering, Kubernetes workloads, declarative IaC Terraform, Workload Identity, zero-downtime rollouts, Istio service mesh, network troubleshooting, SLO error budgets, OpenTelemetry distributed tracing, FinOps cloud cost optimization.
-11. **Group K: Mobile & Desktop Engineering (101–110)**: Modern Android Compose, modern iOS SwiftUI, hardened Electron security, lightweight Tauri v2 integration, offline-first sync (CRDT/mutation queue), Fastlane release pipelines, mobile profiling, desktop IPC design, native hardware integration, desktop update delivery.
-12. **Group L: Product & Operations Engineering (111–120)**: Privacy impact assessment (DPIA/GDPR), compliance control mapping (SOC 2/ISO 27001), tamper-evident audit trails (Merkle/WORM), configuration drift reconciliation, structured product discovery (JTBD), quantitative feature prioritization (RICE), analytics instrumentation, high-velocity feedback triage, runbook automation, operational readiness review (ORR).
+Every specialized skill belongs to exactly one domain group with exactly 10 skills per group:
+
+| Domain Group | Focus | Skills Range |
+|:---|:---|:---|
+| **Group A: Core Engineering** | Trunk-based Git, code layout, root-cause debugging, CI/CD | `001–010` |
+| **Group B: Architecture & AI Agents** | Multi-agent orchestration, context engineering, architecture | `011–020` |
+| **Group C: Production Engineering** | Blast radius, dependency management, reliability, feature flags | `021–030` |
+| **Group D: Frontend Engineering** | Performance, visual regression, design tokens, forms validation | `031–040` |
+| **Group E: Backend & Integration** | DDD, event-driven systems, idempotent operations, job queues | `041–050` |
+| **Group F: Data Engineering** | Data contracts, pipelines, schema evolution, query optimization | `051–060` |
+| **Group G: AI & LLM Engineering** | RAG pipelines, RAGAS retrieval eval, token cost optimization | `061–070` |
+| **Group H: Developer Experience** | Monorepo governance, CLI engineering, semantic versioning | `071–080` |
+| **Group I: Security & Reliability** | STRIDE threat modeling, secrets management, supply chain SBOM | `081–090` |
+| **Group J: Cloud & Infrastructure** | Unprivileged OCI images, Kubernetes rollouts, IaC, FinOps | `091–100` |
+| **Group K: Mobile & Desktop** | Offline-first sync, Android/iOS architecture, Tauri desktop | `101–110` |
+| **Group L: Product & Operations** | Compliance mapping, audit trails, operational readiness reviews | `111–120` |
+| **Group M: Advanced Verification** | Mutation testing, flaky test remediation, invariant verification | `121–130` |
+| **Group N: Advanced SRE** | High-scale load testing, rate limiting quotas, backpressure | `131–140` |
+| **Group O: Advanced Cloud Platform** | Least-privilege IAM review, GitOps workflows, Kubernetes policy | `141–150` |
+| **Group P: Language & Runtime** | Rust unsafe audit, C++ memory safety, Node/JVM diagnostics | `151–160` |
+| **Group Q: Advanced AI Systems** | MCP servers, vector indices, structured JSON schemas | `161–170` |
+| **Group R: Product Design & UX** | User journey maps, WCAG accessibility, design token handoff | `171–180` |
+| **Group S: Application Security** | SAST triage, signed SBOMs, browser extension CSP hardening | `181–190` |
+| **Group T: SkillOps Engineering** | Catalog indexing, security screening, routing F1 evaluation | `191–200` |
 
 ---
 
-## 3. The 12 Quality Gates (QG-01 to QG-12)
+## 3. Dynamic Skill Routing & Execution Pipeline
 
-Every engineering change and skill execution in DEX v4.0 is governed by 12 quality gates:
+The Master Orchestrator resolves requests into execution DAGs based on:
+1. **Keyword & Semantic Parsing**: Matches incoming terms with skill triggers.
+2. **Domain Boundary Mapping**: Identifies the primary discipline (Groups A to T).
+3. **Execution Mode Assignment**:
+   - `QUICK`: Single-file bugfixes, small tasks (Gates QG-01 to QG-03).
+   - `STANDARD`: Feature implementation, refactoring (Gates QG-01 to QG-08).
+   - `STRICT`: Production infra, security, database, or releases (Gates QG-01 to QG-15).
+4. **DAG Topological Sort**: Dispatches prerequisite skills before downstream dependents.
+5. **Quality Gate Verification**: Blocks progress if terminal evidence or tests fail.
 
-- **QG-01**: Scope Control — Changes must remain strictly bounded within assigned scope.
-- **QG-02**: Acceptance Criteria — Explicit Given-When-Then criteria met.
-- **QG-03**: Frontmatter Validity — Valid YAML frontmatter, name matching directory.
-- **QG-04**: Unique Identification — No identifier collisions across the catalog.
-- **QG-05**: Distinct Responsibility — Orthogonal domain boundaries with zero unnecessary overlap.
-- **QG-06**: Reference Integrity — All file, script, and markdown links are valid.
-- **QG-07**: Security Boundaries — Zero credentials in code, least privilege enforcement.
-- **QG-08**: License & Attribution — Upstream licenses documented in `THIRD_PARTY_NOTICES.md`.
-- **QG-09**: Safe Import & Rollback — Verified dry-run execution and rollback capability.
-- **QG-10**: Routing Validity — Dynamic dispatch accurately resolves valid catalog skills.
-- **QG-11**: Executable Verification — Automated test suites execute with 100% PASS.
-- **QG-12**: Git Hygiene & Review — Clean diff review and Conventional Commits.
+---
+
+## 4. Security & Isolation Architecture
+
+DEX enforces strict defense-in-depth security:
+- **No Unsafe Execution**: SKILL.md files never execute arbitrary code; they specify deterministic agent workflows.
+- **Air-Gapped Operation**: Native skills require zero network connectivity during static evaluation.
+- **AST Security Screening**: Automated AST scanner (`scripts/audit_skills.py`) detects and blocks dangerous shell tokens (`curl | sh`, `rm -rf /`, `eval(...)`).
+- **Segregated Third-Party Upstream**: External code resides in `integrations/` with pinned SHA-1 commits and independent licenses.

@@ -38,8 +38,8 @@ def get_all_skills():
 ALL_SKILLS = get_all_skills()
 
 def test_total_skill_count():
-    """Verify skill count matches exactly 120 specialized skills + 1 master orchestrator = 121 DEX skills."""
-    expected_count = 121
+    """Verify skill count matches exactly 200 specialized skills + 1 master orchestrator = 201 DEX skills."""
+    expected_count = 201
     assert len(ALL_SKILLS) == expected_count, f"Expected {expected_count} skills, found {len(ALL_SKILLS)}"
 
 def test_integration_skills_exist():
