@@ -1,162 +1,87 @@
-# DEX Dynamic Routing Matrix v3.0
+# DEX Dynamic Skill Routing Matrix v4.0
 
-The Dynamic Routing Matrix maps real-world engineering objectives to specialized multi-skill execution workflows coordinated by `dex-master-orchestrator`.
+Ma trận định tuyến động kích hoạt chính xác tổ hợp kỹ năng tối thiểu cần thiết cho 16 kịch bản kỹ thuật thực tế (Scenarios A through P) xuyên suốt 12 phân nhóm chuyên môn.
 
 ---
 
-## The 10 Canonical Engineering Scenarios (A through J)
+## 1. Routing Scenarios Catalog
 
 ### Scenario A: Emergency Database Migration Failure
-- **Context**: A database migration on production locked critical tables and failed halfway with broken foreign key constraints.
-- **Complexity**: STRICT MODE (Score 10)
-- **Primary Skills**:
-  - `dex-root-cause-debugging`: Isolate migration failure reason and transaction lock state.
-  - `dex-database-engineering`: Execute safe rollback without data loss.
-  - `dex-schema-evolution`: Rewrite migration using expand-and-contract pattern.
-- **Complementary Skills**: `dex-disaster-recovery`, `dex-production-monitoring`, `dex-incident-postmortems`.
-- **Enforced Quality Gates**: QG-04, QG-05, QG-06, QG-09, QG-10.
-- **Key Deliverables**: Zero-downtime reversible migration script, table lock resolution report, and post-incident RCA.
+- **Bối cảnh**: Migration cơ sở dữ liệu production bị lỗi giữa chừng, khóa bảng và gãy foreign keys.
+- **Primary Skills**: `dex-root-cause-debugging`, `dex-database-engineering`, `dex-schema-evolution`
+- **Complementary Skills**: `dex-disaster-recovery`, `dex-production-monitoring`, `dex-incident-postmortems`
 
----
-
-### Scenario B: AI-Powered Search & Enterprise RAG Implementation
-- **Context**: Architect and deploy an enterprise document search engine with hybrid dense/sparse vector retrieval and LLM summarization.
-- **Complexity**: STANDARD MODE (Score 6)
-- **Primary Skills**:
-  - `dex-rag-pipelines`: Build chunking, embedding, and vector database indexing pipeline.
-  - `dex-retrieval-evaluation`: Measure retrieval accuracy using Hit Rate@K, MRR, and NDCG.
-  - `dex-llm-integration`: Implement structured JSON output and prompt streaming.
-- **Complementary Skills**: `dex-search-engineering`, `dex-tool-calling-contracts`, `dex-llm-cost-controls`.
-- **Enforced Quality Gates**: QG-01, QG-04, QG-07, QG-08, QG-10.
-- **Key Deliverables**: RAG retrieval service, automated evaluation suite, and token cost attribution dashboard.
-
----
+### Scenario B: AI-Powered Search & RAG Service Implementation
+- **Bối cảnh**: Xây dựng công cụ tìm kiếm tài liệu doanh nghiệp kết hợp hybrid search và tóm tắt bằng LLM.
+- **Primary Skills**: `dex-rag-pipelines`, `dex-retrieval-evaluation`, `dex-llm-integration`
+- **Complementary Skills**: `dex-search-engineering`, `dex-tool-calling-contracts`, `dex-llm-cost-controls`
 
 ### Scenario C: Monorepo Architecture Modernization
-- **Context**: Consolidate 12 fragmented repositories into a single governed monorepo with Turborepo task caching and package boundaries.
-- **Complexity**: STANDARD MODE (Score 7)
-- **Primary Skills**:
-  - `dex-monorepo-governance`: Structure `apps/` and `packages/`, enforce boundary rules.
-  - `dex-repository-bootstrap`: Standardize linting, formatting, and pre-commit configurations.
-  - `dex-code-organization`: Eliminate circular dependencies between shared libraries.
-- **Complementary Skills**: `dex-developer-tooling`, `dex-cicd-automation`, `dex-semantic-version-automation`.
-- **Enforced Quality Gates**: QG-01, QG-03, QG-04, QG-08.
-- **Key Deliverables**: `pnpm-workspace.yaml`, `turbo.json` with remote cache, and clean dependency graph.
-
----
+- **Bối cảnh**: Di chuyển 12 repository độc lập về một monorepo duy nhất có Turborepo remote caching.
+- **Primary Skills**: `dex-monorepo-governance`, `dex-repository-bootstrap`, `dex-code-organization`
+- **Complementary Skills**: `dex-developer-tooling`, `dex-cicd-automation`, `dex-semantic-version-automation`
 
 ### Scenario D: High-Concurrency Real-time Collaborative Canvas
-- **Context**: Build a multiplayer collaborative whiteboard supporting 50,000 concurrent WebSockets with conflict resolution.
-- **Complexity**: STRICT MODE (Score 8)
-- **Primary Skills**:
-  - `dex-realtime-protocols`: WebSocket connection management, heartbeats, and reconnection backoff.
-  - `dex-concurrency-state`: Conflict-free Replicated Data Types (CRDTs) and atomic updates.
-  - `dex-event-driven-architecture`: Redis Pub/Sub backplane for horizontal websocket scaling.
-- **Complementary Skills**: `dex-caching-strategies`, `dex-frontend-performance`, `dex-performance-optimization`.
-- **Enforced Quality Gates**: QG-04, QG-07, QG-08, QG-10.
-- **Key Deliverables**: WebSocket gateway service, CRDT state sync engine, and high-concurrency load test suite.
-
----
+- **Bối cảnh**: Phát triển bảng vẽ trực tuyến hỗ trợ 50,000 người dùng đồng thời qua WebSocket.
+- **Primary Skills**: `dex-realtime-protocols`, `dex-concurrency-state`, `dex-event-driven-architecture`
+- **Complementary Skills**: `dex-caching-strategies`, `dex-frontend-performance`, `dex-performance-optimization`
 
 ### Scenario E: Enterprise SaaS Multi-Tenant Isolation & Authentication
-- **Context**: Implement enterprise authentication, JWT rotation, session revocation, and PostgreSQL Row-Level Security for B2B SaaS.
-- **Complexity**: STRICT MODE (Score 9)
-- **Primary Skills**:
-  - `dex-auth-session-lifecycle`: Refresh token rotation, reuse detection, and HttpOnly cookies.
-  - `dex-access-control-tenancy`: Fine-grained RBAC/ABAC and PostgreSQL Row-Level Security policies.
-  - `dex-secrets-management`: Zero hardcoded credentials with HashiCorp Vault / Doppler integration.
-- **Complementary Skills**: `dex-security-audit`, `dex-threat-modeling`, `dex-database-engineering`.
-- **Enforced Quality Gates**: QG-01, QG-03, QG-04, QG-09, QG-10.
-- **Key Deliverables**: Auth middleware, PostgreSQL RLS policies, and cross-tenant penetration test suite.
-
----
+- **Bối cảnh**: Thiết lập SSO doanh nghiệp, thu hồi phiên làm việc tức thì và phân quyền Row-Level Security.
+- **Primary Skills**: `dex-auth-session-lifecycle`, `dex-access-control-tenancy`, `dex-secrets-management`
+- **Complementary Skills**: `dex-security-audit`, `dex-threat-modeling`, `dex-database-engineering`
 
 ### Scenario F: Mission-Critical Production Outage Postmortem
-- **Context**: Facilitate a blameless postmortem after a 42-minute payment gateway outage and track technical remediations.
-- **Complexity**: STANDARD MODE (Score 5)
-- **Primary Skills**:
-  - `dex-incident-postmortems`: Reconstruct chronological timeline, conduct 5 Whys analysis.
-  - `dex-production-monitoring`: Extract OpenTelemetry traces, error logs, and metric spikes.
-  - `dex-root-cause-debugging`: Pinpoint underlying architectural bottleneck causing the crash.
-- **Complementary Skills**: `dex-reliability-engineering`, `dex-documentation-as-code`.
-- **Enforced Quality Gates**: QG-01, QG-05, QG-10.
-- **Key Deliverables**: Blameless postmortem document, Jira/GitHub action items, and updated runbook.
-
----
+- **Bối cảnh**: Chủ trì buổi postmortem không đổ lỗi sau khi cổng thanh toán sập 45 phút.
+- **Primary Skills**: `dex-incident-postmortems`, `dex-production-monitoring`, `dex-root-cause-debugging`
+- **Complementary Skills**: `dex-reliability-engineering`, `dex-documentation-as-code`
 
 ### Scenario G: Cross-Platform Windows & POSIX Developer CLI Tooling
-- **Context**: Develop a cross-platform CLI utility in Rust/Node with WinGet distribution, shell completion, and POSIX compliance.
-- **Complexity**: STANDARD MODE (Score 6)
-- **Primary Skills**:
-  - `dex-cli-engineering`: Argument parsing, structured `--json` output, and exit code standards.
-  - `dex-cross-platform-portability`: Safe path normalization, LF line endings, and matrix CI.
-  - `dex-windows-packaging`: WinGet package manifest, Inno Setup installer, and Authenticode signing.
-- **Complementary Skills**: `dex-developer-tooling`, `dex-plugin-architecture`, `dex-release-engineering`.
-- **Enforced Quality Gates**: QG-01, QG-04, QG-07, QG-09, QG-10.
-- **Key Deliverables**: Cross-platform executable binary, WinGet manifest, and shell completion scripts.
-
----
+- **Bối cảnh**: Xây dựng CLI đa nền tảng có hỗ trợ gói WinGet, POSIX flags và shell completions.
+- **Primary Skills**: `dex-cli-engineering`, `dex-cross-platform-portability`, `dex-windows-packaging`
+- **Complementary Skills**: `dex-developer-tooling`, `dex-plugin-architecture`, `dex-release-engineering`
 
 ### Scenario H: Automated Release & Semantic Versioning Pipeline
-- **Context**: Fully automate Conventional Commits parsing, SemVer version bumping, CHANGELOG generation, and multi-registry publishing.
-- **Complexity**: QUICK MODE (Score 3)
-- **Primary Skills**:
-  - `dex-semantic-version-automation`: Conventional commits analysis, SemVer bump calculation.
-  - `dex-release-engineering`: Release packaging, automated release notes, and GitHub release tags.
-  - `dex-cicd-automation`: End-to-end GitHub Actions pipeline for publishing artifacts.
-- **Complementary Skills**: `dex-git-workflow`, `dex-supply-chain-security`, `dex-code-verification`.
-- **Enforced Quality Gates**: QG-01, QG-03, QG-04, QG-06, QG-10.
-- **Key Deliverables**: Automated release workflow, updated `CHANGELOG.md`, and signed release tag.
-
----
+- **Bối cảnh**: Tự động hóa phân tích commit conventional, sinh changelog và xuất bản đa registry.
+- **Primary Skills**: `dex-semantic-version-automation`, `dex-release-engineering`, `dex-cicd-automation`
+- **Complementary Skills**: `dex-git-workflow`, `dex-supply-chain-security`, `dex-code-verification`
 
 ### Scenario I: Data Contract Breaking Change Mitigation
-- **Context**: Upstream backend service introduced a breaking event schema change that risks crashing downstream data pipelines.
-- **Complexity**: STANDARD MODE (Score 7)
-- **Primary Skills**:
-  - `dex-data-contracts`: Formal OpenDataContract specification between producer and consumers.
-  - `dex-schema-evolution`: Expand-and-contract dual write pattern preventing breakage.
-  - `dex-data-quality-audits`: Great Expectations automated tests asserting schema conformity.
-- **Complementary Skills**: `dex-data-pipelines`, `dex-data-lineage`, `dex-api-contract-evolution`.
-- **Enforced Quality Gates**: QG-01, QG-03, QG-05, QG-06, QG-10.
-- **Key Deliverables**: `datacontract.yaml`, schema compatibility CI gate, and pipeline health monitor.
-
----
+- **Bối cảnh**: Phát hiện và xử lý thay đổi schema phá vỡ tương thích giữa event producers và data pipeline.
+- **Primary Skills**: `dex-data-contracts`, `dex-schema-evolution`, `dex-data-quality-audits`
+- **Complementary Skills**: `dex-data-pipelines`, `dex-data-lineage`, `dex-api-contract-evolution`
 
 ### Scenario J: Chaos Engineering & System Resilience Validation
-- **Context**: Verify system fault tolerance and graceful degradation under sudden network partitions and Redis outages.
-- **Complexity**: STRICT MODE (Score 8)
-- **Primary Skills**:
-  - `dex-chaos-experiments`: Toxiproxy fault injection simulating 3000ms latency and dropped packets.
-  - `dex-reliability-engineering`: Cockatiel / Resilience4j circuit breakers and cached fallbacks.
-  - `dex-performance-optimization`: Concurrency throttling and connection pool guardrails.
-- **Complementary Skills**: `dex-production-monitoring`, `dex-property-based-testing`, `dex-capacity-planning`.
-- **Enforced Quality Gates**: QG-04, QG-07, QG-08, QG-10.
-- **Key Deliverables**: Chaos experiment specification, circuit breaker policy configuration, and resilience audit report.
-
-
----
+- **Bối cảnh**: Thử nghiệm độ trễ mạng giả lập bằng Toxiproxy và kiểm tra circuit breaker fallback.
+- **Primary Skills**: `dex-chaos-experiments`, `dex-reliability-engineering`, `dex-performance-optimization`
+- **Complementary Skills**: `dex-production-monitoring`, `dex-property-based-testing`, `dex-capacity-planning`
 
 ### Scenario K: Hermetic Offline Integration Testing & Mock Virtualization
-- **Context**: Run integration tests against third-party payments and logistics APIs completely offline without network flakes or rate limits.
-- **Complexity**: STANDARD MODE (Score 6)
-- **Primary Skills**:
-  - `dex-api-mocking-virtualization`: Setup MSW network interceptors and WireMock fault simulations.
-  - `dex-testing-engineering`: Execute integration test suite with synthetic fixtures.
-  - `dex-api-engineering`: Assert mock response schemas conform strictly to OpenAPI specs.
-- **Complementary Skills**: `dex-code-verification`, `dex-cicd-automation`.
-- **Enforced Quality Gates**: QG-01, QG-03, QG-04, QG-06, QG-10.
-- **Key Deliverables**: Offline mock server configuration, hermetic integration test suite, and schema contract assertion report.
-
----
+- **Bối cảnh**: Chạy bài kiểm thử tích hợp cô lập mạng hoàn toàn bằng stubs và mock server.
+- **Primary Skills**: `dex-testing-engineering`, `dex-api-engineering`, `dex-code-verification`
+- **Complementary Skills**: `dex-cicd-automation`, `dex-specification-driven`
 
 ### Scenario L: Defensive Binary & Web Bundle Security Auditing
-- **Context**: Inspect compiled release executables (PE/ELF) and production JavaScript bundles for exposed endpoints, unmitigated compiler flags, and REA decompilation.
-- **Complexity**: STRICT MODE (Score 8)
-- **Primary Skills**:
-  - `dex-binary-inspection`: Verify ASLR, DEP/NX compiler mitigation flags, and imported DLL dependencies.
-  - `dex-javascript-bundle-deobfuscation`: Extract sourcemaps, detect leaked staging endpoints and third-party SDKs.
-  - `dex-rea-adapter`: Probe REA MCP availability for decompilation of suspicious native functions.
-- **Complementary Skills**: `dex-security-audit`, `dex-threat-modeling`, `dex-incident-postmortems`.
-- **Enforced Quality Gates**: QG-01, QG-04, QG-07, QG-09, QG-10.
-- **Key Deliverables**: Binary security audit report, bundle exposure catalog, and REA evidence report.
+- **Bối cảnh**: Kiểm toán an ninh tệp PE/ELF và bundle JavaScript để phát hiện endpoint nội bộ lộ lọt.
+- **Primary Skills**: `dex-security-audit`, `dex-threat-modeling`, `dex-code-verification`
+- **Complementary Skills**: `dex-supply-chain-security`, `dex-secrets-management`
+
+### Scenario M: Zero-Downtime Multi-Region Kubernetes Rollout (Group J)
+- **Bối cảnh**: Triển khai phiên bản microservice quan trọng lên cụm K8s với Argo Canary và phân tích Prometheus.
+- **Primary Skills**: `dex-zero-downtime-rollouts`, `dex-kubernetes-deployment`, `dex-slo-error-budgets`
+- **Complementary Skills**: `dex-service-mesh-networking`, `dex-distributed-tracing`, `dex-container-image-engineering`
+
+### Scenario N: Offline-First Mobile Synchronization & Biometrics (Group K)
+- **Bối cảnh**: Xây dựng ứng dụng di động hoạt động hoàn hảo khi mất mạng và đồng bộ nền khi có mạng.
+- **Primary Skills**: `dex-mobile-offline-sync`, `dex-android-app-architecture`, `dex-native-device-integration`
+- **Complementary Skills**: `dex-ios-app-architecture`, `dex-mobile-performance-profiling`, `dex-desktop-ipc-design`
+
+### Scenario O: FinOps Cloud Cost Anomaly & Resource Right-Sizing (Group J)
+- **Bối cảnh**: Hóa đơn đám mây tăng 40%; cần phân tích chi phí, dọn tài nguyên mồ côi và right-sizing.
+- **Primary Skills**: `dex-cloud-cost-finops`, `dex-infrastructure-as-code`, `dex-capacity-planning`
+- **Complementary Skills**: `dex-storage-lifecycle`, `dex-cloud-service-integration`
+
+### Scenario P: Enterprise Compliance Audit & Tamper-Evident Trail (Group L)
+- **Bối cảnh**: Chuẩn bị kiểm toán SOC 2 Type II, thiết lập audit log Merkle/WORM và rà soát drift.
+- **Primary Skills**: `dex-compliance-control-mapping`, `dex-audit-trail-integrity`, `dex-privacy-impact-assessment`
+- **Complementary Skills**: `dex-configuration-drift`, `dex-operational-readiness-review`, `dex-runbook-automation`

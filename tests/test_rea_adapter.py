@@ -36,8 +36,10 @@ def test_rea_probe_environment_fallback():
     assert "npx rea-agents setup" in res["guidance"]
 
 def test_rea_adapter_skill_structure():
-    """Verify dex-rea-adapter skill exists and contains 14 mandatory sections."""
-    skill_file = os.path.join(ROOT_DIR, ".agents", "skills", "dex-rea-adapter", "SKILL.md")
+    """Verify dex-rea-adapter skill exists in integrations/rea and contains 14 mandatory sections."""
+    skill_file = os.path.join(ROOT_DIR, "integrations", "rea", "dex-rea-adapter", "SKILL.md")
+    if not os.path.isfile(skill_file):
+        skill_file = os.path.join(ROOT_DIR, ".agents", "skills", "dex-rea-adapter", "SKILL.md")
     assert os.path.isfile(skill_file)
 
     with open(skill_file, "r", encoding="utf-8") as f:

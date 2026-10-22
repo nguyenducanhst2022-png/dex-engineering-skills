@@ -1,147 +1,143 @@
 ---
 name: dex-master-orchestrator
-description: Master skill to analyze user requests, determine task complexity, select intelligent execution modes (QUICK, STANDARD, STRICT), coordinate specialized DEX skills, enforce Quality Gates, and generate final verification reports. Use whenever starting a software engineering task or orchestrating multi-skill workflows.
+description: Master control plane to analyze engineering requests, select execution modes (QUICK, STANDARD, STRICT), coordinate across 120 specialized DEX skills (Groups A to L) and third-party integrations, enforce 12 Quality Gates, and generate evidence-based audit reports. Use whenever starting any software engineering workflow.
 ---
 
 # DEX Master Orchestrator
 
 ## 1. Purpose & Scope
-Điều phối toàn bộ vòng đời phát triển phần mềm bằng AI theo chuẩn DEX Engineering Framework. Master Orchestrator chịu trách nhiệm phân tích yêu cầu, đánh giá rủi ro, lựa chọn đúng chế độ thực thi, kích hoạt các kỹ năng chuyên biệt tối thiểu cần thiết, kiểm soát nghiêm ngặt 10 Quality Gates và tổng hợp báo cáo kiểm chứng minh bạch.
+Điều phối toàn bộ vòng đời phát triển, vận hành và hiện đại hóa phần mềm theo chuẩn **DEX Engineering Skills Pack v4.0**. Master Orchestrator đóng vai trò là bộ não điều khiển trung tâm (Root Control Plane) chịu trách nhiệm: phân tích sâu yêu cầu của kỹ sư, phân loại độ phức tạp và rủi ro tác vụ, lựa chọn chế độ thực thi thông minh (`QUICK`, `STANDARD`, hoặc `STRICT`), tra cứu danh mục **120 Specialized DEX Skills** (chia đều trong 12 nhóm chuyên môn A–L) cùng các bộ chuyển đổi tích hợp bên thứ ba (`integrations/`), kích hoạt tập kỹ năng tối thiểu cần thiết, kiểm soát nghiêm ngặt **12 Quality Gates (QG-01 đến QG-12)** và tổng hợp báo cáo nghiệm thu kèm bằng chứng thực thi minh bạch.
 
-Triết lý cốt lõi:
-`Analyze → Specify → Plan → Implement → Verify → Debug → Stabilize → Review → Commit → Release → Maintain`
+Triết lý cốt lõi v4.0:
+`Analyze → Specify → Plan → Implement → Verify → Debug → Stabilize → Review → Commit → Release → Maintain → Operate`
 
 ## 2. When to Use
-- Bắt đầu bất kỳ tác vụ kỹ thuật phần mềm mới nào từ người dùng.
-- Khi cần xác định quy trình kỹ thuật phù hợp cho một yêu cầu chưa rõ ràng.
-- Khi tác vụ yêu cầu phối hợp nhiều kỹ năng kỹ thuật (ví dụ: sửa bug, nâng cấp tính năng, refactor, release, audit).
-- Khi cần kiểm soát rủi ro và ngăn chặn việc AI tự ý bỏ qua các bước kiểm tra quan trọng.
+- Bắt đầu bất kỳ tác vụ kỹ thuật phần mềm mới nào từ người dùng hoặc hệ thống CI/CD.
+- Khi cần xác định chính xác lộ trình kỹ thuật cho các bài toán phức tạp, liên nhóm (ví dụ: Cloud migration, Mobile offline-first architecture, SOC 2 compliance, Zero-downtime rollout).
+- Khi tác vụ đòi hỏi sự phối hợp tuần tự hoặc song song giữa nhiều kỹ năng chuyên biệt trong 120 skills.
+- Khi cần kiểm soát rủi ro, bảo vệ branch Git và đảm bảo không có bất kỳ bước kiểm tra an ninh hay chất lượng nào bị AI bỏ qua.
 
 ## 3. When NOT to Use
-- Trả lời các câu hỏi lý thuyết hoặc tra cứu thông tin đơn giản không làm thay đổi mã nguồn.
-- Khi người dùng đã chỉ định tường minh kích hoạt một skill độc lập duy nhất (ví dụ: chỉ chạy `dex-security-audit` trên một file cụ thể).
-- Khi đang ở giữa một quy trình con do skill khác trực tiếp xử lý (tránh can thiệp lặp vòng).
+- Trả lời các câu hỏi lý thuyết hoặc tra cứu định nghĩa đơn giản không làm thay đổi mã nguồn.
+- Khi người dùng đã chỉ định tường minh một kỹ năng chuyên biệt duy nhất và không yêu cầu điều phối đa bước (ví dụ: `dex-security-audit` trên một file cụ thể).
+- Khi đang ở giữa một tiến trình con do một chuyên môn khác đang trực tiếp xử lý (tránh can thiệp lặp vòng).
 
 ## 4. Prerequisites & Input Context
-- **Yêu cầu của người dùng**: Mục tiêu, tính năng cần làm, mô tả bug hoặc lệnh phát hành.
-- **Ngữ cảnh dự án**: `README.md`, `ARCHITECTURE.md`, `SPEC.md`, `TASKS.md`, `CHANGELOG.md`.
-- **Trạng thái kho mã nguồn**: Trạng thái Git (`git status`, nhánh hiện tại, commit hash gần nhất).
-- **Môi trường kỹ thuật**: Ngôn ngữ lập trình, framework, package manager, bộ test hiện có.
+- **Yêu cầu của người dùng**: Mục tiêu nghiệp vụ, mô tả lỗi, yêu cầu kiến trúc hoặc kế hoạch phát hành.
+- **Ngữ cảnh dự án**: `README.md`, `ARCHITECTURE.md`, `ROUTING_MATRIX.md`, `SKILLS_INDEX.md`, `CHANGELOG.md`.
+- **Trạng thái kho mã nguồn**: Trạng thái Git (`git status`, commit hash, branch bảo vệ).
+- **Môi trường kỹ thuật**: Windows 11, Linux, macOS, runtime (Node.js, Python, Go, Rust, Java, Swift, Kotlin), container và cloud providers.
 
 ## 5. Core Concepts & Taxonomy
-- **Nguyên tắc cốt lõi**: Tuân thủ triệt để nguyên lý vận hành xác định và ranh giới trách nhiệm của chuẩn Agent Skills.
-- **Tính nhất quán hệ thống**: Mọi thao tác phải có thể kiểm chứng độc lập với kết quả đo lường rõ ràng.
-- **Ngăn ngừa hồi quy**: Bất kỳ sửa đổi nào cũng phải bảo vệ tính tương thích ngược và chất lượng đã được nghiệm thu.
-- **Giao thức Ưu tiên Kỹ năng (Skill Precedence Protocol)**:
-  1. *Priority 1 (Native DEX Skills 01–90)*: Luôn là lựa chọn mặc định và ưu tiên cao nhất cho mọi tác vụ kỹ thuật phần mềm cốt lõi.
-  2. *Priority 2 (Integrated Upstream Skills)*: Kích hoạt các kỹ năng đã được chuẩn hóa khi có yêu cầu chuyên sâu đặc thù:
-     - `dex-api-mocking-virtualization`: Khi cần cô lập hoàn toàn mạng bên ngoài để chạy integration tests với MSW/WireMock.
-     - `dex-binary-inspection`: Khi cần kiểm tra tĩnh tệp nhị phân đã biên dịch (PE/ELF headers, ASLR/DEP mitigation flags, DLL dependencies).
-     - `dex-javascript-bundle-deobfuscation`: Khi cần kiểm toán an ninh gói bundle Web/Electron, tái tạo sourcemap và phát hiện endpoint nội bộ lộ lọt.
-  3. *Priority 3 (MCP Adapter Skills)*:
-     - `dex-rea-adapter`: Khi người dùng yêu cầu phân tích binary sâu (decompile hàm, CFG graph) qua REA MCP Server, kèm chẩn đoán khả dụng và cơ chế dự phòng không gây ảo giác.
-- **Quyền lực Điều phối Tối thượng**: Master Orchestrator là điểm điều khiển duy nhất; không một router bên ngoài nào được phép can thiệp hoặc thay đổi các rào chắn bảo mật và 10 Quality Gates của DEX.
+- **Nguyên lý Điều phối Tối thiểu (Principle of Minimal Necessary Skills)**: Không bao giờ nạp toàn bộ 120 kỹ năng vào cùng một phiên làm việc; chỉ chọn lọc chính xác các kỹ năng cốt lõi (Primary) và bổ trợ (Complementary) cho nhiệm vụ hiện tại.
+- **Tính Xác định & Minh Bạch (Determinism & Auditability)**: Mọi quyết định lựa chọn kỹ năng và đánh giá chất lượng phải dựa trên bằng chứng kỹ thuật khách quan, có thể tái lập được.
+- **Phân Cấp Danh Mục 12 Nhóm Kỹ Năng Chuyên Môn (Groups A to L)**:
+  1. **Group A (01–10) Core Engineering**: Quy trình lập trình, ủy nhiệm, kiểm chứng, Git, tổ chức code, gỡ lỗi, tối ưu hiệu năng, bảo mật, CI/CD, phát hành.
+  2. **Group B (11–20) Architecture & AI Agents**: Giám sát production, nợ kỹ thuật, kiến trúc, database, API, kiểm thử, agent engineering, multi-agent, context, đặc tả.
+  3. **Group C (21–30) Production Engineering**: Phân tích tác động, phụ thuộc, độ tin cậy, tương tranh, khả năng tiếp cận, feature flags, code review, acceptance, bảo trì, E2E.
+  4. **Group D (31–40) Frontend Engineering**: Hợp đồng UI, Design tokens, luồng dữ liệu frontend, biểu mẫu, định tuyến, hiệu năng web, SSR/SEO, đa ngôn ngữ, visual regression, tương thích trình duyệt.
+  5. **Group E (41–50) Backend & Integration**: DDD, hàng đợi tác vụ ngầm, chiến lược cache, giao thức thời gian thực, xử lý file, search, event-driven, thao tác idempotent, thông báo, tác vụ định kỳ.
+  6. **Group F (51–60) Data Engineering**: Hợp đồng dữ liệu, data pipeline, kiểm toán chất lượng dữ liệu, data lineage, tiến hóa schema, tối ưu query plan, vòng đời lưu trữ, lưu giữ dữ liệu, hoạch định dung lượng, phục hồi thảm họa.
+  7. **Group G (61–70) AI & LLM Engineering**: Tích hợp LLM, pipeline RAG, đánh giá retrieval, đánh giá prompt, đánh giá model, hợp đồng tool calling, phân quyền agent, kiểm soát chi phí token, quan sát AI, quản trị dataset.
+  8. **Group H (71–80) Developer Experience**: Bootstrap repository, quản trị monorepo, kỹ thuật CLI, kiến trúc plugin, đa nền tảng, đóng gói Windows, tài liệu dạng code, sinh code, công cụ lập trình viên, tự động hóa semver.
+  9. **Group I (81–90) Security & Reliability**: Vòng đời phiên xác thực, phân quyền đa người thuê, quản trị bí mật, an toàn chuỗi cung ứng, mô hình hóa mối đe dọa, kiểm thử thuộc tính, thử nghiệm hỗn loạn, chỉ số thử nghiệm, tiến hóa hợp đồng API, postmortem sự cố.
+  10. **Group J (91–100) Cloud & Infrastructure**: Đóng gói container tối ưu, triển khai Kubernetes, IaC Terraform, tích hợp dịch vụ cloud qua Workload Identity, triển khai zero-downtime Canary, mạng Service Mesh, chẩn đoán mạng phân tán, SLO & ngân sách lỗi, truy vết phân tán OpenTelemetry, FinOps tối ưu chi phí cloud.
+  11. **Group K (101–110) Mobile & Desktop Engineering**: Kiến trúc Android Compose, kiến trúc iOS SwiftUI, bảo mật Electron, tích hợp Tauri Rust, đồng bộ ngoại tuyến offline-first, pipeline phát hành di động Fastlane, đo lường hiệu năng di động, thiết kế IPC type-safe cho desktop, tích hợp phần cứng cảm biến, phân phối cập nhật tự động an toàn cho desktop.
+  12. **Group L (111–120) Product & Operations Engineering**: Đánh giá tác động quyền riêng tư DPIA, ánh xạ kiểm soát tuân thủ SOC 2/ISO, nhật ký kiểm toán bất biến Merkle/WORM, phát hiện sai lệch cấu hình drift, khám phá sản phẩm JTBD, ma trận ưu tiên tính năng RICE, thiết kế hệ thống tracking analytics, phân loại và điều phối phản hồi người dùng, tự động hóa runbook vận hành, đánh giá mức độ sẵn sàng vận hành sản xuất ORR.
+- **Ranh Giới Kỹ Năng Tích Hợp Thứ Ba (`integrations/`)**: Các kỹ năng mở rộng từ bên ngoài (`integrations/aas`, `integrations/reverse-skill`, `integrations/rea`) được quản lý trong không gian riêng biệt, chỉ được kích hoạt khi có yêu cầu đặc thù và luôn chịu sự giám sát của Master Orchestrator.
 
 ## 6. Step-by-Step Execution Workflow
-### Bước 1: Phân tích Ý định & Phân loại Nhiệm vụ (Triage & Classification)
-1. Đọc và phân tích yêu cầu của người dùng:
-   - Mục tiêu chính là gì?
-   - Phạm vi thay đổi (Scope) dự kiến: một dòng, một hàm, một module hay toàn bộ hệ thống?
-   - Mức độ ảnh hưởng đến dữ liệu, bảo mật, người dùng cuối.
-2. Phân loại tác vụ vào một trong các nhóm:
-   - **Bug Fix**: Sửa lỗi phát sinh, crash, hành vi sai.
-   - **Feature Upgrade**: Thêm chức năng mới, mở rộng logic hiện có.
-   - **Performance Tuning**: Tối ưu tốc độ, bộ nhớ, tài nguyên.
-   - **Security Audit / Patch**: Quét bảo mật, vá lỗ hổng.
-   - **Refactoring / Debt Reduction**: Cải tiến cấu trúc không đổi hành vi.
-   - **Architecture / Database Change**: Thiết kế hệ thống, thay đổi schema dữ liệu.
-   - **Release & Deployment**: Đóng gói, nâng version, phát hành.
-   - **Greenfield Project**: Xây dựng dự án mới từ con số không.
-   - **Specialized Auditing & Binary Inspection**: Kiểm tra tệp nhị phân, decompile hàm qua REA MCP, hoặc deobfuscate JavaScript bundle.
+### Bước 1: Tiếp nhận, Phân loại & Xác định Phạm vi (Triage & Scoping)
+1. Đọc và phân tích yêu cầu của người dùng, xác định mục tiêu và phạm vi ảnh hưởng (Scope Boundary).
+2. Phân loại yêu cầu vào một trong 12 miền kỹ thuật (Groups A đến L).
+3. Đánh giá mức độ rủi ro (Risk Profile) của thay đổi đối với người dùng, dữ liệu và bảo mật.
 
-### Bước 2: Lựa chọn Chế độ Thực thi Thông minh (Execution Mode Selection)
+### Bước 2: Lựa chọn Chế độ Thực thi (Execution Mode)
 - **QUICK MODE** (Rủi ro thấp):
-  - *Áp dụng*: Sửa lỗi nhỏ, sửa chính tả/UI text, chỉnh sửa cấu hình đơn giản.
+  - *Áp dụng*: Sửa lỗi chính tả, chỉnh sửa UI text nhỏ, cập nhật tài liệu hoặc cấu hình đơn giản.
   - *Chu trình*: Analyze → Implement → Verify → Report.
 - **STANDARD MODE** (Rủi ro trung bình):
-  - *Áp dụng*: Phát triển tính năng mới tiêu chuẩn, refactor module vừa, nâng cấp thư viện không breaking.
+  - *Áp dụng*: Phát triển tính năng mới tiêu chuẩn, tái cấu trúc module vừa, nâng cấp dependencies, viết CLI tool.
   - *Chu trình*: Analyze → Plan → Implement → Test → Review → Report.
 - **STRICT MODE** (Rủi ro cao / Bắt buộc kiểm soát gắt gao):
-  - *Áp dụng*: Thay đổi kiến trúc, Database migration, Authentication/Security, tính năng lõi thanh toán/tài chính, Release Production.
-  - *Chu trình*: Specification → Impact Analysis → Risk Assessment → Plan → Implement → Tests → Security Review → Quality Gates → Approval → Release.
+  - *Áp dụng*: Kiến trúc cốt lõi, Database schema migration, phân quyền/bảo mật, Cloud IaC, Mobile release, SOC 2 compliance, ORR.
+  - *Chu trình*: Specification → Impact Analysis → Risk Assessment → Plan → Implement → Verification → Security Audit → 12 Quality Gates → Approval → Commit.
 
-### Bước 3: Định tuyến Kỹ năng Tối thiểu (Skill Routing)
-Chỉ kích hoạt tập kỹ năng thực sự cần thiết:
-- **Bug Fix**: `dex-root-cause-debugging` → `dex-code-verification` → `dex-testing-engineering` → `dex-git-workflow`.
-- **Feature Upgrade**: `dex-specification-driven` → `dex-change-impact-analysis` → `dex-development-workflow` → `dex-testing-engineering` → `dex-code-review` → `dex-git-workflow`.
-- **Performance**: `dex-performance-optimization` → `dex-testing-engineering` → `dex-code-review`.
-- **Security**: `dex-security-audit` → `dex-code-verification` → `dex-testing-engineering`.
-- **Binary Inspection & Reverse Engineering**: `dex-binary-inspection` (Static) → `dex-rea-adapter` (Dynamic/Decompile qua MCP nếu có) → `dex-security-audit`.
-- **Offline Integration Testing**: `dex-api-mocking-virtualization` → `dex-testing-engineering` → `dex-code-verification`.
-- **Release**: `dex-testing-engineering` → `dex-security-audit` (nếu cần) → `dex-release-engineering` → `dex-git-workflow`.
+### Bước 3: Định tuyến Kỹ năng Chuyên biệt Tối thiểu (Skill Routing)
+Master Orchestrator tra cứu bảng ma trận định tuyến (`ROUTING_MATRIX.md`) và kích hoạt tổ hợp kỹ năng phù hợp:
+- **Cloud & Kubernetes Migration**: `dex-infrastructure-as-code` → `dex-container-image-engineering` → `dex-kubernetes-deployment` → `dex-zero-downtime-rollouts` → `dex-slo-error-budgets`.
+- **Mobile Offline-First Feature**: `dex-mobile-offline-sync` → `dex-android-app-architecture` / `dex-ios-app-architecture` → `dex-native-device-integration` → `dex-mobile-performance-profiling`.
+- **Desktop Application Hardening**: `dex-electron-security` / `dex-tauri-desktop-integration` → `dex-desktop-ipc-design` → `dex-desktop-update-delivery`.
+- **Production Incident & Reliability**: `dex-network-troubleshooting` → `dex-distributed-tracing` → `dex-runbook-automation` → `dex-incident-postmortems`.
+- **Product Launch & Compliance**: `dex-privacy-impact-assessment` → `dex-compliance-control-mapping` → `dex-analytics-instrumentation` → `dex-operational-readiness-review`.
 
-### Bước 4: Kiểm soát Chuyển Giai đoạn & Quality Gates
-Tại mỗi mốc chuyển giao giữa các skill, Master Orchestrator kiểm tra các Quality Gates tương ứng (từ QG-01 đến QG-10).
-- Nếu bất kỳ Gate bắt buộc nào chưa đạt: **CHẶN** chuyển giai đoạn, yêu cầu Agent/Skill hiện tại sửa chữa hoặc bổ sung bằng chứng.
-- Không được phép chuyển sang commit hoặc release khi test còn FAIL hoặc NOT VERIFIED.
+### Bước 4: Kiểm soát Chuyển Giai đoạn qua 12 Quality Gates (QG-01 đến QG-12)
+Tại mỗi bước thực thi, Master Orchestrator kiểm tra các cổng chất lượng bắt buộc.
+- Nếu bất kỳ cổng nào chưa đạt: **DỪNG LẠI (BLOCK)**, yêu cầu khắc phục triệt để trước khi tiếp tục.
+- Không cho phép bỏ qua cổng chất lượng bằng giả định hoặc báo cáo giả mạo.
 
-### Bước 5: Tổng hợp & Báo cáo Kiểm chứng (Final Report Synthesis)
-Sau khi hoàn tất toàn bộ chuỗi kỹ năng, tổng hợp kết quả theo định dạng chuẩn hóa:
-- **Tóm tắt hành động**: Những thay đổi đã thực hiện.
-- **Trạng thái Quality Gates**: Liệt kê rõ từng Gate (PASS / FAIL / SKIP kèm lý do).
-- **Bằng chứng kiểm chứng**: Log test thực tế, kết quả benchmark hoặc diff review.
-- **Khuyến nghị tiếp theo**: Hướng dẫn người dùng nghiệm thu hoặc các bước tiếp theo.
+### Bước 5: Báo cáo Kiểm chứng Minh bạch (Final Audit Synthesis)
+Tổng hợp kết quả sau khi hoàn thành toàn bộ chuỗi công việc:
+1. Tóm tắt các thay đổi đã thực hiện và tệp mã nguồn tương ứng.
+2. Trạng thái chi tiết 12 Quality Gates (PASS / FAIL / SKIP).
+3. Bằng chứng thực nghiệm (Terminal outputs, kết quả chạy test, log đo lường).
+4. Khuyến nghị và hướng dẫn nghiệm thu cho người dùng.
 
 ## 7. Concrete Examples
 ```bash
-# Lệnh thực thi & kiểm chứng tiêu chuẩn
-dex verify --skill dex-master-orchestrator
+# Lệnh kiểm tra tính toàn vẹn của toàn bộ 121 DEX Skills
+python scripts/validate_skills.py
+
+# Lệnh kiểm thử toàn diện test suite
+pytest tests/ -v
 ```
 
 ## 8. Anti-Patterns & Common Traps
-- **Anti-Pattern 1**: Bỏ qua các bước xác minh tự động và dựa vào giả định chủ quan.
-- **Anti-Pattern 2**: Thay đổi diện rộng vượt ngoài phạm vi (Scope Creep) làm mất kiểm soát rủi ro.
-- **Trap**: Cho phép router hoặc playbook bên ngoài thay thế quyền kiểm soát của Master Orchestrator hoặc bỏ qua các rào chắn Quality Gates.
+- **Trap 1 (Over-Activation)**: Kích hoạt hàng chục kỹ năng cùng một lúc cho một nhiệm vụ nhỏ gây lãng phí context và phân tán sự tập trung.
+- **Trap 2 (Bypass Gates)**: Tự ý chuyển từ chế độ STRICT xuống QUICK chỉ để né tránh các bài kiểm thử bắt buộc.
+- **Trap 3 (Hallucinated Results)**: Tự nhận định trạng thái PASS mà không thực sự chạy lệnh kiểm chứng trong môi trường thực tế.
 
 ## 9. Quality Gates & Acceptance Criteria
-Master Orchestrator kiểm soát 10 cổng chất lượng:
-- **QG-01 (Scope Control)**: Xác định rõ danh sách file được phép chỉnh sửa; không sửa file ngoài phạm vi.
-- **QG-02 (Spec Compliance)**: Đáp ứng đầy đủ tiêu chí nghiệm thu (Acceptance Criteria) đã thỏa thuận.
-- **QG-03 (Lint & Typecheck)**: Không có lỗi cú pháp hoặc cảnh báo linter/type-check nghiêm trọng.
-- **QG-04 (Build Verification)**: Dự án build thành công ở môi trường target (nếu có quy trình build).
-- **QG-05 (Automated Tests)**: Toàn bộ Unit/Integration tests liên quan đạt PASS 100%.
-- **QG-06 (Regression Free)**: Các chức năng cũ không bị ảnh hưởng tiêu cực.
-- **QG-07 (Security Audit)**: Không có secrets hardcoded, không phát sinh lỗ hổng bảo mật mới.
-- **QG-08 (Diff Review)**: Git diff được rà soát từng dòng, không có mã thừa, debug console hay file tạm.
-- **QG-09 (Documentation Update)**: Tài liệu kỹ thuật, README hoặc CHANGELOG được cập nhật tương ứng.
-- **QG-10 (Verified Evidence)**: Toàn bộ kết quả phải có log/terminal output thực tế chứng minh, không tự tạo kết quả giả.
+Master Orchestrator kiểm soát nghiêm ngặt 12 cổng chất lượng:
+- **QG-01 (Scope Control)**: Phạm vi thay đổi được xác định rõ ràng, không sửa đổi ngoài phạm vi.
+- **QG-02 (Acceptance Criteria)**: Đáp ứng đầy đủ các tiêu chí nghiệm thu đã thỏa thuận.
+- **QG-03 (Metadata & Frontmatter)**: File `SKILL.md` có YAML frontmatter hợp lệ và tên khớp thư mục.
+- **QG-04 (Unique Identification)**: Không trùng lặp định danh giữa 121 DEX skills và third-party plugins.
+- **QG-05 (Distinct Responsibility)**: Mỗi kỹ năng có ranh giới trách nhiệm riêng biệt, không chồng chéo vô nghĩa.
+- **QG-06 (Reference Integrity)**: Mọi liên kết tài liệu, tệp tin và scripts đều hợp lệ, không bị broken link.
+- **QG-07 (Security & Safety)**: Không có hardcoded secrets, tuân thủ nguyên tắc đặc quyền tối thiểu.
+- **QG-08 (License & Attribution)**: Mọi nội dung bên thứ ba đều có ghi chú nguồn gốc và giấy phép rõ ràng.
+- **QG-09 (Safe Import & Rollback)**: Có cơ chế phục hồi và rollback rõ ràng cho mọi hành động rủi ro.
+- **QG-10 (Routing Validity)**: Định tuyến chính xác tới các kỹ năng khả dụng trong danh mục.
+- **QG-11 (Executable Verification)**: Toàn bộ bài kiểm thử tự động đạt 100% PASS trên môi trường mục tiêu.
+- **QG-12 (Git Hygiene & Review)**: Git diff sạch sẽ, commit tuân thủ quy ước Conventional Commits.
 
 ## 10. Security & Safety Boundaries
-- **Không tự ý chuyển chế độ hạ cấp**: Không được hạ từ STRICT xuống QUICK chỉ để bỏ qua bước kiểm thử.
-- **Git Safety First**: Không bao giờ thực hiện `git push --force`, `git reset --hard` hoặc xóa nhánh khi chưa có sự đồng ý tường minh từ người dùng.
-- **Bảo mật tuyệt đối**: Không bao giờ đọc, in ra màn hình hoặc commit API key, token, mật khẩu hoặc secrets vào file/log.
-- **Chặn ảo tưởng (No Hallucinated Passes)**: Cấm tuyệt đối việc tự báo PASS khi chưa thực sự chạy lệnh kiểm tra trong shell.
+- **Không phá vỡ an toàn Git**: Tuyệt đối không tự ý chạy `git push --force` hay `git reset --hard` trên các nhánh công khai.
+- **Bảo mật thông tin xác thực**: Không bao giờ ghi lại API token, private key hoặc dữ liệu định danh người dùng vào logs hoặc artifacts.
+- **Cách ly môi trường Production**: Mọi tác vụ có khả năng gây gián đoạn phải có cơ chế xác nhận tương tác và rollback tức thì.
 
 ## 11. Platform Adapters
-- **OpenAI Codex**: Tương thích hoàn toàn thông qua cấu trúc file `SKILL.md` và agent instructions tiêu chuẩn.
+- **OpenAI Codex**: Tương thích hoàn toàn qua định dạng `SKILL.md` và agent instructions tiêu chuẩn.
 - **Universal Agent Skills**: Tuân thủ đặc tả tại `https://agentskills.io/specification`.
-- **CLI & IDE Adapters**: Kích hoạt thông qua terminal hoặc tiện ích mở rộng IDE tương thích (VS Code, Cursor, Windsurf).
+- **Môi trường IDE & CLI**: Hoạt động trơn tru trên VS Code, Cursor, Windsurf, PowerShell và POSIX terminals.
 
 ## 12. Deliverables & Output Artifacts
-1. Bản đánh giá phân loại nhiệm vụ và chế độ thực thi đề xuất (`QUICK`, `STANDARD` hoặc `STRICT`).
-2. Kế hoạch định tuyến chuỗi skills cụ thể.
-3. Bảng theo dõi tiến độ các Quality Gates trong quá trình thực thi.
-4. Báo cáo tổng kết hoàn thành dự án kèm bằng chứng thực nghiệm (Terminal Output / Git Hash / Test Log).
+1. Bản phân loại nhiệm vụ, đánh giá rủi ro và chế độ thực thi (`QUICK`, `STANDARD`, `STRICT`).
+2. Kế hoạch định tuyến chuỗi kỹ năng chuyên biệt.
+3. Bảng theo dõi 12 Quality Gates trong suốt chu trình thực hiện.
+4. Báo cáo nghiệm thu kết thúc tác vụ kèm bằng chứng thực nghiệm rõ ràng.
 
 ## 13. Related & Complementary Skills
-- `dex-master-orchestrator`: Điều phối trung tâm.
-- `dex-rea-adapter`: Cầu nối MCP cho các tác vụ dịch ngược sâu.
-- `dex-binary-inspection`: Kiểm tra tĩnh nhị phân phòng vệ.
+- `dex-master-orchestrator`: Cội nguồn điều phối trung tâm.
+- Toàn bộ 120 kỹ năng chuyên môn từ `dex-development-workflow` (01) đến `dex-operational-readiness-review` (120).
+- Các adapter mở rộng bên thứ ba trong thư mục `integrations/`.
 
 ## 14. Realistic Usage Example
-### Tình huống triển khai thực tế:
-Kỹ sư hoặc AI Agent kích hoạt **dex-master-orchestrator** trong dự án.
-1. Tiếp nhận ngữ cảnh đầu vào và kiểm tra điều kiện tiên quyết tại Mục 4.
-2. Vận hành tuần tự các bước theo Quy trình tại Mục 6.
-3. Kiểm chứng đầu ra đối chiếu với Tiêu chuẩn chấp thuận tại Mục 9.
-4. Bàn giao đầy đủ hiện vật theo Mục 12 và cập nhật tài liệu liên quan.
+### Tình huống thực tế:
+Người dùng gửi yêu cầu: *"Xây dựng tính năng đồng bộ dữ liệu ngoại tuyến (Offline Sync) cho ứng dụng di động Android và triển khai backend API lên cụm Kubernetes với zero-downtime rolling update."*
+1. **Phân tích (Analyze)**: Master Orchestrator nhận diện đây là tác vụ phức tạp liên quan đến Mobile (Group K), Backend (Group E) và Cloud (Group J).
+2. **Chọn chế độ (Mode)**: Chọn **STRICT MODE** do có thay đổi về kiến trúc dữ liệu và triển khai hạ tầng.
+3. **Định tuyến (Routing)**: Kích hoạt chuỗi kỹ năng: `dex-specification-driven` → `dex-mobile-offline-sync` → `dex-android-app-architecture` → `dex-kubernetes-deployment` → `dex-zero-downtime-rollouts` → `dex-slo-error-budgets`.
+4. **Kiểm soát (Gates)**: Kiểm tra tuần tự từ QG-01 đến QG-12 tại từng mốc chuyển giao.
+5. **Nghiệm thu (Delivery)**: Tổng hợp báo cáo kiểm thử unit test, build kết quả và xác nhận rollout thành công với tỷ lệ lỗi 0%.

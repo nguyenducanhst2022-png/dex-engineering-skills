@@ -38,19 +38,24 @@ def get_all_skills():
 ALL_SKILLS = get_all_skills()
 
 def test_total_skill_count():
-    """Verify skill count matches 91 native + imported manifest skills."""
-    manifest_path = os.path.join(ROOT_DIR, "data", "imported_skills_manifest.json")
-    imported_count = 0
-    if os.path.exists(manifest_path):
-        try:
-            with open(manifest_path, "r", encoding="utf-8") as f:
-                data = json.load(f)
-                imported_count = len(data.get("imported_skills", {}))
-        except Exception:
-            pass
-
-    expected_count = 91 + imported_count
+    """Verify skill count matches exactly 120 specialized skills + 1 master orchestrator = 121 DEX skills."""
+    expected_count = 121
     assert len(ALL_SKILLS) == expected_count, f"Expected {expected_count} skills, found {len(ALL_SKILLS)}"
+
+def test_integration_skills_exist():
+    """Verify third-party integration skills exist under integrations/."""
+    int_dir = os.path.join(ROOT_DIR, "integrations")
+    assert os.path.isdir(int_dir)
+    found_skills = []
+    for root, dirs, files in os.walk(int_dir):
+        for d in dirs:
+            if os.path.isfile(os.path.join(root, d, "SKILL.md")):
+                found_skills.append(d)
+    assert len(found_skills) >= 4
+    assert "dex-api-mocking-virtualization" in found_skills
+    assert "dex-binary-inspection" in found_skills
+    assert "dex-javascript-bundle-deobfuscation" in found_skills
+    assert "dex-rea-adapter" in found_skills
 
 def test_master_orchestrator_exists():
     """Verify dex-master-orchestrator is present."""

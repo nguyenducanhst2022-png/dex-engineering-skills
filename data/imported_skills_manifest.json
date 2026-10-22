@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0",
+  "version": "4.0.0",
   "imported_skills": {
     "dex-api-mocking-virtualization": {
       "source_id": "SOURCE_A_AAS",
@@ -10,7 +10,7 @@
       "license": "MIT",
       "author": "sickn33 and contributors",
       "checksum": "01ba4698bd99f6a34ec77caada5543687b4b6f5f8d82a5600945fdc0dafab6ba",
-      "local_path": ".agents/skills/dex-api-mocking-virtualization/SKILL.md",
+      "local_path": "integrations/aas/dex-api-mocking-virtualization/SKILL.md",
       "audit_status": "PASSED",
       "sections_count": 14
     },
@@ -23,7 +23,7 @@
       "license": "MIT",
       "author": "zhaoxuya520 and contributors",
       "checksum": "7d3f25f81938acc729211651f2bdbe3ed2876334b7649e161051456871656ded",
-      "local_path": ".agents/skills/dex-binary-inspection/SKILL.md",
+      "local_path": "integrations/reverse-skill/dex-binary-inspection/SKILL.md",
       "audit_status": "PASSED",
       "sections_count": 14
     },
@@ -36,7 +36,7 @@
       "license": "MIT",
       "author": "zhaoxuya520 and contributors",
       "checksum": "9fd6b99be71af5928c570deba5a94b84b92be8ad116afeacb1e167efc3d5974b",
-      "local_path": ".agents/skills/dex-javascript-bundle-deobfuscation/SKILL.md",
+      "local_path": "integrations/reverse-skill/dex-javascript-bundle-deobfuscation/SKILL.md",
       "audit_status": "PASSED",
       "sections_count": 14
     },
@@ -49,7 +49,7 @@
       "license": "Apache-2.0",
       "author": "morluto and REA contributors",
       "checksum": "f8fa36b508f91592a0e061fdaf56f54c7256da2de7a3df9d81fc144d43987b6d",
-      "local_path": ".agents/skills/dex-rea-adapter/SKILL.md",
+      "local_path": "integrations/rea/dex-rea-adapter/SKILL.md",
       "audit_status": "PASSED",
       "sections_count": 14
     }

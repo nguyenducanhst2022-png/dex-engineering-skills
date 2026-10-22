@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 """
-Validation script for DEX Engineering Skills Pack v3.0 & Integration Engine.
-Verifies all skills (91 Native + Imported Upstream Skills)
-against the Agent Skills Specification and strict 14-section requirements.
+Validation script for DEX Engineering Skills Pack v4.0.
+Verifies all 121 Native DEX Skills (120 Specialized Skills + 1 Master Orchestrator)
+and segregated upstream integration skills against the Agent Skills Specification
+and strict 14-section requirements.
 """
 
 import os
@@ -110,7 +111,6 @@ def validate_skill(skill_dir, skill_name):
             errors.append(f"{skill_name}: Missing mandatory section '## {num}. {expected_title}'")
         else:
             header, text = found_sections[num]
-            # Verify title matches or closely aligns
             if expected_title.lower() not in header.lower() and header.lower() not in expected_title.lower():
                 errors.append(f"{skill_name}: Section {num} title mismatch: expected '{expected_title}', got '{header}'")
             if not text:
@@ -121,34 +121,26 @@ def validate_skill(skill_dir, skill_name):
 def main():
     root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
     skills_base = os.path.join(root_dir, ".agents", "skills")
+    integrations_base = os.path.join(root_dir, "integrations")
+
+    print("=== DEX ENGINEERING SKILLS PACK v4.0 SPECIFICATION VALIDATOR ===")
+    print(f"Scanning native skills in: {skills_base}")
 
     if not os.path.exists(skills_base):
         print(f"ERROR: Skills base directory not found at {skills_base}")
         sys.exit(1)
 
     skill_dirs = [d for d in os.listdir(skills_base) if os.path.isdir(os.path.join(skills_base, d))]
-    print(f"=== DEX ENGINEERING SKILLS PACK v3.0 & INTEGRATION VALIDATOR ===")
-    print(f"Scanning skills in: {skills_base}")
-    print(f"Total skill directories found: {len(skill_dirs)}")
+    print(f"Native skill directories found: {len(skill_dirs)}")
 
-    # Check manifest for imported skills count
-    manifest_path = os.path.join(root_dir, "data", "imported_skills_manifest.json")
-    imported_count = 0
-    if os.path.exists(manifest_path):
-        try:
-            with open(manifest_path, "r", encoding="utf-8") as f:
-                m_data = json.load(f)
-                imported_count = len(m_data.get("imported_skills", {}))
-        except Exception:
-            pass
-
-    expected_count = 91 + imported_count
-    if len(skill_dirs) != expected_count:
-        print(f"WARNING: Expected {expected_count} skills (91 native + {imported_count} imported), but found {len(skill_dirs)}.")
+    EXPECTED_NATIVE_COUNT = 121
+    if len(skill_dirs) != EXPECTED_NATIVE_COUNT:
+        print(f"ERROR: Expected exactly {EXPECTED_NATIVE_COUNT} native skills (120 specialized + 1 orchestrator), but found {len(skill_dirs)}.")
 
     total_errors = 0
     passed_skills = 0
 
+    # 1. Validate Native DEX Skills
     for s_name in sorted(skill_dirs):
         s_path = os.path.join(skills_base, s_name)
         errs = validate_skill(s_path, s_name)
@@ -160,18 +152,37 @@ def main():
         else:
             passed_skills += 1
 
-    print("\n" + "=" * 50)
-    print(f"VALIDATION SUMMARY:")
-    print(f"  Passed: {passed_skills} / {len(skill_dirs)}")
-    print(f"  Failed: {len(skill_dirs) - passed_skills} / {len(skill_dirs)}")
-    print(f"  Total Errors: {total_errors}")
-    print("=" * 50)
+    # 2. Validate Segregated Integrations
+    integration_passed = 0
+    integration_total = 0
+    if os.path.exists(integrations_base):
+        print(f"\nScanning segregated integrations in: {integrations_base}")
+        for root, dirs, files in os.walk(integrations_base):
+            for d in sorted(dirs):
+                skill_path = os.path.join(root, d)
+                if os.path.isfile(os.path.join(skill_path, "SKILL.md")):
+                    integration_total += 1
+                    errs = validate_skill(skill_path, d)
+                    if errs:
+                        print(f"\n[FAIL INTEGRATION] {d}:")
+                        for e in errs:
+                            print(f"  - {e}")
+                        total_errors += len(errs)
+                    else:
+                        integration_passed += 1
 
-    if total_errors > 0 or passed_skills != expected_count:
+    print("\n" + "=" * 60)
+    print("VALIDATION SUMMARY:")
+    print(f"  Native DEX Skills (120 + 1) : {passed_skills} / {len(skill_dirs)} PASSED")
+    print(f"  Segregated Integrations     : {integration_passed} / {integration_total} PASSED")
+    print(f"  Total Errors                : {total_errors}")
+    print("=" * 60)
+
+    if total_errors > 0 or passed_skills != EXPECTED_NATIVE_COUNT:
         print("\nRESULT: FAILED")
         sys.exit(1)
     else:
-        print(f"\nRESULT: 100% PASSED - ALL {passed_skills} SKILLS FULLY VALIDATED!")
+        print(f"\nRESULT: 100% PASSED - ALL {passed_skills} NATIVE DEX SKILLS & {integration_passed} INTEGRATIONS FULLY VALIDATED!")
         sys.exit(0)
 
 if __name__ == "__main__":

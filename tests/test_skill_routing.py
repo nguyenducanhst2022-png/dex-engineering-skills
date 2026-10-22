@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
 """
-Pytest suite for DEX Engineering Skills Pack v3.0: Routing Matrix Verification.
-Tests the Master Orchestrator and dynamic skill routing engine across 12 realistic scenarios (A through L).
+Pytest suite for DEX Engineering Skills Pack v4.0: Routing Matrix Verification.
+Tests the Master Orchestrator dynamic skill dispatch engine across 16 realistic scenarios (A through P)
+covering all 12 specialized engineering groups and segregated upstream integrations.
 """
 
+import os
 import pytest
 
 SCENARIOS = {
@@ -35,7 +37,7 @@ SCENARIOS = {
     "Scenario F: Mission-Critical Production Outage Postmortem": {
         "description": "Facilitate a blameless postmortem after a 45-minute checkout outage and track corrective action items.",
         "primary_skills": ["dex-incident-postmortems", "dex-production-monitoring", "dex-root-cause-debugging"],
-        "complementary_skills": ["dex-reliability-engineering", "dex-error-budget-slo", "dex-documentation-as-code"],
+        "complementary_skills": ["dex-reliability-engineering", "dex-slo-error-budgets", "dex-documentation-as-code"],
     },
     "Scenario G: Cross-Platform Windows & POSIX Developer CLI Tooling": {
         "description": "Develop a developer CLI in Rust/Node with WinGet package distribution, POSIX compliance, and shell completions.",
@@ -67,6 +69,26 @@ SCENARIOS = {
         "primary_skills": ["dex-binary-inspection", "dex-javascript-bundle-deobfuscation", "dex-rea-adapter"],
         "complementary_skills": ["dex-security-audit", "dex-threat-modeling"],
     },
+    "Scenario M: Zero-Downtime Multi-Region Kubernetes Rollout": {
+        "description": "Deploy mission-critical payment services to Kubernetes with progressive Canary analysis and instant rollbacks.",
+        "primary_skills": ["dex-zero-downtime-rollouts", "dex-kubernetes-deployment", "dex-slo-error-budgets"],
+        "complementary_skills": ["dex-service-mesh-networking", "dex-distributed-tracing", "dex-container-image-engineering"],
+    },
+    "Scenario N: Offline-First Mobile Synchronization & Device Biometrics": {
+        "description": "Build an offline-first mobile inspection app with local SQLite storage, mutation queues, and FaceID authentication.",
+        "primary_skills": ["dex-mobile-offline-sync", "dex-android-app-architecture", "dex-native-device-integration"],
+        "complementary_skills": ["dex-ios-app-architecture", "dex-mobile-performance-profiling", "dex-desktop-ipc-design"],
+    },
+    "Scenario O: FinOps Cloud Cost Anomaly & Resource Right-Sizing": {
+        "description": "Investigate a 40% cloud bill surge, reclaim orphaned EBS volumes, right-size compute, and model unit economics.",
+        "primary_skills": ["dex-cloud-cost-finops", "dex-infrastructure-as-code", "dex-capacity-planning"],
+        "complementary_skills": ["dex-storage-lifecycle", "dex-cloud-service-integration"],
+    },
+    "Scenario P: Enterprise Compliance Audit & Tamper-Evident Logging": {
+        "description": "Conduct SOC 2 Type II control mapping, configure append-only Merkle audit logs, and reconcile GitOps drift.",
+        "primary_skills": ["dex-compliance-control-mapping", "dex-audit-trail-integrity", "dex-privacy-impact-assessment"],
+        "complementary_skills": ["dex-configuration-drift", "dex-operational-readiness-review", "dex-runbook-automation"],
+    },
 }
 
 class RoutingEngine:
@@ -82,10 +104,27 @@ class RoutingEngine:
 
 @pytest.fixture
 def available_skills():
-    import os
     root = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-    skills_dir = os.path.join(root, ".agents", "skills")
-    return set(os.listdir(skills_dir))
+    skills = set()
+    
+    # 1. Native DEX Skills in .agents/skills
+    native_dir = os.path.join(root, ".agents", "skills")
+    if os.path.isdir(native_dir):
+        for d in os.listdir(native_dir):
+            if os.path.isdir(os.path.join(native_dir, d)):
+                skills.add(d)
+
+    # 2. Segregated Upstream Integrations in integrations/
+    int_dir = os.path.join(root, "integrations")
+    if os.path.isdir(int_dir):
+        for sub in ["aas", "reverse-skill", "rea"]:
+            sub_path = os.path.join(int_dir, sub)
+            if os.path.isdir(sub_path):
+                for d in os.listdir(sub_path):
+                    if os.path.isdir(os.path.join(sub_path, d)):
+                        skills.add(d)
+                        
+    return skills
 
 @pytest.mark.parametrize("scenario_key", list(SCENARIOS.keys()))
 def test_scenario_routing_validity(scenario_key, available_skills):
@@ -100,6 +139,4 @@ def test_scenario_routing_validity(scenario_key, available_skills):
         assert skill in available_skills, f"Primary skill '{skill}' from {scenario_key} not found in skills catalog"
 
     for skill in complementaries:
-        if skill == "dex-error-budget-slo":
-            continue
         assert skill in available_skills, f"Complementary skill '{skill}' from {scenario_key} not found in skills catalog"

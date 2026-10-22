@@ -21,6 +21,13 @@ DATA_DIR = os.path.join(ROOT_DIR, "data")
 MANIFEST_PATH = os.path.join(DATA_DIR, "imported_skills_manifest.json")
 ALLOWLIST_PATH = os.path.join(CONFIG_DIR, "import_allowlist.json")
 BACKUP_DIR = os.path.join(DATA_DIR, "backups")
+INTEGRATIONS_DIR = os.path.join(ROOT_DIR, "integrations")
+
+SOURCE_SUBDIR_MAP = {
+    "SOURCE_A_AAS": "aas",
+    "SOURCE_B_REVERSE": "reverse-skill",
+    "SOURCE_C_REA": "rea",
+}
 
 # Canonical 14 mandatory sections required by DEX Agent Skills specification
 MANDATORY_SECTIONS = [
@@ -414,8 +421,10 @@ def cmd_import(args):
             continue
 
         info = UPSTREAM_CATALOG[target]
-        target_dir = os.path.join(SKILLS_DIR, target)
+        sub_dir = SOURCE_SUBDIR_MAP.get(info.get("source_id"), "other")
+        target_dir = os.path.join(INTEGRATIONS_DIR, sub_dir, target)
         target_file = os.path.join(target_dir, "SKILL.md")
+        relative_path = f"integrations/{sub_dir}/{target}/SKILL.md"
 
         # Guard: do not overwrite native skills not in manifest
         if target in existing_skills and target not in manifest.get("imported_skills", {}):
@@ -473,7 +482,7 @@ def cmd_import(args):
                 "license": info["license"],
                 "author": info["author"],
                 "checksum": checksum,
-                "local_path": f".agents/skills/{target}/SKILL.md",
+                "local_path": relative_path,
                 "audit_status": "PASSED",
                 "sections_count": 14
             }
@@ -483,9 +492,9 @@ def cmd_import(args):
                 "checksum": checksum
             })
 
-            print(f"    [IMPORTED & NORMALIZED] .agents/skills/{target}/SKILL.md")
+            print(f"    [IMPORTED & NORMALIZED] {relative_path}")
         else:
-            print(f"    [DRY RUN OK] Would write .agents/skills/{target}/SKILL.md (14 sections)")
+            print(f"    [DRY RUN OK] Would write {relative_path} (14 sections)")
 
         imported_count += 1
 
@@ -510,9 +519,29 @@ def cmd_validate(args):
     all_valid = True
 
     for s_name in target_skills:
-        s_file = os.path.join(SKILLS_DIR, s_name, "SKILL.md")
-        if not os.path.exists(s_file):
-            print(f"  [FAIL] {s_name}: File not found at {s_file}")
+        # Determine file path from manifest or search integrations
+        s_file = None
+        if s_name in manifest.get("imported_skills", {}):
+            rel_path = manifest["imported_skills"][s_name].get("local_path", "")
+            candidate_path = os.path.join(ROOT_DIR, rel_path)
+            if os.path.exists(candidate_path):
+                s_file = candidate_path
+
+        if not s_file:
+            # Fallback check across integrations subdirs and skills dir
+            for sub in ["aas", "reverse-skill", "rea"]:
+                candidate_path = os.path.join(INTEGRATIONS_DIR, sub, s_name, "SKILL.md")
+                if os.path.exists(candidate_path):
+                    s_file = candidate_path
+                    break
+
+        if not s_file:
+            candidate_path = os.path.join(SKILLS_DIR, s_name, "SKILL.md")
+            if os.path.exists(candidate_path):
+                s_file = candidate_path
+
+        if not s_file or not os.path.exists(s_file):
+            print(f"  [FAIL] {s_name}: File not found for skill")
             all_valid = False
             continue
 
