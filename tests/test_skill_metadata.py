@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-Pytest suite for DEX Framework v5.0: Metadata Conformance.
+Pytest suite for DEX Framework v6.0: Metadata Conformance.
 Verifies YAML frontmatter, naming constraints, and description lengths
-across all 201 native skills in .agents/skills/.
+across all 301 native skills in .agents/skills/.
 """
 
 import os
@@ -20,7 +20,7 @@ def get_native_skills():
 ALL_SKILLS = get_native_skills()
 
 def test_all_skills_found():
-    assert len(ALL_SKILLS) == 201, f"Expected 201 native skills, found {len(ALL_SKILLS)}"
+    assert len(ALL_SKILLS) == 301, f"Expected 301 native skills, found {len(ALL_SKILLS)}"
 
 @pytest.mark.parametrize("skill_name", ALL_SKILLS)
 def test_frontmatter_metadata_validity(skill_name):

@@ -11,6 +11,13 @@ import re
 import json
 import argparse
 
+if sys.stdout.encoding != "utf-8" and hasattr(sys.stdout, "reconfigure"):
+    try:
+        sys.stdout.reconfigure(encoding="utf-8")
+        sys.stderr.reconfigure(encoding="utf-8")
+    except Exception:
+        pass
+
 DANGEROUS_PATTERNS = [
     (r"curl\s+.*\|\s*(bash|sh)", "Command pipe from curl directly to shell execution"),
     (r"wget\s+.*\|\s*(bash|sh)", "Command pipe from wget directly to shell execution"),

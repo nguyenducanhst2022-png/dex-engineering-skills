@@ -1,20 +1,20 @@
 ---
 name: dex-master-orchestrator
-description: Master control plane to analyze engineering requests, select execution modes (QUICK, STANDARD, STRICT), coordinate across 200 specialized DEX skills (Groups A to T) and segregated integrations, enforce 15 Quality Gates, and generate evidence-based audit reports. Use whenever starting any software engineering workflow.
+description: Master control plane to analyze engineering requests, select execution modes (QUICK, STANDARD, STRICT), coordinate across 300 specialized DEX skills (Groups A to AD) and segregated integrations, enforce 15 Quality Gates, and generate evidence-based audit reports. Use whenever starting any software engineering workflow.
 ---
 
 # DEX Master Orchestrator
 
 ## 1. Purpose & Scope
-Điều phối toàn bộ vòng đời phát triển, vận hành, bảo mật và hiện đại hóa phần mềm theo chuẩn **DEX Engineering Skills Framework v5.0**. Master Orchestrator đóng vai trò là bộ não điều khiển trung tâm (Root Control Plane) chịu trách nhiệm: phân tích sâu ý định và yêu cầu kỹ thuật của kỹ sư, phân loại miền kỹ nghệ và đánh giá rủi ro tác vụ, lựa chọn chế độ thực thi tối ưu (`QUICK`, `STANDARD`, hoặc `STRICT`), tra cứu danh mục **200 Specialized DEX Skills** (chia đều trong 20 nhóm chuyên môn A–T) cùng các bộ tích hợp bên thứ ba (`integrations/`), kích hoạt tập kỹ năng tối thiểu cần thiết, kiểm soát nghiêm ngặt **15 Quality Gates (QG-01 đến QG-15)** và tổng hợp báo cáo nghiệm thu kèm bằng chứng thực thi minh bạch.
+Điều phối toàn bộ vòng đời phát triển, vận hành, bảo mật và hiện đại hóa phần mềm theo chuẩn **DEX Engineering Skills Framework v6.0**. Master Orchestrator đóng vai trò là bộ não điều khiển trung tâm (Root Control Plane) chịu trách nhiệm: phân tích sâu ý định và yêu cầu kỹ thuật của kỹ sư, phân loại miền kỹ nghệ và đánh giá rủi ro tác vụ, lựa chọn chế độ thực thi tối ưu (`QUICK`, `STANDARD`, hoặc `STRICT`), tra cứu danh mục **300 Specialized DEX Skills** (chia đều trong 30 nhóm chuyên môn A–AD) cùng các bộ tích hợp bên thứ ba (`integrations/`), kích hoạt tập kỹ năng tối thiểu cần thiết theo nguyên lý công bố tiệm tiến (Progressive Disclosure), kiểm soát nghiêm ngặt **15 Quality Gates (QG-01 đến QG-15)** và tổng hợp báo cáo nghiệm thu kèm bằng chứng thực thi minh bạch.
 
-Triết lý cốt lõi v5.0:
+Triết lý cốt lõi v6.0:
 `DISCOVER → AUDIT → SPECIFY → PLAN → BUILD → REVIEW → INTEGRATE → VALIDATE → DEBUG → STABILIZE → COMMIT → RELEASE → MAINTAIN`
 
 ## 2. When to Use
 - Bắt đầu bất kỳ tác vụ kỹ thuật phần mềm mới nào từ người dùng, agent phụ trợ hoặc hệ thống CI/CD.
-- Khi cần xác định chính xác lộ trình kỹ thuật cho các bài toán phức tạp, liên nhóm (ví dụ: Cloud migration, Advanced Verification, AI Systems, SRE Resiliency, DevSecOps, SkillOps).
-- Khi tác vụ đòi hỏi sự phối hợp tuần tự hoặc song song giữa nhiều kỹ năng chuyên biệt trong 200 skills.
+- Khi cần xác định chính xác lộ trình kỹ thuật cho các bài toán phức tạp, liên nhóm (ví dụ: Cloud migration, Advanced Verification, AI Systems, SRE Resiliency, DevSecOps, Visual Design Intelligence, Browser Automation, Authorized Reverse Engineering, Protocol Integration, Autonomous Agent Operations, Stream Analytics, Game Engineering, Software Trust & Distribution, Advanced SkillOps).
+- Khi tác vụ đòi hỏi sự phối hợp tuần tự hoặc song song giữa nhiều kỹ năng chuyên biệt trong 300 skills.
 - Khi cần kiểm soát rủi ro, bảo vệ branch Git và đảm bảo không có bất kỳ bước kiểm tra an ninh hay chất lượng nào bị bỏ qua.
 
 ## 3. When NOT to Use
@@ -29,9 +29,9 @@ Triết lý cốt lõi v5.0:
 - **Môi trường kỹ thuật**: Windows 11, Linux, macOS, runtime (Node.js, Python, Go, Rust, C++, Java, .NET), container, cloud providers và MCP servers.
 
 ## 5. Core Concepts & Taxonomy
-- **Nguyên lý Điều phối Tối thiểu (Principle of Minimal Sufficient Skills)**: Tuyệt đối không bao giờ nạp toàn bộ 200 kỹ năng vào cùng một phiên làm việc; chỉ chọn lọc chính xác các kỹ năng cốt lõi (Primary) và bổ trợ (Complementary) cho nhiệm vụ hiện tại để tránh gây nhiễu và tràn context window.
+- **Nguyên lý Điều phối Tối thiểu (Principle of Minimal Sufficient Skills)**: Tuyệt đối không bao giờ nạp toàn bộ 300 kỹ năng vào cùng một phiên làm việc; chỉ chọn lọc chính xác các kỹ năng cốt lõi (Primary) và bổ trợ (Complementary) cho nhiệm vụ hiện tại để tránh gây nhiễu và tràn context window.
 - **Tính Xác định & Minh Bạch (Determinism & Auditability)**: Mọi quyết định lựa chọn kỹ năng và đánh giá chất lượng phải dựa trên bằng chứng kỹ thuật khách quan, có thể tái lập được.
-- **Phân Cấp Danh Mục 20 Nhóm Kỹ Năng Chuyên Môn (Groups A to T)**:
+- **Phân Cấp Danh Mục 30 Nhóm Kỹ Năng Chuyên Môn (Groups A to AD)**:
   1. **Group A (01–10) Core Engineering**: Quy trình lập trình, ủy nhiệm, kiểm chứng, Git, tổ chức code, gỡ lỗi, tối ưu hiệu năng, bảo mật, CI/CD, phát hành.
   2. **Group B (11–20) Architecture & AI Agents**: Giám sát production, nợ kỹ thuật, kiến trúc, database, API, kiểm thử, agent engineering, multi-agent, context, đặc tả.
   3. **Group C (21–30) Production Engineering**: Phân tích tác động, phụ thuộc, độ tin cậy, tương tranh, khả năng tiếp cận, feature flags, code review, acceptance, bảo trì, E2E.
@@ -52,12 +52,22 @@ Triết lý cốt lõi v5.0:
   18. **Group R (171–180) Product Design & User Research**: User journey mapping, information architecture, usability study design, accessibility automation, design handoff verification, product requirements writing, conversion funnel analysis, feature adoption analysis, user consent UX, supportability engineering.
   19. **Group S (181–190) Application Security Specialists**: SAST finding triage, DAST scoping, API abuse prevention, web security headers, browser extension hardening, SBOM verification, vulnerability remediation, security logging and detection, cryptographic API review, secure build runners.
   20. **Group T (191–200) SkillOps Engineering**: Skill discovery indexer, skill license provenance, skill semantic deduplication, skill security screening, skill import packaging, skill upstream sync, skill activation evaluation, skill host adapters, skill dependency graph, skill quality benchmarking.
-- **Ranh Giới Kỹ Năng Tích Hợp Thứ Ba (`integrations/`)**: Các kỹ năng mở rộng từ bên ngoài (`integrations/aas`, `integrations/reverse-skill`, `integrations/rea`, `integrations/ui-ux-pro-max`) được quản lý trong không gian riêng biệt, không tính gộp vào 200 kỹ năng bản địa, chỉ kích hoạt khi có yêu cầu đặc thù và luôn chịu sự giám sát an ninh của Master Orchestrator.
+  21. **Group U (201–210) Visual Design Intelligence**: Design brief synthesis, visual hierarchy audit, layout composition patterns, color contrast systems, fluid typography engineering, motion interaction specification, dashboard data storytelling, design reference evaluation, design system documentation, UI visual QA review.
+  22. **Group V (211–220) Advanced Web Experiences**: Web animation performance, media delivery pipelines, HLS/DASH playback, progressive web apps, web push permission flow, search interface experience, virtualized infinite lists, web canvas rendering, WebGPU rendering fundamentals, frontend error recovery.
+  23. **Group W (221–230) Browser Extensions & Automation**: Browser extension MV3, extension message security, extension background lifecycle, extension content script isolation, extension storage migration, browser automation testing, CDP observability, headless UI verification, web permission UX, cross-origin integration.
+  24. **Group X (231–240) Authorized Reverse Engineering**: PE/ELF structure inspection, native symbol mapping, disassembly CFG reconstruction, managed assembly inspection, Electron artifact analysis, JavaScript sourcemap recovery, mobile package static audit, firmware metadata inspection, binary diff regression, reverse evidence chain. *(Phân tích phòng thủ và ủy quyền hợp pháp)*.
+  25. **Group Y (241–250) Protocols & Service Integration**: MQTT client reliability, WebSocket session recovery, stream processing semantics, event schema registry, HTTP client connection pooling, OAuth/OIDC integration, webhook signature validation, API pagination cursors, service contract simulation, offline message delivery.
+  26. **Group Z (251–260) AI Agent Operations**: LLM evaluation dataset design, agent task planning validation, agent trace replay, LLM human review gates, retrieval permission filtering, multimodal evaluation, AI safety red-teaming, agent long-running task checkpoints, MCP client integration, inference latency optimization.
+  27. **Group AA (261–270) Advanced Data & Analytics**: SQL metric semantic layer, time-series diagnostics, data anomaly detection, feature store engineering, analytics cohort retention, A/B test statistical analysis, geospatial data pipelines, data warehouse cost tuning, backfill reconciliation, machine learning data drift.
+  28. **Group AB (271–280) Native, Graphics & Game Engineering**: Chess engine search testing, simulation determinism, physics engine validation, game loop timing, rendering frame pacing, GPU shader profiling, GPU resource lifetime, native plugin ABI testing, real-time input latency, asset pipeline optimization.
+  29. **Group AC (281–290) Software Trust & Distribution**: Open-source license scanning, third-party attribution, artifact signature verification, dependency vulnerability intelligence, secret rotation drills, code signing release process, software update trust chains, vulnerability disclosure workflows, maintainer contribution governance, release reproducibility audit.
+  30. **Group AD (291–300) Advanced SkillOps Governance**: Skill catalog taxonomy, skill source integrity, skill risk scoring, skill reference graph, skill routing conflict tests, skill execution evidence ledger, skill documentation drift, skill upgrade migrations, skill rollback verification, skill retirement governance.
+- **Ranh Giới Kỹ Năng Tích Hợp Thứ Ba (`integrations/`)**: 5 kỹ năng mở rộng từ bên ngoài (`integrations/aas`, `integrations/reverse-skill`, `integrations/rea`, `integrations/ui-ux-pro-max`) được quản lý trong không gian riêng biệt, không tính gộp vào 300 kỹ năng bản địa, chỉ kích hoạt khi có yêu cầu đặc thù và luôn chịu sự giám sát an ninh của Master Orchestrator.
 
 ## 6. Step-by-Step Execution Workflow
 ### Bước 1: Tiếp nhận, Phân loại & Xác định Phạm vi (Triage & Scoping)
 1. Đọc và phân tích yêu cầu của người dùng, xác định mục tiêu và phạm vi ảnh hưởng (Scope Boundary).
-2. Phân loại yêu cầu vào một hoặc nhiều miền kỹ thuật trong 20 nhóm (Groups A đến T).
+2. Phân loại yêu cầu vào một hoặc nhiều miền kỹ thuật trong 30 nhóm (Groups A đến AD).
 3. Đánh giá mức độ rủi ro (Risk Profile) của thay đổi đối với người dùng, dữ liệu và bảo mật.
 
 ### Bước 2: Lựa chọn Chế độ Thực thi (Execution Mode)
@@ -68,20 +78,21 @@ Triết lý cốt lõi v5.0:
   - *Áp dụng*: Phát triển tính năng mới tiêu chuẩn, tái cấu trúc module vừa, nâng cấp dependencies, viết CLI tool.
   - *Chu trình*: Analyze → Specify → Plan → Implement → Test → Review → Report.
 - **STRICT MODE** (Rủi ro cao / Bắt buộc kiểm soát gắt gao):
-  - *Áp dụng*: Kiến trúc cốt lõi, Database migration, phân quyền/bảo mật, Cloud IaC, AI agents có tool call, SOC 2 compliance, ORR.
+  - *Áp dụng*: Kiến trúc cốt lõi, Database migration, phân quyền/bảo mật, Cloud IaC, AI agents có tool call, SOC 2 compliance, ORR, Reverse Engineering, Game physics, Multi-tenant RAG.
   - *Chu trình*: Specification → Impact Analysis → Security and Risk Review → Implementation → Regression Tests → Approval → Release.
 
 ### Bước 3: Định tuyến Kỹ năng Chuyên biệt Tối thiểu (Skill Routing)
 Master Orchestrator tra cứu bảng ma trận định tuyến (`ROUTING_MATRIX.md`) và kích hoạt tổ hợp kỹ năng phù hợp:
-- **UI/UX Design Intelligence & Interface Engineering**: `dex-ui-ux-pro-max-adapter` (tra cứu phong cách UI, màu sắc, font chữ từ UI/UX Pro Max) → `dex-design-system-tokens` → `dex-ui-component-contracts` → `dex-ux-accessibility` → `dex-visual-regression`. (*Chặn kích hoạt trên các tác vụ backend, database hoặc DevOps*).
-- **Advanced Verification & Test Hardening**: `dex-coverage-risk-analysis` → `dex-mutation-testing` → `dex-api-fuzz-testing` → `dex-flaky-test-remediation`.
-- **Distributed Resilience & Traffic Control**: `dex-load-and-stress-testing` → `dex-traffic-shaping-backpressure` → `dex-rate-limiting-quotas` → `dex-service-failover`.
-- **Advanced Cloud & GitOps Governance**: `dex-cloud-iam-policy-review` → `dex-cloud-network-design` → `dex-gitops-workflows` → `dex-kubernetes-policy-enforcement`.
-- **High-Performance Native Engineering**: `dex-rust-unsafe-audit` / `dex-cpp-memory-safety` → `dex-ffi-boundary-contracts` → `dex-reproducible-benchmarking`.
-- **Production AI Systems & RAG**: `dex-vector-index-design` → `dex-reranking-strategies` → `dex-structured-llm-output` → `dex-grounding-citation-audit` → `dex-prompt-injection-defense`.
-- **Product Design & User Research Flow**: `dex-product-requirements-writing` → `dex-user-journey-mapping` → `dex-design-handoff-verification` → `dex-accessibility-automation`.
-- **Application Security & Supply Chain**: `dex-sast-finding-triage` → `dex-dast-scoping` → `dex-sbom-verification` → `dex-vulnerability-remediation` → `dex-secure-build-runners`.
-- **SkillOps Lifecycle Management**: `dex-skill-discovery-indexer` → `dex-skill-security-screening` → `dex-skill-license-provenance` → `dex-skill-import-packaging` → `dex-skill-quality-benchmarking`.
+- **UI/UX Design Intelligence & Interface Engineering**: `dex-ui-ux-pro-max-adapter` (tra cứu phong cách UI, màu sắc, font chữ từ UI/UX Pro Max tại `integrations/ui-ux-pro-max`) → `dex-design-system-tokens` → `dex-design-brief-synthesis` → `dex-visual-hierarchy-audit` → `dex-color-contrast-systems` → `dex-ui-visual-qa-review`. (*Chặn kích hoạt trên các tác vụ backend, database hoặc DevOps*).
+- **Advanced Web Experiences & Streaming**: `dex-web-animation-performance` → `dex-progressive-web-apps` → `dex-hls-dash-playback` → `dex-virtualized-infinite-lists`.
+- **Browser Extensions & Automation**: `dex-browser-extension-mv3` → `dex-extension-message-security` → `dex-browser-automation-testing` → `dex-headless-ui-verification`.
+- **Authorized Reverse Engineering**: `dex-pe-elf-structure-inspection` → `dex-native-symbol-mapping` → `dex-disassembly-cfg-reconstruction` → `dex-reverse-evidence-chain`.
+- **Protocols & Service Integration**: `dex-mqtt-client-reliability` → `dex-websocket-session-recovery` → `dex-stream-processing-semantics` → `dex-webhook-signature-validation`.
+- **Autonomous Agent Operations**: `dex-llm-evaluation-dataset-design` → `dex-agent-task-planning-validation` → `dex-llm-human-review-gates` → `dex-retrieval-permission-filtering` → `dex-mcp-client-integration`.
+- **Advanced Data & Analytics**: `dex-sql-metric-semantic-layer` → `dex-time-series-diagnostics` → `dex-data-anomaly-detection` → `dex-data-warehouse-cost-tuning`.
+- **Native, Graphics & Game Engineering**: `dex-chess-engine-search-testing` → `dex-simulation-determinism` → `dex-game-loop-timing` → `dex-gpu-shader-profiling`.
+- **Software Trust & Distribution**: `dex-open-source-license-scanning` → `dex-artifact-signature-verification` → `dex-code-signing-release-process` → `dex-release-reproducibility-audit`.
+- **Advanced SkillOps Governance**: `dex-skill-catalog-taxonomy` → `dex-skill-source-integrity` → `dex-skill-routing-conflict-tests` → `dex-skill-execution-evidence-ledger`.
 
 ### Bước 4: Kiểm soát Chuyển Giai đoạn qua 15 Quality Gates (QG-01 đến QG-15)
 Tại mỗi bước thực thi, Master Orchestrator kiểm tra các cổng chất lượng bắt buộc:
@@ -97,7 +108,7 @@ Tổng hợp kết quả sau khi hoàn thành toàn bộ chuỗi công việc:
 
 ## 7. Concrete Examples
 ```bash
-# Lệnh kiểm tra tính toàn vẹn của toàn bộ 201 Native DEX Skills và 4 Integrations
+# Lệnh kiểm tra tính toàn vẹn của toàn bộ 301 Native DEX Skills và 5 Integrations
 python scripts/validate_skills.py
 
 # Lệnh kiểm thử toàn diện test suite
@@ -108,18 +119,18 @@ pytest tests/ -v
 - **Trap 1 (Over-Activation)**: Kích hoạt hàng chục kỹ năng cùng một lúc cho một nhiệm vụ nhỏ gây lãng phí context và phân tán sự tập trung.
 - **Trap 2 (Bypass Gates)**: Tự ý chuyển từ chế độ STRICT xuống QUICK chỉ để né tránh các bài kiểm thử bắt buộc.
 - **Trap 3 (Hallucinated Results)**: Tự nhận định trạng thái PASS mà không thực sự chạy lệnh kiểm chứng trong môi trường thực tế.
-- **Trap 4 (Catalog Inflation)**: Đếm gộp các kỹ năng bên thứ ba vào danh mục 200 kỹ năng bản địa của DEX.
+- **Trap 4 (Catalog Inflation)**: Đếm gộp các kỹ năng bên thứ ba vào danh mục 300 kỹ năng bản địa của DEX.
 
 ## 9. Quality Gates & Acceptance Criteria
 Master Orchestrator kiểm soát nghiêm ngặt 15 cổng chất lượng:
 - **QG-01 (Scope & Acceptance Defined)**: Phạm vi và tiêu chuẩn nghiệm thu được xác định rõ ràng, không sửa đổi ngoài phạm vi.
-- **QG-02 (Unique Identification)**: Không trùng lặp định danh giữa 201 DEX skills và third-party plugins.
+- **QG-02 (Unique Identification)**: Không trùng lặp định danh giữa 301 DEX skills và third-party plugins.
 - **QG-03 (Metadata Conformance)**: File `SKILL.md` có YAML frontmatter hợp lệ theo chuẩn Agent Skills Specification.
 - **QG-04 (Distinct Responsibilities)**: Mỗi kỹ năng có ranh giới trách nhiệm riêng biệt, không chồng chéo chức năng.
 - **QG-05 (Dependencies & References)**: Mọi liên kết tài liệu, tệp tin và scripts đều hợp lệ, không bị broken link.
 - **QG-06 (Script Security)**: Mọi script thực thi được rà soát không chứa lệnh hủy diệt hay mã độc.
 - **QG-07 (License & Provenance)**: Mọi nội dung bên thứ ba đều có ghi chú nguồn gốc và giấy phép rõ ràng.
-- **QG-08 (Routing Validity)**: Định tuyến chính xác tới các kỹ năng khả dụng trong danh mục 200 skills.
+- **QG-08 (Routing Validity)**: Định tuyến chính xác tới các kỹ năng khả dụng trong danh mục 300 skills.
 - **QG-09 (Permissions Enforced)**: Quyền hạn được kiểm soát ở mức tối thiểu (Least Privilege).
 - **QG-10 (Safe Import & Rollback)**: Có cơ chế phục hồi và rollback rõ ràng cho mọi hành động rủi ro.
 - **QG-11 (Execution Scenarios Evaluated)**: Các kịch bản thực thi đại diện được đánh giá thực nghiệm.
@@ -140,20 +151,20 @@ Master Orchestrator kiểm soát nghiêm ngặt 15 cổng chất lượng:
 
 ## 12. Deliverables & Output Artifacts
 1. Bản phân loại nhiệm vụ, đánh giá rủi ro và chế độ thực thi (`QUICK`, `STANDARD`, `STRICT`).
-2. Kế hoạch định tuyến chuỗi kỹ năng chuyên biệt trong 200 skills.
+2. Kế hoạch định tuyến chuỗi kỹ năng chuyên biệt trong 300 skills.
 3. Bảng theo dõi 15 Quality Gates trong suốt chu trình thực hiện.
 4. Báo cáo nghiệm thu kết thúc tác vụ kèm bằng chứng thực nghiệm rõ ràng.
 
 ## 13. Related & Complementary Skills
 - `dex-master-orchestrator`: Cội nguồn điều phối trung tâm.
-- Toàn bộ 200 kỹ năng chuyên môn từ `dex-development-workflow` (01) đến `dex-skill-quality-benchmarking` (200).
+- Toàn bộ 300 kỹ năng chuyên môn từ `dex-development-workflow` (01) đến `dex-skill-retirement-governance` (300).
 - Các adapter mở rộng bên thứ ba trong thư mục `integrations/`.
 
 ## 14. Realistic Usage Example
 ### Tình huống thực tế:
-Người dùng gửi yêu cầu: *"Xây dựng hệ thống RAG quy mô lớn với reranking và vector search, bảo vệ trước prompt injection và đảm bảo trích dẫn chính xác, sau đó triển khai lên Kubernetes bằng GitOps."*
-1. **Phân tích (Analyze)**: Master Orchestrator nhận diện đây là tác vụ phức tạp liên quan đến AI Systems (Group Q), Security (Group S), và Cloud Platform (Group O).
-2. **Chọn chế độ (Mode)**: Chọn **STRICT MODE** do có thay đổi về kiến trúc dữ liệu AI, an ninh bảo mật và hạ tầng triển khai.
-3. **Định tuyến (Routing)**: Kích hoạt chuỗi kỹ năng: `dex-vector-index-design` → `dex-reranking-strategies` → `dex-prompt-injection-defense` → `dex-grounding-citation-audit` → `dex-gitops-workflows` → `dex-kubernetes-policy-enforcement`.
+Người dùng gửi yêu cầu: *"Xây dựng hệ thống giao dịch thời gian thực với phân tích đồ họa game loop, bảo vệ bằng mã hóa chữ ký số artifact và kiểm toán cấu trúc nhị phân pe/elf."*
+1. **Phân tích (Analyze)**: Master Orchestrator nhận diện đây là tác vụ phức tạp liên quan đến Protocols (Group Y), Game Engineering (Group AB), Trust & Distribution (Group AC), và Reverse Engineering (Group X).
+2. **Chọn chế độ (Mode)**: Chọn **STRICT MODE** do có thay đổi về giao thức tài chính, nhị phân và chữ ký bảo mật.
+3. **Định tuyến (Routing)**: Kích hoạt chuỗi kỹ năng: `dex-websocket-session-recovery` → `dex-game-loop-timing` → `dex-artifact-signature-verification` → `dex-pe-elf-structure-inspection` → `dex-reverse-evidence-chain`.
 4. **Kiểm soát (Gates)**: Kiểm tra tuần tự từ QG-01 đến QG-15 tại từng mốc chuyển giao.
-5. **Nghiệm thu (Delivery)**: Tổng hợp báo cáo kiểm thử RAG, kết quả audit security headers và xác nhận GitOps sync thành công với tỷ lệ lỗi 0%.
+5. **Nghiệm thu (Delivery)**: Tổng hợp báo cáo kiểm thử socket, kết quả đo lường nhịp độ khung hình, chữ ký số Cosign và biên bản chuỗi bằng chứng pháp lý với tỷ lệ lỗi 0%.

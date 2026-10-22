@@ -2,13 +2,20 @@
 """
 DEX SKILLOPS — ROUTING EVALUATION HARNESS (scripts/evaluate_routing.py)
 Evaluates, benchmarks, and scores Master Orchestrator skill routing precision,
-recall, and false-positive activations across all 20 engineering groups (A to T).
+recall, and false-positive activations across all 30 engineering groups (A to AD).
 """
 
 import os
 import sys
 import json
 import re
+
+if sys.stdout.encoding != "utf-8" and hasattr(sys.stdout, "reconfigure"):
+    try:
+        sys.stdout.reconfigure(encoding="utf-8")
+        sys.stderr.reconfigure(encoding="utf-8")
+    except Exception:
+        pass
 
 BENCHMARK_SCENARIOS = [
     # Group A: Core Engineering
@@ -130,6 +137,66 @@ BENCHMARK_SCENARIOS = [
         "id": "scenario-20-skillops",
         "prompt": "Khám phá chỉ mục skill discovery indexer, kiểm tra an toàn skill security screening và đồng bộ skill upstream sync.",
         "expected": ["dex-skill-discovery-indexer", "dex-skill-security-screening", "dex-skill-upstream-sync"]
+    },
+    # Group U: Visual Design Intelligence
+    {
+        "id": "scenario-21-visual-design",
+        "prompt": "Thiết kế visual design brief synthesis, kiểm toán visual hierarchy audit và hệ thống color contrast systems.",
+        "expected": ["dex-design-brief-synthesis", "dex-visual-hierarchy-audit", "dex-color-contrast-systems"]
+    },
+    # Group V: Advanced Web Experiences
+    {
+        "id": "scenario-22-adv-web",
+        "prompt": "Tối ưu hóa web animation performance, xây dựng progressive web apps và danh sách virtualized infinite lists.",
+        "expected": ["dex-web-animation-performance", "dex-progressive-web-apps", "dex-virtualized-infinite-lists"]
+    },
+    # Group W: Browser Extensions & Automation
+    {
+        "id": "scenario-23-extensions-auto",
+        "prompt": "Phát triển browser extension mv3, bảo vệ extension message security và kiểm thử browser automation testing.",
+        "expected": ["dex-browser-extension-mv3", "dex-extension-message-security", "dex-browser-automation-testing"]
+    },
+    # Group X: Authorized Reverse Engineering
+    {
+        "id": "scenario-24-reverse-eng",
+        "prompt": "Kiểm tra cấu trúc pe elf structure inspection, ánh xạ native symbol mapping và phân tích disassembly cfg reconstruction.",
+        "expected": ["dex-pe-elf-structure-inspection", "dex-native-symbol-mapping", "dex-disassembly-cfg-reconstruction"]
+    },
+    # Group Y: Protocols & Service Integration
+    {
+        "id": "scenario-25-protocols-service",
+        "prompt": "Cấu hình mqtt client reliability, khôi phục websocket session recovery và xác thực webhook signature validation.",
+        "expected": ["dex-mqtt-client-reliability", "dex-websocket-session-recovery", "dex-webhook-signature-validation"]
+    },
+    # Group Z: AI Agent Operations
+    {
+        "id": "scenario-26-agent-ops",
+        "prompt": "Thiết kế llm evaluation dataset design, thẩm định agent task planning validation và cổng duyệt llm human review gates.",
+        "expected": ["dex-llm-evaluation-dataset-design", "dex-agent-task-planning-validation", "dex-llm-human-review-gates"]
+    },
+    # Group AA: Advanced Data & Analytics
+    {
+        "id": "scenario-27-data-analytics",
+        "prompt": "Xây dựng sql metric semantic layer, phát hiện data anomaly detection và tối ưu chi phí data warehouse cost tuning.",
+        "expected": ["dex-sql-metric-semantic-layer", "dex-data-anomaly-detection", "dex-data-warehouse-cost-tuning"]
+    },
+    # Group AB: Native, Graphics & Game Engineering
+    {
+        "id": "scenario-28-graphics-game",
+        "prompt": "Kiểm thử chess engine search testing, đảm bảo simulation determinism và tinh chỉnh game loop timing.",
+        "expected": ["dex-chess-engine-search-testing", "dex-simulation-determinism", "dex-game-loop-timing"]
+    },
+    # Group AC: Software Trust & Distribution
+    {
+        "id": "scenario-29-trust-distribution",
+        "prompt": "Quét giấy phép open source license scanning, ký số artifact signature verification và quy trình code signing release process.",
+        "expected": ["dex-open-source-license-scanning", "dex-artifact-signature-verification", "dex-code-signing-release-process"]
+    },
+    # Group AD: Advanced SkillOps Governance
+    {
+        "id": "scenario-30-adv-skillops",
+        "prompt": "Quản trị skill catalog taxonomy, kiểm tra skill source integrity và ghi nhận sổ cái skill execution evidence ledger.",
+        "expected": ["dex-skill-catalog-taxonomy", "dex-skill-source-integrity", "dex-skill-execution-evidence-ledger"]
     }
 ]
 
@@ -181,7 +248,7 @@ def main():
 
     skills_list = catalog.get("native_skills", [])
     print(f"=== DEX ROUTING EVALUATION HARNESS ===")
-    print(f"Evaluating {len(BENCHMARK_SCENARIOS)} benchmark scenarios across 20 groups...")
+    print(f"Evaluating {len(BENCHMARK_SCENARIOS)} benchmark scenarios across 30 groups (Groups A to AD)...")
 
     total_precision = []
     total_recall = []

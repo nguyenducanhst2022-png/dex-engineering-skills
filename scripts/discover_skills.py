@@ -12,6 +12,13 @@ import re
 import json
 import argparse
 
+if sys.stdout.encoding != "utf-8" and hasattr(sys.stdout, "reconfigure"):
+    try:
+        sys.stdout.reconfigure(encoding="utf-8")
+        sys.stderr.reconfigure(encoding="utf-8")
+    except Exception:
+        pass
+
 SKILL_CANONICAL_GROUPS = {
     # Group A: Core Engineering (01-10)
     "dex-development-workflow": ("Group A", "Core Engineering", 1),
@@ -252,6 +259,126 @@ SKILL_CANONICAL_GROUPS = {
     "dex-skill-host-adapters": ("Group T", "SkillOps Engineering", 198),
     "dex-skill-dependency-graph": ("Group T", "SkillOps Engineering", 199),
     "dex-skill-quality-benchmarking": ("Group T", "SkillOps Engineering", 200),
+
+    # Group U: Visual Design Intelligence (201-210)
+    "dex-design-brief-synthesis": ("Group U", "Visual Design Intelligence", 201),
+    "dex-visual-hierarchy-audit": ("Group U", "Visual Design Intelligence", 202),
+    "dex-layout-composition-patterns": ("Group U", "Visual Design Intelligence", 203),
+    "dex-color-contrast-systems": ("Group U", "Visual Design Intelligence", 204),
+    "dex-fluid-typography-engineering": ("Group U", "Visual Design Intelligence", 205),
+    "dex-motion-interaction-specification": ("Group U", "Visual Design Intelligence", 206),
+    "dex-dashboard-data-storytelling": ("Group U", "Visual Design Intelligence", 207),
+    "dex-design-reference-evaluation": ("Group U", "Visual Design Intelligence", 208),
+    "dex-design-system-documentation": ("Group U", "Visual Design Intelligence", 209),
+    "dex-ui-visual-qa-review": ("Group U", "Visual Design Intelligence", 210),
+
+    # Group V: Advanced Web Experiences (211-220)
+    "dex-web-animation-performance": ("Group V", "Advanced Web Experiences", 211),
+    "dex-media-delivery-pipelines": ("Group V", "Advanced Web Experiences", 212),
+    "dex-hls-dash-playback": ("Group V", "Advanced Web Experiences", 213),
+    "dex-progressive-web-apps": ("Group V", "Advanced Web Experiences", 214),
+    "dex-web-push-permission-flow": ("Group V", "Advanced Web Experiences", 215),
+    "dex-search-interface-experience": ("Group V", "Advanced Web Experiences", 216),
+    "dex-virtualized-infinite-lists": ("Group V", "Advanced Web Experiences", 217),
+    "dex-web-canvas-rendering": ("Group V", "Advanced Web Experiences", 218),
+    "dex-webgpu-rendering-fundamentals": ("Group V", "Advanced Web Experiences", 219),
+    "dex-frontend-error-recovery": ("Group V", "Advanced Web Experiences", 220),
+
+    # Group W: Browser Extensions & Automation (221-230)
+    "dex-browser-extension-mv3": ("Group W", "Browser Extensions & Automation", 221),
+    "dex-extension-message-security": ("Group W", "Browser Extensions & Automation", 222),
+    "dex-extension-background-lifecycle": ("Group W", "Browser Extensions & Automation", 223),
+    "dex-extension-content-script-isolation": ("Group W", "Browser Extensions & Automation", 224),
+    "dex-extension-storage-migration": ("Group W", "Browser Extensions & Automation", 225),
+    "dex-browser-automation-testing": ("Group W", "Browser Extensions & Automation", 226),
+    "dex-cdp-observability": ("Group W", "Browser Extensions & Automation", 227),
+    "dex-headless-ui-verification": ("Group W", "Browser Extensions & Automation", 228),
+    "dex-web-permission-ux": ("Group W", "Browser Extensions & Automation", 229),
+    "dex-cross-origin-integration": ("Group W", "Browser Extensions & Automation", 230),
+
+    # Group X: Authorized Reverse Engineering (231-240)
+    "dex-pe-elf-structure-inspection": ("Group X", "Authorized Reverse Engineering", 231),
+    "dex-native-symbol-mapping": ("Group X", "Authorized Reverse Engineering", 232),
+    "dex-disassembly-cfg-reconstruction": ("Group X", "Authorized Reverse Engineering", 233),
+    "dex-managed-assembly-inspection": ("Group X", "Authorized Reverse Engineering", 234),
+    "dex-electron-artifact-analysis": ("Group X", "Authorized Reverse Engineering", 235),
+    "dex-javascript-sourcemap-recovery": ("Group X", "Authorized Reverse Engineering", 236),
+    "dex-mobile-package-static-audit": ("Group X", "Authorized Reverse Engineering", 237),
+    "dex-firmware-metadata-inspection": ("Group X", "Authorized Reverse Engineering", 238),
+    "dex-binary-diff-regression": ("Group X", "Authorized Reverse Engineering", 239),
+    "dex-reverse-evidence-chain": ("Group X", "Authorized Reverse Engineering", 240),
+
+    # Group Y: Protocols & Service Integration (241-250)
+    "dex-mqtt-client-reliability": ("Group Y", "Protocols & Service Integration", 241),
+    "dex-websocket-session-recovery": ("Group Y", "Protocols & Service Integration", 242),
+    "dex-stream-processing-semantics": ("Group Y", "Protocols & Service Integration", 243),
+    "dex-event-schema-registry": ("Group Y", "Protocols & Service Integration", 244),
+    "dex-http-client-connection-pooling": ("Group Y", "Protocols & Service Integration", 245),
+    "dex-oauth-oidc-integration": ("Group Y", "Protocols & Service Integration", 246),
+    "dex-webhook-signature-validation": ("Group Y", "Protocols & Service Integration", 247),
+    "dex-api-pagination-cursors": ("Group Y", "Protocols & Service Integration", 248),
+    "dex-service-contract-simulation": ("Group Y", "Protocols & Service Integration", 249),
+    "dex-offline-message-delivery": ("Group Y", "Protocols & Service Integration", 250),
+
+    # Group Z: AI Agent Operations (251-260)
+    "dex-llm-evaluation-dataset-design": ("Group Z", "AI Agent Operations", 251),
+    "dex-agent-task-planning-validation": ("Group Z", "AI Agent Operations", 252),
+    "dex-agent-trace-replay": ("Group Z", "AI Agent Operations", 253),
+    "dex-llm-human-review-gates": ("Group Z", "AI Agent Operations", 254),
+    "dex-retrieval-permission-filtering": ("Group Z", "AI Agent Operations", 255),
+    "dex-multimodal-evaluation": ("Group Z", "AI Agent Operations", 256),
+    "dex-ai-safety-red-teaming": ("Group Z", "AI Agent Operations", 257),
+    "dex-agent-long-running-task-checkpoints": ("Group Z", "AI Agent Operations", 258),
+    "dex-mcp-client-integration": ("Group Z", "AI Agent Operations", 259),
+    "dex-inference-latency-optimization": ("Group Z", "AI Agent Operations", 260),
+
+    # Group AA: Advanced Data & Analytics (261-270)
+    "dex-sql-metric-semantic-layer": ("Group AA", "Advanced Data & Analytics", 261),
+    "dex-time-series-diagnostics": ("Group AA", "Advanced Data & Analytics", 262),
+    "dex-data-anomaly-detection": ("Group AA", "Advanced Data & Analytics", 263),
+    "dex-feature-store-engineering": ("Group AA", "Advanced Data & Analytics", 264),
+    "dex-analytics-cohort-retention": ("Group AA", "Advanced Data & Analytics", 265),
+    "dex-ab-test-statistical-analysis": ("Group AA", "Advanced Data & Analytics", 266),
+    "dex-geospatial-data-pipelines": ("Group AA", "Advanced Data & Analytics", 267),
+    "dex-data-warehouse-cost-tuning": ("Group AA", "Advanced Data & Analytics", 268),
+    "dex-backfill-reconciliation": ("Group AA", "Advanced Data & Analytics", 269),
+    "dex-machine-learning-data-drift": ("Group AA", "Advanced Data & Analytics", 270),
+
+    # Group AB: Native, Graphics & Game Engineering (271-280)
+    "dex-chess-engine-search-testing": ("Group AB", "Native, Graphics & Game Engineering", 271),
+    "dex-simulation-determinism": ("Group AB", "Native, Graphics & Game Engineering", 272),
+    "dex-physics-engine-validation": ("Group AB", "Native, Graphics & Game Engineering", 273),
+    "dex-game-loop-timing": ("Group AB", "Native, Graphics & Game Engineering", 274),
+    "dex-rendering-frame-pacing": ("Group AB", "Native, Graphics & Game Engineering", 275),
+    "dex-gpu-shader-profiling": ("Group AB", "Native, Graphics & Game Engineering", 276),
+    "dex-gpu-resource-lifetime": ("Group AB", "Native, Graphics & Game Engineering", 277),
+    "dex-native-plugin-abi-testing": ("Group AB", "Native, Graphics & Game Engineering", 278),
+    "dex-real-time-input-latency": ("Group AB", "Native, Graphics & Game Engineering", 279),
+    "dex-asset-pipeline-optimization": ("Group AB", "Native, Graphics & Game Engineering", 280),
+
+    # Group AC: Software Trust & Distribution (281-290)
+    "dex-open-source-license-scanning": ("Group AC", "Software Trust & Distribution", 281),
+    "dex-third-party-attribution": ("Group AC", "Software Trust & Distribution", 282),
+    "dex-artifact-signature-verification": ("Group AC", "Software Trust & Distribution", 283),
+    "dex-dependency-vulnerability-intelligence": ("Group AC", "Software Trust & Distribution", 284),
+    "dex-secret-rotation-drills": ("Group AC", "Software Trust & Distribution", 285),
+    "dex-code-signing-release-process": ("Group AC", "Software Trust & Distribution", 286),
+    "dex-software-update-trust-chains": ("Group AC", "Software Trust & Distribution", 287),
+    "dex-vulnerability-disclosure-workflows": ("Group AC", "Software Trust & Distribution", 288),
+    "dex-maintainer-contribution-governance": ("Group AC", "Software Trust & Distribution", 289),
+    "dex-release-reproducibility-audit": ("Group AC", "Software Trust & Distribution", 290),
+
+    # Group AD: Advanced SkillOps Governance (291-300)
+    "dex-skill-catalog-taxonomy": ("Group AD", "Advanced SkillOps Governance", 291),
+    "dex-skill-source-integrity": ("Group AD", "Advanced SkillOps Governance", 292),
+    "dex-skill-risk-scoring": ("Group AD", "Advanced SkillOps Governance", 293),
+    "dex-skill-reference-graph": ("Group AD", "Advanced SkillOps Governance", 294),
+    "dex-skill-routing-conflict-tests": ("Group AD", "Advanced SkillOps Governance", 295),
+    "dex-skill-execution-evidence-ledger": ("Group AD", "Advanced SkillOps Governance", 296),
+    "dex-skill-documentation-drift": ("Group AD", "Advanced SkillOps Governance", 297),
+    "dex-skill-upgrade-migrations": ("Group AD", "Advanced SkillOps Governance", 298),
+    "dex-skill-rollback-verification": ("Group AD", "Advanced SkillOps Governance", 299),
+    "dex-skill-retirement-governance": ("Group AD", "Advanced SkillOps Governance", 300),
 }
 
 def parse_frontmatter(content):
@@ -284,8 +411,8 @@ def discover_all_skills(root_dir):
 
     catalog = {
         "framework": "DEX Engineering Skills Framework",
-        "version": "5.0.0",
-        "target_skills_count": 201,
+        "version": "6.0.0",
+        "target_skills_count": 301,
         "native_skills": [],
         "segregated_integrations": []
     }

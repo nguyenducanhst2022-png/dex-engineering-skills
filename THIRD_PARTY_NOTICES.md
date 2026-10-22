@@ -1,8 +1,8 @@
-# Third-Party Notices & Upstream Source Provenance (v5.0.0)
+# Third-Party Notices & Upstream Source Provenance (v6.0.0)
 
 > **DEX Engineering Skills Segregated Integration Policy**  
 > External upstream projects are maintained in `integrations/` with strict namespace isolation.  
-> Third-party skills are never counted toward the native 200 DEX skills catalog.
+> Third-party skills are never counted toward the native 300 DEX skills catalog.
 
 ---
 

@@ -1,27 +1,28 @@
-# DEX Engineering Skills Framework v5.0 — Architectural Specification
+# DEX Engineering Skills Framework v6.0 — Architectural Specification
 
-> **Principal Architecture Blueprint for 200 Specialized Skills + Master Orchestrator + SkillOps Framework**
+> **Principal Architecture Blueprint for 300 Specialized Skills + Master Orchestrator + SkillOps Framework**
 
 ---
 
 ## 1. System Topology & Directory Structure
 
-DEX v5.0 is organized into three strictly separated tiers: Native Skills Catalog, Segregated Integrations, and SkillOps Toolchain.
+DEX v6.0 is organized into three strictly separated tiers: Native Skills Catalog, Segregated Integrations, and SkillOps Toolchain.
 
 ```
 dex-engineering-skills/
-├── .agents/skills/                    # Native DEX Catalog (Exactly 201 skills)
+├── .agents/skills/                    # Native DEX Catalog (Exactly 301 skills)
 │   ├── dex-master-orchestrator/       # Master Control Plane (Skill 000)
 │   ├── dex-development-workflow/      # Skill 001 (Group A)
 │   │   └── SKILL.md                   # 14 Mandatory Sections
-│   └── ...                            # Skills 002 to 200 (Groups A to T)
+│   └── ...                            # Skills 002 to 300 (Groups A to AD)
 ├── integrations/                      # Segregated Third-Party Upstream Integrations
 │   ├── aas/                           # Agentic Awesome Skills (MIT)
 │   ├── reverse-skill/                 # Reverse Skill (MIT)
-│   └── rea/                           # Reverse Engineer Anything (Apache-2.0, MCP Adapter)
+│   ├── rea/                           # Reverse Engineer Anything (Apache-2.0, MCP Adapter)
+│   └── ui-ux-pro-max/                 # UI/UX Pro Max (MIT, Search Bridge)
 ├── manifests/                         # Machine-Readable Catalog Registry
-│   ├── dex-skills.json                # Complete metadata index of 201 native skills
-│   └── upstream-sources.json          # Pinned commits and licensing for upstream repos
+│   ├── dex-skills.json                # Complete metadata index of 301 native skills
+│   └── upstream-sources.json          # Pinned commits and licensing for 4 upstream repos
 ├── scripts/                           # SkillOps Lifecycle Toolchain
 │   ├── discover_skills.py             # Catalog indexing and taxonomy normalization
 │   ├── audit_skills.py                # Static AST and security screening (QG-06, QG-15)
@@ -29,19 +30,20 @@ dex-engineering-skills/
 │   ├── sync_upstream.py               # Upstream provenance verification
 │   ├── import_skills.py               # Packaging and rollback engine
 │   └── validate_pack.py               # Zero-dependency specification validator
-├── tests/                             # Comprehensive Pytest Test Suite (645 tests)
+├── tests/                             # Comprehensive Pytest Test Suite (1,001 tests)
 │   ├── test_skill_structure.py        # Validates directory and file presence
 │   ├── test_skill_metadata.py         # Validates YAML frontmatter conformity
-│   ├── test_skill_registry.py         # Asserts exact 200+1 counts and group taxonomy
+│   ├── test_skill_registry.py         # Asserts exact 300+1 counts and group taxonomy
 │   ├── test_skill_security.py         # Screens against unsafe tokens and injection
 │   ├── test_skill_dependencies.py     # DAG cycle detection and dangling links
-│   └── test_skill_routing.py          # 20-scenario routing matrix validation
+│   ├── test_skill_routing.py          # 30-scenario routing matrix validation
+│   └── test_skill_evaluations_v6.py   # 16 representative real-world evaluation scenarios
 └── docs/                              # Framework Specifications & Audit Trails
 ```
 
 ---
 
-## 2. 20-Group Domain Taxonomy (Groups A through T)
+## 2. 30-Group Domain Taxonomy (Groups A through AD)
 
 Every specialized skill belongs to exactly one domain group with exactly 10 skills per group:
 
@@ -67,6 +69,16 @@ Every specialized skill belongs to exactly one domain group with exactly 10 skil
 | **Group R: Product Design & UX** | User journey maps, WCAG accessibility, design token handoff | `171–180` |
 | **Group S: Application Security** | SAST triage, signed SBOMs, browser extension CSP hardening | `181–190` |
 | **Group T: SkillOps Engineering** | Catalog indexing, security screening, routing F1 evaluation | `191–200` |
+| **Group U: Visual Design Intelligence** | Design brief synthesis, visual hierarchy, APCA/WCAG contrast | `201–210` |
+| **Group V: Advanced Web Experiences** | Animation performance, PWA offline, virtualized infinite lists | `211–220` |
+| **Group W: Browser Extensions & Automation** | MV3 background service workers, content script isolation, CDP | `221–230` |
+| **Group X: Authorized Reverse Engineering** | PE/ELF headers, disassembly CFG, symbol mapping, evidence chain | `231–240` |
+| **Group Y: Protocols & Service Integration** | MQTT client QoS, WebSocket recovery, HMAC webhook validation | `241–250` |
+| **Group Z: AI Agent Operations** | LLM eval datasets, task planning validation, red teaming defense | `251–260` |
+| **Group AA: Advanced Data & Analytics** | SQL metric layers, anomaly detection, warehouse cost tuning, H3 | `261–270` |
+| **Group AB: Native, Graphics & Game Engineering** | Alpha-beta chess search, fixed-point determinism, WebGPU/shaders | `271–280` |
+| **Group AC: Software Trust & Distribution** | License scanning, artifact signatures, code signing, trust chains | `281–290` |
+| **Group AD: Advanced SkillOps Governance** | Taxonomy, source integrity, execution ledgers, drift prevention | `291–300` |
 
 ---
 
@@ -74,7 +86,7 @@ Every specialized skill belongs to exactly one domain group with exactly 10 skil
 
 The Master Orchestrator resolves requests into execution DAGs based on:
 1. **Keyword & Semantic Parsing**: Matches incoming terms with skill triggers.
-2. **Domain Boundary Mapping**: Identifies the primary discipline (Groups A to T).
+2. **Domain Boundary Mapping**: Identifies the primary discipline (Groups A to AD).
 3. **Execution Mode Assignment**:
    - `QUICK`: Single-file bugfixes, small tasks (Gates QG-01 to QG-03).
    - `STANDARD`: Feature implementation, refactoring (Gates QG-01 to QG-08).

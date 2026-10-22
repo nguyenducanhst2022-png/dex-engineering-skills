@@ -1,7 +1,7 @@
-# DEX Engineering Skills Framework v5.0 — Dynamic Routing Matrix
+# DEX Engineering Skills Framework v6.0 — Dynamic Routing Matrix
 
 > **Comprehensive Multi-Domain Dispatch Matrix for Master Orchestrator**  
-> Covers 20 real-world engineering scenarios corresponding to Groups A through T, detailing primary/complementary skill chains, execution modes, and mandatory Quality Gates.
+> Covers 30 real-world engineering scenarios corresponding to Groups A through AD, detailing primary/complementary skill chains, execution modes, and mandatory Quality Gates.
 
 ---
 
@@ -17,7 +17,7 @@ graph TD
     SelectMode -->|Feature/Refactor| STANDARD[STANDARD MODE]
     SelectMode -->|Arch/Infra/Sec| STRICT[STRICT MODE]
     
-    Intent --> MapGroup[Map to Domain Group A-T]
+    Intent --> MapGroup[Map to Domain Group A-AD]
     MapGroup --> ResolveDAG[Resolve Primary & Complementary DAG]
     ResolveDAG --> ExecuteChain[Execute Skills Sequentially/Concurrently]
     ExecuteChain --> EnforceGates[Enforce Quality Gates QG-01..15]
@@ -26,7 +26,7 @@ graph TD
 
 ---
 
-## 2. 20 Domain Benchmark Scenarios (Groups A to T)
+## 2. 30 Domain Benchmark Scenarios (Groups A to AD)
 
 ### Scenario A: Core Engineering Workflow & Git Governance (Group A)
 
@@ -325,6 +325,156 @@ graph TD
 - **Complementary Skills:**
   - [`dex-skill-quality-benchmarking`](.agents/skills/dex-skill-quality-benchmarking/SKILL.md)
   - [`dex-skill-dependency-graph`](.agents/skills/dex-skill-dependency-graph/SKILL.md)
+
+---
+
+### Scenario U: Visual Design Intelligence & Theme Systems (Group U)
+
+- **Trigger / Problem Statement:** Thiết kế visual design brief synthesis, kiểm toán visual hierarchy audit và hệ thống color contrast systems.
+- **Execution Mode:** `STANDARD`
+- **Mandatory Quality Gates:** `QG-02`, `QG-08`, `QG-14`
+- **Primary Skills:**
+  - [`dex-design-brief-synthesis`](.agents/skills/dex-design-brief-synthesis/SKILL.md)
+  - [`dex-visual-hierarchy-audit`](.agents/skills/dex-visual-hierarchy-audit/SKILL.md)
+  - [`dex-color-contrast-systems`](.agents/skills/dex-color-contrast-systems/SKILL.md)
+- **Complementary Skills:**
+  - [`dex-fluid-typography-engineering`](.agents/skills/dex-fluid-typography-engineering/SKILL.md)
+  - [`dex-layout-composition-patterns`](.agents/skills/dex-layout-composition-patterns/SKILL.md)
+
+---
+
+### Scenario V: Advanced Web Experiences & Offline Delivery (Group V)
+
+- **Trigger / Problem Statement:** Tối ưu hóa web animation performance, xây dựng progressive web apps và danh sách virtualized infinite lists.
+- **Execution Mode:** `STANDARD`
+- **Mandatory Quality Gates:** `QG-02`, `QG-04`, `QG-07`, `QG-14`
+- **Primary Skills:**
+  - [`dex-web-animation-performance`](.agents/skills/dex-web-animation-performance/SKILL.md)
+  - [`dex-progressive-web-apps`](.agents/skills/dex-progressive-web-apps/SKILL.md)
+  - [`dex-virtualized-infinite-lists`](.agents/skills/dex-virtualized-infinite-lists/SKILL.md)
+- **Complementary Skills:**
+  - [`dex-web-canvas-rendering`](.agents/skills/dex-web-canvas-rendering/SKILL.md)
+  - [`dex-hls-dash-playback`](.agents/skills/dex-hls-dash-playback/SKILL.md)
+
+---
+
+### Scenario W: Browser Extensions & CDP Automation (Group W)
+
+- **Trigger / Problem Statement:** Phát triển browser extension mv3, bảo vệ extension message security và kiểm thử browser automation testing.
+- **Execution Mode:** `STRICT`
+- **Mandatory Quality Gates:** `QG-01`, `QG-02`, `QG-06`, `QG-08`
+- **Primary Skills:**
+  - [`dex-browser-extension-mv3`](.agents/skills/dex-browser-extension-mv3/SKILL.md)
+  - [`dex-extension-message-security`](.agents/skills/dex-extension-message-security/SKILL.md)
+  - [`dex-browser-automation-testing`](.agents/skills/dex-browser-automation-testing/SKILL.md)
+- **Complementary Skills:**
+  - [`dex-extension-background-lifecycle`](.agents/skills/dex-extension-background-lifecycle/SKILL.md)
+  - [`dex-cdp-observability`](.agents/skills/dex-cdp-observability/SKILL.md)
+
+---
+
+### Scenario X: Authorized Reverse Engineering & Binary Inspection (Group X)
+
+- **Trigger / Problem Statement:** Kiểm tra cấu trúc pe elf structure inspection, ánh xạ native symbol mapping và phân tích disassembly cfg reconstruction.
+- **Execution Mode:** `STRICT`
+- **Mandatory Quality Gates:** `QG-01`, `QG-03`, `QG-06`, `QG-12`
+- **Primary Skills:**
+  - [`dex-pe-elf-structure-inspection`](.agents/skills/dex-pe-elf-structure-inspection/SKILL.md)
+  - [`dex-native-symbol-mapping`](.agents/skills/dex-native-symbol-mapping/SKILL.md)
+  - [`dex-disassembly-cfg-reconstruction`](.agents/skills/dex-disassembly-cfg-reconstruction/SKILL.md)
+- **Complementary Skills:**
+  - [`dex-managed-assembly-inspection`](.agents/skills/dex-managed-assembly-inspection/SKILL.md)
+  - [`dex-reverse-evidence-chain`](.agents/skills/dex-reverse-evidence-chain/SKILL.md)
+
+---
+
+### Scenario Y: Protocols, Webhooks & Real-Time Messaging (Group Y)
+
+- **Trigger / Problem Statement:** Cấu hình mqtt client reliability, khôi phục websocket session recovery và xác thực webhook signature validation.
+- **Execution Mode:** `STRICT`
+- **Mandatory Quality Gates:** `QG-02`, `QG-04`, `QG-06`, `QG-10`
+- **Primary Skills:**
+  - [`dex-mqtt-client-reliability`](.agents/skills/dex-mqtt-client-reliability/SKILL.md)
+  - [`dex-websocket-session-recovery`](.agents/skills/dex-websocket-session-recovery/SKILL.md)
+  - [`dex-webhook-signature-validation`](.agents/skills/dex-webhook-signature-validation/SKILL.md)
+- **Complementary Skills:**
+  - [`dex-http-client-connection-pooling`](.agents/skills/dex-http-client-connection-pooling/SKILL.md)
+  - [`dex-service-contract-simulation`](.agents/skills/dex-service-contract-simulation/SKILL.md)
+
+---
+
+### Scenario Z: AI Agent Operations & Red Teaming (Group Z)
+
+- **Trigger / Problem Statement:** Thiết kế llm evaluation dataset design, thẩm định agent task planning validation và cổng duyệt llm human review gates.
+- **Execution Mode:** `STRICT`
+- **Mandatory Quality Gates:** `QG-02`, `QG-04`, `QG-09`, `QG-13`
+- **Primary Skills:**
+  - [`dex-llm-evaluation-dataset-design`](.agents/skills/dex-llm-evaluation-dataset-design/SKILL.md)
+  - [`dex-agent-task-planning-validation`](.agents/skills/dex-agent-task-planning-validation/SKILL.md)
+  - [`dex-llm-human-review-gates`](.agents/skills/dex-llm-human-review-gates/SKILL.md)
+- **Complementary Skills:**
+  - [`dex-agent-trace-replay`](.agents/skills/dex-agent-trace-replay/SKILL.md)
+  - [`dex-ai-safety-red-teaming`](.agents/skills/dex-ai-safety-red-teaming/SKILL.md)
+
+---
+
+### Scenario AA: Advanced Data Analytics & Anomaly Detection (Group AA)
+
+- **Trigger / Problem Statement:** Xây dựng sql metric semantic layer, phát hiện data anomaly detection và tối ưu chi phí data warehouse cost tuning.
+- **Execution Mode:** `STANDARD`
+- **Mandatory Quality Gates:** `QG-02`, `QG-04`, `QG-07`, `QG-08`
+- **Primary Skills:**
+  - [`dex-sql-metric-semantic-layer`](.agents/skills/dex-sql-metric-semantic-layer/SKILL.md)
+  - [`dex-data-anomaly-detection`](.agents/skills/dex-data-anomaly-detection/SKILL.md)
+  - [`dex-data-warehouse-cost-tuning`](.agents/skills/dex-data-warehouse-cost-tuning/SKILL.md)
+- **Complementary Skills:**
+  - [`dex-geospatial-data-pipelines`](.agents/skills/dex-geospatial-data-pipelines/SKILL.md)
+  - [`dex-stream-processing-semantics`](.agents/skills/dex-stream-processing-semantics/SKILL.md)
+
+---
+
+### Scenario AB: Native Systems, Graphics & Simulation (Group AB)
+
+- **Trigger / Problem Statement:** Kiểm thử chess engine search testing, đảm bảo simulation determinism và tinh chỉnh game loop timing.
+- **Execution Mode:** `STRICT`
+- **Mandatory Quality Gates:** `QG-02`, `QG-05`, `QG-07`, `QG-12`
+- **Primary Skills:**
+  - [`dex-chess-engine-search-testing`](.agents/skills/dex-chess-engine-search-testing/SKILL.md)
+  - [`dex-simulation-determinism`](.agents/skills/dex-simulation-determinism/SKILL.md)
+  - [`dex-game-loop-timing`](.agents/skills/dex-game-loop-timing/SKILL.md)
+- **Complementary Skills:**
+  - [`dex-webgpu-rendering-fundamentals`](.agents/skills/dex-webgpu-rendering-fundamentals/SKILL.md)
+  - [`dex-gpu-shader-profiling`](.agents/skills/dex-gpu-shader-profiling/SKILL.md)
+
+---
+
+### Scenario AC: Software Trust, Licensing & Reproducible Distribution (Group AC)
+
+- **Trigger / Problem Statement:** Quét giấy phép open source license scanning, ký số artifact signature verification và quy trình code signing release process.
+- **Execution Mode:** `STRICT`
+- **Mandatory Quality Gates:** `QG-01`, `QG-06`, `QG-08`, `QG-15`
+- **Primary Skills:**
+  - [`dex-open-source-license-scanning`](.agents/skills/dex-open-source-license-scanning/SKILL.md)
+  - [`dex-artifact-signature-verification`](.agents/skills/dex-artifact-signature-verification/SKILL.md)
+  - [`dex-code-signing-release-process`](.agents/skills/dex-code-signing-release-process/SKILL.md)
+- **Complementary Skills:**
+  - [`dex-software-update-trust-chains`](.agents/skills/dex-software-update-trust-chains/SKILL.md)
+  - [`dex-release-reproducibility-audit`](.agents/skills/dex-release-reproducibility-audit/SKILL.md)
+
+---
+
+### Scenario AD: Advanced SkillOps Governance & Drift Prevention (Group AD)
+
+- **Trigger / Problem Statement:** Quản trị skill catalog taxonomy, kiểm tra skill source integrity và ghi nhận sổ cái skill execution evidence ledger.
+- **Execution Mode:** `STRICT`
+- **Mandatory Quality Gates:** `QG-01`, `QG-02`, `QG-08`, `QG-15`
+- **Primary Skills:**
+  - [`dex-skill-catalog-taxonomy`](.agents/skills/dex-skill-catalog-taxonomy/SKILL.md)
+  - [`dex-skill-source-integrity`](.agents/skills/dex-skill-source-integrity/SKILL.md)
+  - [`dex-skill-execution-evidence-ledger`](.agents/skills/dex-skill-execution-evidence-ledger/SKILL.md)
+- **Complementary Skills:**
+  - [`dex-skill-routing-conflict-tests`](.agents/skills/dex-skill-routing-conflict-tests/SKILL.md)
+  - [`dex-skill-documentation-drift`](.agents/skills/dex-skill-documentation-drift/SKILL.md)
 
 ---
 

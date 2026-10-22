@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-Pytest suite for DEX Engineering Skills Framework v5.0: Routing Matrix Verification.
-Tests the Master Orchestrator dynamic skill dispatch engine across 20 realistic scenarios (A through T)
-covering all 20 specialized engineering groups (Groups A to T) and segregated upstream integrations.
+Pytest suite for DEX Engineering Skills Framework v6.0: Routing Matrix Verification.
+Tests the Master Orchestrator dynamic skill dispatch engine across 30 realistic scenarios (A through AD)
+covering all 30 specialized engineering groups (Groups A to AD) and segregated upstream integrations.
 """
 
 import os
@@ -109,6 +109,56 @@ SCENARIOS = {
         "primary_skills": ["dex-skill-discovery-indexer", "dex-skill-security-screening", "dex-skill-upstream-sync"],
         "complementary_skills": ["dex-skill-quality-benchmarking", "dex-skill-dependency-graph"],
     },
+    "Scenario U: Visual Design Intelligence & Theme Systems (Group U)": {
+        "description": "Synthesize visual design briefs, audit typographic hierarchy, enforce APCA/WCAG contrast ratios, and generate design tokens.",
+        "primary_skills": ["dex-design-brief-synthesis", "dex-visual-hierarchy-audit", "dex-color-contrast-systems"],
+        "complementary_skills": ["dex-fluid-typography-engineering", "dex-layout-composition-patterns"],
+    },
+    "Scenario V: Advanced Web Experiences & Offline Delivery (Group V)": {
+        "description": "Profile 60fps web animation performance, engineer offline-first progressive web apps with service workers, and virtualize massive datasets.",
+        "primary_skills": ["dex-web-animation-performance", "dex-progressive-web-apps", "dex-virtualized-infinite-lists"],
+        "complementary_skills": ["dex-web-canvas-rendering", "dex-hls-dash-playback"],
+    },
+    "Scenario W: Browser Extensions & CDP Automation (Group W)": {
+        "description": "Architect Manifest V3 browser extensions, secure isolated content script message channels, and automate deep CDP observability.",
+        "primary_skills": ["dex-browser-extension-mv3", "dex-extension-message-security", "dex-browser-automation-testing"],
+        "complementary_skills": ["dex-extension-background-lifecycle", "dex-cdp-observability"],
+    },
+    "Scenario X: Authorized Reverse Engineering & Binary Inspection (Group X)": {
+        "description": "Inspect PE/COFF and ELF binary headers, reconstruct control flow graphs from disassembly, and resolve unstripped debug symbols.",
+        "primary_skills": ["dex-pe-elf-structure-inspection", "dex-native-symbol-mapping", "dex-disassembly-cfg-reconstruction"],
+        "complementary_skills": ["dex-managed-assembly-inspection", "dex-reverse-evidence-chain"],
+    },
+    "Scenario Y: Protocols, Webhooks & Real-Time Messaging (Group Y)": {
+        "description": "Harden MQTT IoT client reliability with QoS session preservation, recover interrupted WebSocket sessions, and verify HMAC webhook signatures.",
+        "primary_skills": ["dex-mqtt-client-reliability", "dex-websocket-session-recovery", "dex-webhook-signature-validation"],
+        "complementary_skills": ["dex-http-client-connection-pooling", "dex-service-contract-simulation"],
+    },
+    "Scenario Z: AI Agent Operations & Red Teaming (Group Z)": {
+        "description": "Curate representative golden datasets for LLM benchmarking, validate multi-step agent plans against safety constraints, and enforce human review gates.",
+        "primary_skills": ["dex-llm-evaluation-dataset-design", "dex-agent-task-planning-validation", "dex-llm-human-review-gates"],
+        "complementary_skills": ["dex-agent-trace-replay", "dex-ai-safety-red-teaming"],
+    },
+    "Scenario AA: Advanced Data Analytics & Anomaly Detection (Group AA)": {
+        "description": "Model unified SQL metric semantic layers, detect streaming statistical time series anomalies, and optimize columnar warehouse queries.",
+        "primary_skills": ["dex-sql-metric-semantic-layer", "dex-data-anomaly-detection", "dex-data-warehouse-cost-tuning"],
+        "complementary_skills": ["dex-geospatial-data-pipelines", "dex-stream-processing-semantics"],
+    },
+    "Scenario AB: Native Systems, Graphics & Simulation (Group AB)": {
+        "description": "Implement alpha-beta minimax chess search with bitboards, enforce deterministic fixed-point physics simulations, and manage GPU shader buffers.",
+        "primary_skills": ["dex-chess-engine-search-testing", "dex-simulation-determinism", "dex-game-loop-timing"],
+        "complementary_skills": ["dex-webgpu-rendering-fundamentals", "dex-gpu-shader-profiling"],
+    },
+    "Scenario AC: Software Trust, Licensing & Reproducible Distribution (Group AC)": {
+        "description": "Audit dual-license compliance and copyleft obligations, verify Sigstore/Cosign container signatures, and enforce HSM code signing.",
+        "primary_skills": ["dex-open-source-license-scanning", "dex-artifact-signature-verification", "dex-code-signing-release-process"],
+        "complementary_skills": ["dex-software-update-trust-chains", "dex-release-reproducibility-audit"],
+    },
+    "Scenario AD: Advanced SkillOps Governance & Drift Prevention (Group AD)": {
+        "description": "Govern multi-tier skill catalog taxonomies, verify SHA256 integrity trees against tampering, and record immutable execution ledgers.",
+        "primary_skills": ["dex-skill-catalog-taxonomy", "dex-skill-source-integrity", "dex-skill-execution-evidence-ledger"],
+        "complementary_skills": ["dex-skill-routing-conflict-tests", "dex-skill-documentation-drift"],
+    },
 }
 
 class RoutingEngine:
@@ -137,7 +187,7 @@ def available_skills():
     # 2. Segregated Upstream Integrations in integrations/
     int_dir = os.path.join(root, "integrations")
     if os.path.isdir(int_dir):
-        for sub in ["aas", "reverse-skill", "rea"]:
+        for sub in os.listdir(int_dir):
             sub_path = os.path.join(int_dir, sub)
             if os.path.isdir(sub_path):
                 for d in os.listdir(sub_path):
