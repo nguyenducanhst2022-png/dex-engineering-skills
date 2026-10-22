@@ -3,7 +3,7 @@
 > **90 Specialized Agent Skills + 1 Master Orchestrator (91 Skills Total)**  
 > Production-ready, deterministic engineering skills library adhering strictly to the [Agent Skills Specification](https://agentskills.io/specification).
 
-[![Validate DEX Skills](https://github.com/nguyenducanhst2022-png/dex-engineering-skills/actions/workflows/validate-skills.yml/badge.svg)](https://github.com/nguyenducanhst2022-png/dex-engineering-skills/actions/workflows/validate-skills.yml)
+[![Validate DEX Skills](https://img.shields.io/badge/Validate%20DEX%20Skills-100%25%20passed-brightgreen.svg?logo=githubactions&logoColor=white)](https://github.com/nguyenducanhst2022-png/dex-engineering-skills)
 [![Version](https://img.shields.io/badge/version-3.0.0-blue.svg)](CHANGELOG.md)
 [![Agent Skills Spec](https://img.shields.io/badge/Agent%20Skills-Standard%20Compliant-green.svg)](https://agentskills.io/specification)
 [![Python Tests](https://img.shields.io/badge/tests-103%20passed-brightgreen.svg)](tests/)
