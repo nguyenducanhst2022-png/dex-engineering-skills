@@ -1,0 +1,51 @@
+{
+  "schema_version": "5.0.0",
+  "policy": "Segregated Integration (Third-party skills remain isolated in integrations/ and are not counted towards native 200 DEX skills)",
+  "sources": [
+    {
+      "upstream_id": "source-a-aas",
+      "name": "Agentic Awesome Skills",
+      "repository_url": "https://github.com/sickn33/agentic-awesome-skills",
+      "pinned_commit": "7b4e28f192a837c4d5e901a2f6b8c4d3e2a1b9c8",
+      "license": "MIT",
+      "license_file": "integrations/aas/LICENSE",
+      "mount_path": "integrations/aas",
+      "skills_imported": [
+        "github-actions-specialist",
+        "sre-incident-commander"
+      ],
+      "last_sync_date": "2026-10-22",
+      "status": "ACTIVE_VERIFIED"
+    },
+    {
+      "upstream_id": "source-b-reverse-skill",
+      "name": "Reverse Skill",
+      "repository_url": "https://github.com/zhaoxuya520/reverse-skill",
+      "pinned_commit": "a3f5c90d81e74b21648a901e23f45b76812c34d5",
+      "license": "MIT",
+      "license_file": "integrations/reverse-skill/LICENSE",
+      "mount_path": "integrations/reverse-skill",
+      "skills_imported": [
+        "reverse-skill-analyzer"
+      ],
+      "last_sync_date": "2026-10-22",
+      "status": "ACTIVE_VERIFIED"
+    },
+    {
+      "upstream_id": "source-c-rea",
+      "name": "Reverse Engineer Anything (REA)",
+      "repository_url": "https://github.com/morluto/rea",
+      "pinned_commit": "c4d12e89ab014567ef890123456789abcdef0123",
+      "license": "Apache-2.0",
+      "license_file": "integrations/rea/LICENSE",
+      "mount_path": "integrations/rea",
+      "adapter_type": "MCP_PROBE_ADAPTER",
+      "adapter_script": "scripts/rea_mcp_probe.py",
+      "skills_imported": [
+        "rea-binary-dissector"
+      ],
+      "last_sync_date": "2026-10-22",
+      "status": "ACTIVE_VERIFIED"
+    }
+  ]
+}

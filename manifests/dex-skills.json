@@ -1,0 +1,2986 @@
+{
+  "framework": "DEX Engineering Skills Framework",
+  "version": "5.0.0",
+  "target_skills_count": 201,
+  "native_skills": [
+    {
+      "id": "dex-master-orchestrator",
+      "index": 0,
+      "name": "dex-master-orchestrator",
+      "description": "Master control plane to analyze engineering requests, select execution modes (QUICK, STANDARD, STRICT), coordinate across 200 specialized DEX skills (Groups A to T) and segregated integrations, enforce 15 Quality Gates, and generate evidence-based audit reports. Use whenever starting any software engineering workflow.",
+      "version": "5.0.0",
+      "group": "Root",
+      "domain": "Master Orchestrator",
+      "path": ".agents/skills/dex-master-orchestrator/SKILL.md",
+      "related_skills": [
+        "dex-development-workflow",
+        "dex-skill-quality-benchmarking"
+      ]
+    },
+    {
+      "id": "dex-development-workflow",
+      "index": 1,
+      "name": "dex-development-workflow",
+      "description": "Standard iterative development workflow for AI coding. Enforces breaking tasks down, writing modular code, verifying functionality, stabilizing before upgrading, and committing safe checkpoints. Use when executing software development tasks, building features incrementally, or preventing scope-creep.",
+      "version": "5.0.0",
+      "group": "Group A",
+      "domain": "Core Engineering",
+      "path": ".agents/skills/dex-development-workflow/SKILL.md",
+      "related_skills": [
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-task-delegation",
+      "index": 2,
+      "name": "dex-task-delegation",
+      "description": "Structure and delegate engineering tasks clearly to AI coding agents with defined goals, explicit scope boundaries, technical constraints, verification criteria, and reporting standards. Use when assigning tasks, breaking down user instructions, or preparing autonomous agent execution contexts.",
+      "version": "5.0.0",
+      "group": "Group A",
+      "domain": "Core Engineering",
+      "path": ".agents/skills/dex-task-delegation/SKILL.md",
+      "related_skills": [
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-code-verification",
+      "index": 3,
+      "name": "dex-code-verification",
+      "description": "Rigorous code verification and quality assurance protocol for AI-generated code. Inspects syntax, runs automated test suites, validates functional correctness, detects edge-case defects, and requires execution evidence. Use after code generation, before accepting tasks as complete, or to eliminate false-completion claims.",
+      "version": "5.0.0",
+      "group": "Group A",
+      "domain": "Core Engineering",
+      "path": ".agents/skills/dex-code-verification/SKILL.md",
+      "related_skills": [
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-git-workflow",
+      "index": 4,
+      "name": "dex-git-workflow",
+      "description": "Professional Git version control and safe upgrade workflow. Manages branches, creates atomic commits with Conventional Commits standards, prevents destructive operations, and guarantees safe recovery checkpoints. Use when committing code, creating feature branches, merging pull requests, or preparing releases.",
+      "version": "5.0.0",
+      "group": "Group A",
+      "domain": "Core Engineering",
+      "path": ".agents/skills/dex-git-workflow/SKILL.md",
+      "related_skills": [
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-code-organization",
+      "index": 5,
+      "name": "dex-code-organization",
+      "description": "Clean project structuring and modular codebase organization. Establishes intuitive directory hierarchies, enforces separation of concerns, decouples dependencies, and prevents god-files or tangled circular imports. Use when scaffolding projects, refactoring monolithic files, or structuring new modules.",
+      "version": "5.0.0",
+      "group": "Group A",
+      "domain": "Core Engineering",
+      "path": ".agents/skills/dex-code-organization/SKILL.md",
+      "related_skills": [
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-root-cause-debugging",
+      "index": 6,
+      "name": "dex-root-cause-debugging",
+      "description": "Root cause analysis and deterministic bug resolution methodology. Reproduces defects with failing tests, isolates fundamental root causes, applies targeted fixes, and prevents regressions. Use when investigating bugs, fixing unexpected test failures, resolving exceptions, or eliminating persistent software defects.",
+      "version": "5.0.0",
+      "group": "Group A",
+      "domain": "Core Engineering",
+      "path": ".agents/skills/dex-root-cause-debugging/SKILL.md",
+      "related_skills": [
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-performance-optimization",
+      "index": 7,
+      "name": "dex-performance-optimization",
+      "description": "Metrics-driven software performance profiling, bottleneck detection, algorithmic optimization, and benchmark verification. Compares quantitative before-and-after metrics while preserving behavioral correctness. Use when diagnosing slow queries, reducing memory usage, optimizing latency, or profiling throughput.",
+      "version": "5.0.0",
+      "group": "Group A",
+      "domain": "Core Engineering",
+      "path": ".agents/skills/dex-performance-optimization/SKILL.md",
+      "related_skills": [
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-security-audit",
+      "index": 8,
+      "name": "dex-security-audit",
+      "description": "Static and dynamic software security auditing, vulnerability classification, OWASP Top 10 mitigation, secret scanning, and patch verification. Identifies injection risks, authentication flaws, and sensitive data leakage. Use before releases, during code audits, when handling credentials, or when validating patches.",
+      "version": "5.0.0",
+      "group": "Group A",
+      "domain": "Core Engineering",
+      "path": ".agents/skills/dex-security-audit/SKILL.md",
+      "related_skills": [
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-cicd-automation",
+      "index": 9,
+      "name": "dex-cicd-automation",
+      "description": "Continuous Integration and Continuous Delivery (CI/CD) pipeline design, configuration, and automated test orchestration. Builds pipelines, writes GitHub Actions workflows, automates linting, test suites, and security scans. Use when configuring CI/CD, repairing broken pipelines, or automating test enforcement.",
+      "version": "5.0.0",
+      "group": "Group A",
+      "domain": "Core Engineering",
+      "path": ".agents/skills/dex-cicd-automation/SKILL.md",
+      "related_skills": [
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-release-engineering",
+      "index": 10,
+      "name": "dex-release-engineering",
+      "description": "Structured software release management, semantic versioning (SemVer), artifact packaging, automated changelog generation, and rollback planning. Enforces release readiness quality gates and deployment safety. Use when cutting new versions, building production packages, publishing releases, or preparing hotfixes.",
+      "version": "5.0.0",
+      "group": "Group A",
+      "domain": "Core Engineering",
+      "path": ".agents/skills/dex-release-engineering/SKILL.md",
+      "related_skills": [
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-production-monitoring",
+      "index": 11,
+      "name": "dex-production-monitoring",
+      "description": "Production observability, structured logging, application health checks, alerting thresholds, error telemetry, and post-deployment stability monitoring. Tracks system health metrics, logs anomalies, and diagnoses live incidents. Use when designing monitoring infrastructure, adding health endpoints, or triaging production alerts.",
+      "version": "5.0.0",
+      "group": "Group B",
+      "domain": "Architecture & AI Agents",
+      "path": ".agents/skills/dex-production-monitoring/SKILL.md",
+      "related_skills": [
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-technical-debt-refactoring",
+      "index": 12,
+      "name": "dex-technical-debt-refactoring",
+      "description": "Systematic technical debt assessment, safe code refactoring, code smell eradication, and behavioral preservation. Improves modularity, readability, and maintainability while guaranteeing zero breaking regressions with automated test harnesses. Use when refactoring legacy code, cleaning up duplicated logic, or untangling complex methods.",
+      "version": "5.0.0",
+      "group": "Group B",
+      "domain": "Architecture & AI Agents",
+      "path": ".agents/skills/dex-technical-debt-refactoring/SKILL.md",
+      "related_skills": [
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-software-architecture",
+      "index": 13,
+      "name": "dex-software-architecture",
+      "description": "Software architectural design, component decomposition, modular boundary definition, and architectural decision records (ADRs). Designs scalable, maintainable architectures following KISS and YAGNI principles. Use when architecting systems, scaffolding projects, evaluating scalability, or recording ADRs.",
+      "version": "5.0.0",
+      "group": "Group B",
+      "domain": "Architecture & AI Agents",
+      "path": ".agents/skills/dex-software-architecture/SKILL.md",
+      "related_skills": [
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-database-engineering",
+      "index": 14,
+      "name": "dex-database-engineering",
+      "description": "Database engineering, relational schema design, safe migrations, index optimization, ACID transaction management, and automated backup strategies. Guarantees zero-downtime schema evolution and data integrity. Use when altering database schemas, writing migrations, optimizing slow queries, or managing transactions.",
+      "version": "5.0.0",
+      "group": "Group B",
+      "domain": "Architecture & AI Agents",
+      "path": ".agents/skills/dex-database-engineering/SKILL.md",
+      "related_skills": [
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-api-engineering",
+      "index": 15,
+      "name": "dex-api-engineering",
+      "description": "Production-grade API design, RESTful and GraphQL specifications, input schema validation, authentication middleware, error standardization, and backward compatibility contracts. Prevents breaking changes and enforces robust API contracts. Use when creating endpoints, updating API schemas, or contract testing.",
+      "version": "5.0.0",
+      "group": "Group B",
+      "domain": "Architecture & AI Agents",
+      "path": ".agents/skills/dex-api-engineering/SKILL.md",
+      "related_skills": [
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-testing-engineering",
+      "index": 16,
+      "name": "dex-testing-engineering",
+      "description": "Comprehensive automated testing engineering, test plan formulation, unit testing, integration testing, end-to-end (E2E) testing, regression suites, and boundary analysis. Guarantees behavioral correctness and test coverage. Use when designing test plans, authoring automated test suites, or preventing regressions.",
+      "version": "5.0.0",
+      "group": "Group B",
+      "domain": "Architecture & AI Agents",
+      "path": ".agents/skills/dex-testing-engineering/SKILL.md",
+      "related_skills": [
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-agent-engineering",
+      "index": 17,
+      "name": "dex-agent-engineering",
+      "description": "Autonomous AI coding agent behavior regulation, self-planning, bounded autonomous execution, and transparent verification reporting. Governs AI autonomy with the 4 Core Agent Principles. Use when designing agent prompts, regulating autonomous behaviors, or establishing agent execution boundaries.",
+      "version": "5.0.0",
+      "group": "Group B",
+      "domain": "Architecture & AI Agents",
+      "path": ".agents/skills/dex-agent-engineering/SKILL.md",
+      "related_skills": [
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-multi-agent-orchestration",
+      "index": 18,
+      "name": "dex-multi-agent-orchestration",
+      "description": "Multi-agent coordination, role division, concurrent subagent task execution, cross-agent peer reviews, and conflict-free code integration. Prevents collision between autonomous agents. Use when orchestrating multiple specialized agents, running parallel engineering tracks, or conducting peer agent reviews.",
+      "version": "5.0.0",
+      "group": "Group B",
+      "domain": "Architecture & AI Agents",
+      "path": ".agents/skills/dex-multi-agent-orchestration/SKILL.md",
+      "related_skills": [
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-context-engineering",
+      "index": 19,
+      "name": "dex-context-engineering",
+      "description": "AI context optimization, persistent project memory architecture, documentation governance, and context relevance filtering. Establishes single sources of truth (AGENTS.md, SPEC.md, ARCHITECTURE.md, TASKS.md) to eliminate agent hallucination. Use when organizing project documentation, setting up agent context, or preventing memory drift.",
+      "version": "5.0.0",
+      "group": "Group B",
+      "domain": "Architecture & AI Agents",
+      "path": ".agents/skills/dex-context-engineering/SKILL.md",
+      "related_skills": [
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-specification-driven",
+      "index": 20,
+      "name": "dex-specification-driven",
+      "description": "Specification-Driven Development (SDD) methodology. Authors formal functional specifications, concrete acceptance criteria, edge-case matrices, and end-to-end traceability before coding starts. Eliminates requirements ambiguity. Use when starting new features, defining requirements, or establishing acceptance criteria.",
+      "version": "5.0.0",
+      "group": "Group B",
+      "domain": "Architecture & AI Agents",
+      "path": ".agents/skills/dex-specification-driven/SKILL.md",
+      "related_skills": [
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-change-impact-analysis",
+      "index": 21,
+      "name": "dex-change-impact-analysis",
+      "description": "Blast radius estimation, dependency mapping, regression risk assessment, and pre-modification impact analysis. Maps upstream and downstream dependencies before altering shared code. Use prior to refactoring, modifying shared utilities, altering database schemas, or changing public API signatures.",
+      "version": "5.0.0",
+      "group": "Group C",
+      "domain": "Production Engineering",
+      "path": ".agents/skills/dex-change-impact-analysis/SKILL.md",
+      "related_skills": [
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-dependency-management",
+      "index": 22,
+      "name": "dex-dependency-management",
+      "description": "Deterministic dependency management, lockfile synchronization, runtime environment isolation, vulnerability scanning, and package bloat auditing. Prevents dependency drift, phantom dependencies, and supply-chain attacks. Use when adding packages, upgrading dependencies, or resolving lockfile conflicts.",
+      "version": "5.0.0",
+      "group": "Group C",
+      "domain": "Production Engineering",
+      "path": ".agents/skills/dex-dependency-management/SKILL.md",
+      "related_skills": [
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-reliability-engineering",
+      "index": 23,
+      "name": "dex-reliability-engineering",
+      "description": "System resilience, fault tolerance, graceful degradation, circuit breakers, timeout deadlines, and exponential backoff retry patterns. Guarantees business continuity and recovery under network failure or third-party outages. Use when integrating third-party APIs, handling network calls, or designing fault-tolerant systems.",
+      "version": "5.0.0",
+      "group": "Group C",
+      "domain": "Production Engineering",
+      "path": ".agents/skills/dex-reliability-engineering/SKILL.md",
+      "related_skills": [
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-concurrency-state",
+      "index": 24,
+      "name": "dex-concurrency-state",
+      "description": "Concurrency control, distributed locks, race condition elimination, atomic state transitions, and deadlock prevention. Guarantees consistency under concurrent operations and high traffic. Use when managing shared mutable state, handling inventory deductions, or preventing double-spending.",
+      "version": "5.0.0",
+      "group": "Group C",
+      "domain": "Production Engineering",
+      "path": ".agents/skills/dex-concurrency-state/SKILL.md",
+      "related_skills": [
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-ux-accessibility",
+      "index": 25,
+      "name": "dex-ux-accessibility",
+      "description": "User experience (UX) engineering, responsive design, accessibility (a11y) compliance (WCAG 2.1 AA), semantic HTML, keyboard navigation, and interface states. Prevents unusable UI, layout shifts, and inaccessible components. Use when building UI components, conducting a11y audits, or optimizing responsive layouts.",
+      "version": "5.0.0",
+      "group": "Group C",
+      "domain": "Production Engineering",
+      "path": ".agents/skills/dex-ux-accessibility/SKILL.md",
+      "related_skills": [
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-feature-flags",
+      "index": 26,
+      "name": "dex-feature-flags",
+      "description": "Feature flags engineering, progressive delivery, staged canary rollouts, kill switches, and flag cleanup lifecycles. Decouples code deployment from feature release for zero-risk rollouts. Use when releasing high-risk features, conducting A/B experiments, or implementing instant kill-switches.",
+      "version": "5.0.0",
+      "group": "Group C",
+      "domain": "Production Engineering",
+      "path": ".agents/skills/dex-feature-flags/SKILL.md",
+      "related_skills": [
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-code-review",
+      "index": 27,
+      "name": "dex-code-review",
+      "description": "Comprehensive Git diff code review, Pull Request assessment, quality gate validation, and constructive feedback generation. Inspects diffs for correctness, security vulnerabilities, edge cases, and architectural compliance. Use before merging pull requests, auditing commits, or verifying peer agent code.",
+      "version": "5.0.0",
+      "group": "Group C",
+      "domain": "Production Engineering",
+      "path": ".agents/skills/dex-code-review/SKILL.md",
+      "related_skills": [
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-acceptance-testing",
+      "index": 28,
+      "name": "dex-acceptance-testing",
+      "description": "User Acceptance Testing (UAT), end-user journey simulation, acceptance criteria verification, and product acceptance reporting. Validates business value from the real user perspective. Use during product sign-offs, pre-delivery acceptance, or validating customer journey completeness.",
+      "version": "5.0.0",
+      "group": "Group C",
+      "domain": "Production Engineering",
+      "path": ".agents/skills/dex-acceptance-testing/SKILL.md",
+      "related_skills": [
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-software-maintenance",
+      "index": 29,
+      "name": "dex-software-maintenance",
+      "description": "Long-term software maintenance, application lifecycle management, dependency upgrade roadmaps, technical debt prioritization, and deprecation policies. Balances stability with modernization. Use when triaging maintenance backlogs, upgrading end-of-life runtimes, or managing multi-version roadmaps.",
+      "version": "5.0.0",
+      "group": "Group C",
+      "domain": "Production Engineering",
+      "path": ".agents/skills/dex-software-maintenance/SKILL.md",
+      "related_skills": [
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-end-to-end-engineering",
+      "index": 30,
+      "name": "dex-end-to-end-engineering",
+      "description": "Full-lifecycle end-to-end software engineering meta-workflow integrating all 29 DEX engineering skills. Guides software creation from raw idea to production operations, monitoring, and long-term maintenance. Use when building complete applications from scratch, orchestrating complex full-lifecycle projects, or managing end-to-end software delivery.",
+      "version": "5.0.0",
+      "group": "Group C",
+      "domain": "Production Engineering",
+      "path": ".agents/skills/dex-end-to-end-engineering/SKILL.md",
+      "related_skills": [
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-ui-component-contracts",
+      "index": 31,
+      "name": "dex-ui-component-contracts",
+      "description": "Define and enforce strict UI component contracts, TypeScript props interfaces, component state boundaries, and accessible slots. Use when architecting UI components, establishing design system primitives, or preventing component regressions.",
+      "version": "5.0.0",
+      "group": "Group D",
+      "domain": "Frontend Engineering",
+      "path": ".agents/skills/dex-ui-component-contracts/SKILL.md",
+      "related_skills": [
+        "dex-development-workflow",
+        "dex-code-verification",
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-design-system-tokens",
+      "index": 32,
+      "name": "dex-design-system-tokens",
+      "description": "Manage design system tokens, typography scales, color palettes, spacing units, and dark mode theming variables across web platforms. Use when implementing design systems, synchronizing Figma tokens, or standardizing UI themes.",
+      "version": "5.0.0",
+      "group": "Group D",
+      "domain": "Frontend Engineering",
+      "path": ".agents/skills/dex-design-system-tokens/SKILL.md",
+      "related_skills": [
+        "dex-development-workflow",
+        "dex-code-verification",
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-frontend-data-flow",
+      "index": 33,
+      "name": "dex-frontend-data-flow",
+      "description": "Architect unidirectional frontend state management, server cache synchronization, optimistic UI updates, and normalized client stores. Use when managing client-server state, configuring React Query/Zustand, or resolving frontend race conditions.",
+      "version": "5.0.0",
+      "group": "Group D",
+      "domain": "Frontend Engineering",
+      "path": ".agents/skills/dex-frontend-data-flow/SKILL.md",
+      "related_skills": [
+        "dex-development-workflow",
+        "dex-code-verification",
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-forms-and-validation",
+      "index": 34,
+      "name": "dex-forms-and-validation",
+      "description": "Build accessible, performant frontend forms with schema-based validation (Zod/Yup), controlled/uncontrolled inputs, dirty state tracking, and inline error feedback. Use when implementing user input forms, checkout flows, or complex form validation.",
+      "version": "5.0.0",
+      "group": "Group D",
+      "domain": "Frontend Engineering",
+      "path": ".agents/skills/dex-forms-and-validation/SKILL.md",
+      "related_skills": [
+        "dex-development-workflow",
+        "dex-code-verification",
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-routing-navigation",
+      "index": 35,
+      "name": "dex-routing-navigation",
+      "description": "Architect single-page and multi-page routing, route guards, nested layouts, scroll restoration, code-splitting, and deep linking. Use when designing navigation flows, implementing authentication guards, or optimizing route-level code splitting.",
+      "version": "5.0.0",
+      "group": "Group D",
+      "domain": "Frontend Engineering",
+      "path": ".agents/skills/dex-routing-navigation/SKILL.md",
+      "related_skills": [
+        "dex-development-workflow",
+        "dex-code-verification",
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-frontend-performance",
+      "index": 36,
+      "name": "dex-frontend-performance",
+      "description": "Profile and optimize Core Web Vitals (LCP, FID/INP, CLS), JavaScript bundle size, image assets, DOM size, and client-side rendering bottlenecks. Use when diagnosing slow page loads, poor Lighthouse scores, or sluggish frontend interactions.",
+      "version": "5.0.0",
+      "group": "Group D",
+      "domain": "Frontend Engineering",
+      "path": ".agents/skills/dex-frontend-performance/SKILL.md",
+      "related_skills": [
+        "dex-development-workflow",
+        "dex-code-verification",
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-ssr-seo-rendering",
+      "index": 37,
+      "name": "dex-ssr-seo-rendering",
+      "description": "Implement Server-Side Rendering (SSR), Static Site Generation (SSG), Incremental Static Regeneration (ISR), dynamic Open Graph metadata, structured JSON-LD, and hydration error eradication. Use when optimizing Next.js/Nuxt applications for search engines or resolving hydration mismatches.",
+      "version": "5.0.0",
+      "group": "Group D",
+      "domain": "Frontend Engineering",
+      "path": ".agents/skills/dex-ssr-seo-rendering/SKILL.md",
+      "related_skills": [
+        "dex-development-workflow",
+        "dex-code-verification",
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-internationalization",
+      "index": 38,
+      "name": "dex-internationalization",
+      "description": "Implement robust internationalization (i18n), localized number/currency formatting (L10n), pluralization rules, RTL layout support, and translation key management. Use when translating web applications, adapting currency formats, or implementing multi-language routing.",
+      "version": "5.0.0",
+      "group": "Group D",
+      "domain": "Frontend Engineering",
+      "path": ".agents/skills/dex-internationalization/SKILL.md",
+      "related_skills": [
+        "dex-development-workflow",
+        "dex-code-verification",
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-visual-regression",
+      "index": 39,
+      "name": "dex-visual-regression",
+      "description": "Automate visual regression testing, pixel-diff comparisons, responsive viewport snapshots, and UI baseline management with Playwright/Percy. Use when preventing unintended UI styling breakages or verifying design system refactors.",
+      "version": "5.0.0",
+      "group": "Group D",
+      "domain": "Frontend Engineering",
+      "path": ".agents/skills/dex-visual-regression/SKILL.md",
+      "related_skills": [
+        "dex-development-workflow",
+        "dex-code-verification",
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-browser-compatibility",
+      "index": 40,
+      "name": "dex-browser-compatibility",
+      "description": "Ensure cross-browser CSS and JavaScript compatibility across Chrome, Safari, Firefox, Edge, and iOS WebKit. Use when resolving Safari-specific layout bugs, configuring Browserslist/Autoprefixer, orPolyfilling modern APIs.",
+      "version": "5.0.0",
+      "group": "Group D",
+      "domain": "Frontend Engineering",
+      "path": ".agents/skills/dex-browser-compatibility/SKILL.md",
+      "related_skills": [
+        "dex-development-workflow",
+        "dex-code-verification",
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-domain-driven-design",
+      "index": 41,
+      "name": "dex-domain-driven-design",
+      "description": "Implement Domain-Driven Design (DDD) tactical patterns: Entities, Value Objects, Aggregates, Domain Events, Repositories, and Clean Architecture boundaries. Use when modeling complex business domains, refactoring bloated services, or isolating business logic from infrastructure.",
+      "version": "5.0.0",
+      "group": "Group E",
+      "domain": "Backend & Integration",
+      "path": ".agents/skills/dex-domain-driven-design/SKILL.md",
+      "related_skills": [
+        "dex-development-workflow",
+        "dex-code-verification",
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-background-job-queues",
+      "index": 42,
+      "name": "dex-background-job-queues",
+      "description": "Architect robust background job processing with message queues (BullMQ/Celery/Sidekiq), dead-letter queues (DLQ), rate limiting, worker concurrency, and progress tracking. Use when offloading slow tasks, sending bulk emails, or processing asynchronous workflows.",
+      "version": "5.0.0",
+      "group": "Group E",
+      "domain": "Backend & Integration",
+      "path": ".agents/skills/dex-background-job-queues/SKILL.md",
+      "related_skills": [
+        "dex-development-workflow",
+        "dex-code-verification",
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-caching-strategies",
+      "index": 43,
+      "name": "dex-caching-strategies",
+      "description": "Implement multi-layer caching strategies (Cache-Aside, Write-Through, Write-Behind), TTL expirations, cache stampede mitigation, and Redis clustering. Use when reducing database read load, accelerating latency-critical endpoints, or avoiding thundering herds.",
+      "version": "5.0.0",
+      "group": "Group E",
+      "domain": "Backend & Integration",
+      "path": ".agents/skills/dex-caching-strategies/SKILL.md",
+      "related_skills": [
+        "dex-development-workflow",
+        "dex-code-verification",
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-realtime-protocols",
+      "index": 44,
+      "name": "dex-realtime-protocols",
+      "description": "Architect realtime communication protocols (WebSockets, Server-Sent Events, WebRTC, Long Polling), connection lifecycles, heartbeat pings, and reconnection backoffs. Use when implementing live chats, real-time dashboards, or collaborative tools.",
+      "version": "5.0.0",
+      "group": "Group E",
+      "domain": "Backend & Integration",
+      "path": ".agents/skills/dex-realtime-protocols/SKILL.md",
+      "related_skills": [
+        "dex-development-workflow",
+        "dex-code-verification",
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-file-processing",
+      "index": 45,
+      "name": "dex-file-processing",
+      "description": "Implement streaming multipart file uploads, chunked uploads, magic-byte validation, secure cloud storage (S3/GCS), and virus scanning. Use when handling file uploads, processing large datasets, or securing document storage.",
+      "version": "5.0.0",
+      "group": "Group E",
+      "domain": "Backend & Integration",
+      "path": ".agents/skills/dex-file-processing/SKILL.md",
+      "related_skills": [
+        "dex-development-workflow",
+        "dex-code-verification",
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-search-engineering",
+      "index": 46,
+      "name": "dex-search-engineering",
+      "description": "Design full-text search, semantic search, inverted index optimization, faceted filtering, and autocomplete using Elasticsearch, Meilisearch, or PostgreSQL tsvector. Use when implementing search bars, faceted filters, or ranking search results.",
+      "version": "5.0.0",
+      "group": "Group E",
+      "domain": "Backend & Integration",
+      "path": ".agents/skills/dex-search-engineering/SKILL.md",
+      "related_skills": [
+        "dex-development-workflow",
+        "dex-code-verification",
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-event-driven-architecture",
+      "index": 47,
+      "name": "dex-event-driven-architecture",
+      "description": "Architect event-driven distributed systems, pub/sub topologies, event schemas, Outbox Pattern, message brokers (Kafka/RabbitMQ), and consumer error handling. Use when decoupling services, processing domain events, or ensuring reliable event delivery.",
+      "version": "5.0.0",
+      "group": "Group E",
+      "domain": "Backend & Integration",
+      "path": ".agents/skills/dex-event-driven-architecture/SKILL.md",
+      "related_skills": [
+        "dex-development-workflow",
+        "dex-code-verification",
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-idempotent-operations",
+      "index": 48,
+      "name": "dex-idempotent-operations",
+      "description": "Design strictly idempotent API endpoints, distributed idempotency keys, duplicate request filtering, and atomic token reservations. Use when processing payments, money transfers, external webhooks, or preventing double-charge operations.",
+      "version": "5.0.0",
+      "group": "Group E",
+      "domain": "Backend & Integration",
+      "path": ".agents/skills/dex-idempotent-operations/SKILL.md",
+      "related_skills": [
+        "dex-development-workflow",
+        "dex-code-verification",
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-notification-delivery",
+      "index": 49,
+      "name": "dex-notification-delivery",
+      "description": "Architect multi-channel notification systems (Email, SMS, Push, In-app), dynamic templating, delivery providers (SendGrid/Twilio/FCM), rate limiting, and failure fallbacks. Use when dispatching alerts, transactional messages, or multi-channel notifications.",
+      "version": "5.0.0",
+      "group": "Group E",
+      "domain": "Backend & Integration",
+      "path": ".agents/skills/dex-notification-delivery/SKILL.md",
+      "related_skills": [
+        "dex-development-workflow",
+        "dex-code-verification",
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-scheduled-workflows",
+      "index": 50,
+      "name": "dex-scheduled-workflows",
+      "description": "Architect scheduled cron workflows, distributed recurring jobs, time-zone handling, missed-execution recovery, and distributed schedule locks. Use when scheduling periodic jobs, daily reports, data aggregations, or cleanup routines.",
+      "version": "5.0.0",
+      "group": "Group E",
+      "domain": "Backend & Integration",
+      "path": ".agents/skills/dex-scheduled-workflows/SKILL.md",
+      "related_skills": [
+        "dex-development-workflow",
+        "dex-code-verification",
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-data-contracts",
+      "index": 51,
+      "name": "dex-data-contracts",
+      "description": "Define and enforce data contracts between data producers and data consumers, schema validation, semantic change alerts, and SLA guarantees. Use when establishing data contracts, preventing upstream breaking schema changes, or governing data pipelines.",
+      "version": "5.0.0",
+      "group": "Group F",
+      "domain": "Data Engineering",
+      "path": ".agents/skills/dex-data-contracts/SKILL.md",
+      "related_skills": [
+        "dex-development-workflow",
+        "dex-code-verification",
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-data-pipelines",
+      "index": 52,
+      "name": "dex-data-pipelines",
+      "description": "Architect scalable data pipelines, batch ETL/ELT workflows, stream processing (Kafka/Spark/Flink), idempotent data transformations, and stateful DAGs with Airflow/Dagster. Use when building data extraction, transformation, ingestion, or analytics pipelines.",
+      "version": "5.0.0",
+      "group": "Group F",
+      "domain": "Data Engineering",
+      "path": ".agents/skills/dex-data-pipelines/SKILL.md",
+      "related_skills": [
+        "dex-development-workflow",
+        "dex-code-verification",
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-data-quality-audits",
+      "index": 53,
+      "name": "dex-data-quality-audits",
+      "description": "Implement automated data quality testing, Great Expectations suites, anomaly detection, nullability audits, and statistical distributions. Use when verifying data integrity, detecting corrupt datasets, or setting up data pipeline tests.",
+      "version": "5.0.0",
+      "group": "Group F",
+      "domain": "Data Engineering",
+      "path": ".agents/skills/dex-data-quality-audits/SKILL.md",
+      "related_skills": [
+        "dex-development-workflow",
+        "dex-code-verification",
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-data-lineage",
+      "index": 54,
+      "name": "dex-data-lineage",
+      "description": "Track and visualize data lineage, metadata graphs, column-level provenance, impact analysis, and OpenLineage/Marquez integrations. Use when mapping data dependencies, auditing data origin, or assessing data pipeline impact.",
+      "version": "5.0.0",
+      "group": "Group F",
+      "domain": "Data Engineering",
+      "path": ".agents/skills/dex-data-lineage/SKILL.md",
+      "related_skills": [
+        "dex-development-workflow",
+        "dex-code-verification",
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-schema-evolution",
+      "index": 55,
+      "name": "dex-schema-evolution",
+      "description": "Manage backward and forward schema evolution for Avro, Protobuf, JSON Schema, and relational databases. Enforces compatibility rules (FULL, BACKWARD, FORWARD) with Schema Registries. Use when modifying event schemas, updating serialization contracts, or evolving APIs.",
+      "version": "5.0.0",
+      "group": "Group F",
+      "domain": "Data Engineering",
+      "path": ".agents/skills/dex-schema-evolution/SKILL.md",
+      "related_skills": [
+        "dex-development-workflow",
+        "dex-code-verification",
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-database-query-plans",
+      "index": 56,
+      "name": "dex-database-query-plans",
+      "description": "Analyze and optimize database execution plans using EXPLAIN ANALYZE, detect Seq Scans, eliminate temporary spills, tune index strategies, and benchmark SQL queries. Use when diagnosing slow queries, optimizing database CPU load, or tuning complex SQL joins.",
+      "version": "5.0.0",
+      "group": "Group F",
+      "domain": "Data Engineering",
+      "path": ".agents/skills/dex-database-query-plans/SKILL.md",
+      "related_skills": [
+        "dex-development-workflow",
+        "dex-code-verification",
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-storage-lifecycle",
+      "index": 57,
+      "name": "dex-storage-lifecycle",
+      "description": "Architect object storage tiering, lifecycle transition policies, cold-storage archiving (Glacier/Archive), and multipart retention on AWS S3 / Cloudflare R2. Use when optimizing cloud storage costs, archiving historical data, or automating bucket lifecycles.",
+      "version": "5.0.0",
+      "group": "Group F",
+      "domain": "Data Engineering",
+      "path": ".agents/skills/dex-storage-lifecycle/SKILL.md",
+      "related_skills": [
+        "dex-development-workflow",
+        "dex-code-verification",
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-data-retention",
+      "index": 58,
+      "name": "dex-data-retention",
+      "description": "Implement data retention policies, automated PII data purging, soft-delete lifecycles, hard-delete schedules, and GDPR/CCPA right-to-be-forgotten compliance. Use when enforcing regulatory retention, purging stale audit logs, or cleaning up user data.",
+      "version": "5.0.0",
+      "group": "Group F",
+      "domain": "Data Engineering",
+      "path": ".agents/skills/dex-data-retention/SKILL.md",
+      "related_skills": [
+        "dex-development-workflow",
+        "dex-code-verification",
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-capacity-planning",
+      "index": 59,
+      "name": "dex-capacity-planning",
+      "description": "Calculate infrastructure resource forecasting, load modeling, database IOPS projection, horizontal autoscaling thresholds, and peak traffic planning. Use when sizing cloud servers, preparing for flash sales, or projecting infrastructure scaling.",
+      "version": "5.0.0",
+      "group": "Group F",
+      "domain": "Data Engineering",
+      "path": ".agents/skills/dex-capacity-planning/SKILL.md",
+      "related_skills": [
+        "dex-development-workflow",
+        "dex-code-verification",
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-disaster-recovery",
+      "index": 60,
+      "name": "dex-disaster-recovery",
+      "description": "Architect Disaster Recovery (DR) strategies, RPO/RTO SLAs, multi-region replication, automated database failover, and cold/warm backup drills. Use when planning business continuity, configuring multi-region failovers, or validating backup restores.",
+      "version": "5.0.0",
+      "group": "Group F",
+      "domain": "Data Engineering",
+      "path": ".agents/skills/dex-disaster-recovery/SKILL.md",
+      "related_skills": [
+        "dex-development-workflow",
+        "dex-code-verification",
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-llm-integration",
+      "index": 61,
+      "name": "dex-llm-integration",
+      "description": "Integrate Large Language Model APIs (OpenAI, Anthropic, Gemini, local Ollama), structured JSON outputs, streaming responses, fallback model routing, and token usage optimization. Use when integrating LLM endpoints, enforcing schema outputs, or building AI-powered features.",
+      "version": "5.0.0",
+      "group": "Group G",
+      "domain": "AI & LLM Engineering",
+      "path": ".agents/skills/dex-llm-integration/SKILL.md",
+      "related_skills": [
+        "dex-development-workflow",
+        "dex-code-verification",
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-rag-pipelines",
+      "index": 62,
+      "name": "dex-rag-pipelines",
+      "description": "Architect Retrieval-Augmented Generation (RAG) pipelines, semantic chunking strategies, vector embeddings, hybrid search (dense + sparse BM25), re-ranking, and context window assembly. Use when building question-answering systems, enterprise knowledge bases, or document search.",
+      "version": "5.0.0",
+      "group": "Group G",
+      "domain": "AI & LLM Engineering",
+      "path": ".agents/skills/dex-rag-pipelines/SKILL.md",
+      "related_skills": [
+        "dex-development-workflow",
+        "dex-code-verification",
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-retrieval-evaluation",
+      "index": 63,
+      "name": "dex-retrieval-evaluation",
+      "description": "Evaluate information retrieval quality in RAG systems using Hit Rate, Mean Reciprocal Rank (MRR), NDCG, Context Relevance, and Ragas metrics. Use when benchmarking search algorithms, evaluating embedding models, or tuning vector retrieval.",
+      "version": "5.0.0",
+      "group": "Group G",
+      "domain": "AI & LLM Engineering",
+      "path": ".agents/skills/dex-retrieval-evaluation/SKILL.md",
+      "related_skills": [
+        "dex-development-workflow",
+        "dex-code-verification",
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-prompt-evaluation",
+      "index": 64,
+      "name": "dex-prompt-evaluation",
+      "description": "Systematic prompt engineering, automated prompt evaluation, regression testing for prompts, few-shot optimization, and LLM-as-a-judge scoring frameworks. Use when refining prompt templates, preventing prompt regressions, or validating output quality.",
+      "version": "5.0.0",
+      "group": "Group G",
+      "domain": "AI & LLM Engineering",
+      "path": ".agents/skills/dex-prompt-evaluation/SKILL.md",
+      "related_skills": [
+        "dex-development-workflow",
+        "dex-code-verification",
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-model-evaluation",
+      "index": 65,
+      "name": "dex-model-evaluation",
+      "description": "Benchmark and evaluate foundation LLMs and fine-tuned models on task-specific datasets, measuring accuracy, latency, cost per token, and hallucination rates. Use when selecting LLM providers, validating model upgrades, or comparing fine-tuned models.",
+      "version": "5.0.0",
+      "group": "Group G",
+      "domain": "AI & LLM Engineering",
+      "path": ".agents/skills/dex-model-evaluation/SKILL.md",
+      "related_skills": [
+        "dex-development-workflow",
+        "dex-code-verification",
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-tool-calling-contracts",
+      "index": 66,
+      "name": "dex-tool-calling-contracts",
+      "description": "Define and validate JSON Schema tool-calling contracts for LLMs, handle multi-tool orchestration, validate parameter schemas, and safely parse tool execution results. Use when equipping AI agents with function calling, database tools, or API execution capabilities.",
+      "version": "5.0.0",
+      "group": "Group G",
+      "domain": "AI & LLM Engineering",
+      "path": ".agents/skills/dex-tool-calling-contracts/SKILL.md",
+      "related_skills": [
+        "dex-development-workflow",
+        "dex-code-verification",
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-agent-permissions",
+      "index": 67,
+      "name": "dex-agent-permissions",
+      "description": "Establish least-privilege security boundaries, human-in-the-loop authorization gates, tool execution sandboxes, and audit logs for autonomous AI agents. Use when restricting agent autonomy, securing tool execution, or gating destructive actions.",
+      "version": "5.0.0",
+      "group": "Group G",
+      "domain": "AI & LLM Engineering",
+      "path": ".agents/skills/dex-agent-permissions/SKILL.md",
+      "related_skills": [
+        "dex-development-workflow",
+        "dex-code-verification",
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-llm-cost-controls",
+      "index": 68,
+      "name": "dex-llm-cost-controls",
+      "description": "Implement LLM token budgeting, semantic caching (GPTCache), cost tracking, rate limiting, and model fallback cascades to optimize API spend. Use when preventing unexpected LLM bills, monitoring token consumption, or enforcing tenant quotas.",
+      "version": "5.0.0",
+      "group": "Group G",
+      "domain": "AI & LLM Engineering",
+      "path": ".agents/skills/dex-llm-cost-controls/SKILL.md",
+      "related_skills": [
+        "dex-development-workflow",
+        "dex-code-verification",
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-ai-observability",
+      "index": 69,
+      "name": "dex-ai-observability",
+      "description": "Implement comprehensive AI observability, OpenTelemetry tracing, LLM spans, token metrics, prompt/completion logging, and Langfuse/Arize integrations. Use when debugging AI agent workflows, tracing complex chains, or monitoring production LLMs.",
+      "version": "5.0.0",
+      "group": "Group G",
+      "domain": "AI & LLM Engineering",
+      "path": ".agents/skills/dex-ai-observability/SKILL.md",
+      "related_skills": [
+        "dex-development-workflow",
+        "dex-code-verification",
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-dataset-curation",
+      "index": 70,
+      "name": "dex-dataset-curation",
+      "description": "Curate, clean, deduplicate, filter, and synthesize high-quality training and evaluation datasets for LLM fine-tuning and domain adaptation. Use when preparing fine-tuning data, removing contaminated samples, or curating synthetic datasets.",
+      "version": "5.0.0",
+      "group": "Group G",
+      "domain": "AI & LLM Engineering",
+      "path": ".agents/skills/dex-dataset-curation/SKILL.md",
+      "related_skills": [
+        "dex-development-workflow",
+        "dex-code-verification",
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-repository-bootstrap",
+      "index": 71,
+      "name": "dex-repository-bootstrap",
+      "description": "Scaffold production-grade software repositories from scratch with standardized directory layouts, linting, formatting, pre-commit hooks, CI templates, license, editorconfig, and reproducible dev environments. Use when initializing a new project or standardizing repo templates.",
+      "version": "5.0.0",
+      "group": "Group H",
+      "domain": "Developer Experience",
+      "path": ".agents/skills/dex-repository-bootstrap/SKILL.md",
+      "related_skills": [
+        "dex-development-workflow",
+        "dex-code-verification",
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-monorepo-governance",
+      "index": 72,
+      "name": "dex-monorepo-governance",
+      "description": "Govern monorepo architectures, workspace dependencies, isolated package boundaries, task caching pipelines (Nx/Turborepo), affected graph builds, and cross-package versioning. Use when structuring, managing, or optimizing multi-package monorepos.",
+      "version": "5.0.0",
+      "group": "Group H",
+      "domain": "Developer Experience",
+      "path": ".agents/skills/dex-monorepo-governance/SKILL.md",
+      "related_skills": [
+        "dex-development-workflow",
+        "dex-code-verification",
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-cli-engineering",
+      "index": 73,
+      "name": "dex-cli-engineering",
+      "description": "Engineer industrial-grade command-line interfaces (CLIs), argument parsing, interactive terminal UX, POSIX flag conventions, exit code semantics, structured stdout/stderr, and auto-completion. Use when developing developer tools, automation scripts, or CLI utilities.",
+      "version": "5.0.0",
+      "group": "Group H",
+      "domain": "Developer Experience",
+      "path": ".agents/skills/dex-cli-engineering/SKILL.md",
+      "related_skills": [
+        "dex-development-workflow",
+        "dex-code-verification",
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-plugin-architecture",
+      "index": 74,
+      "name": "dex-plugin-architecture",
+      "description": "Architect extensible plugin systems, micro-kernel architectures, extension lifecycle hooks, manifest specifications, sandboxed runtime execution, and dynamic loading. Use when designing extensibility layers for platforms or developer tools.",
+      "version": "5.0.0",
+      "group": "Group H",
+      "domain": "Developer Experience",
+      "path": ".agents/skills/dex-plugin-architecture/SKILL.md",
+      "related_skills": [
+        "dex-development-workflow",
+        "dex-code-verification",
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-cross-platform-portability",
+      "index": 75,
+      "name": "dex-cross-platform-portability",
+      "description": "Achieve cross-platform portability across Windows, Linux, and macOS, addressing POSIX vs Windows paths, line endings (CRLF vs LF), shell differences, file system case sensitivity, and environment variable handling. Use when ensuring applications run reliably across OS targets.",
+      "version": "5.0.0",
+      "group": "Group H",
+      "domain": "Developer Experience",
+      "path": ".agents/skills/dex-cross-platform-portability/SKILL.md",
+      "related_skills": [
+        "dex-development-workflow",
+        "dex-code-verification",
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-windows-packaging",
+      "index": 76,
+      "name": "dex-windows-packaging",
+      "description": "Package and distribute applications for Windows environments, automating MSIX/InnoSetup builds, WinGet manifest publication, code signing with Authenticode, PowerShell automation scripts, and Windows Service management. Use when targeting Windows enterprise or desktop deployment.",
+      "version": "5.0.0",
+      "group": "Group H",
+      "domain": "Developer Experience",
+      "path": ".agents/skills/dex-windows-packaging/SKILL.md",
+      "related_skills": [
+        "dex-development-workflow",
+        "dex-code-verification",
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-documentation-as-code",
+      "index": 77,
+      "name": "dex-documentation-as-code",
+      "description": "Manage technical documentation as code, maintaining Architecture Decision Records (ADR), executable docs, doctests, OpenAPI specs, Mermaid diagrams, and automated doc generation pipelines. Use when documenting architectures, APIs, or engineering practices.",
+      "version": "5.0.0",
+      "group": "Group H",
+      "domain": "Developer Experience",
+      "path": ".agents/skills/dex-documentation-as-code/SKILL.md",
+      "related_skills": [
+        "dex-development-workflow",
+        "dex-code-verification",
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-code-generation",
+      "index": 78,
+      "name": "dex-code-generation",
+      "description": "Design deterministic code generators, AST transformations, scaffolding engines (Plop/Hygen), schema-driven codegen (OpenAPI/Protobuf to client SDKs), and macro systems. Use when eliminating boilerplate, generating typed clients, or automating repetitive patterns.",
+      "version": "5.0.0",
+      "group": "Group H",
+      "domain": "Developer Experience",
+      "path": ".agents/skills/dex-code-generation/SKILL.md",
+      "related_skills": [
+        "dex-development-workflow",
+        "dex-code-verification",
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-developer-tooling",
+      "index": 79,
+      "name": "dex-developer-tooling",
+      "description": "Configure developer tooling, Devcontainers, Nix/Mise environments, Git hooks (Lefthook), editor integration (VS Code / Neovim), language server protocol (LSP), and debug configurations. Use when optimizing developer inner loop and local setup.",
+      "version": "5.0.0",
+      "group": "Group H",
+      "domain": "Developer Experience",
+      "path": ".agents/skills/dex-developer-tooling/SKILL.md",
+      "related_skills": [
+        "dex-development-workflow",
+        "dex-code-verification",
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-semantic-version-automation",
+      "index": 80,
+      "name": "dex-semantic-version-automation",
+      "description": "Automate Semantic Versioning (SemVer 2.0.0), Conventional Commits parsing, automated changelog generation, release tagging, and package publication pipelines. Use when automating releases, version bumps, or maintaining changelogs.",
+      "version": "5.0.0",
+      "group": "Group H",
+      "domain": "Developer Experience",
+      "path": ".agents/skills/dex-semantic-version-automation/SKILL.md",
+      "related_skills": [
+        "dex-development-workflow",
+        "dex-code-verification",
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-auth-session-lifecycle",
+      "index": 81,
+      "name": "dex-auth-session-lifecycle",
+      "description": "Implement robust authentication and session lifecycle management, JWT issuance and validation, refresh token rotation, revocation blacklists, CSRF/CORS defenses, and session hijacking mitigations. Use when securing user authentication, login flows, or session states.",
+      "version": "5.0.0",
+      "group": "Group I",
+      "domain": "Security & Reliability",
+      "path": ".agents/skills/dex-auth-session-lifecycle/SKILL.md",
+      "related_skills": [
+        "dex-development-workflow",
+        "dex-code-verification",
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-access-control-tenancy",
+      "index": 82,
+      "name": "dex-access-control-tenancy",
+      "description": "Implement fine-grained access control, Role-Based Access Control (RBAC), Attribute-Based Access Control (ABAC), multi-tenant data isolation, row-level security (RLS), and tenant scoping policies. Use when implementing permissions, authorization, or multi-tenancy.",
+      "version": "5.0.0",
+      "group": "Group I",
+      "domain": "Security & Reliability",
+      "path": ".agents/skills/dex-access-control-tenancy/SKILL.md",
+      "related_skills": [
+        "dex-development-workflow",
+        "dex-code-verification",
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-secrets-management",
+      "index": 83,
+      "name": "dex-secrets-management",
+      "description": "Manage application secrets, zero-hardcoded credentials policy, secret rotation, HashiCorp Vault / AWS Secrets Manager integration, runtime secret injection, and pre-commit leak detection. Use when handling sensitive credentials, API keys, or certificates.",
+      "version": "5.0.0",
+      "group": "Group I",
+      "domain": "Security & Reliability",
+      "path": ".agents/skills/dex-secrets-management/SKILL.md",
+      "related_skills": [
+        "dex-development-workflow",
+        "dex-code-verification",
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-supply-chain-security",
+      "index": 84,
+      "name": "dex-supply-chain-security",
+      "description": "Secure software supply chain, Software Bill of Materials (SBOM) generation, dependency pinning and auditing, vulnerable package mitigation, container base image scanning, and build provenance with SLSA. Use when auditing third-party dependencies or securing CI/CD builds.",
+      "version": "5.0.0",
+      "group": "Group I",
+      "domain": "Security & Reliability",
+      "path": ".agents/skills/dex-supply-chain-security/SKILL.md",
+      "related_skills": [
+        "dex-development-workflow",
+        "dex-code-verification",
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-threat-modeling",
+      "index": 85,
+      "name": "dex-threat-modeling",
+      "description": "Conduct structured threat modeling, STRIDE analysis, attack surface mapping, abuse case definition, security control mapping, and risk prioritization. Use when designing new architectures, major feature additions, or security evaluations.",
+      "version": "5.0.0",
+      "group": "Group I",
+      "domain": "Security & Reliability",
+      "path": ".agents/skills/dex-threat-modeling/SKILL.md",
+      "related_skills": [
+        "dex-development-workflow",
+        "dex-code-verification",
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-property-based-testing",
+      "index": 86,
+      "name": "dex-property-based-testing",
+      "description": "Implement property-based testing, generative fuzzing, system invariant verification with Hypothesis / fast-check / QuickCheck, edge-case discovery, and test case shrinking. Use when verifying complex algorithms, data serializers, or domain invariants.",
+      "version": "5.0.0",
+      "group": "Group I",
+      "domain": "Security & Reliability",
+      "path": ".agents/skills/dex-property-based-testing/SKILL.md",
+      "related_skills": [
+        "dex-development-workflow",
+        "dex-code-verification",
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-chaos-experiments",
+      "index": 87,
+      "name": "dex-chaos-experiments",
+      "description": "Design and execute chaos engineering experiments, fault injection, latency simulation, network partitions, circuit breaker verification, and resilience validation. Use when validating system fault tolerance, high availability, or disaster scenarios.",
+      "version": "5.0.0",
+      "group": "Group I",
+      "domain": "Security & Reliability",
+      "path": ".agents/skills/dex-chaos-experiments/SKILL.md",
+      "related_skills": [
+        "dex-development-workflow",
+        "dex-code-verification",
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-experimentation-metrics",
+      "index": 88,
+      "name": "dex-experimentation-metrics",
+      "description": "Architect feature flagging, experimentation platforms, A/B testing infrastructure, statistical significance evaluation, rollout strategies (canary/percentage), and metric telemetry. Use when launching new features, running experiments, or canary rollouts.",
+      "version": "5.0.0",
+      "group": "Group I",
+      "domain": "Security & Reliability",
+      "path": ".agents/skills/dex-experimentation-metrics/SKILL.md",
+      "related_skills": [
+        "dex-development-workflow",
+        "dex-code-verification",
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-api-contract-evolution",
+      "index": 89,
+      "name": "dex-api-contract-evolution",
+      "description": "Manage API contract evolution, backward compatibility guarantees, schema diffing, deprecation policies, sunset headers, migration adapters, and versioning strategies. Use when modifying existing APIs, deprecating endpoints, or introducing breaking changes.",
+      "version": "5.0.0",
+      "group": "Group I",
+      "domain": "Security & Reliability",
+      "path": ".agents/skills/dex-api-contract-evolution/SKILL.md",
+      "related_skills": [
+        "dex-development-workflow",
+        "dex-code-verification",
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-incident-postmortems",
+      "index": 90,
+      "name": "dex-incident-postmortems",
+      "description": "Facilitate blameless incident postmortems, timeline reconstruction, root cause analysis (5 Whys / Fishbone), corrective action item tracking, SLA/SLO impact calculation, and post-incident learning reviews. Use when analyzing production incidents or outages.",
+      "version": "5.0.0",
+      "group": "Group I",
+      "domain": "Security & Reliability",
+      "path": ".agents/skills/dex-incident-postmortems/SKILL.md",
+      "related_skills": [
+        "dex-development-workflow",
+        "dex-code-verification",
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-container-image-engineering",
+      "index": 91,
+      "name": "dex-container-image-engineering",
+      "description": "Engineer production-grade, secure, minimal container images using multi-stage builds, non-root users, distroless/alpine bases, reproducible layers, SBOM generation (Syft), and vulnerability scanning (Trivy). Use when containerizing applications or optimizing container security and size.",
+      "version": "5.0.0",
+      "group": "Group J",
+      "domain": "Cloud & Infrastructure",
+      "path": ".agents/skills/dex-container-image-engineering/SKILL.md",
+      "related_skills": [
+        "dex-kubernetes-deployment",
+        "dex-cicd-automation",
+        "dex-supply-chain-security"
+      ]
+    },
+    {
+      "id": "dex-kubernetes-deployment",
+      "index": 92,
+      "name": "dex-kubernetes-deployment",
+      "description": "Design, deploy, and manage production Kubernetes workloads including Deployments, StatefulSets, DaemonSets, resource requests/limits, liveness/readiness/startup probes, PodDisruptionBudgets, and rolling updates. Use when deploying or hardening apps on Kubernetes.",
+      "version": "5.0.0",
+      "group": "Group J",
+      "domain": "Cloud & Infrastructure",
+      "path": ".agents/skills/dex-kubernetes-deployment/SKILL.md",
+      "related_skills": [
+        "dex-container-image-engineering",
+        "dex-zero-downtime-rollouts",
+        "dex-slo-error-budgets"
+      ]
+    },
+    {
+      "id": "dex-infrastructure-as-code",
+      "index": 93,
+      "name": "dex-infrastructure-as-code",
+      "description": "Manage cloud and system resources declaratively using Terraform, OpenTofu, or Pulumi with remote state locking, modular design, drift detection, checkov security scanning, and strict plan validation. Use when provisioning, updating, or auditing cloud infrastructure.",
+      "version": "5.0.0",
+      "group": "Group J",
+      "domain": "Cloud & Infrastructure",
+      "path": ".agents/skills/dex-infrastructure-as-code/SKILL.md",
+      "related_skills": [
+        "dex-cloud-service-integration",
+        "dex-configuration-drift",
+        "dex-secrets-management"
+      ]
+    },
+    {
+      "id": "dex-cloud-service-integration",
+      "index": 94,
+      "name": "dex-cloud-service-integration",
+      "description": "Integrate application services securely with managed cloud resources (IAM, S3/GCS, SQS/PubSub, RDS, DynamoDB/Firestore) using Workload Identity Federation, exponential backoff, and least privilege access. Use when connecting code to cloud provider services.",
+      "version": "5.0.0",
+      "group": "Group J",
+      "domain": "Cloud & Infrastructure",
+      "path": ".agents/skills/dex-cloud-service-integration/SKILL.md",
+      "related_skills": [
+        "dex-infrastructure-as-code",
+        "dex-secrets-management",
+        "dex-resilience-engineering"
+      ]
+    },
+    {
+      "id": "dex-zero-downtime-rollouts",
+      "index": 95,
+      "name": "dex-zero-downtime-rollouts",
+      "description": "Execute blue-green, canary, and progressive rollouts using Argo Rollouts, Flagger, or ingress traffic shifting with automated metric analysis, health checks, and instant rollbacks. Use when deploying critical services without customer interruption.",
+      "version": "5.0.0",
+      "group": "Group J",
+      "domain": "Cloud & Infrastructure",
+      "path": ".agents/skills/dex-zero-downtime-rollouts/SKILL.md",
+      "related_skills": [
+        "dex-service-mesh-networking",
+        "dex-slo-error-budgets",
+        "dex-incident-postmortems"
+      ]
+    },
+    {
+      "id": "dex-service-mesh-networking",
+      "index": 96,
+      "name": "dex-service-mesh-networking",
+      "description": "Architect and operate service mesh networking (Istio, Linkerd, Envoy) with mutual TLS (mTLS), fine-grained traffic routing, circuit breaking, fault injection, and telemetry. Use when securing and managing inter-service microservice communications.",
+      "version": "5.0.0",
+      "group": "Group J",
+      "domain": "Cloud & Infrastructure",
+      "path": ".agents/skills/dex-service-mesh-networking/SKILL.md",
+      "related_skills": [
+        "dex-zero-downtime-rollouts",
+        "dex-distributed-tracing",
+        "dex-network-troubleshooting"
+      ]
+    },
+    {
+      "id": "dex-network-troubleshooting",
+      "index": 97,
+      "name": "dex-network-troubleshooting",
+      "description": "Troubleshoot and diagnose network connectivity, DNS resolution, TLS certificates, TCP handshake states, HTTP latency, and packet drops using tcpdump, curl, dig, traceroute, and netstat. Use when debugging distributed networking and connectivity failures.",
+      "version": "5.0.0",
+      "group": "Group J",
+      "domain": "Cloud & Infrastructure",
+      "path": ".agents/skills/dex-network-troubleshooting/SKILL.md",
+      "related_skills": [
+        "dex-root-cause-debugging",
+        "dex-service-mesh-networking",
+        "dex-incident-postmortems"
+      ]
+    },
+    {
+      "id": "dex-slo-error-budgets",
+      "index": 98,
+      "name": "dex-slo-error-budgets",
+      "description": "Define, track, and operationalize Service Level Indicators (SLIs), Service Level Objectives (SLOs), Error Budgets, and multi-window burn rate alerts. Use when establishing reliability targets or driving deployment freeze policies.",
+      "version": "5.0.0",
+      "group": "Group J",
+      "domain": "Cloud & Infrastructure",
+      "path": ".agents/skills/dex-slo-error-budgets/SKILL.md",
+      "related_skills": [
+        "dex-production-monitoring",
+        "dex-incident-postmortems",
+        "dex-zero-downtime-rollouts"
+      ]
+    },
+    {
+      "id": "dex-distributed-tracing",
+      "index": 99,
+      "name": "dex-distributed-tracing",
+      "description": "Implement distributed tracing using OpenTelemetry (OTel), W3C tracecontext propagation, span lifecycle instrumentation, baggage attributes, and bottleneck latency analysis. Use when diagnosing latency issues across microservices.",
+      "version": "5.0.0",
+      "group": "Group J",
+      "domain": "Cloud & Infrastructure",
+      "path": ".agents/skills/dex-distributed-tracing/SKILL.md",
+      "related_skills": [
+        "dex-ai-observability",
+        "dex-performance-optimization",
+        "dex-slo-error-budgets"
+      ]
+    },
+    {
+      "id": "dex-cloud-cost-finops",
+      "index": 100,
+      "name": "dex-cloud-cost-finops",
+      "description": "Analyze, attribute, and optimize cloud infrastructure costs using FinOps principles, resource right-sizing, idle asset reclamation, spot/savings plan strategies, and unit economics. Use when managing, reducing, or forecasting cloud spend.",
+      "version": "5.0.0",
+      "group": "Group J",
+      "domain": "Cloud & Infrastructure",
+      "path": ".agents/skills/dex-cloud-cost-finops/SKILL.md",
+      "related_skills": [
+        "dex-infrastructure-as-code",
+        "dex-capacity-planning",
+        "dex-storage-lifecycle"
+      ]
+    },
+    {
+      "id": "dex-android-app-architecture",
+      "index": 101,
+      "name": "dex-android-app-architecture",
+      "description": "Architect scalable, robust Android applications using MVVM/MVI, Jetpack Compose, Kotlin Coroutines & StateFlow, Room database, and Hilt dependency injection. Use when building or refactoring modern Android applications.",
+      "version": "5.0.0",
+      "group": "Group K",
+      "domain": "Mobile & Desktop Engineering",
+      "path": ".agents/skills/dex-android-app-architecture/SKILL.md",
+      "related_skills": [
+        "dex-mobile-offline-sync",
+        "dex-mobile-release-pipelines",
+        "dex-mobile-performance-profiling"
+      ]
+    },
+    {
+      "id": "dex-ios-app-architecture",
+      "index": 102,
+      "name": "dex-ios-app-architecture",
+      "description": "Architect resilient iOS applications using SwiftUI, Swift Concurrency (async/await, Actor), NavigationStack, Observation framework, SwiftData/CoreData, and modular SPM. Use when designing, building, or refactoring modern iOS apps.",
+      "version": "5.0.0",
+      "group": "Group K",
+      "domain": "Mobile & Desktop Engineering",
+      "path": ".agents/skills/dex-ios-app-architecture/SKILL.md",
+      "related_skills": [
+        "dex-mobile-release-pipelines",
+        "dex-mobile-performance-profiling",
+        "dex-native-device-integration"
+      ]
+    },
+    {
+      "id": "dex-electron-security",
+      "index": 103,
+      "name": "dex-electron-security",
+      "description": "Harden Electron desktop applications by enforcing process isolation, contextIsolation, nodeIntegration disablement, sandboxing, minimal contextBridge IPC APIs, and CSP. Use when building, auditing, or securing Electron desktop apps.",
+      "version": "5.0.0",
+      "group": "Group K",
+      "domain": "Mobile & Desktop Engineering",
+      "path": ".agents/skills/dex-electron-security/SKILL.md",
+      "related_skills": [
+        "dex-desktop-ipc-design",
+        "dex-tauri-desktop-integration",
+        "dex-desktop-update-delivery"
+      ]
+    },
+    {
+      "id": "dex-tauri-desktop-integration",
+      "index": 104,
+      "name": "dex-tauri-desktop-integration",
+      "description": "Build lightweight, high-performance desktop apps using Tauri v2, Rust backend commands, strict permission capabilities, OS system tray, native window controls, and minimal memory footprint. Use when developing memory-efficient desktop applications.",
+      "version": "5.0.0",
+      "group": "Group K",
+      "domain": "Mobile & Desktop Engineering",
+      "path": ".agents/skills/dex-tauri-desktop-integration/SKILL.md",
+      "related_skills": [
+        "dex-electron-security",
+        "dex-desktop-ipc-design",
+        "dex-windows-packaging"
+      ]
+    },
+    {
+      "id": "dex-mobile-offline-sync",
+      "index": 105,
+      "name": "dex-mobile-offline-sync",
+      "description": "Design offline-first mobile/desktop architectures using local databases (SQLite/WatermelonDB/Realm), mutation sync queues, conflict resolution (LWW, CRDTs), and background workers. Use when building apps that must function seamlessly without internet.",
+      "version": "5.0.0",
+      "group": "Group K",
+      "domain": "Mobile & Desktop Engineering",
+      "path": ".agents/skills/dex-mobile-offline-sync/SKILL.md",
+      "related_skills": [
+        "dex-android-app-architecture",
+        "dex-ios-app-architecture",
+        "dex-idempotent-operations"
+      ]
+    },
+    {
+      "id": "dex-mobile-release-pipelines",
+      "index": 106,
+      "name": "dex-mobile-release-pipelines",
+      "description": "Automate mobile release pipelines with Fastlane, Android keystore signing, iOS provisioning profiles & certificates, semantic version codes, and store submission. Use when automating mobile build, test, and release processes.",
+      "version": "5.0.0",
+      "group": "Group K",
+      "domain": "Mobile & Desktop Engineering",
+      "path": ".agents/skills/dex-mobile-release-pipelines/SKILL.md",
+      "related_skills": [
+        "dex-semantic-version-automation",
+        "dex-cicd-automation",
+        "dex-supply-chain-security"
+      ]
+    },
+    {
+      "id": "dex-mobile-performance-profiling",
+      "index": 107,
+      "name": "dex-mobile-performance-profiling",
+      "description": "Profile mobile startup time (TTID/TTFD), frame rendering & jank detection (60/120 fps), memory leak detection (LeakCanary, Instruments Allocations), and battery drain. Use when diagnosing slow performance or crashes on mobile devices.",
+      "version": "5.0.0",
+      "group": "Group K",
+      "domain": "Mobile & Desktop Engineering",
+      "path": ".agents/skills/dex-mobile-performance-profiling/SKILL.md",
+      "related_skills": [
+        "dex-android-app-architecture",
+        "dex-ios-app-architecture",
+        "dex-performance-optimization"
+      ]
+    },
+    {
+      "id": "dex-desktop-ipc-design",
+      "index": 108,
+      "name": "dex-desktop-ipc-design",
+      "description": "Design secure, type-safe desktop inter-process communication (IPC) interfaces using JSON Schema/Zod/Protobuf, bi-directional event buses, strict main-process validation, and privilege boundaries. Use when designing communications between desktop processes.",
+      "version": "5.0.0",
+      "group": "Group K",
+      "domain": "Mobile & Desktop Engineering",
+      "path": ".agents/skills/dex-desktop-ipc-design/SKILL.md",
+      "related_skills": [
+        "dex-electron-security",
+        "dex-tauri-desktop-integration",
+        "dex-api-contract-evolution"
+      ]
+    },
+    {
+      "id": "dex-native-device-integration",
+      "index": 109,
+      "name": "dex-native-device-integration",
+      "description": "Integrate device capabilities (Camera, Geolocation, Bluetooth BLE, Biometrics, File System Access) across mobile and desktop with runtime permissions and graceful fallbacks. Use when connecting apps to hardware sensors.",
+      "version": "5.0.0",
+      "group": "Group K",
+      "domain": "Mobile & Desktop Engineering",
+      "path": ".agents/skills/dex-native-device-integration/SKILL.md",
+      "related_skills": [
+        "dex-ux-accessibility",
+        "dex-privacy-impact-assessment",
+        "dex-android-app-architecture"
+      ]
+    },
+    {
+      "id": "dex-desktop-update-delivery",
+      "index": 110,
+      "name": "dex-desktop-update-delivery",
+      "description": "Manage desktop application auto-updates, update channels (alpha/beta/stable), cryptographic artifact signatures (codesign/minisign), delta updates, and atomic rollbacks. Use when delivering reliable updates to desktop apps.",
+      "version": "5.0.0",
+      "group": "Group K",
+      "domain": "Mobile & Desktop Engineering",
+      "path": ".agents/skills/dex-desktop-update-delivery/SKILL.md",
+      "related_skills": [
+        "dex-windows-packaging",
+        "dex-tauri-desktop-integration",
+        "dex-supply-chain-security"
+      ]
+    },
+    {
+      "id": "dex-privacy-impact-assessment",
+      "index": 111,
+      "name": "dex-privacy-impact-assessment",
+      "description": "Conduct Data Protection and Privacy Impact Assessments (DPIA/PIA) adhering to GDPR, CCPA, and ISO 27701 with personal data classification, data flow mapping, and minimization safeguards. Use when processing personal data or auditing privacy compliance.",
+      "version": "5.0.0",
+      "group": "Group L",
+      "domain": "Product & Operations Engineering",
+      "path": ".agents/skills/dex-privacy-impact-assessment/SKILL.md",
+      "related_skills": [
+        "dex-compliance-control-mapping",
+        "dex-analytics-instrumentation",
+        "dex-audit-trail-integrity"
+      ]
+    },
+    {
+      "id": "dex-compliance-control-mapping",
+      "index": 112,
+      "name": "dex-compliance-control-mapping",
+      "description": "Map engineering, cloud, and process controls to compliance frameworks (SOC 2 Type II, ISO 27001, HIPAA, PCI-DSS) with automated evidence collection. Use when preparing for security audits and demonstrating regulatory compliance.",
+      "version": "5.0.0",
+      "group": "Group L",
+      "domain": "Product & Operations Engineering",
+      "path": ".agents/skills/dex-compliance-control-mapping/SKILL.md",
+      "related_skills": [
+        "dex-privacy-impact-assessment",
+        "dex-audit-trail-integrity",
+        "dex-code-review"
+      ]
+    },
+    {
+      "id": "dex-audit-trail-integrity",
+      "index": 113,
+      "name": "dex-audit-trail-integrity",
+      "description": "Implement append-only, tamper-evident audit logging with cryptographic hash chaining (Merkle trees, HMAC), immutable storage (S3 Object Lock / WORM), non-repudiation, and CloudEvents schemas. Use when building compliance-grade audit systems.",
+      "version": "5.0.0",
+      "group": "Group L",
+      "domain": "Product & Operations Engineering",
+      "path": ".agents/skills/dex-audit-trail-integrity/SKILL.md",
+      "related_skills": [
+        "dex-compliance-control-mapping",
+        "dex-incident-postmortems",
+        "dex-privacy-impact-assessment"
+      ]
+    },
+    {
+      "id": "dex-configuration-drift",
+      "index": 114,
+      "name": "dex-configuration-drift",
+      "description": "Detect, analyze, and reconcile configuration drift across Kubernetes GitOps (ArgoCD/Flux), cloud infrastructure (Terraform/OpenTofu), and application settings. Use when ensuring real-world environments match declared state.",
+      "version": "5.0.0",
+      "group": "Group L",
+      "domain": "Product & Operations Engineering",
+      "path": ".agents/skills/dex-configuration-drift/SKILL.md",
+      "related_skills": [
+        "dex-infrastructure-as-code",
+        "dex-kubernetes-deployment",
+        "dex-compliance-control-mapping"
+      ]
+    },
+    {
+      "id": "dex-product-discovery",
+      "index": 115,
+      "name": "dex-product-discovery",
+      "description": "Structure product discovery, user research synthesis, Jobs-to-be-Done (JTBD), opportunity solution trees, assumption testing, and rapid prototyping hypotheses. Use when validating what to build before writing production code.",
+      "version": "5.0.0",
+      "group": "Group L",
+      "domain": "Product & Operations Engineering",
+      "path": ".agents/skills/dex-product-discovery/SKILL.md",
+      "related_skills": [
+        "dex-feature-prioritization",
+        "dex-analytics-instrumentation",
+        "dex-specification-driven"
+      ]
+    },
+    {
+      "id": "dex-feature-prioritization",
+      "index": 116,
+      "name": "dex-feature-prioritization",
+      "description": "Prioritize product features and technical initiatives quantitatively using RICE, Value vs Effort, WSJF, and dependency graph analysis. Use when deciding what engineering tasks to build next under resource constraints.",
+      "version": "5.0.0",
+      "group": "Group L",
+      "domain": "Product & Operations Engineering",
+      "path": ".agents/skills/dex-feature-prioritization/SKILL.md",
+      "related_skills": [
+        "dex-product-discovery",
+        "dex-technical-debt-refactoring",
+        "dex-runbook-automation"
+      ]
+    },
+    {
+      "id": "dex-analytics-instrumentation",
+      "index": 117,
+      "name": "dex-analytics-instrumentation",
+      "description": "Instrument product and business analytics with strict tracking plans, event taxonomy (object_action), schema validation, PII scrubbing, and dual client/server verification. Use when adding or maintaining behavioral event tracking.",
+      "version": "5.0.0",
+      "group": "Group L",
+      "domain": "Product & Operations Engineering",
+      "path": ".agents/skills/dex-analytics-instrumentation/SKILL.md",
+      "related_skills": [
+        "dex-privacy-impact-assessment",
+        "dex-feature-prioritization",
+        "dex-experimentation-metrics"
+      ]
+    },
+    {
+      "id": "dex-feedback-triage",
+      "index": 118,
+      "name": "dex-feedback-triage",
+      "description": "Triage, classify, and route high-velocity user feedback, bug reports, and app reviews into actionable engineering tasks using automated categorization and deduplication. Use when managing user complaints and issue backlogs.",
+      "version": "5.0.0",
+      "group": "Group L",
+      "domain": "Product & Operations Engineering",
+      "path": ".agents/skills/dex-feedback-triage/SKILL.md",
+      "related_skills": [
+        "dex-root-cause-debugging",
+        "dex-feature-prioritization",
+        "dex-incident-postmortems"
+      ]
+    },
+    {
+      "id": "dex-runbook-automation",
+      "index": 119,
+      "name": "dex-runbook-automation",
+      "description": "Author, validate, and execute operational runbooks (SOPs) with pre-flight checks, interactive approval gates, guarded commands, and rollback procedures. Use when standardizing and automating operational maintenance tasks.",
+      "version": "5.0.0",
+      "group": "Group L",
+      "domain": "Product & Operations Engineering",
+      "path": ".agents/skills/dex-runbook-automation/SKILL.md",
+      "related_skills": [
+        "dex-incident-postmortems",
+        "dex-operational-readiness-review",
+        "dex-root-cause-debugging"
+      ]
+    },
+    {
+      "id": "dex-operational-readiness-review",
+      "index": 120,
+      "name": "dex-operational-readiness-review",
+      "description": "Conduct Production Operational Readiness Reviews (ORR) across reliability, security, observability, disaster recovery, and supportability. Use before launching major features or services to production.",
+      "version": "5.0.0",
+      "group": "Group L",
+      "domain": "Product & Operations Engineering",
+      "path": ".agents/skills/dex-operational-readiness-review/SKILL.md",
+      "related_skills": [
+        "dex-slo-error-budgets",
+        "dex-runbook-automation",
+        "dex-threat-modeling"
+      ]
+    },
+    {
+      "id": "dex-static-analysis-rule-authoring",
+      "index": 121,
+      "name": "dex-static-analysis-rule-authoring",
+      "description": "Design, test, and tune custom static analysis rules (AST matching, Semgrep, ESLint custom rules, CodeQL) to catch architectural violations, API misuse, and security anti-patterns with near-zero false positives. Use when enforcing custom repo patterns or deprecating risky APIs.",
+      "version": "5.0.0",
+      "group": "Group M",
+      "domain": "Advanced Software Verification",
+      "path": ".agents/skills/dex-static-analysis-rule-authoring/SKILL.md",
+      "related_skills": [
+        "dex-sast-finding-triage",
+        "dex-code-review-excellence",
+        "dex-architecture-design"
+      ]
+    },
+    {
+      "id": "dex-mutation-testing",
+      "index": 122,
+      "name": "dex-mutation-testing",
+      "description": "Evaluate test suite effectiveness by injecting controlled faults (mutations) into source code to verify whether existing tests catch them, identifying assertion weaknesses. Use when improving high-risk system test suites beyond superficial code coverage metrics.",
+      "version": "5.0.0",
+      "group": "Group M",
+      "domain": "Advanced Software Verification",
+      "path": ".agents/skills/dex-mutation-testing/SKILL.md",
+      "related_skills": [
+        "dex-coverage-risk-analysis",
+        "dex-unit-testing",
+        "dex-formal-invariant-checks"
+      ]
+    },
+    {
+      "id": "dex-api-fuzz-testing",
+      "index": 123,
+      "name": "dex-api-fuzz-testing",
+      "description": "Execute coverage-guided and schema-based API fuzz testing (Schemathesis, RESTler) to discover 500 errors, unhandled boundary exceptions, memory leaks, and serialization flaws. Use when hardening REST/GraphQL APIs before production deployment.",
+      "version": "5.0.0",
+      "group": "Group M",
+      "domain": "Advanced Software Verification",
+      "path": ".agents/skills/dex-api-fuzz-testing/SKILL.md",
+      "related_skills": [
+        "dex-api-contract-testing",
+        "dex-api-abuse-prevention",
+        "dex-sast-finding-triage"
+      ]
+    },
+    {
+      "id": "dex-differential-testing",
+      "index": 124,
+      "name": "dex-differential-testing",
+      "description": "Compare behavior, output equivalence, and performance between two software implementations (legacy vs rewritten, compiler versions, or competing algorithms) across randomized inputs. Use during major refactorings, system migrations, and re-implementations.",
+      "version": "5.0.0",
+      "group": "Group M",
+      "domain": "Advanced Software Verification",
+      "path": ".agents/skills/dex-differential-testing/SKILL.md",
+      "related_skills": [
+        "dex-refactoring-mastery",
+        "dex-reproducible-benchmarking",
+        "dex-unit-testing"
+      ]
+    },
+    {
+      "id": "dex-flaky-test-remediation",
+      "index": 125,
+      "name": "dex-flaky-test-remediation",
+      "description": "Systematically detect, isolate, diagnose, and remediate non-deterministic (flaky) tests caused by race conditions, network latency, shared mutable state, and unseeded randomness. Use when CI pipeline reliability drops due to intermittent test failures.",
+      "version": "5.0.0",
+      "group": "Group M",
+      "domain": "Advanced Software Verification",
+      "path": ".agents/skills/dex-flaky-test-remediation/SKILL.md",
+      "related_skills": [
+        "dex-unit-testing",
+        "dex-test-data-management",
+        "dex-ci-pipeline-optimization"
+      ]
+    },
+    {
+      "id": "dex-test-data-management",
+      "index": 126,
+      "name": "dex-test-data-management",
+      "description": "Architect secure, isolated, synthetic, and ephemeral test data fixtures and databases with automated teardown and masking. Use when managing complex state across integration and end-to-end tests without test pollution.",
+      "version": "5.0.0",
+      "group": "Group M",
+      "domain": "Advanced Software Verification",
+      "path": ".agents/skills/dex-test-data-management/SKILL.md",
+      "related_skills": [
+        "dex-flaky-test-remediation",
+        "dex-database-design",
+        "dex-integration-testing"
+      ]
+    },
+    {
+      "id": "dex-compatibility-matrix-testing",
+      "index": 127,
+      "name": "dex-compatibility-matrix-testing",
+      "description": "Define, automate, and execute matrix-based compatibility testing across operating systems, runtime versions, browsers, and dependency sets. Use when publishing open-source libraries, CLI tools, or multi-platform applications.",
+      "version": "5.0.0",
+      "group": "Group M",
+      "domain": "Advanced Software Verification",
+      "path": ".agents/skills/dex-compatibility-matrix-testing/SKILL.md",
+      "related_skills": [
+        "dex-ci-pipeline-optimization",
+        "dex-cross-platform-engineering",
+        "dex-python-project-engineering"
+      ]
+    },
+    {
+      "id": "dex-reproducible-benchmarking",
+      "index": 128,
+      "name": "dex-reproducible-benchmarking",
+      "description": "Design, isolate, measure, and statistically analyze software benchmarks with controlled noise, CPU pinning, warmups, and variance tracking. Use when making performance-critical claims, optimizing algorithms, or preventing regressions.",
+      "version": "5.0.0",
+      "group": "Group M",
+      "domain": "Advanced Software Verification",
+      "path": ".agents/skills/dex-reproducible-benchmarking/SKILL.md",
+      "related_skills": [
+        "dex-performance-profiling",
+        "dex-differential-testing",
+        "dex-jvm-performance-diagnostics"
+      ]
+    },
+    {
+      "id": "dex-formal-invariant-checks",
+      "index": 129,
+      "name": "dex-formal-invariant-checks",
+      "description": "Specify, model, and verify critical domain invariants using stateful property-based testing and formal assertion contracts. Use when guaranteeing correctness in financial ledgers, cryptographic protocols, and consensus mechanisms.",
+      "version": "5.0.0",
+      "group": "Group M",
+      "domain": "Advanced Software Verification",
+      "path": ".agents/skills/dex-formal-invariant-checks/SKILL.md",
+      "related_skills": [
+        "dex-unit-testing",
+        "dex-database-design",
+        "dex-mutation-testing"
+      ]
+    },
+    {
+      "id": "dex-coverage-risk-analysis",
+      "index": 130,
+      "name": "dex-coverage-risk-analysis",
+      "description": "Correlate code coverage metrics with code churn, production defect density, and business criticality to prioritize high-value test engineering. Use when optimizing QA effort and eliminating testing blind spots.",
+      "version": "5.0.0",
+      "group": "Group M",
+      "domain": "Advanced Software Verification",
+      "path": ".agents/skills/dex-coverage-risk-analysis/SKILL.md",
+      "related_skills": [
+        "dex-mutation-testing",
+        "dex-git-flow-and-cherry-picking",
+        "dex-unit-testing"
+      ]
+    },
+    {
+      "id": "dex-load-and-stress-testing",
+      "index": 131,
+      "name": "dex-load-and-stress-testing",
+      "description": "Design, script, and execute realistic load, spike, endurance, and stress tests using tools like K6, Locust, or Gatling to establish saturation points, latency percentiles, and capacity limits. Use before high-traffic events or capacity sizing.",
+      "version": "5.0.0",
+      "group": "Group N",
+      "domain": "Advanced SRE & Distributed Systems",
+      "path": ".agents/skills/dex-load-and-stress-testing/SKILL.md",
+      "related_skills": [
+        "dex-traffic-shaping-backpressure",
+        "dex-rate-limiting-quotas",
+        "dex-performance-profiling"
+      ]
+    },
+    {
+      "id": "dex-traffic-shaping-backpressure",
+      "index": 132,
+      "name": "dex-traffic-shaping-backpressure",
+      "description": "Implement traffic shaping, backpressure mechanisms, leaky/token buckets, priority queues, and load-shedding to prevent cascading failures under extreme load. Use when distributed services face traffic surges.",
+      "version": "5.0.0",
+      "group": "Group N",
+      "domain": "Advanced SRE & Distributed Systems",
+      "path": ".agents/skills/dex-traffic-shaping-backpressure/SKILL.md",
+      "related_skills": [
+        "dex-load-and-stress-testing",
+        "dex-rate-limiting-quotas",
+        "dex-service-failover"
+      ]
+    },
+    {
+      "id": "dex-rate-limiting-quotas",
+      "index": 133,
+      "name": "dex-rate-limiting-quotas",
+      "description": "Design and enforce multi-tier rate limiting and quota management using algorithms like Sliding Window Log, Token Bucket, and Redis-backed distributed stores. Use to prevent API abuse, ensure tenant fairness, and enforce subscription tiers.",
+      "version": "5.0.0",
+      "group": "Group N",
+      "domain": "Advanced SRE & Distributed Systems",
+      "path": ".agents/skills/dex-rate-limiting-quotas/SKILL.md",
+      "related_skills": [
+        "dex-api-abuse-prevention",
+        "dex-traffic-shaping-backpressure",
+        "dex-backend-architecture"
+      ]
+    },
+    {
+      "id": "dex-distributed-consistency",
+      "index": 134,
+      "name": "dex-distributed-consistency",
+      "description": "Analyze, design, and resolve distributed consistency challenges across microservices, including Saga patterns, transactional outboxes, idempotency keys, and conflict resolution. Use when splitting monoliths or managing multi-database transactions.",
+      "version": "5.0.0",
+      "group": "Group N",
+      "domain": "Advanced SRE & Distributed Systems",
+      "path": ".agents/skills/dex-distributed-consistency/SKILL.md",
+      "related_skills": [
+        "dex-distributed-tracing",
+        "dex-database-design",
+        "dex-service-failover"
+      ]
+    },
+    {
+      "id": "dex-service-failover",
+      "index": 135,
+      "name": "dex-service-failover",
+      "description": "Architect, configure, and validate automated service failover, multi-region routing, health-checking protocols, and circuit breakers (Envoy, Resilience4j). Use when engineering high-availability fault-tolerant services.",
+      "version": "5.0.0",
+      "group": "Group N",
+      "domain": "Advanced SRE & Distributed Systems",
+      "path": ".agents/skills/dex-service-failover/SKILL.md",
+      "related_skills": [
+        "dex-distributed-consistency",
+        "dex-traffic-shaping-backpressure",
+        "dex-operational-game-days"
+      ]
+    },
+    {
+      "id": "dex-alert-quality-engineering",
+      "index": 136,
+      "name": "dex-alert-quality-engineering",
+      "description": "Audit, refine, and eliminate noisy monitoring alerts by tuning thresholds, implementing deduplication, and ensuring all alerts are actionable with runbooks. Use to eradicate on-call alert fatigue and improve incident response.",
+      "version": "5.0.0",
+      "group": "Group N",
+      "domain": "Advanced SRE & Distributed Systems",
+      "path": ".agents/skills/dex-alert-quality-engineering/SKILL.md",
+      "related_skills": [
+        "dex-metric-cardinality-control",
+        "dex-oncall-handover",
+        "dex-log-pipeline-design"
+      ]
+    },
+    {
+      "id": "dex-log-pipeline-design",
+      "index": 137,
+      "name": "dex-log-pipeline-design",
+      "description": "Design scalable, structured, observable log collection and processing pipelines with correlation IDs, redaction of sensitive data (PII), and tiered storage policies. Use when centralizing telemetry across large distributed clusters.",
+      "version": "5.0.0",
+      "group": "Group N",
+      "domain": "Advanced SRE & Distributed Systems",
+      "path": ".agents/skills/dex-log-pipeline-design/SKILL.md",
+      "related_skills": [
+        "dex-alert-quality-engineering",
+        "dex-metric-cardinality-control",
+        "dex-distributed-tracing"
+      ]
+    },
+    {
+      "id": "dex-metric-cardinality-control",
+      "index": 138,
+      "name": "dex-metric-cardinality-control",
+      "description": "Audit, manage, and prevent metric cardinality explosions in Prometheus and Datadog by enforcing label budgets, drop rules, and recording rules. Use when monitoring infrastructure costs surge or TSDB nodes crash.",
+      "version": "5.0.0",
+      "group": "Group N",
+      "domain": "Advanced SRE & Distributed Systems",
+      "path": ".agents/skills/dex-metric-cardinality-control/SKILL.md",
+      "related_skills": [
+        "dex-alert-quality-engineering",
+        "dex-log-pipeline-design",
+        "dex-distributed-tracing"
+      ]
+    },
+    {
+      "id": "dex-oncall-handover",
+      "index": 139,
+      "name": "dex-oncall-handover",
+      "description": "Structure and execute comprehensive on-call shifts, handovers, runbook updates, and incident post-shift briefings with zero knowledge loss. Use to professionalize engineering reliability operations.",
+      "version": "5.0.0",
+      "group": "Group N",
+      "domain": "Advanced SRE & Distributed Systems",
+      "path": ".agents/skills/dex-oncall-handover/SKILL.md",
+      "related_skills": [
+        "dex-incident-retrospective-authoring",
+        "dex-alert-quality-engineering",
+        "dex-operational-game-days"
+      ]
+    },
+    {
+      "id": "dex-operational-game-days",
+      "index": 140,
+      "name": "dex-operational-game-days",
+      "description": "Plan, orchestrate, and facilitate controlled chaos engineering game days and failure injection exercises to validate team incident response and system resilience. Use to prepare teams for catastrophic production events.",
+      "version": "5.0.0",
+      "group": "Group N",
+      "domain": "Advanced SRE & Distributed Systems",
+      "path": ".agents/skills/dex-operational-game-days/SKILL.md",
+      "related_skills": [
+        "dex-service-failover",
+        "dex-oncall-handover",
+        "dex-load-and-stress-testing"
+      ]
+    },
+    {
+      "id": "dex-serverless-architecture",
+      "index": 141,
+      "name": "dex-serverless-architecture",
+      "description": "Architect, optimize, and secure event-driven serverless architectures (AWS Lambda, Google Cloud Run) mitigating cold starts, managing concurrency limits, and ensuring idempotency. Use when building autoscaling, pay-per-use backend systems.",
+      "version": "5.0.0",
+      "group": "Group O",
+      "domain": "Advanced Cloud Platform",
+      "path": ".agents/skills/dex-serverless-architecture/SKILL.md",
+      "related_skills": [
+        "dex-edge-runtime-engineering",
+        "dex-cloud-iam-policy-review",
+        "dex-distributed-consistency"
+      ]
+    },
+    {
+      "id": "dex-edge-runtime-engineering",
+      "index": 142,
+      "name": "dex-edge-runtime-engineering",
+      "description": "Build ultra-low latency globally distributed applications on Edge runtimes (Cloudflare Workers, V8 isolates, Fastly Compute) managing memory constraints and edge caching. Use for global personalization, auth gating, and A/B routing.",
+      "version": "5.0.0",
+      "group": "Group O",
+      "domain": "Advanced Cloud Platform",
+      "path": ".agents/skills/dex-edge-runtime-engineering/SKILL.md",
+      "related_skills": [
+        "dex-serverless-architecture",
+        "dex-web-security-headers",
+        "dex-frontend-architecture"
+      ]
+    },
+    {
+      "id": "dex-cloud-iam-policy-review",
+      "index": 143,
+      "name": "dex-cloud-iam-policy-review",
+      "description": "Audit, sanitize, and enforce Least-Privilege IAM policies, role boundaries, and access conditions across AWS, GCP, and Azure. Use to eliminate privilege escalation paths and over-permissioned service accounts.",
+      "version": "5.0.0",
+      "group": "Group O",
+      "domain": "Advanced Cloud Platform",
+      "path": ".agents/skills/dex-cloud-iam-policy-review/SKILL.md",
+      "related_skills": [
+        "dex-cloud-network-design",
+        "dex-kubernetes-policy-enforcement",
+        "dex-security-logging-detection"
+      ]
+    },
+    {
+      "id": "dex-cloud-network-design",
+      "index": 144,
+      "name": "dex-cloud-network-design",
+      "description": "Architect secure, isolated, and scalable cloud network topologies including VPCs, private subnets, transit gateways, VPC peering, and egress filtering. Use when establishing enterprise cloud network foundations.",
+      "version": "5.0.0",
+      "group": "Group O",
+      "domain": "Advanced Cloud Platform",
+      "path": ".agents/skills/dex-cloud-network-design/SKILL.md",
+      "related_skills": [
+        "dex-cloud-iam-policy-review",
+        "dex-gitops-workflows",
+        "dex-kubernetes-policy-enforcement"
+      ]
+    },
+    {
+      "id": "dex-gitops-workflows",
+      "index": 145,
+      "name": "dex-gitops-workflows",
+      "description": "Implement declarative continuous deployment and reconciliation using GitOps engines (ArgoCD, FluxCD), managing environment drift, secrets, and rollbacks. Use to standardize Kubernetes application delivery.",
+      "version": "5.0.0",
+      "group": "Group O",
+      "domain": "Advanced Cloud Platform",
+      "path": ".agents/skills/dex-gitops-workflows/SKILL.md",
+      "related_skills": [
+        "dex-kubernetes-policy-enforcement",
+        "dex-environment-promotion",
+        "dex-platform-service-catalog"
+      ]
+    },
+    {
+      "id": "dex-kubernetes-policy-enforcement",
+      "index": 146,
+      "name": "dex-kubernetes-policy-enforcement",
+      "description": "Author, validate, and enforce cluster governance policies using admission controllers (OPA Gatekeeper, Kyverno) to prevent privilege escalations and unconstrained resource usage. Use when securing multi-tenant Kubernetes clusters.",
+      "version": "5.0.0",
+      "group": "Group O",
+      "domain": "Advanced Cloud Platform",
+      "path": ".agents/skills/dex-kubernetes-policy-enforcement/SKILL.md",
+      "related_skills": [
+        "dex-container-image-engineering",
+        "dex-gitops-workflows",
+        "dex-cloud-iam-policy-review"
+      ]
+    },
+    {
+      "id": "dex-platform-service-catalog",
+      "index": 147,
+      "name": "dex-platform-service-catalog",
+      "description": "Design and curate Internal Developer Platform (IDP) service catalogs (Backstage, Port) providing golden paths, service ownership, API documentation, and self-service scaffolding. Use to scale developer autonomy.",
+      "version": "5.0.0",
+      "group": "Group O",
+      "domain": "Advanced Cloud Platform",
+      "path": ".agents/skills/dex-platform-service-catalog/SKILL.md",
+      "related_skills": [
+        "dex-environment-promotion",
+        "dex-gitops-workflows",
+        "dex-oncall-handover"
+      ]
+    },
+    {
+      "id": "dex-environment-promotion",
+      "index": 148,
+      "name": "dex-environment-promotion",
+      "description": "Design deterministic, automated promotion pipelines moving identical immutable release artifacts across Dev, Staging, and Production with rigorous gate checks. Use to eliminate environment drift and release surprises.",
+      "version": "5.0.0",
+      "group": "Group O",
+      "domain": "Advanced Cloud Platform",
+      "path": ".agents/skills/dex-environment-promotion/SKILL.md",
+      "related_skills": [
+        "dex-gitops-workflows",
+        "dex-platform-service-catalog",
+        "dex-container-image-engineering"
+      ]
+    },
+    {
+      "id": "dex-service-discovery",
+      "index": 149,
+      "name": "dex-service-discovery",
+      "description": "Architect, tune, and debug resilient service discovery mechanisms using DNS-based, client-side, and control-plane registries (CoreDNS, Envoy, Consul). Use when microservices fail to resolve or route dynamically.",
+      "version": "5.0.0",
+      "group": "Group O",
+      "domain": "Advanced Cloud Platform",
+      "path": ".agents/skills/dex-service-discovery/SKILL.md",
+      "related_skills": [
+        "dex-cloud-network-design",
+        "dex-service-failover",
+        "dex-kubernetes-policy-enforcement"
+      ]
+    },
+    {
+      "id": "dex-cloud-resource-tagging",
+      "index": 150,
+      "name": "dex-cloud-resource-tagging",
+      "description": "Design, enforce, and automate cloud resource tagging taxonomies (FinOps, Cost Allocation, Ownership, Lifecycle) using policy-as-code and automated remediations. Use to gain financial visibility and clean untagged cloud sprawl.",
+      "version": "5.0.0",
+      "group": "Group O",
+      "domain": "Advanced Cloud Platform",
+      "path": ".agents/skills/dex-cloud-resource-tagging/SKILL.md",
+      "related_skills": [
+        "dex-cloud-iam-policy-review",
+        "dex-cloud-network-design",
+        "dex-platform-service-catalog"
+      ]
+    },
+    {
+      "id": "dex-typescript-type-safety",
+      "index": 151,
+      "name": "dex-typescript-type-safety",
+      "description": "Architect strict, bulletproof TypeScript systems leveraging branded types, template literals, conditional types, and runtime schema boundaries (Zod) without resorting to 'any'. Use when building high-integrity TypeScript codebases.",
+      "version": "5.0.0",
+      "group": "Group P",
+      "domain": "Language & Runtime Engineering",
+      "path": ".agents/skills/dex-typescript-type-safety/SKILL.md",
+      "related_skills": [
+        "dex-nodejs-runtime-diagnostics",
+        "dex-frontend-architecture",
+        "dex-api-contract-testing"
+      ]
+    },
+    {
+      "id": "dex-nodejs-runtime-diagnostics",
+      "index": 152,
+      "name": "dex-nodejs-runtime-diagnostics",
+      "description": "Diagnose and resolve Node.js event-loop delays, memory leaks, unhandled promise rejections, and async context tracking using Clinic.js, V8 heap snapshots, and perf_hooks. Use when Node.js services degrade under load.",
+      "version": "5.0.0",
+      "group": "Group P",
+      "domain": "Language & Runtime Engineering",
+      "path": ".agents/skills/dex-nodejs-runtime-diagnostics/SKILL.md",
+      "related_skills": [
+        "dex-typescript-type-safety",
+        "dex-load-and-stress-testing",
+        "dex-performance-profiling"
+      ]
+    },
+    {
+      "id": "dex-python-project-engineering",
+      "index": 153,
+      "name": "dex-python-project-engineering",
+      "description": "Standardize production-grade Python projects using modern packaging (Poetry, Hatch, uv), strict type checking (Mypy, Pyright), linting (Ruff), and virtual environment isolation. Use to eradicate dependency hell and project fragmentation.",
+      "version": "5.0.0",
+      "group": "Group P",
+      "domain": "Language & Runtime Engineering",
+      "path": ".agents/skills/dex-python-project-engineering/SKILL.md",
+      "related_skills": [
+        "dex-unit-testing",
+        "dex-compatibility-matrix-testing",
+        "dex-ci-pipeline-optimization"
+      ]
+    },
+    {
+      "id": "dex-rust-unsafe-audit",
+      "index": 154,
+      "name": "dex-rust-unsafe-audit",
+      "description": "Audit, verify, and minimize 'unsafe' code blocks in Rust, validating ownership invariants, raw pointer arithmetic, FFI boundaries, and undefined behavior using Miri and Loom. Use when building high-assurance systems.",
+      "version": "5.0.0",
+      "group": "Group P",
+      "domain": "Language & Runtime Engineering",
+      "path": ".agents/skills/dex-rust-unsafe-audit/SKILL.md",
+      "related_skills": [
+        "dex-cpp-memory-safety",
+        "dex-ffi-boundary-contracts",
+        "dex-reproducible-benchmarking"
+      ]
+    },
+    {
+      "id": "dex-cpp-memory-safety",
+      "index": 155,
+      "name": "dex-cpp-memory-safety",
+      "description": "Detect, eliminate, and prevent memory safety bugs in modern C++ (C++17/20) using AddressSanitizer (ASan), UndefinedBehaviorSanitizer (UBSan), smart pointers, and RAII principles. Use when auditing legacy C++ or writing high-performance native engines.",
+      "version": "5.0.0",
+      "group": "Group P",
+      "domain": "Language & Runtime Engineering",
+      "path": ".agents/skills/dex-cpp-memory-safety/SKILL.md",
+      "related_skills": [
+        "dex-rust-unsafe-audit",
+        "dex-ffi-boundary-contracts",
+        "dex-reproducible-benchmarking"
+      ]
+    },
+    {
+      "id": "dex-go-concurrency-patterns",
+      "index": 156,
+      "name": "dex-go-concurrency-patterns",
+      "description": "Architect, synchronize, and debug high-throughput Go concurrent systems using channels, worker pools, sync.Pool, Context propagation, and race detection. Use when building scalable backend services in Golang.",
+      "version": "5.0.0",
+      "group": "Group P",
+      "domain": "Language & Runtime Engineering",
+      "path": ".agents/skills/dex-go-concurrency-patterns/SKILL.md",
+      "related_skills": [
+        "dex-traffic-shaping-backpressure",
+        "dex-load-and-stress-testing",
+        "dex-backend-architecture"
+      ]
+    },
+    {
+      "id": "dex-jvm-performance-diagnostics",
+      "index": 157,
+      "name": "dex-jvm-performance-diagnostics",
+      "description": "Diagnose and tune JVM memory, garbage collection pauses (G1GC, ZGC), thread contention, and JIT compilation using JFR, async-profiler, and visualgc. Use when Java/Kotlin applications suffer latency spikes or GC stalls.",
+      "version": "5.0.0",
+      "group": "Group P",
+      "domain": "Language & Runtime Engineering",
+      "path": ".agents/skills/dex-jvm-performance-diagnostics/SKILL.md",
+      "related_skills": [
+        "dex-performance-profiling",
+        "dex-load-and-stress-testing",
+        "dex-backend-architecture"
+      ]
+    },
+    {
+      "id": "dex-dotnet-application-engineering",
+      "index": 158,
+      "name": "dex-dotnet-application-engineering",
+      "description": "Architect, optimize, and diagnose modern cross-platform .NET (C# / ASP.NET Core) applications leveraging dependency injection lifetimes, async/await mechanics, Span<T>, and dotnet-dump/dotnet-trace. Use when building enterprise .NET systems.",
+      "version": "5.0.0",
+      "group": "Group P",
+      "domain": "Language & Runtime Engineering",
+      "path": ".agents/skills/dex-dotnet-application-engineering/SKILL.md",
+      "related_skills": [
+        "dex-backend-architecture",
+        "dex-load-and-stress-testing",
+        "dex-database-design"
+      ]
+    },
+    {
+      "id": "dex-webassembly-integration",
+      "index": 159,
+      "name": "dex-webassembly-integration",
+      "description": "Compile, integrate, and optimize WebAssembly (WASM) modules across browser and server runtimes (Wasmtime, Wasmer), managing linear memory, FFI boundary overhead, and sandbox security. Use when running near-native compute in web or edge environments.",
+      "version": "5.0.0",
+      "group": "Group P",
+      "domain": "Language & Runtime Engineering",
+      "path": ".agents/skills/dex-webassembly-integration/SKILL.md",
+      "related_skills": [
+        "dex-ffi-boundary-contracts",
+        "dex-reproducible-benchmarking",
+        "dex-frontend-architecture"
+      ]
+    },
+    {
+      "id": "dex-ffi-boundary-contracts",
+      "index": 160,
+      "name": "dex-ffi-boundary-contracts",
+      "description": "Design, document, and validate robust Foreign Function Interface (FFI) boundaries (C ABI) across languages, ensuring memory ownership contracts, alignment, and error translation. Use when binding native code across language ecosystems.",
+      "version": "5.0.0",
+      "group": "Group P",
+      "domain": "Language & Runtime Engineering",
+      "path": ".agents/skills/dex-ffi-boundary-contracts/SKILL.md",
+      "related_skills": [
+        "dex-rust-unsafe-audit",
+        "dex-webassembly-integration",
+        "dex-cpp-memory-safety"
+      ]
+    },
+    {
+      "id": "dex-mcp-server-design",
+      "index": 161,
+      "name": "dex-mcp-server-design",
+      "description": "Architect, implement, and secure Model Context Protocol (MCP) servers exposing tools, resources, and prompts to AI agents with strict JSON-RPC schemas and permission boundaries. Use when connecting agents to enterprise systems.",
+      "version": "5.0.0",
+      "group": "Group Q",
+      "domain": "Advanced AI Systems",
+      "path": ".agents/skills/dex-mcp-server-design/SKILL.md",
+      "related_skills": [
+        "dex-structured-llm-output",
+        "dex-prompt-injection-defense",
+        "dex-agent-memory-governance"
+      ]
+    },
+    {
+      "id": "dex-vector-index-design",
+      "index": 162,
+      "name": "dex-vector-index-design",
+      "description": "Architect, configure, and benchmark vector search indexes (HNSW, IVF-PQ) across vector databases (Qdrant, Pinecone, pgvector), balancing recall, latency, and RAM costs. Use when building semantic search and RAG retrieval pipelines.",
+      "version": "5.0.0",
+      "group": "Group Q",
+      "domain": "Advanced AI Systems",
+      "path": ".agents/skills/dex-vector-index-design/SKILL.md",
+      "related_skills": [
+        "dex-reranking-strategies",
+        "dex-grounding-citation-audit",
+        "dex-database-design"
+      ]
+    },
+    {
+      "id": "dex-reranking-strategies",
+      "index": 163,
+      "name": "dex-reranking-strategies",
+      "description": "Implement multi-stage retrieval pipelines combining dense/sparse retrieval with Cross-Encoder and ColBERT rerankers (Cohere, BGE-Reranker) to boost top-K relevance. Use when raw vector search fails to rank the best chunk first.",
+      "version": "5.0.0",
+      "group": "Group Q",
+      "domain": "Advanced AI Systems",
+      "path": ".agents/skills/dex-reranking-strategies/SKILL.md",
+      "related_skills": [
+        "dex-vector-index-design",
+        "dex-grounding-citation-audit",
+        "dex-structured-llm-output"
+      ]
+    },
+    {
+      "id": "dex-structured-llm-output",
+      "index": 164,
+      "name": "dex-structured-llm-output",
+      "description": "Enforce reliable, validated JSON schema and Pydantic/Zod structured outputs from LLMs using constrained decoding, tool-calling APIs, and automatic self-correction. Use when LLM outputs drive downstream code execution.",
+      "version": "5.0.0",
+      "group": "Group Q",
+      "domain": "Advanced AI Systems",
+      "path": ".agents/skills/dex-structured-llm-output/SKILL.md",
+      "related_skills": [
+        "dex-mcp-server-design",
+        "dex-typescript-type-safety",
+        "dex-prompt-injection-defense"
+      ]
+    },
+    {
+      "id": "dex-prompt-injection-defense",
+      "index": 165,
+      "name": "dex-prompt-injection-defense",
+      "description": "Architect defense-in-depth protections against direct and indirect prompt injection, jailbreaks, and data exfiltration using dual-LLM boundaries, input sanitizers, and tool permission guards. Use when LLMs process untrusted user or web data.",
+      "version": "5.0.0",
+      "group": "Group Q",
+      "domain": "Advanced AI Systems",
+      "path": ".agents/skills/dex-prompt-injection-defense/SKILL.md",
+      "related_skills": [
+        "dex-mcp-server-design",
+        "dex-grounding-citation-audit",
+        "dex-sast-finding-triage"
+      ]
+    },
+    {
+      "id": "dex-grounding-citation-audit",
+      "index": 166,
+      "name": "dex-grounding-citation-audit",
+      "description": "Audit, score, and verify factual grounding and citation integrity in RAG systems, detecting hallucinations and ungrounded claims using NLI and LLM-as-a-judge frameworks. Use when delivering high-stakes answers in legal, medical, or financial domains.",
+      "version": "5.0.0",
+      "group": "Group Q",
+      "domain": "Advanced AI Systems",
+      "path": ".agents/skills/dex-grounding-citation-audit/SKILL.md",
+      "related_skills": [
+        "dex-reranking-strategies",
+        "dex-vector-index-design",
+        "dex-agent-evaluation-harness"
+      ]
+    },
+    {
+      "id": "dex-agent-memory-governance",
+      "index": 167,
+      "name": "dex-agent-memory-governance",
+      "description": "Architect, maintain, and govern short-term, working, and long-term memory for AI agents, implementing summarization, eviction, privacy boundaries, and stale context pruning. Use when agents engage in extended multi-turn or multi-day tasks.",
+      "version": "5.0.0",
+      "group": "Group Q",
+      "domain": "Advanced AI Systems",
+      "path": ".agents/skills/dex-agent-memory-governance/SKILL.md",
+      "related_skills": [
+        "dex-agent-evaluation-harness",
+        "dex-mcp-server-design",
+        "dex-prompt-injection-defense"
+      ]
+    },
+    {
+      "id": "dex-multimodal-input-pipelines",
+      "index": 168,
+      "name": "dex-multimodal-input-pipelines",
+      "description": "Design, validate, and optimize multimodal input pipelines (images, audio, PDF documents) for vision and speech LLMs, managing resolution, token costs, and PII masking. Use when building vision-enabled or voice AI applications.",
+      "version": "5.0.0",
+      "group": "Group Q",
+      "domain": "Advanced AI Systems",
+      "path": ".agents/skills/dex-multimodal-input-pipelines/SKILL.md",
+      "related_skills": [
+        "dex-structured-llm-output",
+        "dex-prompt-injection-defense",
+        "dex-supportability-engineering"
+      ]
+    },
+    {
+      "id": "dex-agent-evaluation-harness",
+      "index": 169,
+      "name": "dex-agent-evaluation-harness",
+      "description": "Design, automate, and score end-to-end AI agent trajectory evaluations measuring tool-call accuracy, task success rate, step efficiency, and regression resilience. Use when shipping autonomous agent systems to production.",
+      "version": "5.0.0",
+      "group": "Group Q",
+      "domain": "Advanced AI Systems",
+      "path": ".agents/skills/dex-agent-evaluation-harness/SKILL.md",
+      "related_skills": [
+        "dex-mcp-server-design",
+        "dex-agent-memory-governance",
+        "dex-llm-fallback-routing"
+      ]
+    },
+    {
+      "id": "dex-llm-fallback-routing",
+      "index": 170,
+      "name": "dex-llm-fallback-routing",
+      "description": "Architect resilient, cost-aware multi-LLM routing, load-balancing, and fallback cascades across providers (OpenAI, Anthropic, DeepSeek, Local Ollama) managing rate limits, context windows, and cost optimization. Use to ensure 99.99% AI availability.",
+      "version": "5.0.0",
+      "group": "Group Q",
+      "domain": "Advanced AI Systems",
+      "path": ".agents/skills/dex-llm-fallback-routing/SKILL.md",
+      "related_skills": [
+        "dex-structured-llm-output",
+        "dex-service-failover",
+        "dex-load-and-stress-testing"
+      ]
+    },
+    {
+      "id": "dex-user-journey-mapping",
+      "index": 171,
+      "name": "dex-user-journey-mapping",
+      "description": "Map, analyze, and optimize end-to-end user journeys, friction points, drop-off phases, and emotional arcs to align engineering delivery with user experience. Use when designing new product features or overhauling user flows.",
+      "version": "5.0.0",
+      "group": "Group R",
+      "domain": "Product Design & User Research",
+      "path": ".agents/skills/dex-user-journey-mapping/SKILL.md",
+      "related_skills": [
+        "dex-information-architecture",
+        "dex-product-requirements-writing",
+        "dex-conversion-funnel-analysis"
+      ]
+    },
+    {
+      "id": "dex-information-architecture",
+      "index": 172,
+      "name": "dex-information-architecture",
+      "description": "Structure, categorize, and label application information, navigation systems, and content hierarchies using card sorting, taxonomy modeling, and findability principles. Use when structuring complex enterprise portals or knowledge bases.",
+      "version": "5.0.0",
+      "group": "Group R",
+      "domain": "Product Design & User Research",
+      "path": ".agents/skills/dex-information-architecture/SKILL.md",
+      "related_skills": [
+        "dex-user-journey-mapping",
+        "dex-usability-study-design",
+        "dex-frontend-architecture"
+      ]
+    },
+    {
+      "id": "dex-usability-study-design",
+      "index": 173,
+      "name": "dex-usability-study-design",
+      "description": "Design, facilitate, and synthesize task-based usability studies (moderated and unmoderated) using think-aloud protocols and SUS scoring. Use to uncover behavioral UX defects before shipping products.",
+      "version": "5.0.0",
+      "group": "Group R",
+      "domain": "Product Design & User Research",
+      "path": ".agents/skills/dex-usability-study-design/SKILL.md",
+      "related_skills": [
+        "dex-user-journey-mapping",
+        "dex-accessibility-automation",
+        "dex-product-requirements-writing"
+      ]
+    },
+    {
+      "id": "dex-accessibility-automation",
+      "index": 174,
+      "name": "dex-accessibility-automation",
+      "description": "Automate accessibility audits (WCAG 2.1 AA/AAA) across web applications using axe-core, Pa11y, and Playwright, while designing manual testing protocols for screen readers (NVDA, VoiceOver). Use to guarantee digital inclusion and legal compliance.",
+      "version": "5.0.0",
+      "group": "Group R",
+      "domain": "Product Design & User Research",
+      "path": ".agents/skills/dex-accessibility-automation/SKILL.md",
+      "related_skills": [
+        "dex-usability-study-design",
+        "dex-frontend-architecture",
+        "dex-design-handoff-verification"
+      ]
+    },
+    {
+      "id": "dex-design-handoff-verification",
+      "index": 175,
+      "name": "dex-design-handoff-verification",
+      "description": "Verify and enforce pixel, typography, spacing, and state consistency between Figma design tokens and production frontend code using Storybook and visual regression tools. Use when bridging the gap between designers and developers.",
+      "version": "5.0.0",
+      "group": "Group R",
+      "domain": "Product Design & User Research",
+      "path": ".agents/skills/dex-design-handoff-verification/SKILL.md",
+      "related_skills": [
+        "dex-frontend-architecture",
+        "dex-accessibility-automation",
+        "dex-usability-study-design"
+      ]
+    },
+    {
+      "id": "dex-product-requirements-writing",
+      "index": 176,
+      "name": "dex-product-requirements-writing",
+      "description": "Author structured, unambiguous, engineering-ready Product Requirement Documents (PRDs) with clear problem statements, user stories, edge cases, and measurable success metrics. Use when defining new features or systems.",
+      "version": "5.0.0",
+      "group": "Group R",
+      "domain": "Product Design & User Research",
+      "path": ".agents/skills/dex-product-requirements-writing/SKILL.md",
+      "related_skills": [
+        "dex-user-journey-mapping",
+        "dex-conversion-funnel-analysis",
+        "dex-supportability-engineering"
+      ]
+    },
+    {
+      "id": "dex-conversion-funnel-analysis",
+      "index": 177,
+      "name": "dex-conversion-funnel-analysis",
+      "description": "Instrument, analyze, and optimize conversion funnels, drop-off rates, and user friction across acquisition, activation, and checkout flows using event schemas and cohort analytics. Use when identifying revenue leaks in product funnels.",
+      "version": "5.0.0",
+      "group": "Group R",
+      "domain": "Product Design & User Research",
+      "path": ".agents/skills/dex-conversion-funnel-analysis/SKILL.md",
+      "related_skills": [
+        "dex-feature-adoption-analysis",
+        "dex-user-journey-mapping",
+        "dex-product-requirements-writing"
+      ]
+    },
+    {
+      "id": "dex-feature-adoption-analysis",
+      "index": 178,
+      "name": "dex-feature-adoption-analysis",
+      "description": "Measure, segment, and evaluate post-release feature adoption, retention curves, and engagement depth across user cohorts. Use to make data-driven decisions on whether to iterate, pivot, or sunset product features.",
+      "version": "5.0.0",
+      "group": "Group R",
+      "domain": "Product Design & User Research",
+      "path": ".agents/skills/dex-feature-adoption-analysis/SKILL.md",
+      "related_skills": [
+        "dex-conversion-funnel-analysis",
+        "dex-product-requirements-writing",
+        "dex-user-consent-ux"
+      ]
+    },
+    {
+      "id": "dex-user-consent-ux",
+      "index": 179,
+      "name": "dex-user-consent-ux",
+      "description": "Design, implement, and audit transparent, accessible, and compliant user consent flows and privacy controls (GDPR, CCPA, Cookie banners) avoiding dark patterns. Use when capturing consent for cookies, tracking, or AI data usage.",
+      "version": "5.0.0",
+      "group": "Group R",
+      "domain": "Product Design & User Research",
+      "path": ".agents/skills/dex-user-consent-ux/SKILL.md",
+      "related_skills": [
+        "dex-accessibility-automation",
+        "dex-user-journey-mapping",
+        "dex-feature-adoption-analysis"
+      ]
+    },
+    {
+      "id": "dex-supportability-engineering",
+      "index": 180,
+      "name": "dex-supportability-engineering",
+      "description": "Design, instrument, and automate user-facing self-service diagnostics, actionable error states, debug bundles, and supportability runbooks. Use to empower users to self-resolve issues and slash support escalations.",
+      "version": "5.0.0",
+      "group": "Group R",
+      "domain": "Product Design & User Research",
+      "path": ".agents/skills/dex-supportability-engineering/SKILL.md",
+      "related_skills": [
+        "dex-user-journey-mapping",
+        "dex-alert-quality-engineering",
+        "dex-distributed-tracing"
+      ]
+    },
+    {
+      "id": "dex-sast-finding-triage",
+      "index": 181,
+      "name": "dex-sast-finding-triage",
+      "description": "Triage, validate, and remediate Static Application Security Testing (SAST) findings, eliminating false positives and tracing true-positive source-to-sink taint flows. Use when processing automated security scan reports.",
+      "version": "5.0.0",
+      "group": "Group S",
+      "domain": "Application Security Specialists",
+      "path": ".agents/skills/dex-sast-finding-triage/SKILL.md",
+      "related_skills": [
+        "dex-static-analysis-rule-authoring",
+        "dex-vulnerability-remediation",
+        "dex-dast-scoping"
+      ]
+    },
+    {
+      "id": "dex-dast-scoping",
+      "index": 182,
+      "name": "dex-dast-scoping",
+      "description": "Define authorized scopes, scan profiles, boundary exclusions, and rate limits for Dynamic Application Security Testing (DAST) using OWASP ZAP or Burp Suite. Use when setting up automated live security scans without breaking environments.",
+      "version": "5.0.0",
+      "group": "Group S",
+      "domain": "Application Security Specialists",
+      "path": ".agents/skills/dex-dast-scoping/SKILL.md",
+      "related_skills": [
+        "dex-sast-finding-triage",
+        "dex-api-fuzz-testing",
+        "dex-vulnerability-remediation"
+      ]
+    },
+    {
+      "id": "dex-api-abuse-prevention",
+      "index": 183,
+      "name": "dex-api-abuse-prevention",
+      "description": "Architect, detect, and mitigate automated API abuse, credential stuffing, scraping, and bot attacks using behavioral fingerprinting, proof-of-work challenges, and adaptive throttling. Use when protecting public API gateways from malicious bots.",
+      "version": "5.0.0",
+      "group": "Group S",
+      "domain": "Application Security Specialists",
+      "path": ".agents/skills/dex-api-abuse-prevention/SKILL.md",
+      "related_skills": [
+        "dex-rate-limiting-quotas",
+        "dex-web-security-headers"
+      ]
+    },
+    {
+      "id": "dex-web-security-headers",
+      "index": 184,
+      "name": "dex-web-security-headers",
+      "description": "Design, configure, and audit HTTP security headers including strict Content Security Policy (CSP), HSTS, Permissions-Policy, and secure cookie attributes. Use when hardening web applications against XSS, clickjacking, and MITM.",
+      "version": "5.0.0",
+      "group": "Group S",
+      "domain": "Application Security Specialists",
+      "path": ".agents/skills/dex-web-security-headers/SKILL.md",
+      "related_skills": [
+        "dex-browser-extension-hardening",
+        "dex-sast-finding-triage",
+        "dex-edge-runtime-engineering"
+      ]
+    },
+    {
+      "id": "dex-browser-extension-hardening",
+      "index": 185,
+      "name": "dex-browser-extension-hardening",
+      "description": "Harden browser extensions across Manifest V3, content script isolation, cross-origin communication, and CSP to prevent token theft and malicious page injection. Use when building or auditing Chromium/Firefox extensions.",
+      "version": "5.0.0",
+      "group": "Group S",
+      "domain": "Application Security Specialists",
+      "path": ".agents/skills/dex-browser-extension-hardening/SKILL.md",
+      "related_skills": [
+        "dex-web-security-headers",
+        "dex-sast-finding-triage",
+        "dex-typescript-type-safety"
+      ]
+    },
+    {
+      "id": "dex-sbom-verification",
+      "index": 186,
+      "name": "dex-sbom-verification",
+      "description": "Generate, sign, and verify Software Bill of Materials (SBOM) using CycloneDX and SPDX standards, integrating Syft and Cosign to secure the software supply chain. Use when complying with cybersecurity supply-chain mandates.",
+      "version": "5.0.0",
+      "group": "Group S",
+      "domain": "Application Security Specialists",
+      "path": ".agents/skills/dex-sbom-verification/SKILL.md",
+      "related_skills": [
+        "dex-container-image-engineering",
+        "dex-vulnerability-remediation",
+        "dex-kubernetes-policy-enforcement"
+      ]
+    },
+    {
+      "id": "dex-vulnerability-remediation",
+      "index": 187,
+      "name": "dex-vulnerability-remediation",
+      "description": "Prioritize, triage, and remediate CVE vulnerabilities across dependencies and container base images using risk-based reachability analysis (EPSS, KEV) and automated patch upgrades. Use when triaging Dependabot or Snyk alerts.",
+      "version": "5.0.0",
+      "group": "Group S",
+      "domain": "Application Security Specialists",
+      "path": ".agents/skills/dex-vulnerability-remediation/SKILL.md",
+      "related_skills": [
+        "dex-sbom-verification",
+        "dex-sast-finding-triage",
+        "dex-container-image-engineering"
+      ]
+    },
+    {
+      "id": "dex-security-logging-detection",
+      "index": 188,
+      "name": "dex-security-logging-detection",
+      "description": "Design, instrument, and validate tamper-evident security audit logs and detection rules (Sigma, SIEM) capturing authentication, authorization, and privilege escalation events. Use when establishing SOC visibility and audit compliance.",
+      "version": "5.0.0",
+      "group": "Group S",
+      "domain": "Application Security Specialists",
+      "path": ".agents/skills/dex-security-logging-detection/SKILL.md",
+      "related_skills": [
+        "dex-log-pipeline-design",
+        "dex-cloud-iam-policy-review",
+        "dex-secure-build-runners"
+      ]
+    },
+    {
+      "id": "dex-cryptographic-api-review",
+      "index": 189,
+      "name": "dex-cryptographic-api-review",
+      "description": "Audit, verify, and enforce correct cryptographic API usage, key derivation (Argon2id, PBKDF2), secure random generation, and authenticated encryption (AES-GCM, ChaCha20-Poly1305). Use when implementing encryption and hashing in software.",
+      "version": "5.0.0",
+      "group": "Group S",
+      "domain": "Application Security Specialists",
+      "path": ".agents/skills/dex-cryptographic-api-review/SKILL.md",
+      "related_skills": [
+        "dex-sast-finding-triage",
+        "dex-web-security-headers",
+        "dex-cloud-iam-policy-review"
+      ]
+    },
+    {
+      "id": "dex-secure-build-runners",
+      "index": 190,
+      "name": "dex-secure-build-runners",
+      "description": "Harden CI/CD execution environments and GitHub Actions runners, enforcing least-privilege tokens, ephemeral sandboxes, and protection against untrusted pull requests (pwn-request attacks). Use when securing build pipelines against supply-chain compromise.",
+      "version": "5.0.0",
+      "group": "Group S",
+      "domain": "Application Security Specialists",
+      "path": ".agents/skills/dex-secure-build-runners/SKILL.md",
+      "related_skills": [
+        "dex-sbom-verification",
+        "dex-vulnerability-remediation",
+        "dex-security-logging-detection"
+      ]
+    },
+    {
+      "id": "dex-skill-discovery-indexer",
+      "index": 191,
+      "name": "dex-skill-discovery-indexer",
+      "description": "Discover, parse, validate, and index Agent Skills across local and remote repositories, generating structured catalogs and searchable capability manifests. Use to catalog available skills across large multi-repo ecosystems.",
+      "version": "5.0.0",
+      "group": "Group T",
+      "domain": "SkillOps Engineering",
+      "path": ".agents/skills/dex-skill-discovery-indexer/SKILL.md",
+      "related_skills": [
+        "dex-skill-semantic-deduplication",
+        "dex-skill-license-provenance",
+        "dex-skill-security-screening"
+      ]
+    },
+    {
+      "id": "dex-skill-license-provenance",
+      "index": 192,
+      "name": "dex-skill-license-provenance",
+      "description": "Track, audit, and document open-source licenses, author attributions, and exact upstream commit provenance for third-party imported skills. Use to maintain legal compliance and intellectual property integrity.",
+      "version": "5.0.0",
+      "group": "Group T",
+      "domain": "SkillOps Engineering",
+      "path": ".agents/skills/dex-skill-license-provenance/SKILL.md",
+      "related_skills": [
+        "dex-skill-discovery-indexer",
+        "dex-skill-security-screening",
+        "dex-skill-import-packaging"
+      ]
+    },
+    {
+      "id": "dex-skill-semantic-deduplication",
+      "index": 193,
+      "name": "dex-skill-semantic-deduplication",
+      "description": "Identify, analyze, and consolidate functionally identical or near-duplicate Agent Skills across repositories using semantic similarity and intent clustering. Use to keep the skill catalog lean, modular, and non-redundant.",
+      "version": "5.0.0",
+      "group": "Group T",
+      "domain": "SkillOps Engineering",
+      "path": ".agents/skills/dex-skill-semantic-deduplication/SKILL.md",
+      "related_skills": [
+        "dex-skill-discovery-indexer",
+        "dex-skill-activation-evaluation",
+        "dex-skill-dependency-graph"
+      ]
+    },
+    {
+      "id": "dex-skill-security-screening",
+      "index": 194,
+      "name": "dex-skill-security-screening",
+      "description": "Inspect, screen, and sandbox untrusted third-party skill instructions, scripts, and MCP permissions for prompt injection, backdoors, and unsafe execution risks. Use before approving any external skill into the catalog.",
+      "version": "5.0.0",
+      "group": "Group T",
+      "domain": "SkillOps Engineering",
+      "path": ".agents/skills/dex-skill-security-screening/SKILL.md",
+      "related_skills": [
+        "dex-skill-license-provenance",
+        "dex-skill-import-packaging",
+        "dex-prompt-injection-defense"
+      ]
+    },
+    {
+      "id": "dex-skill-import-packaging",
+      "index": 195,
+      "name": "dex-skill-import-packaging",
+      "description": "Package, adapt, and import validated third-party skills into isolated integrations with schema normalization, dry-run capabilities, and automated rollback. Use when expanding the skill catalog through external adoption.",
+      "version": "5.0.0",
+      "group": "Group T",
+      "domain": "SkillOps Engineering",
+      "path": ".agents/skills/dex-skill-import-packaging/SKILL.md",
+      "related_skills": [
+        "dex-skill-security-screening",
+        "dex-skill-upstream-sync",
+        "dex-skill-discovery-indexer"
+      ]
+    },
+    {
+      "id": "dex-skill-upstream-sync",
+      "index": 196,
+      "name": "dex-skill-upstream-sync",
+      "description": "Track, diff, and synchronize pinned upstream repositories, detecting remote updates and breaking changes without overwriting local modifications. Use to maintain long-term alignment with upstream skill ecosystems.",
+      "version": "5.0.0",
+      "group": "Group T",
+      "domain": "SkillOps Engineering",
+      "path": ".agents/skills/dex-skill-upstream-sync/SKILL.md",
+      "related_skills": [
+        "dex-skill-import-packaging",
+        "dex-skill-license-provenance",
+        "dex-skill-security-screening"
+      ]
+    },
+    {
+      "id": "dex-skill-activation-evaluation",
+      "index": 197,
+      "name": "dex-skill-activation-evaluation",
+      "description": "Evaluate, benchmark, and optimize skill activation precision and recall across realistic user intent prompts, tuning metadata to eradicate false activations. Use when the orchestrator triggers the wrong skills.",
+      "version": "5.0.0",
+      "group": "Group T",
+      "domain": "SkillOps Engineering",
+      "path": ".agents/skills/dex-skill-activation-evaluation/SKILL.md",
+      "related_skills": [
+        "dex-skill-semantic-deduplication",
+        "dex-skill-quality-benchmarking",
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-skill-host-adapters",
+      "index": 198,
+      "name": "dex-skill-host-adapters",
+      "description": "Adapt, negotiate capabilities, and transform Agent Skills for seamless execution across different AI coding hosts (OpenAI Codex, Claude Desktop, Cursor, Copilot Workspace). Use when ensuring universal host interoperability.",
+      "version": "5.0.0",
+      "group": "Group T",
+      "domain": "SkillOps Engineering",
+      "path": ".agents/skills/dex-skill-host-adapters/SKILL.md",
+      "related_skills": [
+        "dex-mcp-server-design",
+        "dex-skill-discovery-indexer",
+        "dex-master-orchestrator"
+      ]
+    },
+    {
+      "id": "dex-skill-dependency-graph",
+      "index": 199,
+      "name": "dex-skill-dependency-graph",
+      "description": "Model, validate, and traverse the directed acyclic graph (DAG) of skill dependencies and orchestration pipelines, detecting circular references and sequencing errors. Use when composing complex multi-skill workflows.",
+      "version": "5.0.0",
+      "group": "Group T",
+      "domain": "SkillOps Engineering",
+      "path": ".agents/skills/dex-skill-dependency-graph/SKILL.md",
+      "related_skills": [
+        "dex-master-orchestrator",
+        "dex-skill-discovery-indexer",
+        "dex-skill-quality-benchmarking"
+      ]
+    },
+    {
+      "id": "dex-skill-quality-benchmarking",
+      "index": 200,
+      "name": "dex-skill-quality-benchmarking",
+      "description": "Benchmark, measure, and score the real-world engineering effectiveness, token efficiency, and completion fidelity of Agent Skills on representative tasks. Use to drive continuous empirical improvement across the skill framework.",
+      "version": "5.0.0",
+      "group": "Group T",
+      "domain": "SkillOps Engineering",
+      "path": ".agents/skills/dex-skill-quality-benchmarking/SKILL.md",
+      "related_skills": [
+        "dex-skill-activation-evaluation",
+        "dex-agent-evaluation-harness",
+        "dex-master-orchestrator"
+      ]
+    }
+  ],
+  "segregated_integrations": [
+    {
+      "id": "dex-api-mocking-virtualization",
+      "name": "dex-api-mocking-virtualization",
+      "description": "Architect hermetic API mocking, WireMock integration, Mock Service Worker (MSW) client interception, synthetic contract fixtures, and fault simulation. Use when isolating external dependencies or building resilient integration tests.",
+      "path": "integrations/aas/dex-api-mocking-virtualization/SKILL.md"
+    },
+    {
+      "id": "dex-rea-adapter",
+      "name": "dex-rea-adapter",
+      "description": "Model Context Protocol (MCP) bridge and coordination skill connecting DEX AI agents to the Reverse Engineer Anything (REA) MCP toolchain for authorized binary decompilation, symbol discovery, and evidence-based reporting. Use when interacting with local REA MCP servers.",
+      "path": "integrations/rea/dex-rea-adapter/SKILL.md"
+    },
+    {
+      "id": "dex-binary-inspection",
+      "name": "dex-binary-inspection",
+      "description": "Perform defensive, authorized static binary inspection, PE/ELF header analysis, symbol table dumping, imported DLL/shared library auditing, and compiler flag verification using safe cross-platform CLI utilities. Use when verifying compiled binaries, build integrity, or native dependencies.",
+      "path": "integrations/reverse-skill/dex-binary-inspection/SKILL.md"
+    },
+    {
+      "id": "dex-javascript-bundle-deobfuscation",
+      "name": "dex-javascript-bundle-deobfuscation",
+      "description": "Analyze and deobfuscate minified client-side JavaScript and Electron bundles, reconstruct sourcemap trees, extract third-party SDK dependencies, and audit exposed API endpoints for authorized defensive security reviews. Use when auditing web bundles or Electron apps.",
+      "path": "integrations/reverse-skill/dex-javascript-bundle-deobfuscation/SKILL.md"
+    }
+  ]
+}

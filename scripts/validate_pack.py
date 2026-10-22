@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-DEX ENGINEERING SKILLS PACK — VALIDATION RUNNER v4.0.
+DEX ENGINEERING SKILLS FRAMEWORK — VALIDATION RUNNER v5.0.
 Delegates to validate_skills.py to enforce the 14-section Agent Skills specification
-across all 121 native DEX skills and segregated upstream integrations.
+across all 201 native DEX skills and segregated upstream integrations.
 """
 
 import sys

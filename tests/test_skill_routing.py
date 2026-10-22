@@ -1,93 +1,113 @@
 # -*- coding: utf-8 -*-
 """
-Pytest suite for DEX Engineering Skills Pack v4.0: Routing Matrix Verification.
-Tests the Master Orchestrator dynamic skill dispatch engine across 16 realistic scenarios (A through P)
-covering all 12 specialized engineering groups and segregated upstream integrations.
+Pytest suite for DEX Engineering Skills Framework v5.0: Routing Matrix Verification.
+Tests the Master Orchestrator dynamic skill dispatch engine across 20 realistic scenarios (A through T)
+covering all 20 specialized engineering groups (Groups A to T) and segregated upstream integrations.
 """
 
 import os
 import pytest
 
 SCENARIOS = {
-    "Scenario A: Emergency Database Migration Failure": {
-        "description": "A production database migration failed halfway, causing locked tables and broken foreign keys.",
-        "primary_skills": ["dex-root-cause-debugging", "dex-database-engineering", "dex-schema-evolution"],
-        "complementary_skills": ["dex-disaster-recovery", "dex-production-monitoring", "dex-incident-postmortems"],
+    "Scenario A: Core Engineering Workflow & Git Governance (Group A)": {
+        "description": "Establish standardized development workflows, trunk-based Git hygiene, and atomic branch isolation.",
+        "primary_skills": ["dex-development-workflow", "dex-git-workflow", "dex-code-organization"],
+        "complementary_skills": ["dex-repository-bootstrap", "dex-semantic-version-automation"],
     },
-    "Scenario B: AI-Powered Search & RAG Service Implementation": {
-        "description": "Build an enterprise document search engine with hybrid dense/sparse retrieval and LLM summarization.",
-        "primary_skills": ["dex-rag-pipelines", "dex-retrieval-evaluation", "dex-llm-integration"],
-        "complementary_skills": ["dex-search-engineering", "dex-tool-calling-contracts", "dex-llm-cost-controls"],
+    "Scenario B: Multi-Agent Architecture & Coordination (Group B)": {
+        "description": "Design modular multi-agent orchestration frameworks with delegation boundaries and supervision contracts.",
+        "primary_skills": ["dex-multi-agent-orchestration", "dex-software-architecture", "dex-agent-engineering"],
+        "complementary_skills": ["dex-tool-calling-contracts", "dex-concurrency-state"],
     },
-    "Scenario C: Monorepo Architecture Modernization": {
-        "description": "Migrate 12 independent repositories into a governed monorepo with Turborepo remote caching and boundary rules.",
-        "primary_skills": ["dex-monorepo-governance", "dex-repository-bootstrap", "dex-code-organization"],
-        "complementary_skills": ["dex-developer-tooling", "dex-cicd-automation", "dex-semantic-version-automation"],
+    "Scenario C: Production Reliability & Progressive Rollouts (Group C)": {
+        "description": "Analyze change blast radiuses, configure dynamic feature toggles, and enforce error budget policies.",
+        "primary_skills": ["dex-change-impact-analysis", "dex-feature-flags", "dex-reliability-engineering"],
+        "complementary_skills": ["dex-zero-downtime-rollouts", "dex-production-monitoring"],
     },
-    "Scenario D: High-Concurrency Real-time Collaborative Canvas": {
-        "description": "Develop a real-time multiplayer whiteboard supporting 50,000 concurrent WebSocket connections.",
-        "primary_skills": ["dex-realtime-protocols", "dex-concurrency-state", "dex-event-driven-architecture"],
-        "complementary_skills": ["dex-caching-strategies", "dex-frontend-performance", "dex-performance-optimization"],
+    "Scenario D: Frontend Performance & Core Web Vitals (Group D)": {
+        "description": "Optimize critical rendering path, eliminate layout shifts, and automate visual regression test suites.",
+        "primary_skills": ["dex-frontend-performance", "dex-visual-regression", "dex-forms-and-validation"],
+        "complementary_skills": ["dex-accessibility-automation", "dex-design-handoff-verification"],
     },
-    "Scenario E: Enterprise SaaS Multi-Tenant Isolation & Authentication": {
-        "description": "Implement enterprise SSO, session revocation, and PostgreSQL Row-Level Security for a B2B SaaS platform.",
-        "primary_skills": ["dex-auth-session-lifecycle", "dex-access-control-tenancy", "dex-secrets-management"],
-        "complementary_skills": ["dex-security-audit", "dex-threat-modeling", "dex-database-engineering"],
+    "Scenario E: Event-Driven Backend & Distributed Processing (Group E)": {
+        "description": "Build asynchronous event-driven pipelines with idempotent consumer semantics and resilient background workers.",
+        "primary_skills": ["dex-event-driven-architecture", "dex-idempotent-operations", "dex-background-job-queues"],
+        "complementary_skills": ["dex-api-engineering", "dex-distributed-consistency"],
     },
-    "Scenario F: Mission-Critical Production Outage Postmortem": {
-        "description": "Facilitate a blameless postmortem after a 45-minute checkout outage and track corrective action items.",
-        "primary_skills": ["dex-incident-postmortems", "dex-production-monitoring", "dex-root-cause-debugging"],
-        "complementary_skills": ["dex-reliability-engineering", "dex-slo-error-budgets", "dex-documentation-as-code"],
+    "Scenario F: Data Contracts & Storage Optimization (Group F)": {
+        "description": "Enforce schema compatibility between streaming producers and consumers while tuning complex SQL execution plans.",
+        "primary_skills": ["dex-data-contracts", "dex-data-pipelines", "dex-database-query-plans"],
+        "complementary_skills": ["dex-database-engineering", "dex-schema-evolution"],
     },
-    "Scenario G: Cross-Platform Windows & POSIX Developer CLI Tooling": {
-        "description": "Develop a developer CLI in Rust/Node with WinGet package distribution, POSIX compliance, and shell completions.",
-        "primary_skills": ["dex-cli-engineering", "dex-cross-platform-portability", "dex-windows-packaging"],
-        "complementary_skills": ["dex-developer-tooling", "dex-plugin-architecture", "dex-release-engineering"],
+    "Scenario G: Enterprise RAG & Retrieval Quality Engineering (Group G)": {
+        "description": "Implement hybrid dense/sparse vector retrieval with cross-encoder reranking and token cost guardrails.",
+        "primary_skills": ["dex-rag-pipelines", "dex-retrieval-evaluation", "dex-llm-cost-controls"],
+        "complementary_skills": ["dex-llm-integration", "dex-reranking-strategies"],
     },
-    "Scenario H: Automated Release & Semantic Versioning Pipeline": {
-        "description": "Implement fully automated Conventional Commits parsing, CHANGELOG generation, and multi-registry publishing.",
-        "primary_skills": ["dex-semantic-version-automation", "dex-release-engineering", "dex-cicd-automation"],
-        "complementary_skills": ["dex-git-workflow", "dex-supply-chain-security", "dex-code-verification"],
+    "Scenario H: Governed Monorepo & Cross-Platform Tooling (Group H)": {
+        "description": "Standardize cross-boundary monorepos, high-performance developer CLIs, and automated semantic release workflows.",
+        "primary_skills": ["dex-monorepo-governance", "dex-cli-engineering", "dex-semantic-version-automation"],
+        "complementary_skills": ["dex-developer-tooling", "dex-cicd-automation"],
     },
-    "Scenario I: Data Contract Breaking Change Mitigation": {
-        "description": "Detect breaking changes between upstream event producers and downstream analytics data pipelines.",
-        "primary_skills": ["dex-data-contracts", "dex-schema-evolution", "dex-data-quality-audits"],
-        "complementary_skills": ["dex-data-pipelines", "dex-data-lineage", "dex-api-contract-evolution"],
+    "Scenario I: Threat Modeling & Defensive Secrets Lifecycle (Group I)": {
+        "description": "Conduct STRIDE threat modeling sessions, establish zero-trust identity policies, and manage short-lived secret leases.",
+        "primary_skills": ["dex-threat-modeling", "dex-secrets-management", "dex-security-audit"],
+        "complementary_skills": ["dex-auth-session-lifecycle", "dex-access-control-tenancy"],
     },
-    "Scenario J: Chaos Engineering & System Resilience Validation": {
-        "description": "Design Toxiproxy network latency simulations and verify Cockatiel/Resilience4j circuit breaker fallback.",
-        "primary_skills": ["dex-chaos-experiments", "dex-reliability-engineering", "dex-performance-optimization"],
-        "complementary_skills": ["dex-production-monitoring", "dex-property-based-testing", "dex-capacity-planning"],
+    "Scenario J: Cloud-Native Containers & Kubernetes Orchestration (Group J)": {
+        "description": "Engineer multi-stage unprivileged OCI container images and deploy zero-downtime Kubernetes applications.",
+        "primary_skills": ["dex-container-image-engineering", "dex-kubernetes-deployment", "dex-zero-downtime-rollouts"],
+        "complementary_skills": ["dex-service-mesh-networking", "dex-kubernetes-policy-enforcement"],
     },
-    "Scenario K: Hermetic Offline Integration Testing & Mock Virtualization": {
-        "description": "Run integration tests against third-party payments and logistics APIs completely offline without network flakes.",
-        "primary_skills": ["dex-api-mocking-virtualization", "dex-testing-engineering", "dex-api-engineering"],
-        "complementary_skills": ["dex-code-verification", "dex-cicd-automation"],
+    "Scenario K: Mobile Offline Synchronization & Native Device Access (Group K)": {
+        "description": "Architect offline-first mobile synchronization engines with conflict resolution and biometric hardware integration.",
+        "primary_skills": ["dex-android-app-architecture", "dex-mobile-offline-sync", "dex-native-device-integration"],
+        "complementary_skills": ["dex-ios-app-architecture", "dex-mobile-performance-profiling"],
     },
-    "Scenario L: Defensive Binary & Web Bundle Security Auditing": {
-        "description": "Inspect compiled release executables (PE/ELF) and production JavaScript bundles for exposed endpoints and ASLR/DEP flags.",
-        "primary_skills": ["dex-binary-inspection", "dex-javascript-bundle-deobfuscation", "dex-rea-adapter"],
-        "complementary_skills": ["dex-security-audit", "dex-threat-modeling"],
+    "Scenario L: Compliance Control Mapping & Operational Readiness (Group L)": {
+        "description": "Map SOC2/ISO controls to automated infrastructure evidence and conduct operational readiness reviews prior to launch.",
+        "primary_skills": ["dex-operational-readiness-review", "dex-compliance-control-mapping", "dex-privacy-impact-assessment"],
+        "complementary_skills": ["dex-audit-trail-integrity", "dex-configuration-drift"],
     },
-    "Scenario M: Zero-Downtime Multi-Region Kubernetes Rollout": {
-        "description": "Deploy mission-critical payment services to Kubernetes with progressive Canary analysis and instant rollbacks.",
-        "primary_skills": ["dex-zero-downtime-rollouts", "dex-kubernetes-deployment", "dex-slo-error-budgets"],
-        "complementary_skills": ["dex-service-mesh-networking", "dex-distributed-tracing", "dex-container-image-engineering"],
+    "Scenario M: Advanced Verification & Mutation Testing (Group M)": {
+        "description": "Evaluate test quality through mutation survival analysis, quarantine flaky tests, and verify formal system invariants.",
+        "primary_skills": ["dex-mutation-testing", "dex-flaky-test-remediation", "dex-coverage-risk-analysis"],
+        "complementary_skills": ["dex-differential-testing", "dex-formal-invariant-checks"],
     },
-    "Scenario N: Offline-First Mobile Synchronization & Device Biometrics": {
-        "description": "Build an offline-first mobile inspection app with local SQLite storage, mutation queues, and FaceID authentication.",
-        "primary_skills": ["dex-mobile-offline-sync", "dex-android-app-architecture", "dex-native-device-integration"],
-        "complementary_skills": ["dex-ios-app-architecture", "dex-mobile-performance-profiling", "dex-desktop-ipc-design"],
+    "Scenario N: Distributed Systems Resilience & Traffic Shaping (Group N)": {
+        "description": "Simulate peak traffic stress, design adaptive token-bucket rate limiters, and enforce backpressure load shedding.",
+        "primary_skills": ["dex-load-and-stress-testing", "dex-rate-limiting-quotas", "dex-traffic-shaping-backpressure"],
+        "complementary_skills": ["dex-service-failover", "dex-distributed-consistency"],
     },
-    "Scenario O: FinOps Cloud Cost Anomaly & Resource Right-Sizing": {
-        "description": "Investigate a 40% cloud bill surge, reclaim orphaned EBS volumes, right-size compute, and model unit economics.",
-        "primary_skills": ["dex-cloud-cost-finops", "dex-infrastructure-as-code", "dex-capacity-planning"],
-        "complementary_skills": ["dex-storage-lifecycle", "dex-cloud-service-integration"],
+    "Scenario O: Cloud Platform Governance & GitOps Workflows (Group O)": {
+        "description": "Audit least-privilege IAM policies, manage internal developer service catalogs, and reconcile declarative GitOps state.",
+        "primary_skills": ["dex-cloud-iam-policy-review", "dex-gitops-workflows", "dex-kubernetes-policy-enforcement"],
+        "complementary_skills": ["dex-platform-service-catalog", "dex-cloud-resource-tagging"],
     },
-    "Scenario P: Enterprise Compliance Audit & Tamper-Evident Logging": {
-        "description": "Conduct SOC 2 Type II control mapping, configure append-only Merkle audit logs, and reconcile GitOps drift.",
-        "primary_skills": ["dex-compliance-control-mapping", "dex-audit-trail-integrity", "dex-privacy-impact-assessment"],
-        "complementary_skills": ["dex-configuration-drift", "dex-operational-readiness-review", "dex-runbook-automation"],
+    "Scenario P: Specialized Language & Systems Runtime Diagnostics (Group P)": {
+        "description": "Audit Rust unsafe blocks for UB hazards, profile JVM garbage collection pauses, and diagnose Node event loop latency.",
+        "primary_skills": ["dex-rust-unsafe-audit", "dex-cpp-memory-safety", "dex-nodejs-runtime-diagnostics"],
+        "complementary_skills": ["dex-go-concurrency-patterns", "dex-jvm-performance-diagnostics"],
+    },
+    "Scenario Q: Advanced Multi-Agent MCP Protocols & Vector Indexing (Group Q)": {
+        "description": "Implement Model Context Protocol (MCP) servers, construct HNSW vector indices, and enforce structured JSON schemas.",
+        "primary_skills": ["dex-mcp-server-design", "dex-vector-index-design", "dex-reranking-strategies"],
+        "complementary_skills": ["dex-structured-llm-output", "dex-agent-memory-governance"],
+    },
+    "Scenario R: User Experience Journey Mapping & Accessibility (Group R)": {
+        "description": "Map complex user purchase funnels, automate WCAG 2.2 AA accessibility audits, and verify design token handoffs.",
+        "primary_skills": ["dex-user-journey-mapping", "dex-accessibility-automation", "dex-design-handoff-verification"],
+        "complementary_skills": ["dex-product-requirements-writing", "dex-usability-study-design"],
+    },
+    "Scenario S: Application Security Defense & Supply Chain Verification (Group S)": {
+        "description": "Triage SAST findings, sign and verify cryptographic SBOMs, and harden production browser extension execution context.",
+        "primary_skills": ["dex-sast-finding-triage", "dex-sbom-verification", "dex-browser-extension-hardening"],
+        "complementary_skills": ["dex-api-abuse-prevention", "dex-cryptographic-api-review"],
+    },
+    "Scenario T: Autonomous SkillOps Lifecycle & Provenance Auditing (Group T)": {
+        "description": "Index skill catalogs, execute dynamic security screening, benchmark routing accuracy, and track upstream sync provenance.",
+        "primary_skills": ["dex-skill-discovery-indexer", "dex-skill-security-screening", "dex-skill-upstream-sync"],
+        "complementary_skills": ["dex-skill-quality-benchmarking", "dex-skill-dependency-graph"],
     },
 }
 

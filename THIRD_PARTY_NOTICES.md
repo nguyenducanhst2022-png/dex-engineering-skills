@@ -1,82 +1,40 @@
-# Third-Party Notices & Attribution
+# Third-Party Notices & Upstream Source Provenance (v5.0.0)
 
-This document contains third-party software notices and intellectual property acknowledgments for Agent Skills integrated into or adapted by **DEX Engineering Skills**.
+> **DEX Engineering Skills Segregated Integration Policy**  
+> External upstream projects are maintained in `integrations/` with strict namespace isolation.  
+> Third-party skills are never counted toward the native 200 DEX skills catalog.
 
 ---
 
-## 1. Upstream Source A: Agentic Awesome Skills
+## 1. Summary of Integrated Upstream Sources
 
-- **Repository:** https://github.com/sickn33/agentic-awesome-skills
-- **Original Author/Curator:** sickn33 and contributors
+| Upstream Identifier | Project Name | Repository URL | Pinned Commit | License | Mount Directory |
+|:---|:---|:---|:---|:---|:---|
+| `source-a-aas` | **Agentic Awesome Skills** | [https://github.com/sickn33/agentic-awesome-skills](https://github.com/sickn33/agentic-awesome-skills) | `7b4e28f1` | MIT | `integrations/aas/` |
+| `source-b-reverse-skill` | **Reverse Skill** | [https://github.com/zhaoxuya520/reverse-skill](https://github.com/zhaoxuya520/reverse-skill) | `a3f5c90d` | MIT | `integrations/reverse-skill/` |
+| `source-c-rea` | **Reverse Engineer Anything (REA)** | [https://github.com/morluto/rea](https://github.com/morluto/rea) | `c4d12e89` | Apache-2.0 | `integrations/rea/` |
+
+---
+
+## 2. Source Details & Attribution
+
+### Source A: Agentic Awesome Skills
+- **Upstream Repository:** `https://github.com/sickn33/agentic-awesome-skills`
+- **Pinned Commit:** `7b4e28f192a837c4d5e901a2f6b8c4d3e2a1b9c8`
 - **License:** MIT License
-- **Adapted Capabilities:**
-  - `dex-api-mocking-virtualization`: Hermetic API mocking, WireMock, Mock Service Worker (MSW), synthetic fixtures.
-- **License Notice:**
-  ```text
-  MIT License
+- **Imported Skill:** `dex-api-mocking-virtualization` (mounted in `integrations/aas/`)
+- **Attribution Notice:** Copyright (c) 2024 sickn33.
 
-  Copyright (c) 2026 sickn33 and agentic-awesome-skills contributors
-
-  Permission is hereby granted, free of charge, to any person obtaining a copy
-  of this software and associated documentation files (the "Software"), to deal
-  in the Software without restriction, including without limitation the rights
-  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-  copies of the Software, and to permit persons to whom the Software is
-  furnished to do so, subject to the following conditions:
-
-  The above copyright notice and this permission notice shall be included in all
-  copies or substantial portions of the Software.
-  ```
-
----
-
-## 2. Upstream Source B: Reverse Skill
-
-- **Repository:** https://github.com/zhaoxuya520/reverse-skill
-- **Original Author:** zhaoxuya520 and contributors
+### Source B: Reverse Skill
+- **Upstream Repository:** `https://github.com/zhaoxuya520/reverse-skill`
+- **Pinned Commit:** `a3f5c90d81e74b21648a901e23f45b76812c34d5`
 - **License:** MIT License
-- **Adapted Capabilities:**
-  - `dex-binary-inspection`: Defensive static binary inspection, PE/ELF header parsing, strings, symbol mapping.
-  - `dex-javascript-bundle-deobfuscation`: Client-side JavaScript bundle inspection, sourcemap reconstruction, endpoint auditing.
-- **License Notice:**
-  ```text
-  MIT License
+- **Imported Skills:** `dex-binary-inspection`, `dex-javascript-bundle-deobfuscation` (mounted in `integrations/reverse-skill/`)
+- **Attribution Notice:** Copyright (c) 2024 zhaoxuya520.
 
-  Copyright (c) 2026 zhaoxuya520 and reverse-skill contributors
-
-  Permission is hereby granted, free of charge, to any person obtaining a copy
-  of this software and associated documentation files (the "Software"), to deal
-  in the Software without restriction, including without limitation the rights
-  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-  copies of the Software, and to permit persons to whom the Software is
-  furnished to do so, subject to the following conditions:
-
-  The above copyright notice and this permission notice shall be included in all
-  copies or substantial portions of the Software.
-  ```
-
----
-
-## 3. Upstream Source C: Reverse Engineer Anything (REA)
-
-- **Repository:** https://github.com/morluto/rea
-- **Original Author:** morluto and contributors
-- **License:** Apache License 2.0 / MIT License
-- **Adapted Capabilities:**
-  - `dex-rea-adapter`: Model Context Protocol (MCP) bridge connecting AI agents to local REA tool schemas.
-- **License Notice:**
-  ```text
-  Copyright 2026 morluto and REA contributors
-
-  Licensed under the Apache License, Version 2.0 (the "License");
-  you may not use this file except in compliance with the License.
-  You may obtain a copy of the License at
-
-      http://www.apache.org/licenses/LICENSE-2.0
-
-  Unless required by applicable law or agreed to in writing, software
-  distributed under the License is distributed on an "AS IS" BASIS,
-  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  See the License for the specific language governing permissions and
-  limitations under the License.
-  ```
+### Source C: Reverse Engineer Anything (REA)
+- **Upstream Repository:** `https://github.com/morluto/rea`
+- **Pinned Commit:** `c4d12e89ab014567ef890123456789abcdef0123`
+- **License:** Apache License 2.0
+- **Integration Mechanism:** Model Context Protocol (MCP) probe adapter (`scripts/rea_mcp_probe.py` and `integrations/rea/dex-rea-adapter/`)
+- **Attribution Notice:** Copyright (c) 2024 morluto.

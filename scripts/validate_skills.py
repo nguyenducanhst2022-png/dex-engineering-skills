@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-Validation script for DEX Engineering Skills Pack v4.0.
-Verifies all 121 Native DEX Skills (120 Specialized Skills + 1 Master Orchestrator)
+Validation script for DEX Engineering Skills Framework v5.0.
+Verifies all 201 Native DEX Skills (200 Specialized Skills + 1 Master Orchestrator)
 and segregated upstream integration skills against the Agent Skills Specification
 and strict 14-section requirements.
 """
@@ -123,7 +123,7 @@ def main():
     skills_base = os.path.join(root_dir, ".agents", "skills")
     integrations_base = os.path.join(root_dir, "integrations")
 
-    print("=== DEX ENGINEERING SKILLS PACK v4.0 SPECIFICATION VALIDATOR ===")
+    print("=== DEX ENGINEERING SKILLS FRAMEWORK v5.0 SPECIFICATION VALIDATOR ===")
     print(f"Scanning native skills in: {skills_base}")
 
     if not os.path.exists(skills_base):
@@ -133,9 +133,9 @@ def main():
     skill_dirs = [d for d in os.listdir(skills_base) if os.path.isdir(os.path.join(skills_base, d))]
     print(f"Native skill directories found: {len(skill_dirs)}")
 
-    EXPECTED_NATIVE_COUNT = 121
+    EXPECTED_NATIVE_COUNT = 201
     if len(skill_dirs) != EXPECTED_NATIVE_COUNT:
-        print(f"ERROR: Expected exactly {EXPECTED_NATIVE_COUNT} native skills (120 specialized + 1 orchestrator), but found {len(skill_dirs)}.")
+        print(f"ERROR: Expected exactly {EXPECTED_NATIVE_COUNT} native skills (200 specialized + 1 orchestrator), but found {len(skill_dirs)}.")
 
     total_errors = 0
     passed_skills = 0
@@ -173,7 +173,7 @@ def main():
 
     print("\n" + "=" * 60)
     print("VALIDATION SUMMARY:")
-    print(f"  Native DEX Skills (120 + 1) : {passed_skills} / {len(skill_dirs)} PASSED")
+    print(f"  Native DEX Skills (200 + 1) : {passed_skills} / {len(skill_dirs)} PASSED")
     print(f"  Segregated Integrations     : {integration_passed} / {integration_total} PASSED")
     print(f"  Total Errors                : {total_errors}")
     print("=" * 60)
@@ -187,3 +187,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
