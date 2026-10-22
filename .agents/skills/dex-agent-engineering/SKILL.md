@@ -5,7 +5,7 @@ description: Autonomous AI coding agent behavior regulation, self-planning, boun
 
 # DEX Agent Engineering
 
-## 1. Purpose
+## 1. Purpose & Scope
 Quy định hành vi và cơ chế tự chủ có kiểm soát cho AI Coding Agent; cho phép Agent tự lập kế hoạch, tự viết code, tự kiểm tra và tự sửa lỗi trong phạm vi an toàn mà không làm mất kiểm soát hoặc phá vỡ hệ thống của người dùng.
 
 Quy trình Agent chuẩn:
@@ -19,17 +19,21 @@ Ghi nhớ sống còn: **AI Agent tốt = Tự chủ có giới hạn + Kiểm t
 - Khi điều khiển một Agent độc lập thực hiện chuỗi nhiệm vụ nhiều bước mà không cần con người can thiệp từng dòng lệnh.
 - Khi cần ngăn chặn Agent rơi vào vòng lặp vô tận (Infinite loops) hoặc tự ý đưa ra các quyết định kiến trúc nguy hiểm.
 
-## 3. When Not to Use
+## 3. When NOT to Use
 - Khi con người muốn lập trình theo kiểu "cầm tay chỉ việc" từng câu lệnh ngắn (Interactive line-by-line pairing).
 - Các tác vụ đòi hỏi sự can thiệp và phê duyệt trực tiếp của con người ở mọi thao tác (như ký hợp đồng điện tử, thanh toán thật).
 
-## 4. Inputs
+## 4. Prerequisites & Input Context
 - Chỉ dẫn vai trò kỹ sư (Engineer Role: Principal Engineer, QA Lead, Architect).
 - Danh sách 4 Nguyên Tắc Điều Khiển AI Agent (Scope Control, Autonomous Execution, Quality Gate, Human Approval).
 - Phạm vi quyền hạn của công cụ (Tool execution permissions: bash, file write, git, search).
 
-## 5. Workflow
+## 5. Core Concepts & Taxonomy
+- **Nguyên tắc cốt lõi**: Tuân thủ triệt để nguyên lý vận hành xác định và ranh giới trách nhiệm của chuẩn Agent Skills.
+- **Tính nhất quán hệ thống**: Mọi thao tác phải có thể kiểm chứng độc lập với kết quả đo lường rõ ràng.
+- **Ngăn ngừa hồi quy**: Bất kỳ sửa đổi nào cũng phải bảo vệ tính tương thích ngược và chất lượng đã được nghiệm thu.
 
+## 6. Step-by-Step Execution Workflow
 ### Bước 1: Tiếp Nhận & Tự Phân Tích (Autonomous Discovery)
 - Đọc mã nguồn, cấu trúc dự án và tài liệu liên quan.
 - Xác định trạng thái hiện tại, công nghệ và các quy ước đang áp dụng.
@@ -58,34 +62,45 @@ Ghi nhớ sống còn: **AI Agent tốt = Tự chủ có giới hạn + Kiểm t
 ### Bước 7: Báo Cáo Minh Bạch Kèm Bằng Chứng (Transparent Reporting)
 - Trình bày báo cáo đầy đủ: File đã sửa, Lệnh kiểm tra đã chạy, Kết quả thực tế đạt được, Rủi ro còn lại.
 
-## 6. Quality Gates
+## 7. Concrete Examples
+```bash
+# Lệnh thực thi & kiểm chứng tiêu chuẩn
+dex verify --skill dex-agent-engineering
+```
+
+## 8. Anti-Patterns & Common Traps
+- **Anti-Pattern 1**: Bỏ qua các bước xác minh tự động và dựa vào giả định chủ quan.
+- **Anti-Pattern 2**: Thay đổi diện rộng vượt ngoài phạm vi (Scope Creep) làm mất kiểm soát rủi ro.
+- **Trap**: Thực hiện thao tác phá hủy hoặc thay đổi trạng thái sản xuất khi chưa qua cổng kiểm duyệt an toàn.
+
+## 9. Quality Gates & Acceptance Criteria
 - **QG-01 (Scope Confined)**: Agent chỉ thao tác trong phạm vi được chỉ định.
 - **QG-05 (Self-Test Passed)**: Agent tự chạy test và đạt 100% PASS.
 - **QG-10 (Real Execution Evidence)**: Báo cáo của Agent có đầy đủ log terminal thật, không bịa đặt trạng thái.
 
-## 7. Safety Rules (4 Nguyên Tắc Điều Khiển AI Agent)
+## 10. Security & Safety Boundaries
 1. **Scope Control (Kiểm soát phạm vi)**: Giới hạn chặt chẽ danh sách file được phép sửa. Không được tự ý "tiện tay dọn dẹp" file khác.
 2. **Autonomous Execution (Tự chủ có kiểm soát)**: Tự thực hiện các bước kỹ thuật trong phạm vi cho phép, không hỏi những câu hỏi hiển nhiên đã có trong tài liệu.
 3. **Quality Gate (Chặn chuyển giai đoạn)**: Không bao giờ chuyển sang bước tiếp theo hoặc báo hoàn thành khi chưa đạt tiêu chí kiểm thử.
 4. **Human Approval (Xin phép con người)**: Luôn xin phép trước các thao tác có rủi ro cao hoặc tác động không thể đảo ngược.
 
-## 8. Expected Outputs
+## 11. Platform Adapters
+- **OpenAI Codex**: Tương thích hoàn toàn thông qua cấu trúc file `SKILL.md` và agent instructions tiêu chuẩn.
+- **Universal Agent Skills**: Tuân thủ đặc tả tại `https://agentskills.io/specification`.
+- **CLI & IDE Adapters**: Kích hoạt thông qua terminal hoặc tiện ích mở rộng IDE tương thích (VS Code, Cursor, Windsurf).
+
+## 12. Deliverables & Output Artifacts
 1. Bản kế hoạch thực thi của Agent.
 2. Mã nguồn và bộ test hoàn thiện.
 3. Báo cáo kiểm chứng minh bạch kèm terminal output.
 
-## 9. Failure Handling
-- Nếu Agent bị kẹt trong vòng lặp sửa lỗi quá 3 lần: Agent tự động dừng lại, hoàn tác mã nguồn về commit sạch gần nhất, giải thích rõ nguyên nhân bế tắc và đề xuất phương án cho người dùng lựa chọn.
+## 13. Related & Complementary Skills
+- `dex-master-orchestrator`: Điều phối trung tâm.
 
-## 10. Completion Criteria
-- Nhiệm vụ hoàn thành 100% theo tiêu chí nghiệm thu.
-- Agent cung cấp bằng chứng kiểm thử thực tế và không vi phạm bất kỳ nguyên tắc an toàn nào.
-
----
-
-## Real-world Example
-Agent được giao nhiệm vụ: "Thêm API đổi mật khẩu cho user".
-1. *Scope*: Chỉ sửa `src/controllers/auth.ts`, `src/services/auth.ts` và `tests/auth.test.ts`.
-2. *Thực thi*: Agent viết hàm đổi mật khẩu, mã hóa bcrypt và viết 3 unit tests.
-3. *Tự kiểm tra*: Agent chạy `npm test tests/auth.test.ts` → Phát hiện thiếu kiểm tra độ dài mật khẩu mới (FAIL) → Agent tự sửa code → Chạy lại test → PASS 100%.
-4. *Báo cáo*: Báo cáo người dùng kết quả test PASS kèm diff sạch sẽ.
+## 14. Realistic Usage Example
+### Tình huống triển khai thực tế:
+Kỹ sư hoặc AI Agent kích hoạt **dex-agent-engineering** trong dự án.
+1. Tiếp nhận ngữ cảnh đầu vào và kiểm tra điều kiện tiên quyết tại Mục 4.
+2. Vận hành tuần tự các bước theo Quy trình tại Mục 6.
+3. Kiểm chứng đầu ra đối chiếu với Tiêu chuẩn chấp thuận tại Mục 9.
+4. Bàn giao đầy đủ hiện vật theo Mục 12 và cập nhật tài liệu liên quan.

@@ -5,7 +5,7 @@ description: System resilience, fault tolerance, graceful degradation, circuit b
 
 # DEX Reliability Engineering
 
-## 1. Purpose
+## 1. Purpose & Scope
 Nâng cao độ tin cậy và khả năng chống chịu sự cố (Fault Tolerance) của hệ thống phần mềm; đảm bảo ứng dụng có thể tự động phục hồi khi gặp lỗi, suy thoái êm đẹp (Graceful Degradation) khi quá tải và tiếp tục phục vụ người dùng kể cả khi một số dịch vụ bên ngoài bị sập.
 
 Quy trình tăng độ tin cậy chuẩn:
@@ -20,17 +20,21 @@ Ghi nhớ sống còn: **Độ tin cậy cao = Có Timeout + Có Retry thông mi
 - Khi cần cơ chế thử lại tự động (Retry Mechanism) kèm giãn cách theo số mũ (Exponential Backoff).
 - Khi ngăn chặn sự cố dây chuyền (Cascading Failures) bằng mô hình Circuit Breaker.
 
-## 3. When Not to Use
+## 3. When NOT to Use
 - Thao tác tính toán nội bộ thuần túy trong RAM (Pure in-memory operations) không có rủi ro I/O mạng.
 - Áp dụng cơ chế retry mù quáng cho các lỗi do dữ liệu client gửi sai (Mã HTTP 400, 401, 404 không bao giờ được retry).
 
-## 4. Inputs
+## 4. Prerequisites & Input Context
 - Danh sách các điểm tích hợp I/O mạng và dịch vụ bên thứ ba.
 - Thời gian phản hồi tối đa cho phép (Timeout SLAs, ví dụ: API ngoài tối đa 3 giây).
 - Kế hoạch dự phòng (Fallback plan) khi dịch vụ ngoài ngừng hoạt động.
 
-## 5. Workflow
+## 5. Core Concepts & Taxonomy
+- **Nguyên tắc cốt lõi**: Tuân thủ triệt để nguyên lý vận hành xác định và ranh giới trách nhiệm của chuẩn Agent Skills.
+- **Tính nhất quán hệ thống**: Mọi thao tác kỹ thuật phải có thể kiểm chứng độc lập với số liệu rõ ràng.
+- **Ngăn ngừa hồi quy**: Bất kỳ sửa đổi nào cũng phải bảo vệ tính tương thích ngược và chất lượng đã được nghiệm thu.
 
+## 6. Step-by-Step Execution Workflow
 ### Bước 1: Xác Định Các Điểm Dễ Hỏng (Single Points of Failure - SPOF)
 - Lập danh sách tất cả các lời gọi mạng:
   - Cổng thanh toán (Stripe/PayPal/VNPay).
@@ -65,54 +69,44 @@ Ghi nhớ sống còn: **Độ tin cậy cao = Có Timeout + Có Retry thông mi
 - Giả lập tình huống lỗi mạng: Mock timeout, mock mã lỗi HTTP 500.
 - Kiểm chứng hệ thống xử lý êm đẹp, không bị crash tiến trình (unhandled promise rejection).
 
-## 6. Quality Gates
+## 7. Concrete Examples
+```bash
+# Lệnh thực thi & kiểm chứng tiêu chuẩn
+dex verify --skill dex-reliability-engineering
+```
+
+## 8. Anti-Patterns & Common Traps
+- **Anti-Pattern 1**: Bỏ qua các bước xác minh tự động và dựa vào giả định chủ quan.
+- **Anti-Pattern 2**: Thay đổi diện rộng vượt ngoài phạm vi (Scope Creep) làm mất kiểm soát rủi ro.
+- **Trap**: Thực hiện thao tác phá hủy hoặc thay đổi trạng thái sản xuất khi chưa qua cổng kiểm duyệt an toàn.
+
+## 9. Quality Gates & Acceptance Criteria
 - **QG-01 (All External Calls Guarded)**: 100% các cuộc gọi ra bên ngoài đều có Timeout tường minh.
 - **QG-05 (Fault Injection Tests PASS)**: Kịch bản giả lập dịch vụ ngoài sập được ứng dụng xử lý đúng fallback và đạt PASS.
 - **QG-06 (No Unhandled Exceptions)**: Không có ngoại lệ mạng nào làm sập tiến trình máy chủ.
 
-## 7. Safety Rules
+## 10. Security & Safety Boundaries
 - **Cấm Vòng Lặp Retry Vô Tận (No Infinite Retries)**: Số lần retry tối đa không bao giờ vượt quá 3-5 lần.
 - **Phải Có Tính Bất Biến Lặp Lại (Idempotency)**: Khi retry các thao tác làm thay đổi dữ liệu (POST/PUT), bắt buộc phải gửi kèm Idempotency Key để tránh trừ tiền 2 lần hoặc tạo 2 đơn hàng trùng nhau.
 - **Không Nuốt Lỗi Âm Thầm (No Silent Error Swallowing)**: Fallback phải được ghi nhận vào hệ thống cảnh báo (Warning log) để đội ngũ kỹ thuật biết rằng dịch vụ đang hoạt động ở chế độ suy thoái.
 
-## 8. Expected Outputs
+## 11. Platform Adapters
+- **OpenAI Codex**: Tương thích hoàn toàn thông qua cấu trúc file `SKILL.md` và agent instructions tiêu chuẩn.
+- **Universal Agent Skills**: Tuân thủ đặc tả tại `https://agentskills.io/specification`.
+- **CLI & IDE Adapters**: Kích hoạt thông qua terminal hoặc tiện ích mở rộng IDE tương thích (VS Code, Cursor, Windsurf).
+
+## 12. Deliverables & Output Artifacts
 1. Mã nguồn tích hợp đầy đủ Timeout, Retry with Exponential Backoff và Circuit Breaker.
 2. Logic Fallback dự phòng thân thiện với người dùng.
 3. Bộ bài kiểm thử giả lập sự cố mạng đạt 100% PASS.
 
-## 9. Failure Handling
-- Khi dịch vụ bên ngoài ngừng hoạt động kéo dài: Circuit Breaker giữ trạng thái OPEN, trả về thông báo bảo trì tạm thời cho tính năng đó, bảo vệ toàn bộ các tính năng còn lại của hệ thống hoạt động bình thường.
+## 13. Related & Complementary Skills
+- `dex-master-orchestrator`: Điều phối trung tâm.
 
-## 10. Completion Criteria
-- Không còn bất kỳ lời gọi I/O mạng nào thiếu timeout.
-- Các ca kiểm thử sự cố mạng được chứng minh phục hồi thành công.
-
----
-
-## Real-world Example
-Gọi API cổng thanh toán với timeout và retry:
-```typescript
-async function chargeWithResilience(payload: PaymentPayload) {
-  const controller = new AbortController();
-  const timeoutId = setTimeout(() => controller.abort(), 3000); // 3s timeout
-
-  try {
-    return await pRetry(
-      async () => {
-        const res = await fetch('https://api.stripe.com/v1/charges', {
-          method: 'POST',
-          headers: { 'Idempotency-Key': payload.idempotencyKey },
-          signal: controller.signal,
-          body: JSON.stringify(payload)
-        });
-        if (res.status >= 500) throw new Error('Stripe server error');
-        return await res.json();
-      },
-      { retries: 3, factor: 2, minTimeout: 500, randomize: true }
-    );
-  } finally {
-    clearTimeout(timeoutId);
-  }
-}
-```
-Đảm bảo an toàn giao dịch, không bị treo server nếu Stripe bị nghẽn mạng.
+## 14. Realistic Usage Example
+### Tình huống triển khai thực tế:
+Kỹ sư hoặc AI Agent kích hoạt **dex-reliability-engineering** trong dự án.
+1. Tiếp nhận ngữ cảnh đầu vào và kiểm tra điều kiện tiên quyết tại Mục 4.
+2. Vận hành tuần tự các bước theo Quy trình tại Mục 6.
+3. Kiểm chứng đầu ra đối chiếu với Tiêu chuẩn chấp thuận tại Mục 9.
+4. Bàn giao đầy đủ hiện vật theo Mục 12 và cập nhật tài liệu liên quan.

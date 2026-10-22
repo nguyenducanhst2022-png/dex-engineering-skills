@@ -5,7 +5,7 @@ description: Structured software release management, semantic versioning (SemVer
 
 # DEX Release Engineering
 
-## 1. Purpose
+## 1. Purpose & Scope
 Quản lý quy trình đóng gói và phát hành phần mềm chuyên nghiệp, tuân thủ Semantic Versioning (SemVer), tự động hóa ghi nhận Changelog, tạo gói phân phối sạch sẽ và chuẩn bị sẵn sàng phương án khôi phục (Rollback Plan) khi xảy ra sự cố.
 
 Quy trình phát hành chuẩn:
@@ -20,18 +20,22 @@ Ghi nhớ sống còn: **Code hoàn thiện ≠ Sản phẩm sẵn sàng phát h
 - Khi tạo Git release tag, phát hành file nhị phân (Binaries / Docker Image / NPM package) hoặc triển khai lên môi trường Staging/Production.
 - Khi phát hành bản vá khẩn cấp (Hotfix Release).
 
-## 3. When Not to Use
+## 3. When NOT to Use
 - Trong quá trình phát triển tính năng dở dang trên các nhánh cục bộ.
 - Khi còn bất kỳ bài kiểm thử nào đang bị rớt (FAIL) hoặc chưa được xác minh (`NOT VERIFIED`).
 
-## 4. Inputs
+## 4. Prerequisites & Input Context
 - Trạng thái kho Git trên nhánh chính (`main`/`master`) sạch sẽ, không có uncommitted changes.
 - Lịch sử commits kể từ phiên bản phát hành gần nhất (`git log <last-tag>..HEAD`).
 - Số phiên bản hiện tại (từ `package.json`, `pyproject.toml`, `Cargo.toml`...).
 - Báo cáo kết quả kiểm thử toàn diện và kiểm toán bảo mật.
 
-## 5. Workflow
+## 5. Core Concepts & Taxonomy
+- **Nguyên tắc cốt lõi**: Tuân thủ triệt để nguyên lý vận hành xác định và ranh giới trách nhiệm của chuẩn Agent Skills.
+- **Tính nhất quán hệ thống**: Mọi thao tác phải có thể kiểm chứng độc lập với kết quả đo lường rõ ràng.
+- **Ngăn ngừa hồi quy**: Bất kỳ sửa đổi nào cũng phải bảo vệ tính tương thích ngược và chất lượng đã được nghiệm thu.
 
+## 6. Step-by-Step Execution Workflow
 ### Bước 1: Rà Soát Điều Kiện Tiên Quyết (Pre-release Verification)
 - Xác minh 100% các Quality Gates bắt buộc đã đạt:
   - Tất cả Unit, Integration và E2E tests đạt PASS.
@@ -73,35 +77,44 @@ Ghi nhớ sống còn: **Code hoàn thiện ≠ Sản phẩm sẵn sàng phát h
 ### Bước 7: Bàn Giao Giám Sát Sau Phát Hành (Post-release Hand-off)
 - Bàn giao việc theo dõi cho `dex-production-monitoring` để giám sát tỷ lệ lỗi (Error rate) và mức tiêu thụ tài nguyên trong 30-60 phút đầu tiên sau phát hành.
 
-## 6. Quality Gates
+## 7. Concrete Examples
+```bash
+# Lệnh thực thi & kiểm chứng tiêu chuẩn
+dex verify --skill dex-release-engineering
+```
+
+## 8. Anti-Patterns & Common Traps
+- **Anti-Pattern 1**: Bỏ qua các bước xác minh tự động và dựa vào giả định chủ quan.
+- **Anti-Pattern 2**: Thay đổi diện rộng vượt ngoài phạm vi (Scope Creep) làm mất kiểm soát rủi ro.
+- **Trap**: Thực hiện thao tác phá hủy hoặc thay đổi trạng thái sản xuất khi chưa qua cổng kiểm duyệt an toàn.
+
+## 9. Quality Gates & Acceptance Criteria
 - **QG-01 đến QG-10**: Đối với phát hành Production, bắt buộc áp dụng **STRICT MODE** — Toàn bộ 10 Quality Gates phải đạt trạng thái PASS (hoặc SKIP có biên bản phê duyệt).
 - **QG-09 (Docs & Changelog Updated)**: `CHANGELOG.md` và `package.json` phiên bản mới được cập nhật nhất quán.
 
-## 7. Safety Rules
+## 10. Security & Safety Boundaries
 - **Cấm Phát Hành Khi Test Chưa PASS**: Tuyệt đối không bao giờ tạo release tag khi test suite chưa chạy thành công trên commit đó.
 - **Không Ghi Đè Release Tag (Immutable Releases)**: Một khi tag phiên bản đã được công bố ra ngoài, không bao giờ xóa hoặc trỏ tag đó sang commit khác. Nếu có lỗi, phải phát hành phiên bản Patch mới (`v1.2.1`).
 - **Phải Có Phương Án Rollback**: Không phát hành phần mềm nếu không có phương án quay xe dự phòng rõ ràng.
 
-## 8. Expected Outputs
+## 11. Platform Adapters
+- **OpenAI Codex**: Tương thích hoàn toàn thông qua cấu trúc file `SKILL.md` và agent instructions tiêu chuẩn.
+- **Universal Agent Skills**: Tuân thủ đặc tả tại `https://agentskills.io/specification`.
+- **CLI & IDE Adapters**: Kích hoạt thông qua terminal hoặc tiện ích mở rộng IDE tương thích (VS Code, Cursor, Windsurf).
+
+## 12. Deliverables & Output Artifacts
 1. File `CHANGELOG.md` được cập nhật chuyên nghiệp.
 2. Git annotated tag (ví dụ: `v1.2.0`) trên commit phát hành.
 3. Bản đóng gói sản phẩm (Production Build Artifact).
 4. Kế hoạch rollback chi tiết (Rollback Strategy).
 
-## 9. Failure Handling
-- Nếu quá trình build production bị lỗi: Dừng phát hành, không tạo git tag, quay lại khắc phục lỗi build ở môi trường staging.
-- Nếu sau khi release phát sinh sự cố nghiêm trọng: Thực thi Rollback Plan ngay lập tức về tag ổn định trước đó.
+## 13. Related & Complementary Skills
+- `dex-master-orchestrator`: Điều phối trung tâm.
 
-## 10. Completion Criteria
-- Mã nguồn được đóng gói thành công, tag phiên bản đã tạo và đẩy lên Git.
-- Changelog được ghi nhận rõ ràng và phương án rollback đã sẵn sàng.
-
----
-
-## Real-world Example
-Phát hành phiên bản `v1.0.0` cho hệ thống E-commerce:
-1. *Kiểm tra*: 120/120 tests PASS, Audit 0 vulnerability.
-2. *Changelog*: Cập nhật `CHANGELOG.md` ghi nhận tính năng Giỏ hàng, Thanh toán Stripe, Đăng ký thành viên.
-3. *Đóng gói*: `npm run build` sinh thư mục `dist/` gọn gàng (bundle size: 450KB).
-4. *Tag*: `git tag -a v1.0.0 -m "Release v1.0.0 - Initial Production Release"`.
-5. *Rollback plan*: Nếu lỗi, chuyển traffic về container chạy image `v0.9.5-rc`.
+## 14. Realistic Usage Example
+### Tình huống triển khai thực tế:
+Kỹ sư hoặc AI Agent kích hoạt **dex-release-engineering** trong dự án.
+1. Tiếp nhận ngữ cảnh đầu vào và kiểm tra điều kiện tiên quyết tại Mục 4.
+2. Vận hành tuần tự các bước theo Quy trình tại Mục 6.
+3. Kiểm chứng đầu ra đối chiếu với Tiêu chuẩn chấp thuận tại Mục 9.
+4. Bàn giao đầy đủ hiện vật theo Mục 12 và cập nhật tài liệu liên quan.

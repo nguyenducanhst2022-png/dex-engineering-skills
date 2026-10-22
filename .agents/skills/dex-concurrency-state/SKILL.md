@@ -5,7 +5,7 @@ description: Concurrency control, distributed locks, race condition elimination,
 
 # DEX Concurrency & State Management
 
-## 1. Purpose
+## 1. Purpose & Scope
 Kiểm soát tác vụ đồng thời (Concurrency Control) và quản lý trạng thái dùng chung (Shared State) an toàn trong các hệ thống phân tán hoặc đa luồng; loại bỏ hoàn toàn các lỗi điều kiện tranh định (Race Conditions), chống hiện tượng mất mát dữ liệu (Lost Updates) và ngăn ngừa bế tắc (Deadlocks).
 
 Quy trình quản lý đồng thời chuẩn:
@@ -20,17 +20,21 @@ Ghi nhớ sống còn: **Không kiểm soát đồng thời = Dữ liệu bị g
 - Khi tạo số thứ tự tự tăng duy nhất (Counter/Sequence generation) không dùng auto-increment của database.
 - Khi chia sẻ tài nguyên giữa nhiều tiến trình worker thông qua Redis hoặc cơ chế khóa phân tán (Distributed Locks).
 
-## 3. When Not to Use
+## 3. When NOT to Use
 - Ứng dụng xử lý dữ liệu bất biến (Immutable data) hoặc chỉ đọc (Read-only operations).
 - Các tác vụ cục bộ trong một luồng riêng biệt không chia sẻ biến hoặc bộ nhớ với bất kỳ ai.
 
-## 4. Inputs
+## 4. Prerequisites & Input Context
 - Vùng dữ liệu chia sẻ (Shared State: bản ghi database, khóa redis, biến toàn cục).
 - Số lượng tác vụ đồng thời dự kiến (Concurrent requests / Workers).
 - Mức độ cô lập giao dịch mong muốn (Isolation Level: Read Committed, Repeatable Read, Serializable).
 
-## 5. Workflow
+## 5. Core Concepts & Taxonomy
+- **Nguyên tắc cốt lõi**: Tuân thủ triệt để nguyên lý vận hành xác định và ranh giới trách nhiệm của chuẩn Agent Skills.
+- **Tính nhất quán hệ thống**: Mọi thao tác kỹ thuật phải có thể kiểm chứng độc lập với số liệu rõ ràng.
+- **Ngăn ngừa hồi quy**: Bất kỳ sửa đổi nào cũng phải bảo vệ tính tương thích ngược và chất lượng đã được nghiệm thu.
 
+## 6. Step-by-Step Execution Workflow
 ### Bước 1: Nhận Diện Trạng Thái Dùng Chung (Identify Shared Mutable State)
 - Rà soát các luồng nghiệp vụ:
   - Nơi nào thực hiện chuỗi: `ĐỌC DỮ LIỆU (Read) → TÍNH TOÁN (Compute) → GHI ĐÈ DỮ LIỆU (Write)`?
@@ -61,43 +65,44 @@ Ghi nhớ sống còn: **Không kiểm soát đồng thời = Dữ liệu bị g
 ### Bước 5: Ổn Định & Lưu Git (Stabilize & Commit)
 - Ghi nhận commit: `fix(inventory): eliminate race condition using atomic decrement with conditional where clause`.
 
-## 6. Quality Gates
+## 7. Concrete Examples
+```bash
+# Lệnh thực thi & kiểm chứng tiêu chuẩn
+dex verify --skill dex-concurrency-state
+```
+
+## 8. Anti-Patterns & Common Traps
+- **Anti-Pattern 1**: Bỏ qua các bước xác minh tự động và dựa vào giả định chủ quan.
+- **Anti-Pattern 2**: Thay đổi diện rộng vượt ngoài phạm vi (Scope Creep) làm mất kiểm soát rủi ro.
+- **Trap**: Thực hiện thao tác phá hủy hoặc thay đổi trạng thái sản xuất khi chưa qua cổng kiểm duyệt an toàn.
+
+## 9. Quality Gates & Acceptance Criteria
 - **QG-02 (AC Compliant Under Load)**: Kết quả tính toán chính xác tuyệt đối ngay cả khi chịu tải đồng thời.
 - **QG-05 (Concurrency Test PASS)**: Kịch bản stress test đồng thời đạt 100% PASS, không có hiện tượng over-selling.
 - **QG-06 (No Deadlocks)**: Không phát sinh lỗi Deadlock hoặc timeout lock trong quá trình chạy.
 
-## 7. Safety Rules
+## 10. Security & Safety Boundaries
 - **Cấm Tuyệt Đối Check-Then-Act Ngoài Database**: Tuyệt đối không bao giờ kiểm tra điều kiện ở code Node.js/Python rồi mới cập nhật DB trên hai câu lệnh rời rạc mà không có Lock hoặc Atomic condition.
 - **Luôn Có TTL Cho Distributed Lock**: Bất kỳ khóa Redis nào cũng bắt buộc phải có thời gian sống (TTL / Expire time) để tự giải phóng nếu server bị mất điện.
 - **Giữ Giao Dịch Ngắn Nhất Có Thể**: Không bao giờ thực hiện các lời gọi mạng HTTP bên thứ ba bên trong một Database Transaction đang giữ khóa bảng/dòng.
 
-## 8. Expected Outputs
+## 11. Platform Adapters
+- **OpenAI Codex**: Tương thích hoàn toàn thông qua cấu trúc file `SKILL.md` và agent instructions tiêu chuẩn.
+- **Universal Agent Skills**: Tuân thủ đặc tả tại `https://agentskills.io/specification`.
+- **CLI & IDE Adapters**: Kích hoạt thông qua terminal hoặc tiện ích mở rộng IDE tương thích (VS Code, Cursor, Windsurf).
+
+## 12. Deliverables & Output Artifacts
 1. Mã nguồn xử lý đồng thời an toàn (Atomic updates / Distributed locks).
 2. Kịch bản kiểm thử tải đồng thời (Concurrent test suite).
 3. Bằng chứng kiểm thử chứng minh dữ liệu nhất quán 100%.
 
-## 9. Failure Handling
-- Nếu phát hiện deadlock xuất hiện trong log database: Lập tức rà soát thứ tự truy cập bảng của các câu truy vấn và chuẩn hóa lại thứ tự khóa thống nhất.
+## 13. Related & Complementary Skills
+- `dex-master-orchestrator`: Điều phối trung tâm.
 
-## 10. Completion Criteria
-- Trạng thái dùng chung không bị sai lệch dưới tải đồng thời.
-- Test case kiểm tra race condition chạy thành công và được lưu vào Git.
-
----
-
-## Real-world Example
-Trừ tồn kho sản phẩm an toàn chống race condition trong PostgreSQL:
-```typescript
-async function purchaseItem(productId: string, quantity: number): Promise<boolean> {
-  const result = await db.query(
-    `UPDATE products 
-     SET stock = stock - $1 
-     WHERE id = $2 AND stock >= $1 
-     RETURNING stock`,
-    [quantity, productId]
-  );
-  // Nếu không dòng nào được cập nhật nghĩa là không đủ hàng tồn kho
-  return (result.rowCount ?? 0) > 0;
-}
-```
-Kiểm thử bắn 100 request đồng thời tranh mua 5 sản phẩm: Đúng 5 request trả về `true`, 95 request trả về `false`, tồn kho còn đúng 0.
+## 14. Realistic Usage Example
+### Tình huống triển khai thực tế:
+Kỹ sư hoặc AI Agent kích hoạt **dex-concurrency-state** trong dự án.
+1. Tiếp nhận ngữ cảnh đầu vào và kiểm tra điều kiện tiên quyết tại Mục 4.
+2. Vận hành tuần tự các bước theo Quy trình tại Mục 6.
+3. Kiểm chứng đầu ra đối chiếu với Tiêu chuẩn chấp thuận tại Mục 9.
+4. Bàn giao đầy đủ hiện vật theo Mục 12 và cập nhật tài liệu liên quan.

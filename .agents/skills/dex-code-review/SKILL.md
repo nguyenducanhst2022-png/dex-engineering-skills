@@ -5,7 +5,7 @@ description: Comprehensive Git diff code review, Pull Request assessment, qualit
 
 # DEX Code Review & Pull Request Assessment
 
-## 1. Purpose
+## 1. Purpose & Scope
 Thực hiện rà soát mã nguồn (Code Review) chuyên nghiệp trên từng dòng Git Diff trước khi hợp nhất (Merge) vào nhánh chính; đảm bảo mã nguồn sạch sẽ, không có lỗi tiềm ẩn, không chứa rác debug, tuân thủ tiêu chuẩn an ninh và có đầy đủ bằng chứng kiểm thử thực tế.
 
 Quy trình Code Review chuẩn:
@@ -20,17 +20,21 @@ Ghi nhớ sống còn: **Code Review tốt = Bắt lỗi sớm trước khi lên
 - Khi đóng vai trò Agent Reviewer kiểm tra mã nguồn do Agent Coder tạo ra trong quy trình Multi-Agent.
 - Khi người dùng yêu cầu: *"Hãy review lại toàn bộ những gì bạn vừa sửa"*.
 
-## 3. When Not to Use
+## 3. When NOT to Use
 - Khi mã nguồn đang trong giai đoạn nháp ban đầu (WIP / Draft) chưa chạy được và chưa sẵn sàng để review.
 - Tranh cãi vụn vặt về phong cách thụt lề (Tabs vs. Spaces) mà công cụ tự động (Linter / Prettier) đã có thể giải quyết được.
 
-## 4. Inputs
+## 4. Prerequisites & Input Context
 - Bản Git Diff đầy đủ (`git diff main...feature-branch` hoặc `git diff HEAD~1`).
 - Mô tả mục tiêu của Pull Request và liên kết đến đặc tả (`SPEC.md` / Ticket issue).
 - Kết quả chạy kiểm thử tự động của CI/CD pipeline.
 
-## 5. Workflow
+## 5. Core Concepts & Taxonomy
+- **Nguyên tắc cốt lõi**: Tuân thủ triệt để nguyên lý vận hành xác định và ranh giới trách nhiệm của chuẩn Agent Skills.
+- **Tính nhất quán hệ thống**: Mọi thao tác kỹ thuật phải có thể kiểm chứng độc lập với số liệu rõ ràng.
+- **Ngăn ngừa hồi quy**: Bất kỳ sửa đổi nào cũng phải bảo vệ tính tương thích ngược và chất lượng đã được nghiệm thu.
 
+## 6. Step-by-Step Execution Workflow
 ### Bước 1: Kiểm Tra Tính Toàn Vẹn Tổng Thể Của PR (Sanity Check)
 - Đọc mô tả PR: Mục tiêu có rõ ràng không?
 - Kiểm tra quy mô PR: PR có quá lớn không? (Lý tưởng < 400 dòng diff). Nếu PR quá lớn (>1000 dòng), yêu cầu chia nhỏ.
@@ -60,40 +64,45 @@ Ghi nhớ sống còn: **Code Review tốt = Bắt lỗi sớm trước khi lên
   2. **REQUEST CHANGES**: Còn tồn tại lỗi [BLOCKER] cần sửa chữa → Nêu rõ các việc cần làm.
   3. **NOT VERIFIED**: Thiếu môi trường chạy test hoặc CI chưa chạy xong.
 
-## 6. Quality Gates
+## 7. Concrete Examples
+```bash
+# Lệnh thực thi & kiểm chứng tiêu chuẩn
+dex verify --skill dex-code-review
+```
+
+## 8. Anti-Patterns & Common Traps
+- **Anti-Pattern 1**: Bỏ qua các bước xác minh tự động và dựa vào giả định chủ quan.
+- **Anti-Pattern 2**: Thay đổi diện rộng vượt ngoài phạm vi (Scope Creep) làm mất kiểm soát rủi ro.
+- **Trap**: Thực hiện thao tác phá hủy hoặc thay đổi trạng thái sản xuất khi chưa qua cổng kiểm duyệt an toàn.
+
+## 9. Quality Gates & Acceptance Criteria
 - **QG-01 (Scope Confined)**: Không có file lạ hoặc không liên quan bị sửa trong PR.
 - **QG-05 (Tests Included & PASS)**: Code mới có test tương ứng và 100% test đạt PASS.
 - **QG-07 (Security Reviewed)**: Không phát hiện lỗ hổng bảo mật nào trong diff.
 - **QG-08 (Clean Diff Guaranteed)**: 0 dòng code rác, 0 comment thừa, 0 console.log tạm thời.
 
-## 7. Safety Rules
+## 10. Security & Safety Boundaries
 - **Không Tự Phê Duyệt (No Self-Approval)**: Agent viết code không được tự đưa ra kết luận APPROVE cho chính mình mà không thực hiện quy trình review khách quan từng dòng.
 - **Không Phê Duyệt Khi Còn Lỗi Nghiêm Trọng**: Tuyệt đối không bao giờ bấm nút APPROVE "cho xong chuyện" khi còn lỗi [BLOCKER] chưa được giải quyết.
 - **Tôn Trọng Quyền Quyết Định Của Con Người**: Mọi quyết định merge vào nhánh phát hành cuối cùng luôn cần sự đồng thuận của người dùng.
 
-## 8. Expected Outputs
+## 11. Platform Adapters
+- **OpenAI Codex**: Tương thích hoàn toàn thông qua cấu trúc file `SKILL.md` và agent instructions tiêu chuẩn.
+- **Universal Agent Skills**: Tuân thủ đặc tả tại `https://agentskills.io/specification`.
+- **CLI & IDE Adapters**: Kích hoạt thông qua terminal hoặc tiện ích mở rộng IDE tương thích (VS Code, Cursor, Windsurf).
+
+## 12. Deliverables & Output Artifacts
 1. Bản báo cáo Code Review chi tiết theo từng dòng file.
 2. Danh sách các vấn đề phân loại theo `[BLOCKER]`, `[WARNING]`, `[SUGGESTION]`.
 3. Kết luận rõ ràng: `APPROVE`, `REQUEST CHANGES` hoặc `NOT VERIFIED`.
 
-## 9. Failure Handling
-- Nếu tác giả code không đồng ý với nhận xét: Tổ chức thảo luận dựa trên tài liệu đặc tả và các nguyên lý kỹ thuật khách quan, không tranh cãi cảm tính.
+## 13. Related & Complementary Skills
+- `dex-master-orchestrator`: Điều phối trung tâm.
 
-## 10. Completion Criteria
-- Mọi nhận xét [BLOCKER] đều đã được giải quyết triệt để.
-- Bản Git Diff cuối cùng đạt trạng thái sạch sẽ và được phê duyệt chính thức.
-
----
-
-## Real-world Example
-Nhận xét review mẫu cho một Pull Request:
-```markdown
-### DEX CODE REVIEW SUMMARY: PR #42 - Add Coupon Support
-
-- **Kết luận**: **REQUEST CHANGES** ❌
-- **Phân tích chi tiết**:
-  1. `src/services/coupon.ts#L45`: **[BLOCKER]** Phát hiện SQL Injection tiềm ẩn khi nối chuỗi mã giảm giá vào query. Yêu cầu chuyển sang parameterized query `$1`.
-  2. `src/services/coupon.ts#L88`: **[BLOCKER]** Chưa kiểm tra trường hợp `discount > total_amount`, có thể dẫn đến tổng tiền thanh toán bị âm.
-  3. `src/controllers/coupon.ts#L12`: **[NITPICK]** Có một câu lệnh `console.log("DEBUG COUPON", code)` chưa xóa trước khi tạo PR.
-- **Yêu cầu**: Vui lòng sửa 2 mục BLOCKER và xóa console.log, sau đó chạy lại test suite để được review lại.
-```
+## 14. Realistic Usage Example
+### Tình huống triển khai thực tế:
+Kỹ sư hoặc AI Agent kích hoạt **dex-code-review** trong dự án.
+1. Tiếp nhận ngữ cảnh đầu vào và kiểm tra điều kiện tiên quyết tại Mục 4.
+2. Vận hành tuần tự các bước theo Quy trình tại Mục 6.
+3. Kiểm chứng đầu ra đối chiếu với Tiêu chuẩn chấp thuận tại Mục 9.
+4. Bàn giao đầy đủ hiện vật theo Mục 12 và cập nhật tài liệu liên quan.

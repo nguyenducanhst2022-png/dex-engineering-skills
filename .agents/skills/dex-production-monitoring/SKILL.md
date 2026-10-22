@@ -5,7 +5,7 @@ description: Production observability, structured logging, application health ch
 
 # DEX Production Monitoring
 
-## 1. Purpose
+## 1. Purpose & Scope
 Thiết lập hệ thống quan sát (Observability) toàn diện cho ứng dụng trong môi trường vận hành thực tế thông qua việc chuẩn hóa Logging, cung cấp Health Check endpoints, theo dõi chỉ số sức khỏe hệ thống (Metrics) và phát hiện sớm các sự cố trước khi người dùng kịp phàn nàn.
 
 Quy trình giám sát chuẩn:
@@ -20,17 +20,21 @@ Ghi nhớ sống còn: **Phần mềm ổn định = Giám sát tốt + Phát hi
 - Khi xây dựng các endpoint kiểm tra sức khỏe `/healthz`, `/live`, `/ready` phục vụ Kubernetes, Docker swarm hoặc load balancer.
 - Khi thiết lập ngưỡng cảnh báo (Alert thresholds) cho tỷ lệ lỗi 5xx, CPU cao hoặc thời gian phản hồi vượt mức cho phép.
 
-## 3. When Not to Use
+## 3. When NOT to Use
 - Trong môi trường kiểm thử Unit test độc lập không có kết nối dịch vụ ngoài.
 - Tùy tiện thêm các câu lệnh log bừa bãi không có cấp độ (`console.log`) làm ô nhiễm hệ thống log.
 
-## 4. Inputs
+## 4. Prerequisites & Input Context
 - Cấu hình logging của ứng dụng.
 - Yêu cầu về SLA / SLO của hệ thống (ví dụ: Uptime 99.9%, Latency p95 < 200ms).
 - Nền tảng thu thập log và metrics mục tiêu (Prometheus, Grafana, Datadog, Sentry, CloudWatch, OpenTelemetry).
 
-## 5. Workflow
+## 5. Core Concepts & Taxonomy
+- **Nguyên tắc cốt lõi**: Tuân thủ triệt để nguyên lý vận hành xác định và ranh giới trách nhiệm của chuẩn Agent Skills.
+- **Tính nhất quán hệ thống**: Mọi thao tác phải có thể kiểm chứng độc lập với kết quả đo lường rõ ràng.
+- **Ngăn ngừa hồi quy**: Bất kỳ sửa đổi nào cũng phải bảo vệ tính tương thích ngược và chất lượng đã được nghiệm thu.
 
+## 6. Step-by-Step Execution Workflow
 ### Bước 1: Chuẩn Hóa Cấu Trúc Log (Structured JSON Logging)
 - Chuyển toàn bộ output log sang định dạng JSON có cấu trúc để các hệ thống phân tích (Elasticsearch, Loki) dễ dàng lập chỉ mục:
   - Timestamp (ISO 8601).
@@ -62,43 +66,44 @@ Ghi nhớ sống còn: **Phần mềm ổn định = Giám sát tốt + Phát hi
 ### Bước 6: Khắc Phục, Kiểm Chứng & Ngăn Tái Diễn (Post-Incident Stabilization)
 - Sau khi xử lý sự cố: Đánh giá xem hệ thống giám sát có phát hiện lỗi đủ nhanh không, bổ sung chỉ số mới nếu cần và viết báo cáo Post-mortem.
 
-## 6. Quality Gates
+## 7. Concrete Examples
+```bash
+# Lệnh thực thi & kiểm chứng tiêu chuẩn
+dex verify --skill dex-production-monitoring
+```
+
+## 8. Anti-Patterns & Common Traps
+- **Anti-Pattern 1**: Bỏ qua các bước xác minh tự động và dựa vào giả định chủ quan.
+- **Anti-Pattern 2**: Thay đổi diện rộng vượt ngoài phạm vi (Scope Creep) làm mất kiểm soát rủi ro.
+- **Trap**: Thực hiện thao tác phá hủy hoặc thay đổi trạng thái sản xuất khi chưa qua cổng kiểm duyệt an toàn.
+
+## 9. Quality Gates & Acceptance Criteria
 - **QG-04 (Health Check Working)**: Endpoint `/healthz` phản hồi mã HTTP `200 OK` khi chạy kiểm tra.
 - **QG-07 (No Sensitive Data in Logs)**: Log tuyệt đối không chứa mật khẩu, số thẻ ngân hàng, JWT secret hoặc PII của người dùng.
 - **QG-10 (Monitoring Evidence)**: Có bằng chứng kiểm tra endpoint liveness/readiness hoạt động đúng.
 
-## 7. Safety Rules
+## 10. Security & Safety Boundaries
 - **Lọc Dữ Liệu Nhạy Cảm (Log Masking)**: Bắt buộc cấu hình cơ chế tự động làm sạch (masking) các trường nhạy cảm: `password`, `token`, `credit_card` thành `***`.
 - **Tránh Làm Sập Hệ Thống Vì Log (Non-blocking I/O)**: Không sử dụng các cơ chế ghi log đồng bộ (blocking I/O) làm nghẽn Event Loop.
 - **Bảo Vệ Endpoint Giám Sát**: Không để lộ thông tin nhạy cảm về phiên bản thư viện hoặc connection string trong phản hồi của endpoint health check.
 
-## 8. Expected Outputs
+## 11. Platform Adapters
+- **OpenAI Codex**: Tương thích hoàn toàn thông qua cấu trúc file `SKILL.md` và agent instructions tiêu chuẩn.
+- **Universal Agent Skills**: Tuân thủ đặc tả tại `https://agentskills.io/specification`.
+- **CLI & IDE Adapters**: Kích hoạt thông qua terminal hoặc tiện ích mở rộng IDE tương thích (VS Code, Cursor, Windsurf).
+
+## 12. Deliverables & Output Artifacts
 1. Cấu hình logging chuẩn hóa JSON theo cấp độ rõ ràng.
 2. Endpoint `/healthz/live` và `/healthz/ready` hoạt động ổn định.
 3. Tài liệu mô tả các chỉ số giám sát và hướng dẫn thiết lập cảnh báo.
 
-## 9. Failure Handling
-- Nếu endpoint health check báo `DOWN`: Tự động ngắt traffic từ load balancer chuyển sang các node khỏe mạnh khác, đồng thời kích hoạt cảnh báo khẩn cấp cho đội ngũ vận hành.
+## 13. Related & Complementary Skills
+- `dex-master-orchestrator`: Điều phối trung tâm.
 
-## 10. Completion Criteria
-- Các luồng log được cấu trúc chuẩn JSON và có trace ID.
-- Health check endpoints phản hồi chính xác trạng thái của app và các dịch vụ phụ thuộc.
-- Không có dữ liệu nhạy cảm bị rò rỉ qua log.
-
----
-
-## Real-world Example
-Triển khai endpoint kiểm tra sức khỏe hệ thống Express.js:
-```typescript
-app.get('/healthz/ready', async (req, res) => {
-  try {
-    await db.query('SELECT 1'); // Kiểm tra DB kết nối tốt
-    await redisClient.ping();   // Kiểm tra Redis cache sẵn sàng
-    res.status(200).json({ status: 'HEALTHY', timestamp: new Date().toISOString() });
-  } catch (error) {
-    logger.error('Readiness check failed', { error: error.message });
-    res.status(503).json({ status: 'UNHEALTHY', error: 'Dependency unavailable' });
-  }
-});
-```
-Load balancer dựa vào endpoint này để tự động định tuyến traffic an toàn.
+## 14. Realistic Usage Example
+### Tình huống triển khai thực tế:
+Kỹ sư hoặc AI Agent kích hoạt **dex-production-monitoring** trong dự án.
+1. Tiếp nhận ngữ cảnh đầu vào và kiểm tra điều kiện tiên quyết tại Mục 4.
+2. Vận hành tuần tự các bước theo Quy trình tại Mục 6.
+3. Kiểm chứng đầu ra đối chiếu với Tiêu chuẩn chấp thuận tại Mục 9.
+4. Bàn giao đầy đủ hiện vật theo Mục 12 và cập nhật tài liệu liên quan.

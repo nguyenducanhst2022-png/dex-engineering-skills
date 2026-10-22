@@ -5,7 +5,7 @@ description: Specification-Driven Development (SDD) methodology. Authors formal 
 
 # DEX Specification-Driven Development
 
-## 1. Purpose
+## 1. Purpose & Scope
 Áp dụng phương pháp phát triển hướng đặc tả (Specification-Driven Development - SDD); bắt buộc phải viết và thống nhất tài liệu đặc tả kỹ thuật cùng các tiêu chí nghiệm thu rõ ràng trước khi AI bắt tay vào viết code, giúp triệt tiêu hoàn toàn sự hiểu sai yêu cầu và giảm tối đa số lần phải đập đi sửa lại.
 
 Quy trình SDD chuẩn:
@@ -20,17 +20,21 @@ Ghi nhớ sống còn: **Đặc tả rõ → AI hiểu đúng → Code đúng m�
 - Khi thay đổi các luồng nghiệp vụ quan trọng hoặc cập nhật logic cốt lõi.
 - Khi cần tạo ma trận truy vết (Traceability Matrix) giữa yêu cầu và các bài kiểm thử.
 
-## 3. When Not to Use
+## 3. When NOT to Use
 - Sửa một lỗi chính tả nhỏ hoặc sửa cú pháp 1 dòng hiển nhiên.
 - Các tác vụ khám phá thử nghiệm (Spike / PoC) dùng để đánh giá công nghệ trong vài phút.
 
-## 4. Inputs
+## 4. Prerequisites & Input Context
 - Yêu cầu ban đầu từ người dùng hoặc Product Owner.
 - Các ràng buộc về hệ thống và luồng dữ liệu hiện có.
 - Mẫu tài liệu đặc tả chuẩn tại [spec-template.md](references/spec-template.md).
 
-## 5. Workflow
+## 5. Core Concepts & Taxonomy
+- **Nguyên tắc cốt lõi**: Tuân thủ triệt để nguyên lý vận hành xác định và ranh giới trách nhiệm của chuẩn Agent Skills.
+- **Tính nhất quán hệ thống**: Mọi thao tác phải có thể kiểm chứng độc lập với kết quả đo lường rõ ràng.
+- **Ngăn ngừa hồi quy**: Bất kỳ sửa đổi nào cũng phải bảo vệ tính tương thích ngược và chất lượng đã được nghiệm thu.
 
+## 6. Step-by-Step Execution Workflow
 ### Bước 1: Phân Tích & Làm Rõ Yêu Cầu (Requirements Clarification)
 - Đặt câu hỏi làm rõ các điểm mơ hồ trước khi viết tài liệu:
   - Ai là người sử dụng tính năng này?
@@ -63,36 +67,45 @@ Ghi nhớ sống còn: **Đặc tả rõ → AI hiểu đúng → Code đúng m�
 - Viết code và viết test tương ứng với từng tiêu chí nghiệm thu.
 - Đối chiếu từng mục: Đạt → Đánh dấu hoàn thành. Chưa đạt → Bổ sung code cho đến khi khớp 100% với đặc tả.
 
-## 6. Quality Gates
+## 7. Concrete Examples
+```bash
+# Lệnh thực thi & kiểm chứng tiêu chuẩn
+dex verify --skill dex-specification-driven
+```
+
+## 8. Anti-Patterns & Common Traps
+- **Anti-Pattern 1**: Bỏ qua các bước xác minh tự động và dựa vào giả định chủ quan.
+- **Anti-Pattern 2**: Thay đổi diện rộng vượt ngoài phạm vi (Scope Creep) làm mất kiểm soát rủi ro.
+- **Trap**: Thực hiện thao tác phá hủy hoặc thay đổi trạng thái sản xuất khi chưa qua cổng kiểm duyệt an toàn.
+
+## 9. Quality Gates & Acceptance Criteria
 - **QG-01 (Scope Defined in Spec)**: Bản đặc tả nêu rõ các file và endpoint sẽ được tạo hoặc sửa.
 - **QG-02 (Spec Compliance)**: 100% các tiêu chí nghiệm thu trong `SPEC.md` đều có bài test tương ứng kiểm chứng.
 - **QG-10 (Traceability Verified)**: Có bảng ma trận chứng minh mỗi yêu cầu đều được kiểm thử thành công.
 
-## 7. Safety Rules (4 Nguyên Tắc SDD)
+## 10. Security & Safety Boundaries
 1. **Spec First (Đặc tả đi trước code)**: Tuyệt đối không viết code khi chưa có bản đặc tả kỹ thuật và tiêu chí nghiệm thu được thống nhất.
 2. **Clear Requirements (Yêu cầu rõ ràng, không mơ hồ)**: Loại bỏ các từ ngữ chung chung như "nhanh chóng", "đẹp mắt", "tối ưu"; thay bằng số liệu và hành vi đo đếm được.
 3. **Acceptance Criteria (Mỗi chức năng có tiêu chí nghiệm thu)**: Bắt buộc phải có điều kiện cụ thể để biết khi nào được coi là xong.
 4. **Traceability (Khả năng truy vết)**: Mỗi dòng code và bài test phải liên kết được với một yêu cầu cụ thể trong đặc tả.
 
-## 8. Expected Outputs
+## 11. Platform Adapters
+- **OpenAI Codex**: Tương thích hoàn toàn thông qua cấu trúc file `SKILL.md` và agent instructions tiêu chuẩn.
+- **Universal Agent Skills**: Tuân thủ đặc tả tại `https://agentskills.io/specification`.
+- **CLI & IDE Adapters**: Kích hoạt thông qua terminal hoặc tiện ích mở rộng IDE tương thích (VS Code, Cursor, Windsurf).
+
+## 12. Deliverables & Output Artifacts
 1. File đặc tả kỹ thuật `SPEC.md` hoàn chỉnh.
 2. Bộ tiêu chí nghiệm thu chi tiết (Acceptance Criteria checklist).
 3. Bộ bài kiểm thử tự động phản ánh trực tiếp các tiêu chí trong đặc tả.
 
-## 9. Failure Handling
-- Nếu trong quá trình code phát hiện yêu cầu kỹ thuật không khả thi hoặc phát sinh bài toán mới: Dừng code, quay lại cập nhật `SPEC.md`, giải thích sự thay đổi và xin ý kiến phê duyệt trước khi tiếp tục.
+## 13. Related & Complementary Skills
+- `dex-master-orchestrator`: Điều phối trung tâm.
 
-## 10. Completion Criteria
-- Mã nguồn triển khai đáp ứng đầy đủ tất cả các kịch bản trong `SPEC.md`.
-- Toàn bộ bài kiểm thử nghiệm thu đạt trạng thái PASS.
-
----
-
-## Real-world Example
-Đặc tả tính năng "Hủy đơn hàng":
-- **Yêu cầu**: Cho phép người mua tự hủy đơn nếu đơn chưa giao.
-- **Acceptance Criteria**:
-  - *AC-1*: Đơn ở trạng thái `PENDING` hoặc `PROCESSING` → Cho phép hủy, chuyển trạng thái sang `CANCELLED`.
-  - *AC-2*: Đơn ở trạng thái `SHIPPED` hoặc `DELIVERED` → Từ chối hủy, trả về lỗi HTTP 400: "Đơn hàng đã được giao cho đơn vị vận chuyển".
-  - *AC-3*: Khi hủy thành công, tự động hoàn trả số lượng tồn kho (Stock quantity) về kho hàng.
-AI dựa vào AC này để viết chính xác logic và 3 bài test tương ứng.
+## 14. Realistic Usage Example
+### Tình huống triển khai thực tế:
+Kỹ sư hoặc AI Agent kích hoạt **dex-specification-driven** trong dự án.
+1. Tiếp nhận ngữ cảnh đầu vào và kiểm tra điều kiện tiên quyết tại Mục 4.
+2. Vận hành tuần tự các bước theo Quy trình tại Mục 6.
+3. Kiểm chứng đầu ra đối chiếu với Tiêu chuẩn chấp thuận tại Mục 9.
+4. Bàn giao đầy đủ hiện vật theo Mục 12 và cập nhật tài liệu liên quan.

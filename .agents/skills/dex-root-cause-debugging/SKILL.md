@@ -5,7 +5,7 @@ description: Root cause analysis and deterministic bug resolution methodology. R
 
 # DEX Root Cause Debugging
 
-## 1. Purpose
+## 1. Purpose & Scope
 Điều tra, cô lập và giải quyết triệt để các lỗi phần mềm tận gốc rễ, ngăn chặn tình trạng "sửa mò", che giấu triệu chứng hoặc làm phát sinh lỗi hồi quy ở các phần khác.
 
 Quy trình debug chuẩn:
@@ -20,17 +20,21 @@ Ghi nhớ sống còn: **Sửa hết thông báo lỗi (Error message) ≠ Đã 
 - Khi người dùng báo cáo lỗi chập chờn (flaky bug) hoặc dữ liệu bị sai lệch bất thường.
 - Khi mã nguồn sửa trước đó làm phát sinh lỗi mới ở nơi khác.
 
-## 3. When Not to Use
+## 3. When NOT to Use
 - Thêm tính năng mới hoàn toàn khi hệ thống không có bug nào cần giải quyết.
 - Tối ưu hóa hiệu năng thuần túy cho mã nguồn vốn dĩ đã chạy đúng (dùng `dex-performance-optimization`).
 
-## 4. Inputs
+## 4. Prerequisites & Input Context
 - Thông báo lỗi đầy đủ, Stack trace, file log hệ thống.
 - Các bước thao tác dẫn đến lỗi (Steps to Reproduce) và dữ liệu đầu vào cụ thể.
 - Mã nguồn tại các vị trí nghi ngờ phát sinh sự cố.
 
-## 5. Workflow
+## 5. Core Concepts & Taxonomy
+- **Nguyên tắc cốt lõi**: Tuân thủ triệt để nguyên lý vận hành xác định và ranh giới trách nhiệm của chuẩn Agent Skills.
+- **Tính nhất quán hệ thống**: Mọi thao tác phải có thể kiểm chứng độc lập với kết quả đo lường rõ ràng.
+- **Ngăn ngừa hồi quy**: Bất kỳ sửa đổi nào cũng phải bảo vệ tính tương thích ngược và chất lượng đã được nghiệm thu.
 
+## 6. Step-by-Step Execution Workflow
 ### Bước 1: Tiếp Nhận & Ghi Nhận Lỗi (Defect Triage)
 - Đọc kỹ thông báo lỗi và stack trace: Xác định chính xác file, hàm và dòng code xảy ra sự cố.
 - Phân biệt giữa lỗi cú pháp (Syntax), lỗi thực thi (Runtime exception) và lỗi logic nghiệp vụ (Logic bug).
@@ -63,37 +67,46 @@ Ghi nhớ sống còn: **Sửa hết thông báo lỗi (Error message) ≠ Đã 
 - Lưu commit chuẩn: `fix(scope): resolve root cause of [defect description]`.
 - Giữ lại bài kiểm tra mới tạo ở Bước 2 trong repository để trở thành regression test vĩnh viễn ngăn lỗi tái diễn.
 
-## 6. Quality Gates
+## 7. Concrete Examples
+```bash
+# Lệnh thực thi & kiểm chứng tiêu chuẩn
+dex verify --skill dex-root-cause-debugging
+```
+
+## 8. Anti-Patterns & Common Traps
+- **Anti-Pattern 1**: Bỏ qua các bước xác minh tự động và dựa vào giả định chủ quan.
+- **Anti-Pattern 2**: Thay đổi diện rộng vượt ngoài phạm vi (Scope Creep) làm mất kiểm soát rủi ro.
+- **Trap**: Thực hiện thao tác phá hủy hoặc thay đổi trạng thái sản xuất khi chưa qua cổng kiểm duyệt an toàn.
+
+## 9. Quality Gates & Acceptance Criteria
 - **QG-01 (Scope Confined)**: Bản sửa lỗi chỉ can thiệp vào các thành phần liên quan trực tiếp đến nguyên nhân gốc.
 - **QG-05 (Failing Test Passes)**: Test case tái hiện lỗi chuyển từ FAIL sang PASS.
 - **QG-06 (No Regressions)**: 100% các bài test cũ vẫn đạt PASS.
 - **QG-08 (Clean Diff)**: Không để sót console log, debug print hoặc comment tạm thời.
 
-## 7. Safety Rules
+## 10. Security & Safety Boundaries
 - **Cấm Tuyệt Đối "Bịt Lỗ Hổng Ảo"**: Cấm dùng `catch (e) {}` rỗng hoặc `@ts-ignore` bừa bãi để dập tắt lỗi.
 - **Không Đoán Mò**: Không thay đổi code ngẫu nhiên theo kiểu "thử xem có hết lỗi không" khi chưa hiểu nguyên nhân.
 - **Bảo Vệ Dữ Liệu**: Không chạy các câu lệnh xóa hoặc cập nhật dữ liệu hàng loạt trên môi trường thật để debug.
 
-## 8. Expected Outputs
+## 11. Platform Adapters
+- **OpenAI Codex**: Tương thích hoàn toàn thông qua cấu trúc file `SKILL.md` và agent instructions tiêu chuẩn.
+- **Universal Agent Skills**: Tuân thủ đặc tả tại `https://agentskills.io/specification`.
+- **CLI & IDE Adapters**: Kích hoạt thông qua terminal hoặc tiện ích mở rộng IDE tương thích (VS Code, Cursor, Windsurf).
+
+## 12. Deliverables & Output Artifacts
 1. Bản phân tích nguyên nhân gốc (Root Cause Summary).
 2. Test case tái hiện lỗi mới được bổ sung vào bộ kiểm thử.
 3. Bản vá lỗi mã nguồn sạch sẽ, dứt điểm.
 4. Bằng chứng kiểm thử PASS sau khi sửa.
 
-## 9. Failure Handling
-- Nếu sau 3 lần sửa mà bài test tái hiện vẫn FAIL: Dừng lại, xóa bỏ các thay đổi tạm (`git restore`), xem xét lại giả thuyết nguyên nhân gốc, đọc thêm log hoặc tham vấn tài liệu/người dùng.
+## 13. Related & Complementary Skills
+- `dex-master-orchestrator`: Điều phối trung tâm.
 
-## 10. Completion Criteria
-- Lỗi được tái hiện và triệt tiêu hoàn toàn.
-- Test case tái hiện lỗi đã PASS và được lưu vào kho mã nguồn.
-- Không gây phát sinh lỗi hồi quy ở bất kỳ chức năng nào khác.
-
----
-
-## Real-world Example
-Ứng dụng bị sập với lỗi: `TypeError: Cannot read properties of undefined (reading 'toUpperCase')`.
-1. *Tái hiện lỗi*: Viết test `test_format_name_with_null_input()` → Test rớt (FAIL).
-2. *Phân tích gốc*: API trả về `middle_name: null` thay vì chuỗi rỗng khi người dùng không có tên đệm.
-3. *Sửa gốc*: Bổ sung chuẩn hóa dữ liệu tại DTO parser: `middleName: raw.middle_name ?? ''` thay vì chỉ bọc `try-catch` tại hàm render.
-4. *Test lại*: Test `test_format_name_with_null_input()` PASS.
-5. *Kiểm tra hồi quy*: Toàn bộ 42 tests của module User PASS 100%.
+## 14. Realistic Usage Example
+### Tình huống triển khai thực tế:
+Kỹ sư hoặc AI Agent kích hoạt **dex-root-cause-debugging** trong dự án.
+1. Tiếp nhận ngữ cảnh đầu vào và kiểm tra điều kiện tiên quyết tại Mục 4.
+2. Vận hành tuần tự các bước theo Quy trình tại Mục 6.
+3. Kiểm chứng đầu ra đối chiếu với Tiêu chuẩn chấp thuận tại Mục 9.
+4. Bàn giao đầy đủ hiện vật theo Mục 12 và cập nhật tài liệu liên quan.

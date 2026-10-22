@@ -5,7 +5,7 @@ description: Database engineering, relational schema design, safe migrations, in
 
 # DEX Database Engineering
 
-## 1. Purpose
+## 1. Purpose & Scope
 Thiết kế, quản lý và tối ưu hóa cơ sở dữ liệu chuyên nghiệp, đảm bảo dữ liệu luôn chính xác, nhất quán, an toàn và có khả năng khôi phục khi xảy ra sự cố; thực hiện các đợt migration cấu trúc dữ liệu không gây gián đoạn hệ thống (Zero-downtime migrations).
 
 Quy trình database chuẩn:
@@ -20,17 +20,21 @@ Ghi nhớ sống còn: **Database tốt = Dữ liệu chính xác + Truy vấn h
 - Khi tối ưu hóa các câu lệnh SQL chạy chậm thông qua việc đánh chỉ mục (Indexing) hoặc phân tích `EXPLAIN ANALYZE`.
 - Khi cần bọc các thao tác cập nhật nhiều bảng liên quan trong các giao dịch an toàn (ACID Transactions).
 
-## 3. When Not to Use
+## 3. When NOT to Use
 - Thao tác trên các file lưu trữ tạm thời trong bộ nhớ không có tính bền vững (In-memory mock).
 - Trực tiếp chạy các lệnh DDL phá hủy dữ liệu (`DROP TABLE`, `TRUNCATE`) thẳng vào database production mà không qua migration có kế hoạch.
 
-## 4. Inputs
+## 4. Prerequisites & Input Context
 - Mô hình dữ liệu thực thể (ERD) hoặc mô tả yêu cầu lưu trữ thông tin.
 - Hệ quản trị cơ sở dữ liệu (PostgreSQL, MySQL, SQLite, MongoDB...).
 - Bảng hướng dẫn an toàn migration chi tiết tại [migration-safety-checklist.md](references/migration-safety-checklist.md).
 
-## 5. Workflow
+## 5. Core Concepts & Taxonomy
+- **Nguyên tắc cốt lõi**: Tuân thủ triệt để nguyên lý vận hành xác định và ranh giới trách nhiệm của chuẩn Agent Skills.
+- **Tính nhất quán hệ thống**: Mọi thao tác phải có thể kiểm chứng độc lập với kết quả đo lường rõ ràng.
+- **Ngăn ngừa hồi quy**: Bất kỳ sửa đổi nào cũng phải bảo vệ tính tương thích ngược và chất lượng đã được nghiệm thu.
 
+## 6. Step-by-Step Execution Workflow
 ### Bước 1: Thiết Kế Schema Chuẩn Hóa (Schema Normalization & Types)
 - Chuẩn hóa dữ liệu theo chuẩn 3NF để giảm thiểu dư thừa, chỉ phi chuẩn hóa (denormalize) có chủ đích khi cần tối ưu đọc.
 - Chọn kiểu dữ liệu chặt chẽ và tiết kiệm dung lượng: `UUID`/`BIGINT` cho ID, `TIMESTAMP WITH TIME ZONE` cho thời gian, `DECIMAL`/`NUMERIC` cho tiền tệ (CẤM dùng float/double cho tiền).
@@ -64,39 +68,44 @@ Ghi nhớ sống còn: **Database tốt = Dữ liệu chính xác + Truy vấn h
 ### Bước 6: Chiến Lược Sao Lưu & Khôi Phục (Backup & Recovery)
 - Thiết lập quy trình sao lưu tự động định kỳ (Daily snapshot, WAL archiving / Point-in-time recovery).
 
-## 6. Quality Gates
+## 7. Concrete Examples
+```bash
+# Lệnh thực thi & kiểm chứng tiêu chuẩn
+dex verify --skill dex-database-engineering
+```
+
+## 8. Anti-Patterns & Common Traps
+- **Anti-Pattern 1**: Bỏ qua các bước xác minh tự động và dựa vào giả định chủ quan.
+- **Anti-Pattern 2**: Thay đổi diện rộng vượt ngoài phạm vi (Scope Creep) làm mất kiểm soát rủi ro.
+- **Trap**: Thực hiện thao tác phá hủy hoặc thay đổi trạng thái sản xuất khi chưa qua cổng kiểm duyệt an toàn.
+
+## 9. Quality Gates & Acceptance Criteria
 - **QG-01 (DB Scope Confined)**: Migration chỉ tác động đến đúng bảng và cột trong phạm vi yêu cầu.
 - **QG-04 (Migration Up/Down PASS)**: Cả hai chiều migration UP và DOWN đều thực thi thành công không lỗi cú pháp.
 - **QG-06 (Data Preserved)**: Không làm mất mát hoặc hỏng dữ liệu của các bản ghi hiện có.
 
-## 7. Safety Rules
+## 10. Security & Safety Boundaries
 - **Quy Tắc Bất Khả Xâm Phạm**: TUYỆT ĐỐI KHÔNG BAO GIỜ chạy migration trực tiếp sửa schema mà không có file migration được lưu vào Git.
 - **Cấm Xóa Cột Đột Ngột**: Cấm xóa cột (DROP COLUMN) hoặc đổi tên cột (RENAME COLUMN) trên bảng đang chạy live trong cùng một bước. Phải trải qua 3 giai đoạn: (1) Thêm cột mới → (2) Đồng bộ dữ liệu hai chiều → (3) Dừng dùng cột cũ rồi mới xóa sau.
 - **Tiền Tệ Phải Chính Xác**: Luôn dùng `DECIMAL(18, 4)` hoặc lưu trữ số nguyên đơn vị cents/xu, cấm dùng kiểu số thực `FLOAT`/`DOUBLE` vì sai số làm tròn.
 
-## 8. Expected Outputs
+## 11. Platform Adapters
+- **OpenAI Codex**: Tương thích hoàn toàn thông qua cấu trúc file `SKILL.md` và agent instructions tiêu chuẩn.
+- **Universal Agent Skills**: Tuân thủ đặc tả tại `https://agentskills.io/specification`.
+- **CLI & IDE Adapters**: Kích hoạt thông qua terminal hoặc tiện ích mở rộng IDE tương thích (VS Code, Cursor, Windsurf).
+
+## 12. Deliverables & Output Artifacts
 1. File migration mới có cả `UP` và `DOWN` đầy đủ.
 2. Cập nhật schema definition file (ví dụ `schema.prisma` hoặc `models.py`).
 3. Bằng chứng chạy thử migration UP/DOWN thành công.
 
-## 9. Failure Handling
-- Nếu migration bị lỗi giữa chừng trên môi trường staging: Kích hoạt rollback ngay, kiểm tra lock database, sửa file migration và thử lại trên bản sao lưu sạch.
+## 13. Related & Complementary Skills
+- `dex-master-orchestrator`: Điều phối trung tâm.
 
-## 10. Completion Criteria
-- Migration chạy thành công không có lỗi lock hoặc timeout.
-- Cột và chỉ mục mới sẵn sàng hoạt động. Chức năng rollback `DOWN` đã được xác minh thực tế.
-
----
-
-## Real-world Example
-Thêm cột `phone_number` vào bảng `users`:
-```sql
--- migration: 20261022_add_phone_number_to_users.up.sql
-ALTER TABLE users ADD COLUMN phone_number VARCHAR(20) DEFAULT NULL;
-CREATE INDEX CONCURRENTLY idx_users_phone ON users(phone_number) WHERE phone_number IS NOT NULL;
-
--- migration: 20261022_add_phone_number_to_users.down.sql
-DROP INDEX IF EXISTS idx_users_phone;
-ALTER TABLE users DROP COLUMN IF EXISTS phone_number;
-```
-Được kiểm tra cả hai chiều UP và DOWN trước khi hợp nhất vào Git.
+## 14. Realistic Usage Example
+### Tình huống triển khai thực tế:
+Kỹ sư hoặc AI Agent kích hoạt **dex-database-engineering** trong dự án.
+1. Tiếp nhận ngữ cảnh đầu vào và kiểm tra điều kiện tiên quyết tại Mục 4.
+2. Vận hành tuần tự các bước theo Quy trình tại Mục 6.
+3. Kiểm chứng đầu ra đối chiếu với Tiêu chuẩn chấp thuận tại Mục 9.
+4. Bàn giao đầy đủ hiện vật theo Mục 12 và cập nhật tài liệu liên quan.

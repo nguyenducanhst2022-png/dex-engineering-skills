@@ -1,117 +1,92 @@
-# Hướng Dẫn Cài Đặt & Tích Hợp DEX Engineering Skills Pack
+# DEX Engineering Skills Pack v3.0 — Installation & Integration Guide
 
-Tài liệu này hướng dẫn chi tiết cách cài đặt, kích hoạt và tích hợp **DEX Engineering Skills Pack v1.0.0** trên Windows 11 (PowerShell) cũng như các hệ điều hành Linux/macOS, tương thích với các AI Coding Agents hàng đầu.
-
----
-
-## 1. Yêu Cầu Môi Trường (System Prerequisites)
-
-- **Hệ điều hành**: Windows 11 / Windows 10 (hỗ trợ đầy đủ PowerShell 5.1+ hoặc PowerShell 7+), macOS, hoặc Linux Ubuntu 20.04+.
-- **Python**: Phiên bản Python 3.10 trở lên (khuyến nghị Python 3.12).
-- **Git**: Phiên bản Git 2.30+.
-- **AI Coding Agent**: Bất kỳ agent nào hỗ trợ tiêu chuẩn [Agent Skills Specification](https://agentskills.io/specification) hoặc hỗ trợ đọc tài liệu `.agents/skills/`.
+Hướng dẫn chi tiết cài đặt, cấu hình và sử dụng **DEX Engineering Skills Pack v3.0** (91 Agent Skills) trên các nền tảng: **Windows 11**, **OpenAI Codex**, **VS Code**, **Cursor**, **Windsurf**, **Claude Code**, và **GitHub Actions CI**.
 
 ---
 
-## 2. Hướng Dẫn Cài Đặt Trên Windows 11 (PowerShell)
+## 1. Yêu Cầu Môi Trường (Prerequisites)
 
-Mở **PowerShell** (hoặc Windows Terminal) và thực hiện theo các bước sau:
-
-### Bước 1: Sao chép hoặc Di chuyển Thư mục Kỹ năng vào Dự án
-Giả sử dự án phần mềm của bạn nằm tại `D:\MyProject`:
-
-```powershell
-# Di chuyển vào thư mục dự án của bạn
-cd D:\MyProject
-
-# Tạo thư mục .agents nếu chưa có
-New-Item -ItemType Directory -Force -Path ".agents\skills"
-
-# Sao chép toàn bộ bộ kỹ năng DEX vào thư mục kỹ năng của dự án
-Copy-Item -Recurse -Force "D:\VibeCoding\dex-engineering-skills\.agents\skills\*" ".agents\skills\"
-```
-
-### Bước 2: Tạo Liên Kết Mềm (Symbolic Link) — Cách Chuyên Nghiệp Nhất
-Nếu bạn muốn tất cả các dự án trên máy cùng sử dụng chung một bản cập nhật duy nhất của bộ kỹ năng:
-
-```powershell
-# Mở PowerShell với quyền Administrator (Run as Administrator)
-cd D:\MyProject
-
-# Tạo Symbolic Link trỏ thẳng vào bộ kỹ năng DEX
-New-Item -ItemType SymbolicLink -Path ".agents\skills" -Target "D:\VibeCoding\dex-engineering-skills\.agents\skills"
-```
-
-### Bước 3: Kiểm Tra Tính Toàn Vẹn Của Bộ Kỹ Năng
-Chạy script kiểm tra tự động đi kèm để xác nhận mọi thứ đã sẵn sàng:
-
-```powershell
-python D:\VibeCoding\dex-engineering-skills\scripts\validate_pack.py
-```
-
-Nếu màn hình hiển thị `[OK] 31/31 skills are fully compliant with Agent Skills Specification!` nghĩa là quá trình cài đặt đã thành công 100%.
+- **Hệ điều hành**: Windows 11 / Windows 10 (hỗ trợ đầy đủ PowerShell 7+), Ubuntu 20.04+, macOS Sonoma+.
+- **Git**: Phiên bản 2.38 trở lên.
+- **Python**: Phiên bản 3.10 trở lên (khuyến nghị 3.12).
+- **Test Runner**: `pytest` (`pip install pytest`).
 
 ---
 
-## 3. Hướng Dẫn Cài Đặt Trên Linux / macOS (Bash / Zsh)
+## 2. Cài Đặt Vào Dự Án Mới (Installation)
 
+### Cách 1: Tích hợp trực tiếp (Khuyến nghị cho dự án độc lập)
+Sao chép thư mục `.agents/skills` vào thư mục gốc của repository dự án của bạn:
 ```bash
-# 1. Di chuyển vào thư mục dự án của bạn
-cd /path/to/my-project
+# Từ thư mục dự án của bạn:
+git clone https://github.com/nguyenducanhst2022-png/dex-engineering-skills.git temp-dex
+cp -r temp-dex/.agents ./
+rm -rf temp-dex
+```
 
-# 2. Tạo liên kết mềm tới bộ kỹ năng
-mkdir -p .agents
-ln -s /path/to/dex-engineering-skills/.agents/skills .agents/skills
-
-# 3. Chạy script kiểm tra
-python3 /path/to/dex-engineering-skills/scripts/validate_pack.py
+### Cách 2: Sử dụng Git Submodule (Khuyến nghị cho cập nhật định kỳ)
+```bash
+git submodule add https://github.com/nguyenducanhst2022-png/dex-engineering-skills.git .agents/dex-skills
 ```
 
 ---
 
-## 4. Tích Hợp Với Từng Nền Tảng AI Coding Agent
+## 3. Cấu Hình Cho OpenAI Codex & AI Coding Agents
 
-### A. Tích Hợp Với OpenAI Codex
-OpenAI Codex và các công cụ phát triển dựa trên chuẩn Agent Skills tự động quét thư mục `.agents/skills/` trong root của repository để nạp các tệp `SKILL.md`.
-- Đảm bảo thư mục `.agents/skills/` nằm ngay tại thư mục gốc của repository dự án của bạn.
-- Bổ sung file `AGENTS.md` vào thư mục gốc của dự án (sử dụng mẫu từ [`AGENTS.example.md`](AGENTS.example.md)) để hướng dẫn Codex luôn ưu tiên kích hoạt `dex-master-orchestrator`.
-
-### B. Tích Hợp Với Google Antigravity
-Google Antigravity nhận diện các kỹ năng tại thư mục `.gemini/antigravity/skills/` hoặc thư mục cấu hình toàn cục:
-```powershell
-# Ánh xạ kỹ năng sang thư mục của Antigravity
-New-Item -ItemType Directory -Force -Path "$HOME\.gemini\antigravity\skills"
-Copy-Item -Recurse -Force "D:\VibeCoding\dex-engineering-skills\.agents\skills\*" "$HOME\.gemini\antigravity\skills\"
-```
-Sau đó trong chat với Antigravity, bạn chỉ cần gõ:
-> "Sử dụng skill `dex-master-orchestrator` để phân tích và thực hiện nhiệm vụ..."
-
-### C. Tích Hợp Với Claude Code
-Claude Code hỗ trợ đọc các kỹ năng tại `.claude/skills/` hoặc cấu hình trong `.clauderc`:
-```powershell
-New-Item -ItemType Directory -Force -Path ".claude\skills"
-Copy-Item -Recurse -Force "D:\VibeCoding\dex-engineering-skills\.agents\skills\*" ".claude\skills\"
-```
-
-### D. Tích Hợp Với Cursor / Windsurf
-Đối với Cursor hoặc Windsurf, tạo file `.cursorrules` hoặc `.windsurfrules` tại gốc dự án với nội dung:
+Tạo hoặc cập nhật tệp `AGENTS.md` tại thư mục gốc của dự án:
 ```markdown
-# DEX Engineering Rules
-Whenever executing software engineering tasks, refer to the skills and workflows defined in `.agents/skills/`.
-Always start by invoking `dex-master-orchestrator` to determine execution mode (QUICK, STANDARD, STRICT) and follow the 10 Quality Gates.
+# AGENTS.md - DEX Skills Instructions
+
+Bạn có quyền truy cập vào bộ kỹ năng **DEX Engineering Skills Pack v3.0** đặt tại `.agents/skills/`.
+
+### Quy tắc làm việc bắt buộc:
+1. Luôn bắt đầu mọi tác vụ bằng cách kích hoạt `dex-master-orchestrator`.
+2. Phân loại độ phức tạp của yêu cầu thành một trong ba chế độ:
+   - **QUICK MODE**: Lỗi nhỏ, sửa chính tả, cấu hình tối thiểu -> Chỉ dùng `dex-development-workflow` + `dex-code-verification`.
+   - **STANDARD MODE**: Thêm tính năng, API, refactoring -> Kích hoạt 3-5 skills chuyên biệt trên branch riêng.
+   - **STRICT MODE**: Đụng chạm Database, Auth, Payment, hoặc Release -> Thực thi toàn diện kèm threat model và rollback plan.
+3. Tuyệt đối không báo cáo hoàn thành nếu chưa chạy lệnh kiểm chứng thật trong terminal (QG-04).
+4. Không thực hiện các lệnh phá hủy (`rm -rf`, `DROP TABLE`, `git push --force`).
 ```
 
 ---
 
-## 5. Hướng Dẫn Cập Nhật Bộ Kỹ Năng (Updating Skills)
+## 4. Tích Hợp Vào IDE (VS Code, Cursor, Windsurf)
 
-Khi có phiên bản mới của DEX Engineering Skills Pack:
-1. Kéo mã nguồn mới nhất từ kho lưu trữ Git:
-   ```bash
-   git pull origin main
-   ```
-2. Chạy lại công cụ kiểm thử:
-   ```bash
-   python scripts\validate_pack.py
-   ```
-3. Xem chi tiết các điểm cải tiến trong [`CHANGELOG.md`](CHANGELOG.md).
+Thư mục `.agents/skills/` tuân thủ chuẩn mở Agent Skills. Các IDE hỗ trợ chuẩn này sẽ tự động nhận diện toàn bộ 91 kỹ năng thông qua file `SKILL.md` và trường YAML frontmatter `description`.
+
+Để gán lệnh tắt nhanh trong VS Code, bạn có thể thêm vào `.vscode/tasks.json`:
+```json
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "DEX: Validate All Skills",
+      "type": "shell",
+      "command": "python scripts/validate_skills.py",
+      "group": "test"
+    },
+    {
+      "label": "DEX: Run Pytest Suite",
+      "type": "shell",
+      "command": "pytest tests/ -v",
+      "group": "test"
+    }
+  ]
+}
+```
+
+---
+
+## 5. Kiểm Tra & Xác Nhận Cài Đặt (Verification)
+
+Chạy 2 lệnh kiểm thử sau để đảm bảo 100% các kỹ năng hợp lệ:
+```bash
+# 1. Kiểm tra cấu trúc 14 mục và cú pháp frontmatter
+python scripts/validate_skills.py
+
+# 2. Chạy bộ kiểm thử tự động (103 bài test)
+pytest tests/ -v
+```
+
+Kết quả mong đợi: `103 passed in ~0.1s`.

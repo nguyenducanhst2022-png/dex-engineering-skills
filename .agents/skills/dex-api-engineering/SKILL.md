@@ -5,7 +5,7 @@ description: Production-grade API design, RESTful and GraphQL specifications, in
 
 # DEX API Engineering
 
-## 1. Purpose
+## 1. Purpose & Scope
 Thiết kế và triển khai giao diện lập trình ứng dụng (API) chuyên nghiệp, nhất quán, bảo mật và hiệu năng cao; đảm bảo khả năng tương thích ngược (Backward Compatibility) và định dạng phản hồi chuẩn hóa theo hợp đồng (API Contract).
 
 Quy trình API chuẩn:
@@ -20,17 +20,21 @@ Ghi nhớ sống còn: **API tốt = Dễ dùng + Nhất quán + Bảo mật + H
 - Khi xây dựng lớp middleware xác thực (Authentication), phân quyền (Authorization) và kiểm soát tần suất gọi (Rate Limiting).
 - Khi chuẩn hóa định dạng mã lỗi và thông điệp phản hồi cho toàn hệ thống.
 
-## 3. When Not to Use
+## 3. When NOT to Use
 - Thao tác trên các hàm nội bộ trong cùng một tiến trình không phơi bày ra qua giao thức mạng.
 - Khi thay đổi logic thuần túy ở tầng dữ liệu mà không làm thay đổi contract API.
 
-## 4. Inputs
+## 4. Prerequisites & Input Context
 - Yêu cầu nghiệp vụ hoặc đặc tả giao diện người dùng cần tiêu thụ dữ liệu.
 - Quy chuẩn API hiện tại của dự án (Quy ước đặt tên URL, chuẩn phân trang, format ngày tháng).
 - Bộ công cụ định nghĩa schema (OpenAPI / Swagger, GraphQL SDL, Protobuf, Zod, Pydantic).
 
-## 5. Workflow
+## 5. Core Concepts & Taxonomy
+- **Nguyên tắc cốt lõi**: Tuân thủ triệt để nguyên lý vận hành xác định và ranh giới trách nhiệm của chuẩn Agent Skills.
+- **Tính nhất quán hệ thống**: Mọi thao tác phải có thể kiểm chứng độc lập với kết quả đo lường rõ ràng.
+- **Ngăn ngừa hồi quy**: Bất kỳ sửa đổi nào cũng phải bảo vệ tính tương thích ngược và chất lượng đã được nghiệm thu.
 
+## 6. Step-by-Step Execution Workflow
 ### Bước 1: Thiết Kế Định Dạng Endpoint Chuẩn RESTful (Contract Design)
 - Đặt tên URI bằng danh từ số nhiều, đại diện cho tài nguyên:
   - `GET /api/v1/orders` (Lấy danh sách đơn hàng).
@@ -83,43 +87,44 @@ Ghi nhớ sống còn: **API tốt = Dễ dùng + Nhất quán + Bảo mật + H
 - Khi nâng cấp: Không được xóa trường cũ hoặc đổi kiểu dữ liệu của trường đang có trên phiên bản API hiện tại.
 - Nếu bắt buộc có breaking changes: Tạo phiên bản mới (`/api/v2/...`) và giữ nguyên `/api/v1/...` trong thời gian chuyển đổi.
 
-## 6. Quality Gates
+## 7. Concrete Examples
+```bash
+# Lệnh thực thi & kiểm chứng tiêu chuẩn
+dex verify --skill dex-api-engineering
+```
+
+## 8. Anti-Patterns & Common Traps
+- **Anti-Pattern 1**: Bỏ qua các bước xác minh tự động và dựa vào giả định chủ quan.
+- **Anti-Pattern 2**: Thay đổi diện rộng vượt ngoài phạm vi (Scope Creep) làm mất kiểm soát rủi ro.
+- **Trap**: Thực hiện thao tác phá hủy hoặc thay đổi trạng thái sản xuất khi chưa qua cổng kiểm duyệt an toàn.
+
+## 9. Quality Gates & Acceptance Criteria
 - **QG-02 (API Contract Compliant)**: Schema input/output khớp chính xác 100% với tài liệu đặc tả OpenAPI.
 - **QG-03 (Strict Validation)**: Tất cả các trường dữ liệu đều được xác thực kiểu dữ liệu chặt chẽ.
 - **QG-05 (API Integration Tests PASS)**: Tất cả bài test API (cả Happy path và Edge cases) đạt PASS.
 
-## 7. Safety Rules
+## 10. Security & Safety Boundaries
 - **Cấm Breaking Changes Không Cảnh Báo**: Cấm tự ý xóa trường hoặc đổi tên thuộc tính trong JSON response khi chưa nâng version API.
 - **Mã HTTP Status Phải Đúng Bản Chất**: Cấm trả về `200 OK` kèm theo body chứa `{"error": "Lỗi xảy ra"}`. Lỗi client phải dùng `4xx`, lỗi máy chủ phải dùng `5xx`.
 - **Luôn Có Phân Trang Cho Danh Sách**: Không bao giờ tạo endpoint trả về danh sách mảng mà không có giới hạn `limit`/`page` tối đa (tránh việc trả về 100,000 bản ghi làm tràn RAM server và client).
 
-## 8. Expected Outputs
+## 11. Platform Adapters
+- **OpenAI Codex**: Tương thích hoàn toàn thông qua cấu trúc file `SKILL.md` và agent instructions tiêu chuẩn.
+- **Universal Agent Skills**: Tuân thủ đặc tả tại `https://agentskills.io/specification`.
+- **CLI & IDE Adapters**: Kích hoạt thông qua terminal hoặc tiện ích mở rộng IDE tương thích (VS Code, Cursor, Windsurf).
+
+## 12. Deliverables & Output Artifacts
 1. Mã nguồn API endpoint kèm validation schema hoàn chỉnh.
 2. Bộ bài kiểm thử tích hợp (Integration Tests) kiểm chứng mã HTTP và schema.
 3. Tài liệu đặc tả API (OpenAPI spec hoặc Postman collection).
 
-## 9. Failure Handling
-- Nếu người dùng client gửi dữ liệu sai định dạng: Trả về mã lỗi 400 rõ ràng kèm danh sách chi tiết các trường cần sửa, không được để crash tiến trình server.
+## 13. Related & Complementary Skills
+- `dex-master-orchestrator`: Điều phối trung tâm.
 
-## 10. Completion Criteria
-- API hoạt động đúng chuẩn RESTful/GraphQL, phân trang và mã lỗi nhất quán.
-- Bộ test tích hợp đạt 100% PASS và tài liệu API được cập nhật đầy đủ.
-
----
-
-## Real-world Example
-Endpoint tạo bài viết mới `POST /api/v1/posts`:
-```typescript
-// Validation schema chặt chẽ
-const CreatePostSchema = z.object({
-  title: z.string().min(5).max(100),
-  content: z.string().min(20),
-  tags: z.array(z.string()).max(5).optional()
-});
-
-router.post('/posts', authenticate, validate(CreatePostSchema), async (req, res) => {
-  const post = await postService.create(req.userId, req.validatedBody);
-  res.status(201).json({ success: true, data: post });
-});
-```
-Test kiểm tra: Gửi title rỗng trả về đúng `400 Bad Request`, gửi hợp lệ trả về đúng `201 Created`.
+## 14. Realistic Usage Example
+### Tình huống triển khai thực tế:
+Kỹ sư hoặc AI Agent kích hoạt **dex-api-engineering** trong dự án.
+1. Tiếp nhận ngữ cảnh đầu vào và kiểm tra điều kiện tiên quyết tại Mục 4.
+2. Vận hành tuần tự các bước theo Quy trình tại Mục 6.
+3. Kiểm chứng đầu ra đối chiếu với Tiêu chuẩn chấp thuận tại Mục 9.
+4. Bàn giao đầy đủ hiện vật theo Mục 12 và cập nhật tài liệu liên quan.

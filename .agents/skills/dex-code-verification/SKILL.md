@@ -5,7 +5,7 @@ description: Rigorous code verification and quality assurance protocol for AI-ge
 
 # DEX Code Verification
 
-## 1. Purpose
+## 1. Purpose & Scope
 Xác minh thực tế chất lượng và tính đúng đắn của mã nguồn do AI tạo ra thông qua kiểm tra đa tầng, thực thi lệnh thật và thu thập bằng chứng thực nghiệm.
 
 Quy trình xác minh:
@@ -20,17 +20,21 @@ Ghi nhớ sống còn: **Code chạy được ≠ Code đúng ≠ Code ổn đ�
 - Trước khi tạo Git commit hoặc chuyển sang bước kế tiếp.
 - Khi nghi ngờ AI tạo mã giả, mock ảo hoặc che giấu lỗi biên dịch.
 
-## 3. When Not to Use
+## 3. When NOT to Use
 - Khi chỉ thực hiện việc đọc hiểu hoặc giải thích mã nguồn mà không có thay đổi file.
 - Khi kiểm thử quy mô lớn toàn bộ hành trình người dùng E2E (khi đó sử dụng `dex-acceptance-testing`).
 
-## 4. Inputs
+## 4. Prerequisites & Input Context
 - Mã nguồn mới tạo hoặc vừa được sửa đổi.
 - Bộ test hiện có của dự án hoặc kịch bản kiểm tra chức năng.
 - Lệnh thực thi kiểm tra (Test runner, script, CLI tool).
 
-## 5. Workflow
+## 5. Core Concepts & Taxonomy
+- **Nguyên tắc cốt lõi**: Tuân thủ triệt để nguyên lý vận hành xác định và ranh giới trách nhiệm của chuẩn Agent Skills.
+- **Tính nhất quán hệ thống**: Mọi thao tác phải có thể kiểm chứng độc lập với kết quả đo lường rõ ràng.
+- **Ngăn ngừa hồi quy**: Bất kỳ sửa đổi nào cũng phải bảo vệ tính tương thích ngược và chất lượng đã được nghiệm thu.
 
+## 6. Step-by-Step Execution Workflow
 ### Bước 1: Đọc & Soát Mã nguồn (Code Inspection)
 - Đọc lại toàn bộ đoạn code vừa thay đổi.
 - Kiểm tra tính logic: có hàm rỗng (stub/placeholder), `TODO`, hoặc biến chưa khai báo không?
@@ -63,36 +67,45 @@ Ghi nhớ sống còn: **Code chạy được ≠ Code đúng ≠ Code ổn đ�
 ### Bước 7: Xác Nhận Đạt với Bằng Chứng (Verified Confirmation)
 - Chỉ tuyên bố "Hoàn thành" khi có output thực tế của terminal chứng minh PASS 100%.
 
-## 6. Quality Gates
+## 7. Concrete Examples
+```bash
+# Lệnh thực thi & kiểm chứng tiêu chuẩn
+dex verify --skill dex-code-verification
+```
+
+## 8. Anti-Patterns & Common Traps
+- **Anti-Pattern 1**: Bỏ qua các bước xác minh tự động và dựa vào giả định chủ quan.
+- **Anti-Pattern 2**: Thay đổi diện rộng vượt ngoài phạm vi (Scope Creep) làm mất kiểm soát rủi ro.
+- **Trap**: Thực hiện thao tác phá hủy hoặc thay đổi trạng thái sản xuất khi chưa qua cổng kiểm duyệt an toàn.
+
+## 9. Quality Gates & Acceptance Criteria
 - **QG-03 (Lint & Type Clean)**: Lệnh kiểm tra tĩnh trả về exit code 0.
 - **QG-04 (Build Clean)**: Dự án build thành công không lỗi cú pháp.
 - **QG-05 (Tests PASS)**: Kết quả test suite đạt 100% PASS cho các ca kiểm thử liên quan.
 - **QG-10 (Real Terminal Evidence)**: Có bằng chứng output thực tế từ terminal, không bịa đặt log.
 
-## 7. Safety Rules
+## 10. Security & Safety Boundaries
 - **Cấm Tuyệt Đối "Báo Hoàn Thành Ảo" (No False Completion)**: Nghiêm cấm việc khẳng định tính năng đã chạy tốt mà không chạy lệnh kiểm chứng.
 - **Không Dùng Test Giả (No Mock Cheating)**: Không được viết test luôn trả về `expect(true).toBe(true)` chỉ để vượt qua CI/CD.
 - **Phân Biệt Rõ Trạng Thái**: Nếu môi trường không hỗ trợ chạy test (thiếu runtime), phải khai báo rõ là `NOT VERIFIED`, cấm khai khống là `PASS`.
 
-## 8. Expected Outputs
+## 11. Platform Adapters
+- **OpenAI Codex**: Tương thích hoàn toàn thông qua cấu trúc file `SKILL.md` và agent instructions tiêu chuẩn.
+- **Universal Agent Skills**: Tuân thủ đặc tả tại `https://agentskills.io/specification`.
+- **CLI & IDE Adapters**: Kích hoạt thông qua terminal hoặc tiện ích mở rộng IDE tương thích (VS Code, Cursor, Windsurf).
+
+## 12. Deliverables & Output Artifacts
 1. Log thực thi lệnh từ terminal (stdout & stderr).
 2. Tóm tắt kết quả kiểm tra định lượng: Tổng số test, số test PASS, số test FAIL.
 3. Danh sách các lỗi đã phát hiện và đã sửa chữa trong quá trình xác minh.
 
-## 9. Failure Handling
-- Nếu test liên tục thất bại sau 2 lần sửa: Chuyển giao ngay cho `dex-root-cause-debugging` để phân tích sâu hơn cấu trúc dữ liệu và logic ngầm.
+## 13. Related & Complementary Skills
+- `dex-master-orchestrator`: Điều phối trung tâm.
 
-## 10. Completion Criteria
-- Mã nguồn vượt qua kiểm tra tĩnh (Typecheck/Lint).
-- Toàn bộ test case liên quan đạt trạng thái PASS.
-- Bằng chứng thực nghiệm được ghi nhận đầy đủ vào báo cáo.
-
----
-
-## Real-world Example
-Agent vừa sửa hàm tính thuế `calculateTax(price, rate)`.
-1. *Đọc code*: Phát hiện nếu `price < 0` hàm trả về số âm vô lý.
-2. *Chạy test*: `pytest tests/test_tax.py` → FAIL: `assert calculateTax(-10, 0.1) == 0`.
-3. *Sửa lỗi*: Bổ sung guard clause: `if price < 0: raise ValueError("Price cannot be negative")`.
-4. *Test lại*: `pytest tests/test_tax.py` → Output: `2 passed in 0.05s`.
-5. *Xác nhận đạt*: Ghi nhận trạng thái PASS kèm log terminal thật.
+## 14. Realistic Usage Example
+### Tình huống triển khai thực tế:
+Kỹ sư hoặc AI Agent kích hoạt **dex-code-verification** trong dự án.
+1. Tiếp nhận ngữ cảnh đầu vào và kiểm tra điều kiện tiên quyết tại Mục 4.
+2. Vận hành tuần tự các bước theo Quy trình tại Mục 6.
+3. Kiểm chứng đầu ra đối chiếu với Tiêu chuẩn chấp thuận tại Mục 9.
+4. Bàn giao đầy đủ hiện vật theo Mục 12 và cập nhật tài liệu liên quan.

@@ -5,7 +5,7 @@ description: Blast radius estimation, dependency mapping, regression risk assess
 
 # DEX Change Impact Analysis
 
-## 1. Purpose
+## 1. Purpose & Scope
 Phân tích toàn diện và định lượng bán kính ảnh hưởng (Blast Radius) cũng như rủi ro tiềm ẩn của một thay đổi trước khi viết hoặc sửa bất kỳ dòng mã nguồn nào, giúp lập kế hoạch kiểm thử hồi quy chính xác và ngăn chặn các sự cố "sửa một chỗ, hỏng mười chỗ".
 
 Quy trình phân tích tác động chuẩn:
@@ -20,17 +20,21 @@ Ghi nhớ sống còn: **Biết trước phạm vi ảnh hưởng = Sửa code t
 - Trước khi thực hiện migration cơ sở dữ liệu hoặc thay đổi cấu trúc bảng.
 - Khi người dùng yêu cầu tái cấu trúc một thành phần lõi của hệ thống.
 
-## 3. When Not to Use
+## 3. When NOT to Use
 - Tạo một file mới hoàn toàn độc lập chưa có ai phụ thuộc vào.
 - Sửa đổi nội bộ logic của một private method trong một component lá (Leaf component) không ai import.
 
-## 4. Inputs
+## 4. Prerequisites & Input Context
 - Tệp tin, hàm hoặc bảng dữ liệu dự kiến sẽ bị thay đổi.
 - Nội dung thay đổi dự kiến (Đổi tham số, đổi kiểu trả về, đổi logic nghiệp vụ).
 - Cây phụ thuộc mã nguồn (Dependency graph) hoặc kết quả tìm kiếm tham chiếu trong dự án.
 
-## 5. Workflow
+## 5. Core Concepts & Taxonomy
+- **Nguyên tắc cốt lõi**: Tuân thủ triệt để nguyên lý vận hành xác định và ranh giới trách nhiệm của chuẩn Agent Skills.
+- **Tính nhất quán hệ thống**: Mọi thao tác kỹ thuật phải có thể kiểm chứng độc lập với số liệu rõ ràng.
+- **Ngăn ngừa hồi quy**: Bất kỳ sửa đổi nào cũng phải bảo vệ tính tương thích ngược và chất lượng đã được nghiệm thu.
 
+## 6. Step-by-Step Execution Workflow
 ### Bước 1: Xác Định Thay Đổi Cụ Thể (Proposed Delta)
 - Định nghĩa chính xác nội dung dự kiến can thiệp:
   - Thay đổi logic nội tại (Internal behavior)?
@@ -61,33 +65,44 @@ Ghi nhớ sống còn: **Biết trước phạm vi ảnh hưởng = Sửa code t
 - Chạy 100% các bài test của tất cả các module nằm trong bán kính ảnh hưởng.
 - Xác nhận không có caller nào bị lỗi thời hoặc truyền thiếu tham số.
 
-## 6. Quality Gates
+## 7. Concrete Examples
+```bash
+# Lệnh thực thi & kiểm chứng tiêu chuẩn
+dex verify --skill dex-change-impact-analysis
+```
+
+## 8. Anti-Patterns & Common Traps
+- **Anti-Pattern 1**: Bỏ qua các bước xác minh tự động và dựa vào giả định chủ quan.
+- **Anti-Pattern 2**: Thay đổi diện rộng vượt ngoài phạm vi (Scope Creep) làm mất kiểm soát rủi ro.
+- **Trap**: Thực hiện thao tác phá hủy hoặc thay đổi trạng thái sản xuất khi chưa qua cổng kiểm duyệt an toàn.
+
+## 9. Quality Gates & Acceptance Criteria
 - **QG-01 (Blast Radius Fully Mapped)**: Có danh sách đầy đủ tất cả các file bị ảnh hưởng trước khi code.
 - **QG-06 (No Downstream Regressions)**: Toàn bộ các module phụ thuộc tiếp tục hoạt động chính xác sau thay đổi.
 - **QG-08 (Diff Aligned with Impact Plan)**: Git diff chỉ chứa các thay đổi đã được dự báo trong bản phân tích tác động.
 
-## 7. Safety Rules
+## 10. Security & Safety Boundaries
 - **Cấm Sửa "Liều" (No Blind Refactoring)**: Tuyệt đối không thay đổi kiểu trả về của hàm dùng chung mà không kiểm tra xem ai đang sử dụng giá trị trả về đó.
 - **Bắt Buộc Báo Động Khi Bán Kính Lớn**: Nếu một thay đổi ảnh hưởng trên 5 module, Orchestrator bắt buộc phải nâng cấp lên **STRICT MODE** và cảnh báo người dùng.
 - **Ưu Tiên Tương Thích Ngược**: Khi có thể, hãy hỗ trợ cả cách gọi cũ (ví dụ overload tham số hoặc gán default value) để giảm thiểu rủi ro phải sửa đồng loạt quá nhiều nơi.
 
-## 8. Expected Outputs
+## 11. Platform Adapters
+- **OpenAI Codex**: Tương thích hoàn toàn thông qua cấu trúc file `SKILL.md` và agent instructions tiêu chuẩn.
+- **Universal Agent Skills**: Tuân thủ đặc tả tại `https://agentskills.io/specification`.
+- **CLI & IDE Adapters**: Kích hoạt thông qua terminal hoặc tiện ích mở rộng IDE tương thích (VS Code, Cursor, Windsurf).
+
+## 12. Deliverables & Output Artifacts
 1. Báo cáo phân tích tác động (Impact Analysis Report): Danh sách file bị ảnh hưởng, Mức độ rủi ro, Danh sách test cần chạy.
 2. Bản cập nhật mã nguồn đồng bộ trên toàn bộ bán kính ảnh hưởng.
 3. Bằng chứng kiểm thử hồi quy đạt PASS 100%.
 
-## 9. Failure Handling
-- Nếu trong quá trình sửa phát hiện bán kính ảnh hưởng phình to gấp 3 lần dự kiến ban đầu: Dừng lại ngay lập tức, rollback code và họp lại để đánh giá giải pháp giảm thiểu phụ thuộc trước.
+## 13. Related & Complementary Skills
+- `dex-master-orchestrator`: Điều phối trung tâm.
 
-## 10. Completion Criteria
-- Mọi thành phần phụ thuộc đều được cập nhật tương thích.
-- Toàn bộ bài kiểm thử trong bán kính ảnh hưởng đạt PASS.
-
----
-
-## Real-world Example
-Dự định sửa hàm `formatCurrency(amount)` thành `formatCurrency(amount, currency = 'VND')`:
-1. *Quét mã nguồn*: Tìm kiếm `formatCurrency` trong toàn project → Phát hiện có 14 files đang gọi hàm này.
-2. *Đánh giá rủi ro*: **TRUNG BÌNH**.
-3. *Kế hoạch an toàn*: Thiết lập giá trị mặc định `currency = 'VND'` để 14 nơi đang gọi cũ không bị hỏng chữ ký hàm.
-4. *Kiểm thử*: Chạy 14 bài unit tests của 14 component liên quan → 100% PASS không cần sửa code của 14 callers.
+## 14. Realistic Usage Example
+### Tình huống triển khai thực tế:
+Kỹ sư hoặc AI Agent kích hoạt **dex-change-impact-analysis** trong dự án.
+1. Tiếp nhận ngữ cảnh đầu vào và kiểm tra điều kiện tiên quyết tại Mục 4.
+2. Vận hành tuần tự các bước theo Quy trình tại Mục 6.
+3. Kiểm chứng đầu ra đối chiếu với Tiêu chuẩn chấp thuận tại Mục 9.
+4. Bàn giao đầy đủ hiện vật theo Mục 12 và cập nhật tài liệu liên quan.

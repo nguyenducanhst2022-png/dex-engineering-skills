@@ -5,7 +5,7 @@ description: AI context optimization, persistent project memory architecture, do
 
 # DEX Context Engineering
 
-## 1. Purpose
+## 1. Purpose & Scope
 Tổ chức, chuẩn hóa và quản lý ngữ cảnh (Context) cũng như bộ nhớ dài hạn cho AI Coding Agent; đảm bảo Agent luôn hiểu đúng dự án, nắm vững mục tiêu, biết rõ những gì đã làm, đang làm và chưa được phép chạm vào, không bị phụ thuộc một cách mù quáng vào lịch sử hội thoại tạm thời.
 
 Quy trình quản lý ngữ cảnh chuẩn:
@@ -20,11 +20,11 @@ Ghi nhớ sống còn: **AI giỏi + Ngữ cảnh sai = Code sai. Ngữ cảnh t
 - Khi Agent có dấu hiệu "quên" mục tiêu ban đầu, suy diễn sai cấu trúc hoặc tự ý đảo ngược các quyết định kỹ thuật đã thống nhất.
 - Khi bàn giao công việc giữa các phiên làm việc (Session hand-off).
 
-## 3. When Not to Use
+## 3. When NOT to Use
 - Tạo thêm hàng chục file tài liệu rườm rà, trùng lặp khi dự án đã có sẵn tài liệu tương đương chuẩn xác.
 - Nhồi nhét toàn bộ mã nguồn của cả dự án vào prompt gây quá tải ngữ cảnh và làm giảm độ chính xác của AI.
 
-## 4. Inputs
+## 4. Prerequisites & Input Context
 - Cấu trúc thư mục hiện tại của dự án.
 - Bộ tài liệu cốt lõi chuẩn:
   - `README.md`: Hướng dẫn tổng quan và khởi chạy.
@@ -34,8 +34,12 @@ Ghi nhớ sống còn: **AI giỏi + Ngữ cảnh sai = Code sai. Ngữ cảnh t
   - `TASKS.md`: Danh sách công việc, trạng thái TODO / IN PROGRESS / DONE.
   - `CHANGELOG.md`: Lịch sử các phiên bản đã phát hành.
 
-## 5. Workflow
+## 5. Core Concepts & Taxonomy
+- **Nguyên tắc cốt lõi**: Tuân thủ triệt để nguyên lý vận hành xác định và ranh giới trách nhiệm của chuẩn Agent Skills.
+- **Tính nhất quán hệ thống**: Mọi thao tác phải có thể kiểm chứng độc lập với kết quả đo lường rõ ràng.
+- **Ngăn ngừa hồi quy**: Bất kỳ sửa đổi nào cũng phải bảo vệ tính tương thích ngược và chất lượng đã được nghiệm thu.
 
+## 6. Step-by-Step Execution Workflow
 ### Bước 1: Thu Thập & Lọc Nhiễu Ngữ Cảnh (Context Relevance Filtering)
 - Chỉ trích xuất các thông tin thực sự liên quan trực tiếp đến nhiệm vụ hiện tại.
 - Loại bỏ các thông tin rác, log debug cũ, các đoạn chat lan man không liên quan đến kỹ thuật.
@@ -62,39 +66,44 @@ Ghi nhớ sống còn: **AI giỏi + Ngữ cảnh sai = Code sai. Ngữ cảnh t
 ### Bước 6: Cập Nhật Trạng Thái Tiến Độ (Context Synchronization)
 - Ngay sau khi hoàn thành một nhiệm vụ nhỏ: Cập nhật ngay file `TASKS.md` (chuyển từ `[ ]` sang `[x]`) và cập nhật `CHANGELOG.md`.
 
-## 6. Quality Gates
+## 7. Concrete Examples
+```bash
+# Lệnh thực thi & kiểm chứng tiêu chuẩn
+dex verify --skill dex-context-engineering
+```
+
+## 8. Anti-Patterns & Common Traps
+- **Anti-Pattern 1**: Bỏ qua các bước xác minh tự động và dựa vào giả định chủ quan.
+- **Anti-Pattern 2**: Thay đổi diện rộng vượt ngoài phạm vi (Scope Creep) làm mất kiểm soát rủi ro.
+- **Trap**: Thực hiện thao tác phá hủy hoặc thay đổi trạng thái sản xuất khi chưa qua cổng kiểm duyệt an toàn.
+
+## 9. Quality Gates & Acceptance Criteria
 - **QG-01 (Context-Aware Scope)**: AI hiểu đúng phạm vi và không chạm vào các phần đã ghi rõ là cấm sửa trong `AGENTS.md`.
 - **QG-09 (Documentation Synchronized)**: `TASKS.md` và các tài liệu liên quan phản ánh chính xác 100% trạng thái thực tế của code sau khi sửa.
 
-## 7. Safety Rules (4 Nguyên Tắc Context Engineering)
+## 10. Security & Safety Boundaries
 1. **Context Relevance (Sự phù hợp của ngữ cảnh)**: Chỉ cung cấp thông tin liên quan, tránh nhồi nhét làm loãng bộ nhớ của AI.
 2. **Single Source of Truth (Nguồn chân lý duy nhất)**: Mỗi thông tin quan trọng chỉ nằm ở một file chuẩn, không sao chép rải rác gây mâu thuẫn.
 3. **Persistent Documentation (Lưu trữ bền vững)**: Lưu kiến thức quan trọng vào file tài liệu trong Git, không để phụ thuộc vào lịch sử chat tạm bợ.
 4. **Context Validation (Kiểm chứng ngữ cảnh)**: Luôn đối chiếu ngữ cảnh tài liệu với mã nguồn và kết quả thực tế từ terminal.
 
-## 8. Expected Outputs
+## 11. Platform Adapters
+- **OpenAI Codex**: Tương thích hoàn toàn thông qua cấu trúc file `SKILL.md` và agent instructions tiêu chuẩn.
+- **Universal Agent Skills**: Tuân thủ đặc tả tại `https://agentskills.io/specification`.
+- **CLI & IDE Adapters**: Kích hoạt thông qua terminal hoặc tiện ích mở rộng IDE tương thích (VS Code, Cursor, Windsurf).
+
+## 12. Deliverables & Output Artifacts
 1. Bộ tài liệu ngữ cảnh chuẩn (`AGENTS.md`, `TASKS.md`, `SPEC.md`).
 2. Trạng thái nhiệm vụ được cập nhật minh bạch, không bị mất dấu.
 3. AI thực thi chính xác theo quy ước dự án mà không cần phải nhắc lại quy tắc nhiều lần.
 
-## 9. Failure Handling
-- Khi AI bị ảo giác (Hallucination) hoặc quên ngữ cảnh: Yêu cầu AI đọc lại trực tiếp file `AGENTS.md` và `TASKS.md`, dừng việc suy diễn từ lịch sử chat.
+## 13. Related & Complementary Skills
+- `dex-master-orchestrator`: Điều phối trung tâm.
 
-## 10. Completion Criteria
-- Các quyết định kỹ thuật và tiến độ nhiệm vụ được đồng bộ đầy đủ vào repository.
-- Không có sự mâu thuẫn giữa tài liệu hướng dẫn và mã nguồn thực tế.
-
----
-
-## Real-world Example
-File `TASKS.md` quản lý tiến độ:
-```markdown
-# Project Roadmap & Tasks
-
-## Sprint 1: Authentication
-- [x] Task 1.1: Thiết kế User schema trong database (Hoàn thành - Commit `a1b2c3d`)
-- [x] Task 1.2: Triển khai password hashing với bcrypt (Hoàn thành - Commit `e4f5g6h`)
-- [/] Task 1.3: Triển khai JWT token login API (Đang thực hiện)
-- [ ] Task 1.4: Middleware bảo vệ route private (Chưa bắt đầu)
-```
-AI khi bắt đầu phiên làm việc chỉ cần đọc `TASKS.md` là biết ngay mình đang ở đâu, cần làm gì tiếp theo mà không cần hỏi lại người dùng.
+## 14. Realistic Usage Example
+### Tình huống triển khai thực tế:
+Kỹ sư hoặc AI Agent kích hoạt **dex-context-engineering** trong dự án.
+1. Tiếp nhận ngữ cảnh đầu vào và kiểm tra điều kiện tiên quyết tại Mục 4.
+2. Vận hành tuần tự các bước theo Quy trình tại Mục 6.
+3. Kiểm chứng đầu ra đối chiếu với Tiêu chuẩn chấp thuận tại Mục 9.
+4. Bàn giao đầy đủ hiện vật theo Mục 12 và cập nhật tài liệu liên quan.

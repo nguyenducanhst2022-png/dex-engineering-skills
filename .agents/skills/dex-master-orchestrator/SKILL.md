@@ -5,7 +5,7 @@ description: Master skill to analyze user requests, determine task complexity, s
 
 # DEX Master Orchestrator
 
-## 1. Purpose
+## 1. Purpose & Scope
 Điều phối toàn bộ vòng đời phát triển phần mềm bằng AI theo chuẩn DEX Engineering Framework. Master Orchestrator chịu trách nhiệm phân tích yêu cầu, đánh giá rủi ro, lựa chọn đúng chế độ thực thi, kích hoạt các kỹ năng chuyên biệt tối thiểu cần thiết, kiểm soát nghiêm ngặt 10 Quality Gates và tổng hợp báo cáo kiểm chứng minh bạch.
 
 Triết lý cốt lõi:
@@ -17,19 +17,23 @@ Triết lý cốt lõi:
 - Khi tác vụ yêu cầu phối hợp nhiều kỹ năng kỹ thuật (ví dụ: sửa bug, nâng cấp tính năng, refactor, release, audit).
 - Khi cần kiểm soát rủi ro và ngăn chặn việc AI tự ý bỏ qua các bước kiểm tra quan trọng.
 
-## 3. When Not to Use
+## 3. When NOT to Use
 - Trả lời các câu hỏi lý thuyết hoặc tra cứu thông tin đơn giản không làm thay đổi mã nguồn.
 - Khi người dùng đã chỉ định tường minh kích hoạt một skill độc lập duy nhất (ví dụ: chỉ chạy `dex-security-audit` trên một file cụ thể).
 - Khi đang ở giữa một quy trình con do skill khác trực tiếp xử lý (tránh can thiệp lặp vòng).
 
-## 4. Inputs
+## 4. Prerequisites & Input Context
 - **Yêu cầu của người dùng**: Mục tiêu, tính năng cần làm, mô tả bug hoặc lệnh phát hành.
 - **Ngữ cảnh dự án**: `README.md`, `ARCHITECTURE.md`, `SPEC.md`, `TASKS.md`, `CHANGELOG.md`.
 - **Trạng thái kho mã nguồn**: Trạng thái Git (`git status`, nhánh hiện tại, commit hash gần nhất).
 - **Môi trường kỹ thuật**: Ngôn ngữ lập trình, framework, package manager, bộ test hiện có.
 
-## 5. Workflow
+## 5. Core Concepts & Taxonomy
+- **Nguyên tắc cốt lõi**: Tuân thủ triệt để nguyên lý vận hành xác định và ranh giới trách nhiệm của chuẩn Agent Skills.
+- **Tính nhất quán hệ thống**: Mọi thao tác phải có thể kiểm chứng độc lập với kết quả đo lường rõ ràng.
+- **Ngăn ngừa hồi quy**: Bất kỳ sửa đổi nào cũng phải bảo vệ tính tương thích ngược và chất lượng đã được nghiệm thu.
 
+## 6. Step-by-Step Execution Workflow
 ### Bước 1: Phân tích Ý định & Phân loại Nhiệm vụ (Triage & Classification)
 1. Đọc và phân tích yêu cầu của người dùng:
    - Mục tiêu chính là gì?
@@ -78,7 +82,18 @@ Sau khi hoàn tất toàn bộ chuỗi kỹ năng, tổng hợp kết quả theo
 - **Bằng chứng kiểm chứng**: Log test thực tế, kết quả benchmark hoặc diff review.
 - **Khuyến nghị tiếp theo**: Hướng dẫn người dùng nghiệm thu hoặc các bước tiếp theo.
 
-## 6. Quality Gates
+## 7. Concrete Examples
+```bash
+# Lệnh thực thi & kiểm chứng tiêu chuẩn
+dex verify --skill dex-master-orchestrator
+```
+
+## 8. Anti-Patterns & Common Traps
+- **Anti-Pattern 1**: Bỏ qua các bước xác minh tự động và dựa vào giả định chủ quan.
+- **Anti-Pattern 2**: Thay đổi diện rộng vượt ngoài phạm vi (Scope Creep) làm mất kiểm soát rủi ro.
+- **Trap**: Thực hiện thao tác phá hủy hoặc thay đổi trạng thái sản xuất khi chưa qua cổng kiểm duyệt an toàn.
+
+## 9. Quality Gates & Acceptance Criteria
 Master Orchestrator kiểm soát 10 cổng chất lượng:
 - **QG-01 (Scope Control)**: Xác định rõ danh sách file được phép chỉnh sửa; không sửa file ngoài phạm vi.
 - **QG-02 (Spec Compliance)**: Đáp ứng đầy đủ tiêu chí nghiệm thu (Acceptance Criteria) đã thỏa thuận.
@@ -91,43 +106,30 @@ Master Orchestrator kiểm soát 10 cổng chất lượng:
 - **QG-09 (Documentation Update)**: Tài liệu kỹ thuật, README hoặc CHANGELOG được cập nhật tương ứng.
 - **QG-10 (Verified Evidence)**: Toàn bộ kết quả phải có log/terminal output thực tế chứng minh, không tự tạo kết quả giả.
 
-## 7. Safety Rules
+## 10. Security & Safety Boundaries
 - **Không tự ý chuyển chế độ hạ cấp**: Không được hạ từ STRICT xuống QUICK chỉ để bỏ qua bước kiểm thử.
 - **Git Safety First**: Không bao giờ thực hiện `git push --force`, `git reset --hard` hoặc xóa nhánh khi chưa có sự đồng ý tường minh từ người dùng.
 - **Bảo mật tuyệt đối**: Không bao giờ đọc, in ra màn hình hoặc commit API key, token, mật khẩu hoặc secrets vào file/log.
 - **Chặn ảo tưởng (No Hallucinated Passes)**: Cấm tuyệt đối việc tự báo PASS khi chưa thực sự chạy lệnh kiểm tra trong shell.
 
-## 8. Expected Outputs
+## 11. Platform Adapters
+- **OpenAI Codex**: Tương thích hoàn toàn thông qua cấu trúc file `SKILL.md` và agent instructions tiêu chuẩn.
+- **Universal Agent Skills**: Tuân thủ đặc tả tại `https://agentskills.io/specification`.
+- **CLI & IDE Adapters**: Kích hoạt thông qua terminal hoặc tiện ích mở rộng IDE tương thích (VS Code, Cursor, Windsurf).
+
+## 12. Deliverables & Output Artifacts
 1. Bản đánh giá phân loại nhiệm vụ và chế độ thực thi đề xuất (`QUICK`, `STANDARD` hoặc `STRICT`).
 2. Kế hoạch định tuyến chuỗi skills cụ thể.
 3. Bảng theo dõi tiến độ các Quality Gates trong quá trình thực thi.
 4. Báo cáo tổng kết hoàn thành dự án kèm bằng chứng thực nghiệm (Terminal Output / Git Hash / Test Log).
 
-## 9. Failure Handling
-- **Khi Test rớt (Test Failure)**: Lập tức dừng chuỗi, kích hoạt `dex-root-cause-debugging` để tìm nguyên nhân gốc. Không cố commit đè lên code lỗi.
-- **Khi xung đột mã nguồn (Merge Conflict)**: Dừng lại, bảo vệ các thay đổi chưa lưu, thông báo cho người dùng và yêu cầu chỉ đạo giải quyết xung đột.
-- **Khi môi trường thiếu công cụ**: Nếu môi trường không thể chạy test (ví dụ thiếu runtime), đánh dấu trạng thái cổng là `NOT VERIFIED`, nêu rõ lý do và khuyến nghị người dùng tự xác minh.
+## 13. Related & Complementary Skills
+- `dex-master-orchestrator`: Điều phối trung tâm.
 
-## 10. Completion Criteria
-- Toàn bộ các kỹ năng được kích hoạt trong chuỗi đã hoàn thành nhiệm vụ con.
-- Tất cả các Quality Gates áp dụng cho chế độ đã chọn đều đạt trạng thái `PASS` (hoặc `SKIP` có lý do chính đáng được chấp nhận).
-- Không còn bất kỳ Gate nào ở trạng thái `FAIL` hoặc `NOT VERIFIED` mà không có cảnh báo rõ ràng.
-- Đã xuất bản báo cáo tổng kết theo chuẩn DEX Engineering Format.
-
----
-
-## Real-world Example
-
-### Kịch bản
-Người dùng yêu cầu: *"Hệ thống giỏ hàng đang bị lỗi tính sai tổng tiền khi áp dụng mã giảm giá 20%, hãy sửa giúp tôi và đảm bảo không phá vỡ các mã giảm giá khác."*
-
-### Luồng xử lý của Orchestrator:
-1. **Triage**: Phân loại là **Bug Fix** tác động đến logic tài chính.
-2. **Mode Selection**: Chọn **STANDARD MODE** (vì liên quan đến tính toán tiền tệ và nguy cơ hồi quy).
-3. **Skill Routing**:
-   - `dex-root-cause-debugging`: Tái hiện bug tính toán mã giảm giá bằng một test case mới, chỉ ra nguyên nhân gốc (ép kiểu số làm tròn sai).
-   - `dex-code-verification`: Sửa logic làm tròn và chạy lại test case lỗi để xác minh test chuyển từ FAIL sang PASS.
-   - `dex-testing-engineering`: Chạy toàn bộ regression test suite của module Coupon & Checkout để đảm bảo các mã giảm giá khác vẫn chính xác.
-   - `dex-git-workflow`: Tạo branch `fix/coupon-discount-rounding`, commit rõ ràng với thông điệp theo Conventional Commits.
-4. **Quality Gates Check**: QG-01 (PASS), QG-02 (PASS), QG-05 (PASS - 18/18 tests pass), QG-08 (PASS - Diff sạch).
-5. **Report**: Trình bày báo cáo tổng kết, nguyên nhân gốc, file đã sửa, kết quả test PASS kèm log thực tế.
+## 14. Realistic Usage Example
+### Tình huống triển khai thực tế:
+Kỹ sư hoặc AI Agent kích hoạt **dex-master-orchestrator** trong dự án.
+1. Tiếp nhận ngữ cảnh đầu vào và kiểm tra điều kiện tiên quyết tại Mục 4.
+2. Vận hành tuần tự các bước theo Quy trình tại Mục 6.
+3. Kiểm chứng đầu ra đối chiếu với Tiêu chuẩn chấp thuận tại Mục 9.
+4. Bàn giao đầy đủ hiện vật theo Mục 12 và cập nhật tài liệu liên quan.

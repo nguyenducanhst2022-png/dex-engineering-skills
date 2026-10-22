@@ -1,43 +1,135 @@
-# DEX Skill Routing Matrix & Quality Gates Specification
+# DEX Dynamic Routing Matrix v3.0
 
-Ma trận định tuyến và quyết định kỹ thuật của **Master Orchestrator** trong DEX Engineering Skills Pack v1.0.0.
-
----
-
-## 1. Ma Trận Quyết Định Theo Loại Công Việc (Task Decision Matrix)
-
-| Loại Công Việc (Task Category) | Chế Độ Thực Thi Đề Xuất | Chuỗi Kỹ Năng Kích Hoạt Theo Thứ Tự | Quality Gates Bắt Buộc | Nguy Cơ Chính Cần Kiểm Soát |
-|:---|:---|:---|:---|:---|
-| **Sửa Lỗi Nhanh (Bug Fix)** | **QUICK MODE** (nếu <=2 files)<br>**STANDARD MODE** (nếu logic phức tạp) | 1. `dex-root-cause-debugging`<br>2. `dex-code-verification`<br>3. `dex-testing-engineering`<br>4. `dex-git-workflow` | QG-01, QG-05, QG-06, QG-08, QG-10 | Sửa triệu chứng mà bỏ qua nguyên nhân gốc; gây lỗi hồi quy ở nơi khác. |
-| **Phát Triển Tính Năng Mới (Feature)** | **STANDARD MODE** | 1. `dex-specification-driven`<br>2. `dex-change-impact-analysis`<br>3. `dex-development-workflow`<br>4. `dex-testing-engineering`<br>5. `dex-code-review`<br>6. `dex-git-workflow` | QG-01, QG-02, QG-03, QG-04, QG-05, QG-08, QG-10 | Hiểu sai yêu cầu người dùng; phình to phạm vi (Scope creep); thiếu test. |
-| **Tối Ưu Hóa Hiệu Năng (Performance)** | **STANDARD MODE** | 1. `dex-performance-optimization`<br>2. `dex-testing-engineering`<br>3. `dex-code-review`<br>4. `dex-git-workflow` | QG-01, QG-02, QG-05, QG-06, QG-08, QG-10 | Tối ưu cảm tính; làm code khó đọc; làm sai lệch kết quả tính toán. |
-| **Kiểm Toán & Vá Lỗ Hổng Bảo Mật** | **STRICT MODE** | 1. `dex-security-audit`<br>2. `dex-root-cause-debugging`<br>3. `dex-testing-engineering`<br>4. `dex-git-workflow` | QG-01, QG-02, QG-05, QG-07, QG-08, QG-10 | Lộ bí mật trong commit; vá hời hợt; để lọt lỗ hổng injection nguy hiểm. |
-| **Tái Cấu Trúc Mã Nguồn (Refactoring)** | **STANDARD MODE** | 1. `dex-technical-debt-refactoring`<br>2. `dex-change-impact-analysis`<br>3. `dex-testing-engineering`<br>4. `dex-code-review`<br>5. `dex-git-workflow` | QG-01, QG-03, QG-05, QG-06, QG-08 | Thay đổi hành vi cũ của hệ thống; không có test bảo vệ trước khi sửa. |
-| **Thay Đổi Database / Schema Migration** | **STRICT MODE** | 1. `dex-database-engineering`<br>2. `dex-change-impact-analysis`<br>3. `dex-testing-engineering`<br>4. `dex-code-review`<br>5. `dex-git-workflow` | QG-01, QG-02, QG-04, QG-05, QG-06, QG-08, QG-10 | Mất mát dữ liệu; khóa bảng gây gián đoạn dịch vụ; thiếu hàm rollback. |
-| **Xây Dựng / Cập Nhật API** | **STANDARD MODE** | 1. `dex-api-engineering`<br>2. `dex-specification-driven`<br>3. `dex-testing-engineering`<br>4. `dex-git-workflow` | QG-01, QG-02, QG-03, QG-05, QG-08 | Phá vỡ tính tương thích ngược; thiếu validate input; mã lỗi sai chuẩn. |
-| **Đóng Gói & Phát Hành (Production Release)** | **STRICT MODE** | 1. `dex-testing-engineering`<br>2. `dex-security-audit`<br>3. `dex-release-engineering`<br>4. `dex-production-monitoring`<br>5. `dex-git-workflow` | **Toàn bộ 10 Gates** (QG-01 đến QG-10) | Phát hành code lỗi; không thể rollback; thiếu ghi nhận changelog. |
-| **Khởi Tạo Dự Án Mới (Greenfield)** | **STANDARD MODE** hoặc **STRICT MODE** | 1. `dex-specification-driven`<br>2. `dex-software-architecture`<br>3. `dex-code-organization`<br>4. `dex-task-delegation`<br>5. `dex-development-workflow`<br>6. `dex-testing-engineering`<br>7. `dex-git-workflow` | QG-01, QG-02, QG-03, QG-04, QG-05, QG-08, QG-09 | Kiến trúc phức tạp quá mức; dồn code vào god-file; thiếu định hướng. |
-| **Phát Triển Toàn Vòng Đời (End-to-End)** | **STRICT MODE** | 1. `dex-end-to-end-engineering` (phối hợp toàn chuỗi 30 skills) | **Toàn bộ 10 Gates** (QG-01 đến QG-10) | Mất kiểm soát tiến độ; thiếu đồng bộ giữa các tầng kiến trúc. |
+The Dynamic Routing Matrix maps real-world engineering objectives to specialized multi-skill execution workflows coordinated by `dex-master-orchestrator`.
 
 ---
 
-## 2. Ánh Xạ Chi Tiết 10 Quality Gates Vào Từng Chế Độ
+## The 10 Canonical Engineering Scenarios (A through J)
 
-| Quality Gate | Tiêu Chí Kiểm Chứng | QUICK MODE | STANDARD MODE | STRICT MODE |
-|:---|:---|:---:|:---:|:---:|
-| **QG-01: Scope Defined** | Phạm vi file được phép sửa được xác định rõ ràng. | **BẮT BUỘC** | **BẮT BUỘC** | **BẮT BUỘC** |
-| **QG-02: Spec Compliant** | Đáp ứng 100% Acceptance Criteria đã đề ra. | Tùy chọn | **BẮT BUỘC** | **BẮT BUỘC** |
-| **QG-03: Lint & Typecheck** | Không có lỗi cú pháp, linting hoặc type check. | Khuyến nghị | **BẮT BUỘC** | **BẮT BUỘC** |
-| **QG-04: Build Succeeded** | Biên dịch thành công production build artifact. | Tùy chọn | **BẮT BUỘC** | **BẮT BUỘC** |
-| **QG-05: Tests PASS** | 100% các bài kiểm thử liên quan đạt PASS. | **BẮT BUỘC** | **BẮT BUỘC** | **BẮT BUỘC** |
-| **QG-06: No Regressions** | Không làm phát sinh lỗi trên các tính năng hiện có. | Khuyến nghị | **BẮT BUỘC** | **BẮT BUỘC** |
-| **QG-07: Security Audit** | 0 secrets bị lộ, 0 lỗ hổng Critical/High. | Tùy chọn | Khuyến nghị | **BẮT BUỘC** |
-| **QG-08: Diff Reviewed** | Git diff sạch sẽ, không có console log hay rác. | **BẮT BUỘC** | **BẮT BUỘC** | **BẮT BUỘC** |
-| **QG-09: Docs Updated** | Tài liệu dự án hoặc changelog được cập nhật. | Tùy chọn | Khuyến nghị | **BẮT BUỘC** |
-| **QG-10: Verified Evidence** | Có log terminal thực tế chứng minh kết quả. | Khuyến nghị | **BẮT BUỘC** | **BẮT BUỘC** |
+### Scenario A: Emergency Database Migration Failure
+- **Context**: A database migration on production locked critical tables and failed halfway with broken foreign key constraints.
+- **Complexity**: STRICT MODE (Score 10)
+- **Primary Skills**:
+  - `dex-root-cause-debugging`: Isolate migration failure reason and transaction lock state.
+  - `dex-database-engineering`: Execute safe rollback without data loss.
+  - `dex-schema-evolution`: Rewrite migration using expand-and-contract pattern.
+- **Complementary Skills**: `dex-disaster-recovery`, `dex-production-monitoring`, `dex-incident-postmortems`.
+- **Enforced Quality Gates**: QG-04, QG-05, QG-06, QG-09, QG-10.
+- **Key Deliverables**: Zero-downtime reversible migration script, table lock resolution report, and post-incident RCA.
 
 ---
 
-## 3. Quy Tắc Giải Quyết Xung Đột & Rẽ Nhánh
-- **Khi một Quality Gate bị FAIL**: Master Orchestrator lập tức dừng quy trình chuyển tiếp, kích hoạt kỹ năng tương ứng (ví dụ `dex-root-cause-debugging` nếu QG-05 rớt, hoặc `dex-security-audit` nếu QG-07 rớt) để khắc phục dứt điểm.
-- **Quy tắc không nhảy cóc**: Nghiêm cấm việc bỏ qua bài kiểm tra để thực hiện commit hoặc release. Nếu môi trường không thể chạy test, trạng thái cổng phải được ghi rõ là `NOT VERIFIED` kèm lý do.
+### Scenario B: AI-Powered Search & Enterprise RAG Implementation
+- **Context**: Architect and deploy an enterprise document search engine with hybrid dense/sparse vector retrieval and LLM summarization.
+- **Complexity**: STANDARD MODE (Score 6)
+- **Primary Skills**:
+  - `dex-rag-pipelines`: Build chunking, embedding, and vector database indexing pipeline.
+  - `dex-retrieval-evaluation`: Measure retrieval accuracy using Hit Rate@K, MRR, and NDCG.
+  - `dex-llm-integration`: Implement structured JSON output and prompt streaming.
+- **Complementary Skills**: `dex-search-engineering`, `dex-tool-calling-contracts`, `dex-llm-cost-controls`.
+- **Enforced Quality Gates**: QG-01, QG-04, QG-07, QG-08, QG-10.
+- **Key Deliverables**: RAG retrieval service, automated evaluation suite, and token cost attribution dashboard.
+
+---
+
+### Scenario C: Monorepo Architecture Modernization
+- **Context**: Consolidate 12 fragmented repositories into a single governed monorepo with Turborepo task caching and package boundaries.
+- **Complexity**: STANDARD MODE (Score 7)
+- **Primary Skills**:
+  - `dex-monorepo-governance`: Structure `apps/` and `packages/`, enforce boundary rules.
+  - `dex-repository-bootstrap`: Standardize linting, formatting, and pre-commit configurations.
+  - `dex-code-organization`: Eliminate circular dependencies between shared libraries.
+- **Complementary Skills**: `dex-developer-tooling`, `dex-cicd-automation`, `dex-semantic-version-automation`.
+- **Enforced Quality Gates**: QG-01, QG-03, QG-04, QG-08.
+- **Key Deliverables**: `pnpm-workspace.yaml`, `turbo.json` with remote cache, and clean dependency graph.
+
+---
+
+### Scenario D: High-Concurrency Real-time Collaborative Canvas
+- **Context**: Build a multiplayer collaborative whiteboard supporting 50,000 concurrent WebSockets with conflict resolution.
+- **Complexity**: STRICT MODE (Score 8)
+- **Primary Skills**:
+  - `dex-realtime-protocols`: WebSocket connection management, heartbeats, and reconnection backoff.
+  - `dex-concurrency-state`: Conflict-free Replicated Data Types (CRDTs) and atomic updates.
+  - `dex-event-driven-architecture`: Redis Pub/Sub backplane for horizontal websocket scaling.
+- **Complementary Skills**: `dex-caching-strategies`, `dex-frontend-performance`, `dex-performance-optimization`.
+- **Enforced Quality Gates**: QG-04, QG-07, QG-08, QG-10.
+- **Key Deliverables**: WebSocket gateway service, CRDT state sync engine, and high-concurrency load test suite.
+
+---
+
+### Scenario E: Enterprise SaaS Multi-Tenant Isolation & Authentication
+- **Context**: Implement enterprise authentication, JWT rotation, session revocation, and PostgreSQL Row-Level Security for B2B SaaS.
+- **Complexity**: STRICT MODE (Score 9)
+- **Primary Skills**:
+  - `dex-auth-session-lifecycle`: Refresh token rotation, reuse detection, and HttpOnly cookies.
+  - `dex-access-control-tenancy`: Fine-grained RBAC/ABAC and PostgreSQL Row-Level Security policies.
+  - `dex-secrets-management`: Zero hardcoded credentials with HashiCorp Vault / Doppler integration.
+- **Complementary Skills**: `dex-security-audit`, `dex-threat-modeling`, `dex-database-engineering`.
+- **Enforced Quality Gates**: QG-01, QG-03, QG-04, QG-09, QG-10.
+- **Key Deliverables**: Auth middleware, PostgreSQL RLS policies, and cross-tenant penetration test suite.
+
+---
+
+### Scenario F: Mission-Critical Production Outage Postmortem
+- **Context**: Facilitate a blameless postmortem after a 42-minute payment gateway outage and track technical remediations.
+- **Complexity**: STANDARD MODE (Score 5)
+- **Primary Skills**:
+  - `dex-incident-postmortems`: Reconstruct chronological timeline, conduct 5 Whys analysis.
+  - `dex-production-monitoring`: Extract OpenTelemetry traces, error logs, and metric spikes.
+  - `dex-root-cause-debugging`: Pinpoint underlying architectural bottleneck causing the crash.
+- **Complementary Skills**: `dex-reliability-engineering`, `dex-documentation-as-code`.
+- **Enforced Quality Gates**: QG-01, QG-05, QG-10.
+- **Key Deliverables**: Blameless postmortem document, Jira/GitHub action items, and updated runbook.
+
+---
+
+### Scenario G: Cross-Platform Windows & POSIX Developer CLI Tooling
+- **Context**: Develop a cross-platform CLI utility in Rust/Node with WinGet distribution, shell completion, and POSIX compliance.
+- **Complexity**: STANDARD MODE (Score 6)
+- **Primary Skills**:
+  - `dex-cli-engineering`: Argument parsing, structured `--json` output, and exit code standards.
+  - `dex-cross-platform-portability`: Safe path normalization, LF line endings, and matrix CI.
+  - `dex-windows-packaging`: WinGet package manifest, Inno Setup installer, and Authenticode signing.
+- **Complementary Skills**: `dex-developer-tooling`, `dex-plugin-architecture`, `dex-release-engineering`.
+- **Enforced Quality Gates**: QG-01, QG-04, QG-07, QG-09, QG-10.
+- **Key Deliverables**: Cross-platform executable binary, WinGet manifest, and shell completion scripts.
+
+---
+
+### Scenario H: Automated Release & Semantic Versioning Pipeline
+- **Context**: Fully automate Conventional Commits parsing, SemVer version bumping, CHANGELOG generation, and multi-registry publishing.
+- **Complexity**: QUICK MODE (Score 3)
+- **Primary Skills**:
+  - `dex-semantic-version-automation`: Conventional commits analysis, SemVer bump calculation.
+  - `dex-release-engineering`: Release packaging, automated release notes, and GitHub release tags.
+  - `dex-cicd-automation`: End-to-end GitHub Actions pipeline for publishing artifacts.
+- **Complementary Skills**: `dex-git-workflow`, `dex-supply-chain-security`, `dex-code-verification`.
+- **Enforced Quality Gates**: QG-01, QG-03, QG-04, QG-06, QG-10.
+- **Key Deliverables**: Automated release workflow, updated `CHANGELOG.md`, and signed release tag.
+
+---
+
+### Scenario I: Data Contract Breaking Change Mitigation
+- **Context**: Upstream backend service introduced a breaking event schema change that risks crashing downstream data pipelines.
+- **Complexity**: STANDARD MODE (Score 7)
+- **Primary Skills**:
+  - `dex-data-contracts`: Formal OpenDataContract specification between producer and consumers.
+  - `dex-schema-evolution`: Expand-and-contract dual write pattern preventing breakage.
+  - `dex-data-quality-audits`: Great Expectations automated tests asserting schema conformity.
+- **Complementary Skills**: `dex-data-pipelines`, `dex-data-lineage`, `dex-api-contract-evolution`.
+- **Enforced Quality Gates**: QG-01, QG-03, QG-05, QG-06, QG-10.
+- **Key Deliverables**: `datacontract.yaml`, schema compatibility CI gate, and pipeline health monitor.
+
+---
+
+### Scenario J: Chaos Engineering & System Resilience Validation
+- **Context**: Verify system fault tolerance and graceful degradation under sudden network partitions and Redis outages.
+- **Complexity**: STRICT MODE (Score 8)
+- **Primary Skills**:
+  - `dex-chaos-experiments`: Toxiproxy fault injection simulating 3000ms latency and dropped packets.
+  - `dex-reliability-engineering`: Cockatiel / Resilience4j circuit breakers and cached fallbacks.
+  - `dex-performance-optimization`: Concurrency throttling and connection pool guardrails.
+- **Complementary Skills**: `dex-production-monitoring`, `dex-property-based-testing`, `dex-capacity-planning`.
+- **Enforced Quality Gates**: QG-04, QG-07, QG-08, QG-10.
+- **Key Deliverables**: Chaos experiment specification, circuit breaker policy configuration, and resilience audit report.

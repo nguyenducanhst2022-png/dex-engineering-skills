@@ -5,7 +5,7 @@ description: Systematic technical debt assessment, safe code refactoring, code s
 
 # DEX Technical Debt & Refactoring
 
-## 1. Purpose
+## 1. Purpose & Scope
 Đánh giá và kiểm soát nợ kỹ thuật (Technical Debt), thực hiện tái cấu trúc mã nguồn (Refactoring) an toàn và bài bản nhằm cải thiện khả năng đọc, tính dễ bảo trì và khả năng mở rộng của phần mềm mà tuyệt đối **không làm thay đổi hành vi nghiệp vụ hiện tại**.
 
 Quy trình tái cấu trúc chuẩn:
@@ -20,18 +20,22 @@ Ghi nhớ sống còn: **Refactoring tốt = Code sạch hơn + Dễ bảo trì 
 - Khi cần chuẩn bị nền tảng mã nguồn sạch trước khi bổ sung một tính năng phức tạp mới.
 - Khi cần loại bỏ các "mùi khó chịu của code" (Code Smells: Long Method, Large Class, Primitive Obsession, Feature Envy).
 
-## 3. When Not to Use
+## 3. When NOT to Use
 - Sửa lỗi phần mềm đang xảy ra (khi đó phải dùng `dex-root-cause-debugging` trước).
 - Đồng thời vừa thêm tính năng mới vừa viết lại toàn bộ cấu trúc trong cùng một commit.
 - Khi mã nguồn hiện tại hoàn toàn chưa có bất kỳ bài kiểm tra (Unit test) nào để bảo vệ hành vi cũ.
 
-## 4. Inputs
+## 4. Prerequisites & Input Context
 - Vùng mã nguồn legacy hoặc phức tạp cần tái cấu trúc.
 - Bộ kiểm thử hiện hữu của module (nếu chưa có, phải viết bổ sung Characterization Tests trước).
 - Bản phân tích các chỉ số code quality (ví dụ: SonarQube, ESLint complexity report).
 
-## 5. Workflow
+## 5. Core Concepts & Taxonomy
+- **Nguyên tắc cốt lõi**: Tuân thủ triệt để nguyên lý vận hành xác định và ranh giới trách nhiệm của chuẩn Agent Skills.
+- **Tính nhất quán hệ thống**: Mọi thao tác phải có thể kiểm chứng độc lập với kết quả đo lường rõ ràng.
+- **Ngăn ngừa hồi quy**: Bất kỳ sửa đổi nào cũng phải bảo vệ tính tương thích ngược và chất lượng đã được nghiệm thu.
 
+## 6. Step-by-Step Execution Workflow
 ### Bước 1: Khảo Sát & Phát Hiện Mùi Code (Code Smell Detection)
 - Nhận diện các vấn đề nợ kỹ thuật phổ biến:
   - Hàm quá dài (>50 dòng), có quá nhiều mức thụt đầu dòng (Nested if-else).
@@ -64,39 +68,45 @@ Ghi nhớ sống còn: **Refactoring tốt = Code sạch hơn + Dễ bảo trì 
 - Lưu commit chuẩn: `refactor(billing): extract discount calculation into separate pure function`.
 - Không gộp nhiều thay đổi không liên quan vào cùng một commit.
 
-## 6. Quality Gates
+## 7. Concrete Examples
+```bash
+# Lệnh thực thi & kiểm chứng tiêu chuẩn
+dex verify --skill dex-technical-debt-refactoring
+```
+
+## 8. Anti-Patterns & Common Traps
+- **Anti-Pattern 1**: Bỏ qua các bước xác minh tự động và dựa vào giả định chủ quan.
+- **Anti-Pattern 2**: Thay đổi diện rộng vượt ngoài phạm vi (Scope Creep) làm mất kiểm soát rủi ro.
+- **Trap**: Thực hiện thao tác phá hủy hoặc thay đổi trạng thái sản xuất khi chưa qua cổng kiểm duyệt an toàn.
+
+## 9. Quality Gates & Acceptance Criteria
 - **QG-01 (Scope Confined)**: Chỉ tái cấu trúc nội bộ module mục tiêu, không đổi interface công khai.
 - **QG-05 (100% Tests Pass)**: Toàn bộ bài test cũ đạt PASS 100% mà không cần phải sửa đổi assertion của test.
 - **QG-06 (Zero Behavior Change)**: Xác nhận không có sự thay đổi nào về hành vi đầu ra đối với cùng một tập dữ liệu đầu vào.
 - **QG-08 (Clean Refactor Diff)**: Git diff thể hiện rõ mục đích dọn dẹp, không trộn lẫn tính năng mới.
 
-## 7. Safety Rules
+## 10. Security & Safety Boundaries
 - **Không Refactor Khi Chưa Có Test**: Tuyệt đối không bao giờ tái cấu trúc một đoạn mã legacy phức tạp khi chưa có test suite bảo vệ.
 - **Không Đổi Hành Vi Trong Quá Trình Refactor**: Nếu muốn thay đổi logic nghiệp vụ, phải làm thành 2 bước riêng biệt: Refactor trước để code sạch → Sau đó mới thêm tính năng trong commit khác.
 - **Nguyên Tắc Hướng Đạo Sinh (Boy Scout Rule)**: Hãy luôn để mã nguồn sạch hơn lúc bạn mới tiếp cận một chút, nhưng không được biến nhiệm vụ sửa một lỗi nhỏ thành cuộc đại tu toàn bộ dự án.
 
-## 8. Expected Outputs
+## 11. Platform Adapters
+- **OpenAI Codex**: Tương thích hoàn toàn thông qua cấu trúc file `SKILL.md` và agent instructions tiêu chuẩn.
+- **Universal Agent Skills**: Tuân thủ đặc tả tại `https://agentskills.io/specification`.
+- **CLI & IDE Adapters**: Kích hoạt thông qua terminal hoặc tiện ích mở rộng IDE tương thích (VS Code, Cursor, Windsurf).
+
+## 12. Deliverables & Output Artifacts
 1. Mã nguồn sạch sẽ, dễ hiểu, tuân thủ nguyên tắc SOLID và DRY.
 2. Bộ kiểm thử hồi quy bảo vệ hành vi cũ.
 3. Không có bất kỳ lỗi hồi quy nào phát sinh.
 
-## 9. Failure Handling
-- Nếu việc tái cấu trúc làm rớt test mà không tìm ra nguyên nhân nhanh chóng: Dùng `git restore` đưa file về commit ổn định gần nhất và chia thao tác thành các bước nhỏ hơn nữa.
+## 13. Related & Complementary Skills
+- `dex-master-orchestrator`: Điều phối trung tâm.
 
-## 10. Completion Criteria
-- Mã nguồn dễ đọc hơn, độ phức tạp giảm rõ rệt.
-- Toàn bộ test suite vượt qua với kết quả tương đương 100% hành vi cũ.
-
----
-
-## Real-world Example
-Hàm `processOrder()` dài 120 dòng với 4 tầng `if (user != null) { if (user.isActive) { ... } }`:
-1. *Bảo vệ bằng test*: Đảm bảo 6 unit tests cho các trường hợp active, inactive, null user đều PASS.
-2. *Thao tác 1*: Áp dụng Guard Clauses:
-   ```typescript
-   if (!user) throw new Error("User required");
-   if (!user.isActive) throw new Error("User inactive");
-   ```
-3. *Chạy test*: 6 tests PASS.
-4. *Thao tác 2*: Tách hàm gửi email ra `sendOrderConfirmation(order)` riêng biệt.
-5. *Chạy test*: 6 tests PASS → Commit: `refactor(order): apply guard clauses and extract email notification`.
+## 14. Realistic Usage Example
+### Tình huống triển khai thực tế:
+Kỹ sư hoặc AI Agent kích hoạt **dex-technical-debt-refactoring** trong dự án.
+1. Tiếp nhận ngữ cảnh đầu vào và kiểm tra điều kiện tiên quyết tại Mục 4.
+2. Vận hành tuần tự các bước theo Quy trình tại Mục 6.
+3. Kiểm chứng đầu ra đối chiếu với Tiêu chuẩn chấp thuận tại Mục 9.
+4. Bàn giao đầy đủ hiện vật theo Mục 12 và cập nhật tài liệu liên quan.
