@@ -1,0 +1,22 @@
+{
+  "target_version": "9.0.0",
+  "target_native": 501,
+  "native_specialized": 500,
+  "master_orchestrators": 1,
+  "external_adapters": 8,
+  "runtime_verified": null,
+  "runtime_state": "NOT_VERIFIED",
+  "structurally_valid": 501,
+  "invalid_skills": {},
+  "missing_target_skills": [],
+  "unexpected_skills": [],
+  "catalog_synchronized": true,
+  "release_count_gate": "PASS",
+  "structural_gate": "PASS",
+  "release": "NOT_READY",
+  "release_blockers": [
+    "Domain runtime and cross-host evaluation not completed",
+    "Upstream provenance and licensing require completed review",
+    "Semantic routing and independent technical content review incomplete"
+  ]
+}

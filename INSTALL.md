@@ -1,3 +1,9 @@
+> **v9 candidate status (2026-10-22, America/Los_Angeles): NOT_READY.**
+> Current inventory: 500 specialists + 1 master; 8 external adapters are separate.
+> Structural validity does not establish domain runtime correctness.
+> Three upstream pins failed remote resolution; see [current evidence](docs/audits/DEX_V9_UPSTREAM_EVIDENCE.json).
+> The text below includes prior-version documentation; current limitations and validation are recorded in [v9 progress](docs/audits/DEX_V9_PROGRESS.md).
+
 # DEX Engineering Skills Framework v8.0 — Installation & Integration Guide
 
 > Comprehensive setup instructions for Windows 11, OpenAI Codex, VS Code, Cursor, and Claude Code.
@@ -68,3 +74,17 @@ New-Item -ItemType SymbolicLink -Path "$HOME\.codex\skills" -Target "$PWD\.agent
 
 ### Claude Code / Cursor
 Reference `.agents/skills/dex-master-orchestrator/SKILL.md` as the primary instruction file in your workspace settings.
+
+## v9 evidence commands
+Run from the repository root with Python 3:
+
+```text
+python scripts/polyglot/dex.py skills status --format json
+python scripts/polyglot/dex.py skills validate --format json
+python scripts/polyglot/dex.py skills report --format json
+```
+
+These commands are read-only. `validate` checks structure and canonical inventory;
+`report` exits 1 while release blockers remain. No global agent installation is performed.
+The existing discovery/import/sync scripts remain available; create, compare, routing,
+dependencies, quality, import, sync and rollback are not yet unified under `dex skills`.

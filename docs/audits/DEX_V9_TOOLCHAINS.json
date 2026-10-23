@@ -1,0 +1,355 @@
+{
+  "command": "doctor",
+  "status": "SUCCESS",
+  "exit_code": 0,
+  "duration_ms": 25.0,
+  "schema_version": "1.0.0",
+  "language": null,
+  "commands_executed": [],
+  "evidence": {
+    "diagnostics": {
+      "python": {
+        "language": "python",
+        "display_name": "Python 3",
+        "available": true,
+        "tools": {
+          "python": {
+            "tool": "python",
+            "available": true,
+            "path": "C:\\Users\\ACER\\AppData\\Local\\Programs\\Python\\Python312\\python.EXE",
+            "version": "Python 3.12.10"
+          },
+          "pytest": {
+            "tool": "pytest",
+            "available": true,
+            "path": "C:\\Users\\ACER\\AppData\\Local\\Programs\\Python\\Python312\\Scripts\\pytest.EXE",
+            "version": "pytest 8.4.2"
+          },
+          "ruff": {
+            "tool": "ruff",
+            "available": false,
+            "path": null,
+            "version": null
+          },
+          "mypy": {
+            "tool": "mypy",
+            "available": false,
+            "path": null,
+            "version": null
+          },
+          "flake8": {
+            "tool": "flake8",
+            "available": false,
+            "path": null,
+            "version": null
+          }
+        }
+      },
+      "typescript": {
+        "language": "typescript",
+        "display_name": "TypeScript",
+        "available": true,
+        "tools": {
+          "tsc": {
+            "tool": "tsc",
+            "available": false,
+            "path": null,
+            "version": null
+          },
+          "npx": {
+            "tool": "npx",
+            "available": true,
+            "path": "C:\\Program Files\\nodejs\\npx.CMD",
+            "version": "11.19.1"
+          },
+          "node": {
+            "tool": "node",
+            "available": true,
+            "path": "C:\\Program Files\\nodejs\\node.EXE",
+            "version": "v24.22.0"
+          },
+          "npm": {
+            "tool": "npm",
+            "available": true,
+            "path": "C:\\Program Files\\nodejs\\npm.CMD",
+            "version": "11.19.1"
+          },
+          "pnpm": {
+            "tool": "pnpm",
+            "available": false,
+            "path": null,
+            "version": null
+          },
+          "yarn": {
+            "tool": "yarn",
+            "available": false,
+            "path": null,
+            "version": null
+          }
+        }
+      },
+      "javascript": {
+        "language": "javascript",
+        "display_name": "JavaScript (Node.js)",
+        "available": true,
+        "tools": {
+          "node": {
+            "tool": "node",
+            "available": true,
+            "path": "C:\\Program Files\\nodejs\\node.EXE",
+            "version": "v24.22.0"
+          },
+          "npm": {
+            "tool": "npm",
+            "available": true,
+            "path": "C:\\Program Files\\nodejs\\npm.CMD",
+            "version": "11.19.1"
+          },
+          "npx": {
+            "tool": "npx",
+            "available": true,
+            "path": "C:\\Program Files\\nodejs\\npx.CMD",
+            "version": "11.19.1"
+          },
+          "yarn": {
+            "tool": "yarn",
+            "available": false,
+            "path": null,
+            "version": null
+          },
+          "pnpm": {
+            "tool": "pnpm",
+            "available": false,
+            "path": null,
+            "version": null
+          }
+        }
+      },
+      "powershell": {
+        "language": "powershell",
+        "display_name": "PowerShell",
+        "available": true,
+        "tools": {
+          "pwsh": {
+            "tool": "pwsh",
+            "available": false,
+            "path": null,
+            "version": null
+          },
+          "powershell": {
+            "tool": "powershell",
+            "available": true,
+            "path": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.EXE",
+            "version": "At line:1 char:3"
+          }
+        }
+      },
+      "bash": {
+        "language": "bash",
+        "display_name": "Bash / POSIX Shell",
+        "available": false,
+        "tools": {
+          "bash": {
+            "tool": "bash",
+            "available": false,
+            "path": null,
+            "version": null
+          },
+          "sh": {
+            "tool": "sh",
+            "available": false,
+            "path": null,
+            "version": null
+          },
+          "shellcheck": {
+            "tool": "shellcheck",
+            "available": false,
+            "path": null,
+            "version": null
+          },
+          "bats": {
+            "tool": "bats",
+            "available": false,
+            "path": null,
+            "version": null
+          }
+        }
+      },
+      "rust": {
+        "language": "rust",
+        "display_name": "Rust",
+        "available": false,
+        "tools": {
+          "cargo": {
+            "tool": "cargo",
+            "available": false,
+            "path": null,
+            "version": null
+          },
+          "rustc": {
+            "tool": "rustc",
+            "available": false,
+            "path": null,
+            "version": null
+          },
+          "rustfmt": {
+            "tool": "rustfmt",
+            "available": false,
+            "path": null,
+            "version": null
+          },
+          "clippy": {
+            "tool": "clippy",
+            "available": false,
+            "path": null,
+            "version": null
+          }
+        }
+      },
+      "go": {
+        "language": "go",
+        "display_name": "Go",
+        "available": false,
+        "tools": {
+          "go": {
+            "tool": "go",
+            "available": false,
+            "path": null,
+            "version": null
+          },
+          "golangci-lint": {
+            "tool": "golangci-lint",
+            "available": false,
+            "path": null,
+            "version": null
+          },
+          "gofmt": {
+            "tool": "gofmt",
+            "available": false,
+            "path": null,
+            "version": null
+          }
+        }
+      },
+      "cpp": {
+        "language": "cpp",
+        "display_name": "C++ (CMake)",
+        "available": true,
+        "tools": {
+          "cmake": {
+            "tool": "cmake",
+            "available": true,
+            "path": "C:\\Program Files\\CMake\\bin\\cmake.EXE",
+            "version": "cmake version 4.5.0-rc1"
+          },
+          "ninja": {
+            "tool": "ninja",
+            "available": false,
+            "path": null,
+            "version": null
+          },
+          "make": {
+            "tool": "make",
+            "available": false,
+            "path": null,
+            "version": null
+          },
+          "clang++": {
+            "tool": "clang++",
+            "available": false,
+            "path": null,
+            "version": null
+          },
+          "g++": {
+            "tool": "g++",
+            "available": false,
+            "path": null,
+            "version": null
+          }
+        }
+      },
+      "csharp": {
+        "language": "csharp",
+        "display_name": "C# (.NET)",
+        "available": false,
+        "tools": {
+          "dotnet": {
+            "tool": "dotnet",
+            "available": false,
+            "path": null,
+            "version": null
+          }
+        }
+      },
+      "java": {
+        "language": "java",
+        "display_name": "Java (Maven / Gradle)",
+        "available": false,
+        "tools": {
+          "mvn": {
+            "tool": "mvn",
+            "available": false,
+            "path": null,
+            "version": null
+          },
+          "gradle": {
+            "tool": "gradle",
+            "available": false,
+            "path": null,
+            "version": null
+          },
+          "javac": {
+            "tool": "javac",
+            "available": false,
+            "path": null,
+            "version": null
+          },
+          "java": {
+            "tool": "java",
+            "available": false,
+            "path": null,
+            "version": null
+          }
+        }
+      },
+      "php": {
+        "language": "php",
+        "display_name": "PHP",
+        "available": false,
+        "tools": {
+          "php": {
+            "tool": "php",
+            "available": false,
+            "path": null,
+            "version": null
+          },
+          "composer": {
+            "tool": "composer",
+            "available": false,
+            "path": null,
+            "version": null
+          },
+          "phpunit": {
+            "tool": "phpunit",
+            "available": false,
+            "path": null,
+            "version": null
+          },
+          "phpstan": {
+            "tool": "phpstan",
+            "available": false,
+            "path": null,
+            "version": null
+          }
+        }
+      }
+    }
+  },
+  "stdout": "=== DEX Polyglot Toolchain Diagnostics ===\n[READY]    Python 3            \n    ✓ python          (Python 3.12.10)\n    ✓ pytest          (pytest 8.4.2)\n    ✗ ruff            \n    ✗ mypy            \n    ✗ flake8          \n[READY]    TypeScript          \n    ✗ tsc             \n    ✓ npx             (11.19.1)\n    ✓ node            (v24.22.0)\n    ✓ npm             (11.19.1)\n    ✗ pnpm            \n    ✗ yarn            \n[READY]    JavaScript (Node.js)\n    ✓ node            (v24.22.0)\n    ✓ npm             (11.19.1)\n    ✓ npx             (11.19.1)\n    ✗ yarn            \n    ✗ pnpm            \n[READY]    PowerShell          \n    ✗ pwsh            \n    ✓ powershell      (At line:1 char:3)\n[MISSING]  Bash / POSIX Shell  \n    ✗ bash            \n    ✗ sh              \n    ✗ shellcheck      \n    ✗ bats            \n[MISSING]  Rust                \n    ✗ cargo           \n    ✗ rustc           \n    ✗ rustfmt         \n    ✗ clippy          \n[MISSING]  Go                  \n    ✗ go              \n    ✗ golangci-lint   \n    ✗ gofmt           \n[READY]    C++ (CMake)         \n    ✓ cmake           (cmake version 4.5.0-rc1)\n    ✗ ninja           \n    ✗ make            \n    ✗ clang++         \n    ✗ g++             \n[MISSING]  C# (.NET)           \n    ✗ dotnet          \n[MISSING]  Java (Maven / Gradle)\n    ✗ mvn             \n    ✗ gradle          \n    ✗ javac           \n    ✗ java            \n[MISSING]  PHP                 \n    ✗ php             \n    ✗ composer        \n    ✗ phpunit         \n    ✗ phpstan         ",
+  "stderr": "",
+  "warnings": [
+    "Some toolchains are missing on the host. When targeting missing runtimes, adapters return TOOL_NOT_AVAILABLE with installation instructions."
+  ],
+  "errors": [],
+  "timestamp": "2026-10-23T03:53:02.052719+00:00"
+}

@@ -14,21 +14,27 @@ import json
 import pytest
 
 ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+from pathlib import Path as _CatalogPath
+import json as _catalog_json
+_TARGET = _catalog_json.loads((_CatalogPath(ROOT_DIR) / "manifests/native-skills.json").read_text(encoding="utf-8"))
+TARGET_NATIVE = _TARGET["target_native"]
+TARGET_SPECIALIZED = _TARGET["target_specialized"]
+
 SKILLS_DIR = os.path.join(ROOT_DIR, ".agents", "skills")
 MANIFEST_FILE = os.path.join(ROOT_DIR, "manifests", "dex-skills.json")
 
 def test_exact_skill_inventory():
     dirs = [d for d in os.listdir(SKILLS_DIR) if os.path.isdir(os.path.join(SKILLS_DIR, d))]
-    assert len(dirs) == 401, f"Expected 401 skill directories, found {len(dirs)}"
+    assert len(dirs) == TARGET_NATIVE, f"Expected 401 skill directories, found {len(dirs)}"
 
     orchestrators = [d for d in dirs if d == "dex-master-orchestrator"]
     assert len(orchestrators) == 1, "Expected exactly 1 Master Orchestrator"
 
     specialized = [d for d in dirs if d != "dex-master-orchestrator"]
-    assert len(specialized) == 400, f"Expected exactly 400 specialized skills, found {len(specialized)}"
+    assert len(specialized) == TARGET_SPECIALIZED, f"Expected exactly 400 specialized skills, found {len(specialized)}"
 
     # Check for duplicate names
-    assert len(set(dirs)) == 401, "Detected duplicate skill directory names"
+    assert len(set(dirs)) == TARGET_NATIVE, "Detected duplicate skill directory names"
 
 def test_manifest_synchronization():
     assert os.path.isfile(MANIFEST_FILE), f"Manifest file missing at {MANIFEST_FILE}"
@@ -36,7 +42,7 @@ def test_manifest_synchronization():
         data = json.load(f)
 
     native_skills = data.get("native_skills", [])
-    assert len(native_skills) == 401, f"Expected 401 native skills in manifest, found {len(native_skills)}"
+    assert len(native_skills) == TARGET_NATIVE, f"Expected 401 native skills in manifest, found {len(native_skills)}"
 
     # Check group counts: Groups A to AN should each have exactly 10 skills
     group_counts = {}
@@ -46,13 +52,8 @@ def test_manifest_synchronization():
 
     assert group_counts.get("Root") == 1, "Expected 1 Root Master Orchestrator in manifest"
 
-    expected_groups = [f"Group {chr(c)}" for c in range(ord('A'), ord('Z') + 1)] + [
-        "Group AA", "Group AB", "Group AC", "Group AD",
-        "Group AE", "Group AF", "Group AG", "Group AH",
-        "Group AI", "Group AJ", "Group AK", "Group AL",
-        "Group AM", "Group AN"
-    ]
-    assert len(expected_groups) == 40, f"Expected 40 groups, got {len(expected_groups)}"
+    expected_groups = sorted({x["group"] for x in _TARGET["skills"] if x["index"] > 0})
+    assert len(expected_groups) == 50
     for grp in expected_groups:
         count = group_counts.get(grp, 0)
         assert count == 10, f"{grp}: Expected exactly 10 skills, found {count}"
@@ -66,9 +67,12 @@ def test_segregated_integrations():
             if os.path.isfile(os.path.join(root, d, "SKILL.md")):
                 found_skills.append(d)
 
-    assert len(found_skills) == 5, f"Expected 5 segregated integration skills, found {len(found_skills)}"
+    assert len(found_skills) == 8, f"Expected 8 segregated integration skills, found {len(found_skills)}"
     assert "dex-api-mocking-virtualization" in found_skills
     assert "dex-binary-inspection" in found_skills
     assert "dex-javascript-bundle-deobfuscation" in found_skills
     assert "dex-rea-adapter" in found_skills
     assert "dex-ui-ux-pro-max-adapter" in found_skills
+    assert "dex-supabase-adapter" in found_skills
+    assert "dex-superpowers-adapter" in found_skills
+    assert "dex-mattpocock-adapter" in found_skills

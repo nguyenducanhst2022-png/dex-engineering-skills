@@ -144,9 +144,10 @@ def main():
     skill_dirs = [d for d in os.listdir(skills_base) if os.path.isdir(os.path.join(skills_base, d))]
     print(f"Native skill directories found: {len(skill_dirs)}")
 
-    EXPECTED_NATIVE_COUNT = 401
+    with open(os.path.join(root_dir, "manifests", "native-skills.json"), encoding="utf-8") as f:
+        EXPECTED_NATIVE_COUNT = json.load(f)["target_native"]
     if len(skill_dirs) != EXPECTED_NATIVE_COUNT:
-        print(f"ERROR: Expected exactly {EXPECTED_NATIVE_COUNT} native skills (400 specialized + 1 orchestrator), but found {len(skill_dirs)}.")
+        print(f"ERROR: Expected exactly {EXPECTED_NATIVE_COUNT} native skills (canonical release target), but found {len(skill_dirs)}.")
 
     total_errors = 0
     passed_skills = 0
@@ -184,7 +185,7 @@ def main():
 
     print("\n" + "=" * 60)
     print("VALIDATION SUMMARY:")
-    print(f"  Native DEX Skills (400 + 1) : {passed_skills} / {len(skill_dirs)} PASSED")
+    print(f"  Native DEX Skills : {passed_skills} / {len(skill_dirs)} PASSED")
     print(f"  Segregated Integrations     : {integration_passed} / {integration_total} PASSED")
     print(f"  Total Errors                : {total_errors}")
     print("=" * 60)
@@ -193,7 +194,7 @@ def main():
         print("\nRESULT: FAILED")
         sys.exit(1)
     else:
-        print(f"\nRESULT: 100% PASSED - ALL {passed_skills} NATIVE DEX SKILLS & {integration_passed} INTEGRATIONS FULLY VALIDATED!")
+        print(f"\nRESULT: 100% PASSED - ALL {passed_skills} NATIVE DEX SKILLS & {integration_passed} INTEGRATIONS STRUCTURALLY VALIDATED (runtime behavior NOT_VERIFIED)!")
         sys.exit(0)
 
 if __name__ == "__main__":

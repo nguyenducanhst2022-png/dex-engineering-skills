@@ -11,6 +11,12 @@ import json
 import pytest
 
 ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+from pathlib import Path as _CatalogPath
+import json as _catalog_json
+_TARGET = _catalog_json.loads((_CatalogPath(ROOT_DIR) / "manifests/native-skills.json").read_text(encoding="utf-8"))
+TARGET_NATIVE = _TARGET["target_native"]
+TARGET_SPECIALIZED = _TARGET["target_specialized"]
+
 SKILLS_DIR = os.path.join(ROOT_DIR, ".agents", "skills")
 
 MANDATORY_SECTIONS = [
@@ -39,7 +45,7 @@ ALL_SKILLS = get_all_skills()
 
 def test_total_skill_count():
     """Verify skill count matches exactly 400 specialized skills + 1 master orchestrator = 401 DEX skills."""
-    expected_count = 401
+    expected_count = TARGET_NATIVE
     assert len(ALL_SKILLS) == expected_count, f"Expected {expected_count} skills, found {len(ALL_SKILLS)}"
 
 def test_integration_skills_exist():
@@ -51,12 +57,15 @@ def test_integration_skills_exist():
         for d in dirs:
             if os.path.isfile(os.path.join(root, d, "SKILL.md")):
                 found_skills.append(d)
-    assert len(found_skills) == 5
+    assert len(found_skills) == 8
     assert "dex-api-mocking-virtualization" in found_skills
     assert "dex-binary-inspection" in found_skills
     assert "dex-javascript-bundle-deobfuscation" in found_skills
     assert "dex-rea-adapter" in found_skills
     assert "dex-ui-ux-pro-max-adapter" in found_skills
+    assert "dex-supabase-adapter" in found_skills
+    assert "dex-superpowers-adapter" in found_skills
+    assert "dex-mattpocock-adapter" in found_skills
 
 def test_master_orchestrator_exists():
     """Verify dex-master-orchestrator is present."""

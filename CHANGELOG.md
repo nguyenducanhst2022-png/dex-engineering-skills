@@ -1,7 +1,49 @@
+> **v9 candidate status (2026-10-22, America/Los_Angeles): NOT_READY.**
+> Current inventory: 500 specialists + 1 master; 8 external adapters are separate.
+> Structural validity does not establish domain runtime correctness.
+> Three upstream pins failed remote resolution; see [current evidence](docs/audits/DEX_V9_UPSTREAM_EVIDENCE.json).
+> The text below includes prior-version documentation; current limitations and validation are recorded in [v9 progress](docs/audits/DEX_V9_PROGRESS.md).
+
 # Changelog — DEX Engineering Skills Framework
 
 All notable changes to the DEX Engineering Skills Framework will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+---
+
+## [8.1.0] - 2026-10-23
+
+### Multi-Source Integration: Supabase Agent Skills + Superpowers + Matt Pocock Skills (7 Upstream Sources Total)
+
+#### Added
+- **Source E: Supabase Agent Skills Integration (`integrations/supabase/dex-supabase-adapter`)**:
+  - Full BaaS PostgreSQL, Row-Level Security (RLS) hardening, and connection pooling optimization adapter complying with the 14 mandatory sections.
+  - Zero-cost subquery caching `(select auth.uid())` converting $O(N)$ policy evaluations into $O(1)$ InitPlans.
+  - Supavisor / PgBouncer dual-port management (Direct port 5432 for DDL migrations vs Transaction Pooler port 6543 for serverless/edge functions).
+  - `SECURITY DEFINER` hardening with explicit `SET search_path = public, pg_temp` to prevent search path hijacking.
+  - Pinned commit SHA `c9be0e931b7930f7d02126d04774d904c381e7d7`, MIT License attribution (Copyright 2026 Supabase).
+- **Source F: Superpowers Integration (`integrations/superpowers/dex-superpowers-adapter`)**:
+  - Disciplined Test-Driven Development (TDD) loops (Red-Green-Refactor), systematic defect isolation, and atomic checklist execution tracking.
+  - Git Worktree isolation lifecycle management (`git worktree add`, directory collision prevention, automated teardown/prune).
+  - Explicit architectural enforcement: `dex-master-orchestrator` remains the sole root control plane; external routers (`using-superpowers`) are barred from intercepting prompts.
+  - Pinned commit SHA `2ce8aa15d05bd57213e6f746f953aafb7ded7a8b`, MIT License attribution (Copyright 2025 Jesse Vincent).
+- **Source G: Matt Pocock Skills Integration (`integrations/mattpocock/dex-mattpocock-adapter`)**:
+  - Hypothesis-driven bug diagnosis with minimal falsifiable reproduction harnesses.
+  - Atomic ticket decomposition (`to-tickets`) breaking high-level features into discrete, testable developer tickets.
+  - Structured cross-session context handoff contracts (`handoff.md`) and agent-optimized documentation guidelines (`writing-for-agents`).
+  - Pinned commit SHA `5beb35b040e3de97e54fa9e386d7e42d15c295c2`, MIT License attribution (Copyright 2026 Matt Pocock).
+- **SkillOps Governance & Tooling Expansions**:
+  - `manifests/upstream-sources.json` updated to track 7 pinned sources and 8 segregated integration skills.
+  - `config/import_allowlist.json` updated with approved domains, prohibited patterns, and mandatory manual audit flags.
+  - `docs/audits/EXTERNAL_SOURCES_EFG_AUDIT.md` comprehensive audit report for pre-integration baseline.
+  - `integrations/README-new-sources.md` detailed technical integration guide.
+- **Dedicated Automated Test Suite (`tests/test_external_sources_efg.py`)**:
+  - 15 specific assertions validating adapter presence, metadata, SHA integrity, license provenance, reference consistency, allowlist rules, Master Orchestrator supremacy, native 401 count invariance, non-hallucinatory fallbacks, and security boundaries.
+
+#### Changed
+- Master Orchestrator (`.agents/skills/dex-master-orchestrator/SKILL.md`): Updated to coordinate across 400 specialized skills and 8 segregated integrations across 7 upstream sources.
+- Registry tests (`tests/test_skill_evaluations_v6.py`, `tests/test_skill_registry.py`, `tests/test_skill_structure.py`): Updated expected segregated integration count from 5 to 8.
+- Overall Pytest suite expanded to **1,338 passing tests** (100% pass rate).
 
 ---
 

@@ -16,9 +16,9 @@ orch = [s for s in native if s["id"] == "dex-master-orchestrator"][0]
 specialized = [s for s in native if s["id"] != "dex-master-orchestrator"]
 
 out = []
-out.append("# DEX Engineering Skills Catalog Index (v8.0.0)\n")
-out.append("> Complete index of all **400 Specialized Engineering Skills** + **1 Master Orchestrator** (401 Native Skills) and **5 Segregated Integrations**.")
-out.append("> Every skill strictly complies with the [Agent Skills Specification](https://agentskills.io/specification).\n")
+out.append("# DEX Engineering Skills Catalog Index (v9.0.0 candidate)\n")
+out.append("> Complete index of all **500 Specialized Engineering Skills** + **1 Master Orchestrator** (501 Native Skills) and **8 Segregated Integrations**.")
+out.append("> Structural checks are separate from runtime verification. Format reference: the [Agent Skills Specification](https://agentskills.io/specification).\n")
 out.append("---\n")
 out.append("## 1. Master Orchestrator (Root Control Plane)\n")
 out.append("| ID | Name | Description | Path |")
@@ -27,19 +27,14 @@ orch_id = orch["id"]
 orch_desc = orch["description"]
 out.append(f"| `{orch_id}` | Master Orchestrator | {orch_desc} | [{orch_id}](.agents/skills/{orch_id}/SKILL.md) |\n")
 out.append("---\n")
-out.append("## 2. Specialized Engineering Skills Catalog (400 Skills)\n")
+out.append("## 2. Specialized Engineering Skills Catalog (500 Skills)\n")
 
 groups = {}
 for s in specialized:
     g = s.get("group", "Unmapped")
     groups.setdefault(g, []).append(s)
 
-expected_groups = [f"Group {chr(c)}" for c in range(ord('A'), ord('Z') + 1)] + [
-    "Group AA", "Group AB", "Group AC", "Group AD",
-    "Group AE", "Group AF", "Group AG", "Group AH",
-    "Group AI", "Group AJ", "Group AK", "Group AL",
-    "Group AM", "Group AN"
-]
+expected_groups = list(dict.fromkeys(s["group"] for s in specialized))
 
 skill_num = 1
 for g in expected_groups:

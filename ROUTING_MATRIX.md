@@ -1,3 +1,9 @@
+> **v9 candidate status (2026-10-22, America/Los_Angeles): NOT_READY.**
+> Current inventory: 500 specialists + 1 master; 8 external adapters are separate.
+> Structural validity does not establish domain runtime correctness.
+> Three upstream pins failed remote resolution; see [current evidence](docs/audits/DEX_V9_UPSTREAM_EVIDENCE.json).
+> The text below includes prior-version documentation; current limitations and validation are recorded in [v9 progress](docs/audits/DEX_V9_PROGRESS.md).
+
 # DEX Engineering Skills Framework v8.0 — Dynamic Routing Matrix
 
 > **Comprehensive Multi-Domain Dispatch Matrix for Master Orchestrator**  
@@ -625,5 +631,56 @@ graph TD
 - **Complementary Skills:**
   - [dex-skill-catalog-reconciliation](.agents/skills/dex-skill-catalog-reconciliation/SKILL.md)
   - [dex-skill-example-test-fixtures](.agents/skills/dex-skill-example-test-fixtures/SKILL.md)
+
+---
+
+## 3. Segregated Upstream Integration Routing Pathways
+
+Third-party integrations in `integrations/` are coordinated through `dex-master-orchestrator` as delegated leaf capabilities, never overriding root orchestration rules.
+
+---
+
+### Scenario INT-E: Supabase PostgreSQL & Row-Level Security Optimization (Source E)
+
+- **Trigger / Problem Statement:** Thiết kế, tối ưu hóa CSDL Supabase BaaS, khắc phục cạn kiệt connection pooler Supavisor/PgBouncer (port 5432 vs 6543), tối ưu hóa RLS subquery `(select auth.uid())` và kiểm toán hàm `SECURITY DEFINER`.
+- **Execution Mode:** `STRICT`
+- **Mandatory Quality Gates:** `QG-01`, `QG-02`, `QG-03`, `QG-08`, `QG-15`
+- **Primary Skills:**
+  - [`dex-database-engineering`](.agents/skills/dex-database-engineering/SKILL.md)
+  - [`dex-database-query-plans`](.agents/skills/dex-database-query-plans/SKILL.md)
+  - [`dex-supabase-adapter`](integrations/supabase/dex-supabase-adapter/SKILL.md)
+- **Complementary Skills:**
+  - [`dex-access-control-tenancy`](.agents/skills/dex-access-control-tenancy/SKILL.md)
+  - [`dex-auth-session-lifecycle`](.agents/skills/dex-auth-session-lifecycle/SKILL.md)
+
+---
+
+### Scenario INT-F: Disciplined Test-Driven Development & Git Worktree Isolation (Source F)
+
+- **Trigger / Problem Statement:** Phát triển tính năng theo chu trình TDD nghiêm ngặt (Red-Green-Refactor), thiết lập atomic checklist có tiêu chí kiểm chứng sau mỗi bước nhỏ, và cô lập không gian làm việc bằng Git Worktree.
+- **Execution Mode:** `STANDARD`
+- **Mandatory Quality Gates:** `QG-01`, `QG-02`, `QG-06`, `QG-08`
+- **Primary Skills:**
+  - [`dex-development-workflow`](.agents/skills/dex-development-workflow/SKILL.md)
+  - [`dex-testing-engineering`](.agents/skills/dex-testing-engineering/SKILL.md)
+  - [`dex-superpowers-adapter`](integrations/superpowers/dex-superpowers-adapter/SKILL.md)
+- **Complementary Skills:**
+  - [`dex-git-workflow`](.agents/skills/dex-git-workflow/SKILL.md)
+  - [`dex-code-verification`](.agents/skills/dex-code-verification/SKILL.md)
+
+---
+
+### Scenario INT-G: Hypothesis-Driven Bug Diagnosis & Specification Decomposition (Source G)
+
+- **Trigger / Problem Statement:** Chẩn đoán lỗi hóc búa/flaky bug bằng test harness tối thiểu, đặt giả thuyết có thể bác bỏ được, phân rã đặc tả thành các thẻ công việc nguyên tử (`to-tickets`), và lưu trữ ngữ cảnh ca làm việc (`handoff.md`).
+- **Execution Mode:** `STANDARD`
+- **Mandatory Quality Gates:** `QG-01`, `QG-02`, `QG-03`, `QG-08`
+- **Primary Skills:**
+  - [`dex-root-cause-debugging`](.agents/skills/dex-root-cause-debugging/SKILL.md)
+  - [`dex-specification-driven`](.agents/skills/dex-specification-driven/SKILL.md)
+  - [`dex-mattpocock-adapter`](integrations/mattpocock/dex-mattpocock-adapter/SKILL.md)
+- **Complementary Skills:**
+  - [`dex-task-delegation`](.agents/skills/dex-task-delegation/SKILL.md)
+  - [`dex-context-engineering`](.agents/skills/dex-context-engineering/SKILL.md)
 
 ---

@@ -10,6 +10,12 @@ import re
 import pytest
 
 ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+from pathlib import Path as _CatalogPath
+import json as _catalog_json
+_TARGET = _catalog_json.loads((_CatalogPath(ROOT_DIR) / "manifests/native-skills.json").read_text(encoding="utf-8"))
+TARGET_NATIVE = _TARGET["target_native"]
+TARGET_SPECIALIZED = _TARGET["target_specialized"]
+
 SKILLS_DIR = os.path.join(ROOT_DIR, ".agents", "skills")
 
 def get_native_skills():
@@ -20,7 +26,7 @@ def get_native_skills():
 ALL_SKILLS = get_native_skills()
 
 def test_all_skills_found():
-    assert len(ALL_SKILLS) == 401, f"Expected 401 native skills, found {len(ALL_SKILLS)}"
+    assert len(ALL_SKILLS) == TARGET_NATIVE, f"Expected 401 native skills, found {len(ALL_SKILLS)}"
 
 @pytest.mark.parametrize("skill_name", ALL_SKILLS)
 def test_frontmatter_metadata_validity(skill_name):

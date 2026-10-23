@@ -1,0 +1,177 @@
+[
+  {
+    "id": "source-a-aas",
+    "repository": "sickn33/agentic-awesome-skills",
+    "configured_pin": "7b4e28f192a837c4d5e901a2f6b8c4d3e2a1b9c8",
+    "configured_status": "ACTIVE_VERIFIED",
+    "import_review": "NOT_VERIFIED",
+    "pin_lookup": {
+      "http": null,
+      "error": "HTTP Error 422: Unprocessable Entity",
+      "resolved_sha": null
+    },
+    "current_license_lookup": {
+      "http": 200,
+      "error": null,
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit",
+        "node_id": "MDc6TGljZW5zZTEz"
+      },
+      "sha": "dc38cfd7ab732a67b0f14997cfa8c9ec740a1889"
+    },
+    "local_license_exists": false
+  },
+  {
+    "id": "source-b-reverse-skill",
+    "repository": "zhaoxuya520/reverse-skill",
+    "configured_pin": "a3f5c90d81e74b21648a901e23f45b76812c34d5",
+    "configured_status": "ACTIVE_VERIFIED",
+    "import_review": "NOT_VERIFIED",
+    "pin_lookup": {
+      "http": null,
+      "error": "HTTP Error 422: Unprocessable Entity",
+      "resolved_sha": null
+    },
+    "current_license_lookup": {
+      "http": 200,
+      "error": null,
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit",
+        "node_id": "MDc6TGljZW5zZTEz"
+      },
+      "sha": "050fb75594e1e739308940327c433069dc2a66f2"
+    },
+    "local_license_exists": false
+  },
+  {
+    "id": "source-c-rea",
+    "repository": "morluto/rea",
+    "configured_pin": "c4d12e89ab014567ef890123456789abcdef0123",
+    "configured_status": "ACTIVE_VERIFIED",
+    "import_review": "NOT_VERIFIED",
+    "pin_lookup": {
+      "http": null,
+      "error": "HTTP Error 422: Unprocessable Entity",
+      "resolved_sha": null
+    },
+    "current_license_lookup": {
+      "http": 200,
+      "error": null,
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit",
+        "node_id": "MDc6TGljZW5zZTEz"
+      },
+      "sha": "2d476d24fa5a9ae2ab35e5fd121494049eb2ee5d"
+    },
+    "local_license_exists": false
+  },
+  {
+    "id": "source-d-ui-ux-pro-max",
+    "repository": "nextlevelbuilder/ui-ux-pro-max-skill",
+    "configured_pin": "04cfb449bd8494811ad63e94172a308fa25a551a",
+    "configured_status": "ACTIVE_VERIFIED",
+    "import_review": "NOT_VERIFIED",
+    "pin_lookup": {
+      "http": 200,
+      "error": null,
+      "resolved_sha": "04cfb449bd8494811ad63e94172a308fa25a551a"
+    },
+    "current_license_lookup": {
+      "http": 200,
+      "error": null,
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit",
+        "node_id": "MDc6TGljZW5zZTEz"
+      },
+      "sha": "1e71cbf26660f31903807d099fe902c098fc7e4c"
+    },
+    "local_license_exists": true
+  },
+  {
+    "id": "source-e-supabase",
+    "repository": "supabase/agent-skills",
+    "configured_pin": "c9be0e931b7930f7d02126d04774d904c381e7d7",
+    "configured_status": "ACTIVE_VERIFIED",
+    "import_review": "NOT_VERIFIED",
+    "pin_lookup": {
+      "http": 200,
+      "error": null,
+      "resolved_sha": "c9be0e931b7930f7d02126d04774d904c381e7d7"
+    },
+    "current_license_lookup": {
+      "http": 200,
+      "error": null,
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit",
+        "node_id": "MDc6TGljZW5zZTEz"
+      },
+      "sha": "d3c9e94fbc6c28f66ecb5a01407d543c99c811b6"
+    },
+    "local_license_exists": true
+  },
+  {
+    "id": "source-f-superpowers",
+    "repository": "obra/superpowers",
+    "configured_pin": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b",
+    "configured_status": "ACTIVE_VERIFIED",
+    "import_review": "NOT_VERIFIED",
+    "pin_lookup": {
+      "http": 200,
+      "error": null,
+      "resolved_sha": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b"
+    },
+    "current_license_lookup": {
+      "http": 200,
+      "error": null,
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit",
+        "node_id": "MDc6TGljZW5zZTEz"
+      },
+      "sha": "abf0390320aa14406af7a520b9b0739fdda9bf08"
+    },
+    "local_license_exists": true
+  },
+  {
+    "id": "source-g-mattpocock",
+    "repository": "mattpocock/skills",
+    "configured_pin": "5beb35b040e3de97e54fa9e386d7e42d15c295c2",
+    "configured_status": "ACTIVE_VERIFIED",
+    "import_review": "NOT_VERIFIED",
+    "pin_lookup": {
+      "http": 200,
+      "error": null,
+      "resolved_sha": "5beb35b040e3de97e54fa9e386d7e42d15c295c2"
+    },
+    "current_license_lookup": {
+      "http": 200,
+      "error": null,
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit",
+        "node_id": "MDc6TGljZW5zZTEz"
+      },
+      "sha": "f1dd2c09108dde1a5f56097cee8461b3ea834499"
+    },
+    "local_license_exists": true
+  }
+]

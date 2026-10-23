@@ -1,0 +1,3014 @@
+{
+  "schema_version": "1.0",
+  "target_version": "9.0.0",
+  "target_specialized": 500,
+  "target_native": 501,
+  "skills": [
+    {
+      "id": "dex-master-orchestrator",
+      "index": 0,
+      "group": "Root",
+      "domain": "Master Orchestrator"
+    },
+    {
+      "id": "dex-development-workflow",
+      "index": 1,
+      "group": "Group A",
+      "domain": "Core Engineering"
+    },
+    {
+      "id": "dex-task-delegation",
+      "index": 2,
+      "group": "Group A",
+      "domain": "Core Engineering"
+    },
+    {
+      "id": "dex-code-verification",
+      "index": 3,
+      "group": "Group A",
+      "domain": "Core Engineering"
+    },
+    {
+      "id": "dex-git-workflow",
+      "index": 4,
+      "group": "Group A",
+      "domain": "Core Engineering"
+    },
+    {
+      "id": "dex-code-organization",
+      "index": 5,
+      "group": "Group A",
+      "domain": "Core Engineering"
+    },
+    {
+      "id": "dex-root-cause-debugging",
+      "index": 6,
+      "group": "Group A",
+      "domain": "Core Engineering"
+    },
+    {
+      "id": "dex-performance-optimization",
+      "index": 7,
+      "group": "Group A",
+      "domain": "Core Engineering"
+    },
+    {
+      "id": "dex-security-audit",
+      "index": 8,
+      "group": "Group A",
+      "domain": "Core Engineering"
+    },
+    {
+      "id": "dex-cicd-automation",
+      "index": 9,
+      "group": "Group A",
+      "domain": "Core Engineering"
+    },
+    {
+      "id": "dex-release-engineering",
+      "index": 10,
+      "group": "Group A",
+      "domain": "Core Engineering"
+    },
+    {
+      "id": "dex-production-monitoring",
+      "index": 11,
+      "group": "Group B",
+      "domain": "Architecture & AI Agents"
+    },
+    {
+      "id": "dex-technical-debt-refactoring",
+      "index": 12,
+      "group": "Group B",
+      "domain": "Architecture & AI Agents"
+    },
+    {
+      "id": "dex-software-architecture",
+      "index": 13,
+      "group": "Group B",
+      "domain": "Architecture & AI Agents"
+    },
+    {
+      "id": "dex-database-engineering",
+      "index": 14,
+      "group": "Group B",
+      "domain": "Architecture & AI Agents"
+    },
+    {
+      "id": "dex-api-engineering",
+      "index": 15,
+      "group": "Group B",
+      "domain": "Architecture & AI Agents"
+    },
+    {
+      "id": "dex-testing-engineering",
+      "index": 16,
+      "group": "Group B",
+      "domain": "Architecture & AI Agents"
+    },
+    {
+      "id": "dex-agent-engineering",
+      "index": 17,
+      "group": "Group B",
+      "domain": "Architecture & AI Agents"
+    },
+    {
+      "id": "dex-multi-agent-orchestration",
+      "index": 18,
+      "group": "Group B",
+      "domain": "Architecture & AI Agents"
+    },
+    {
+      "id": "dex-context-engineering",
+      "index": 19,
+      "group": "Group B",
+      "domain": "Architecture & AI Agents"
+    },
+    {
+      "id": "dex-specification-driven",
+      "index": 20,
+      "group": "Group B",
+      "domain": "Architecture & AI Agents"
+    },
+    {
+      "id": "dex-change-impact-analysis",
+      "index": 21,
+      "group": "Group C",
+      "domain": "Production Engineering"
+    },
+    {
+      "id": "dex-dependency-management",
+      "index": 22,
+      "group": "Group C",
+      "domain": "Production Engineering"
+    },
+    {
+      "id": "dex-reliability-engineering",
+      "index": 23,
+      "group": "Group C",
+      "domain": "Production Engineering"
+    },
+    {
+      "id": "dex-concurrency-state",
+      "index": 24,
+      "group": "Group C",
+      "domain": "Production Engineering"
+    },
+    {
+      "id": "dex-ux-accessibility",
+      "index": 25,
+      "group": "Group C",
+      "domain": "Production Engineering"
+    },
+    {
+      "id": "dex-feature-flags",
+      "index": 26,
+      "group": "Group C",
+      "domain": "Production Engineering"
+    },
+    {
+      "id": "dex-code-review",
+      "index": 27,
+      "group": "Group C",
+      "domain": "Production Engineering"
+    },
+    {
+      "id": "dex-acceptance-testing",
+      "index": 28,
+      "group": "Group C",
+      "domain": "Production Engineering"
+    },
+    {
+      "id": "dex-software-maintenance",
+      "index": 29,
+      "group": "Group C",
+      "domain": "Production Engineering"
+    },
+    {
+      "id": "dex-end-to-end-engineering",
+      "index": 30,
+      "group": "Group C",
+      "domain": "Production Engineering"
+    },
+    {
+      "id": "dex-ui-component-contracts",
+      "index": 31,
+      "group": "Group D",
+      "domain": "Frontend Engineering"
+    },
+    {
+      "id": "dex-design-system-tokens",
+      "index": 32,
+      "group": "Group D",
+      "domain": "Frontend Engineering"
+    },
+    {
+      "id": "dex-frontend-data-flow",
+      "index": 33,
+      "group": "Group D",
+      "domain": "Frontend Engineering"
+    },
+    {
+      "id": "dex-forms-and-validation",
+      "index": 34,
+      "group": "Group D",
+      "domain": "Frontend Engineering"
+    },
+    {
+      "id": "dex-routing-navigation",
+      "index": 35,
+      "group": "Group D",
+      "domain": "Frontend Engineering"
+    },
+    {
+      "id": "dex-frontend-performance",
+      "index": 36,
+      "group": "Group D",
+      "domain": "Frontend Engineering"
+    },
+    {
+      "id": "dex-ssr-seo-rendering",
+      "index": 37,
+      "group": "Group D",
+      "domain": "Frontend Engineering"
+    },
+    {
+      "id": "dex-internationalization",
+      "index": 38,
+      "group": "Group D",
+      "domain": "Frontend Engineering"
+    },
+    {
+      "id": "dex-visual-regression",
+      "index": 39,
+      "group": "Group D",
+      "domain": "Frontend Engineering"
+    },
+    {
+      "id": "dex-browser-compatibility",
+      "index": 40,
+      "group": "Group D",
+      "domain": "Frontend Engineering"
+    },
+    {
+      "id": "dex-domain-driven-design",
+      "index": 41,
+      "group": "Group E",
+      "domain": "Backend & Integration"
+    },
+    {
+      "id": "dex-background-job-queues",
+      "index": 42,
+      "group": "Group E",
+      "domain": "Backend & Integration"
+    },
+    {
+      "id": "dex-caching-strategies",
+      "index": 43,
+      "group": "Group E",
+      "domain": "Backend & Integration"
+    },
+    {
+      "id": "dex-realtime-protocols",
+      "index": 44,
+      "group": "Group E",
+      "domain": "Backend & Integration"
+    },
+    {
+      "id": "dex-file-processing",
+      "index": 45,
+      "group": "Group E",
+      "domain": "Backend & Integration"
+    },
+    {
+      "id": "dex-search-engineering",
+      "index": 46,
+      "group": "Group E",
+      "domain": "Backend & Integration"
+    },
+    {
+      "id": "dex-event-driven-architecture",
+      "index": 47,
+      "group": "Group E",
+      "domain": "Backend & Integration"
+    },
+    {
+      "id": "dex-idempotent-operations",
+      "index": 48,
+      "group": "Group E",
+      "domain": "Backend & Integration"
+    },
+    {
+      "id": "dex-notification-delivery",
+      "index": 49,
+      "group": "Group E",
+      "domain": "Backend & Integration"
+    },
+    {
+      "id": "dex-scheduled-workflows",
+      "index": 50,
+      "group": "Group E",
+      "domain": "Backend & Integration"
+    },
+    {
+      "id": "dex-data-contracts",
+      "index": 51,
+      "group": "Group F",
+      "domain": "Data Engineering"
+    },
+    {
+      "id": "dex-data-pipelines",
+      "index": 52,
+      "group": "Group F",
+      "domain": "Data Engineering"
+    },
+    {
+      "id": "dex-data-quality-audits",
+      "index": 53,
+      "group": "Group F",
+      "domain": "Data Engineering"
+    },
+    {
+      "id": "dex-data-lineage",
+      "index": 54,
+      "group": "Group F",
+      "domain": "Data Engineering"
+    },
+    {
+      "id": "dex-schema-evolution",
+      "index": 55,
+      "group": "Group F",
+      "domain": "Data Engineering"
+    },
+    {
+      "id": "dex-database-query-plans",
+      "index": 56,
+      "group": "Group F",
+      "domain": "Data Engineering"
+    },
+    {
+      "id": "dex-storage-lifecycle",
+      "index": 57,
+      "group": "Group F",
+      "domain": "Data Engineering"
+    },
+    {
+      "id": "dex-data-retention",
+      "index": 58,
+      "group": "Group F",
+      "domain": "Data Engineering"
+    },
+    {
+      "id": "dex-capacity-planning",
+      "index": 59,
+      "group": "Group F",
+      "domain": "Data Engineering"
+    },
+    {
+      "id": "dex-disaster-recovery",
+      "index": 60,
+      "group": "Group F",
+      "domain": "Data Engineering"
+    },
+    {
+      "id": "dex-llm-integration",
+      "index": 61,
+      "group": "Group G",
+      "domain": "AI & LLM Engineering"
+    },
+    {
+      "id": "dex-rag-pipelines",
+      "index": 62,
+      "group": "Group G",
+      "domain": "AI & LLM Engineering"
+    },
+    {
+      "id": "dex-retrieval-evaluation",
+      "index": 63,
+      "group": "Group G",
+      "domain": "AI & LLM Engineering"
+    },
+    {
+      "id": "dex-prompt-evaluation",
+      "index": 64,
+      "group": "Group G",
+      "domain": "AI & LLM Engineering"
+    },
+    {
+      "id": "dex-model-evaluation",
+      "index": 65,
+      "group": "Group G",
+      "domain": "AI & LLM Engineering"
+    },
+    {
+      "id": "dex-tool-calling-contracts",
+      "index": 66,
+      "group": "Group G",
+      "domain": "AI & LLM Engineering"
+    },
+    {
+      "id": "dex-agent-permissions",
+      "index": 67,
+      "group": "Group G",
+      "domain": "AI & LLM Engineering"
+    },
+    {
+      "id": "dex-llm-cost-controls",
+      "index": 68,
+      "group": "Group G",
+      "domain": "AI & LLM Engineering"
+    },
+    {
+      "id": "dex-ai-observability",
+      "index": 69,
+      "group": "Group G",
+      "domain": "AI & LLM Engineering"
+    },
+    {
+      "id": "dex-dataset-curation",
+      "index": 70,
+      "group": "Group G",
+      "domain": "AI & LLM Engineering"
+    },
+    {
+      "id": "dex-repository-bootstrap",
+      "index": 71,
+      "group": "Group H",
+      "domain": "Developer Experience"
+    },
+    {
+      "id": "dex-monorepo-governance",
+      "index": 72,
+      "group": "Group H",
+      "domain": "Developer Experience"
+    },
+    {
+      "id": "dex-cli-engineering",
+      "index": 73,
+      "group": "Group H",
+      "domain": "Developer Experience"
+    },
+    {
+      "id": "dex-plugin-architecture",
+      "index": 74,
+      "group": "Group H",
+      "domain": "Developer Experience"
+    },
+    {
+      "id": "dex-cross-platform-portability",
+      "index": 75,
+      "group": "Group H",
+      "domain": "Developer Experience"
+    },
+    {
+      "id": "dex-windows-packaging",
+      "index": 76,
+      "group": "Group H",
+      "domain": "Developer Experience"
+    },
+    {
+      "id": "dex-documentation-as-code",
+      "index": 77,
+      "group": "Group H",
+      "domain": "Developer Experience"
+    },
+    {
+      "id": "dex-code-generation",
+      "index": 78,
+      "group": "Group H",
+      "domain": "Developer Experience"
+    },
+    {
+      "id": "dex-developer-tooling",
+      "index": 79,
+      "group": "Group H",
+      "domain": "Developer Experience"
+    },
+    {
+      "id": "dex-semantic-version-automation",
+      "index": 80,
+      "group": "Group H",
+      "domain": "Developer Experience"
+    },
+    {
+      "id": "dex-auth-session-lifecycle",
+      "index": 81,
+      "group": "Group I",
+      "domain": "Security & Reliability"
+    },
+    {
+      "id": "dex-access-control-tenancy",
+      "index": 82,
+      "group": "Group I",
+      "domain": "Security & Reliability"
+    },
+    {
+      "id": "dex-secrets-management",
+      "index": 83,
+      "group": "Group I",
+      "domain": "Security & Reliability"
+    },
+    {
+      "id": "dex-supply-chain-security",
+      "index": 84,
+      "group": "Group I",
+      "domain": "Security & Reliability"
+    },
+    {
+      "id": "dex-threat-modeling",
+      "index": 85,
+      "group": "Group I",
+      "domain": "Security & Reliability"
+    },
+    {
+      "id": "dex-property-based-testing",
+      "index": 86,
+      "group": "Group I",
+      "domain": "Security & Reliability"
+    },
+    {
+      "id": "dex-chaos-experiments",
+      "index": 87,
+      "group": "Group I",
+      "domain": "Security & Reliability"
+    },
+    {
+      "id": "dex-experimentation-metrics",
+      "index": 88,
+      "group": "Group I",
+      "domain": "Security & Reliability"
+    },
+    {
+      "id": "dex-api-contract-evolution",
+      "index": 89,
+      "group": "Group I",
+      "domain": "Security & Reliability"
+    },
+    {
+      "id": "dex-incident-postmortems",
+      "index": 90,
+      "group": "Group I",
+      "domain": "Security & Reliability"
+    },
+    {
+      "id": "dex-container-image-engineering",
+      "index": 91,
+      "group": "Group J",
+      "domain": "Cloud & Infrastructure"
+    },
+    {
+      "id": "dex-kubernetes-deployment",
+      "index": 92,
+      "group": "Group J",
+      "domain": "Cloud & Infrastructure"
+    },
+    {
+      "id": "dex-infrastructure-as-code",
+      "index": 93,
+      "group": "Group J",
+      "domain": "Cloud & Infrastructure"
+    },
+    {
+      "id": "dex-cloud-service-integration",
+      "index": 94,
+      "group": "Group J",
+      "domain": "Cloud & Infrastructure"
+    },
+    {
+      "id": "dex-zero-downtime-rollouts",
+      "index": 95,
+      "group": "Group J",
+      "domain": "Cloud & Infrastructure"
+    },
+    {
+      "id": "dex-service-mesh-networking",
+      "index": 96,
+      "group": "Group J",
+      "domain": "Cloud & Infrastructure"
+    },
+    {
+      "id": "dex-network-troubleshooting",
+      "index": 97,
+      "group": "Group J",
+      "domain": "Cloud & Infrastructure"
+    },
+    {
+      "id": "dex-slo-error-budgets",
+      "index": 98,
+      "group": "Group J",
+      "domain": "Cloud & Infrastructure"
+    },
+    {
+      "id": "dex-distributed-tracing",
+      "index": 99,
+      "group": "Group J",
+      "domain": "Cloud & Infrastructure"
+    },
+    {
+      "id": "dex-cloud-cost-finops",
+      "index": 100,
+      "group": "Group J",
+      "domain": "Cloud & Infrastructure"
+    },
+    {
+      "id": "dex-android-app-architecture",
+      "index": 101,
+      "group": "Group K",
+      "domain": "Mobile & Desktop Engineering"
+    },
+    {
+      "id": "dex-ios-app-architecture",
+      "index": 102,
+      "group": "Group K",
+      "domain": "Mobile & Desktop Engineering"
+    },
+    {
+      "id": "dex-electron-security",
+      "index": 103,
+      "group": "Group K",
+      "domain": "Mobile & Desktop Engineering"
+    },
+    {
+      "id": "dex-tauri-desktop-integration",
+      "index": 104,
+      "group": "Group K",
+      "domain": "Mobile & Desktop Engineering"
+    },
+    {
+      "id": "dex-mobile-offline-sync",
+      "index": 105,
+      "group": "Group K",
+      "domain": "Mobile & Desktop Engineering"
+    },
+    {
+      "id": "dex-mobile-release-pipelines",
+      "index": 106,
+      "group": "Group K",
+      "domain": "Mobile & Desktop Engineering"
+    },
+    {
+      "id": "dex-mobile-performance-profiling",
+      "index": 107,
+      "group": "Group K",
+      "domain": "Mobile & Desktop Engineering"
+    },
+    {
+      "id": "dex-desktop-ipc-design",
+      "index": 108,
+      "group": "Group K",
+      "domain": "Mobile & Desktop Engineering"
+    },
+    {
+      "id": "dex-native-device-integration",
+      "index": 109,
+      "group": "Group K",
+      "domain": "Mobile & Desktop Engineering"
+    },
+    {
+      "id": "dex-desktop-update-delivery",
+      "index": 110,
+      "group": "Group K",
+      "domain": "Mobile & Desktop Engineering"
+    },
+    {
+      "id": "dex-privacy-impact-assessment",
+      "index": 111,
+      "group": "Group L",
+      "domain": "Product & Operations Engineering"
+    },
+    {
+      "id": "dex-compliance-control-mapping",
+      "index": 112,
+      "group": "Group L",
+      "domain": "Product & Operations Engineering"
+    },
+    {
+      "id": "dex-audit-trail-integrity",
+      "index": 113,
+      "group": "Group L",
+      "domain": "Product & Operations Engineering"
+    },
+    {
+      "id": "dex-configuration-drift",
+      "index": 114,
+      "group": "Group L",
+      "domain": "Product & Operations Engineering"
+    },
+    {
+      "id": "dex-product-discovery",
+      "index": 115,
+      "group": "Group L",
+      "domain": "Product & Operations Engineering"
+    },
+    {
+      "id": "dex-feature-prioritization",
+      "index": 116,
+      "group": "Group L",
+      "domain": "Product & Operations Engineering"
+    },
+    {
+      "id": "dex-analytics-instrumentation",
+      "index": 117,
+      "group": "Group L",
+      "domain": "Product & Operations Engineering"
+    },
+    {
+      "id": "dex-feedback-triage",
+      "index": 118,
+      "group": "Group L",
+      "domain": "Product & Operations Engineering"
+    },
+    {
+      "id": "dex-runbook-automation",
+      "index": 119,
+      "group": "Group L",
+      "domain": "Product & Operations Engineering"
+    },
+    {
+      "id": "dex-operational-readiness-review",
+      "index": 120,
+      "group": "Group L",
+      "domain": "Product & Operations Engineering"
+    },
+    {
+      "id": "dex-static-analysis-rule-authoring",
+      "index": 121,
+      "group": "Group M",
+      "domain": "Advanced Software Verification"
+    },
+    {
+      "id": "dex-mutation-testing",
+      "index": 122,
+      "group": "Group M",
+      "domain": "Advanced Software Verification"
+    },
+    {
+      "id": "dex-api-fuzz-testing",
+      "index": 123,
+      "group": "Group M",
+      "domain": "Advanced Software Verification"
+    },
+    {
+      "id": "dex-differential-testing",
+      "index": 124,
+      "group": "Group M",
+      "domain": "Advanced Software Verification"
+    },
+    {
+      "id": "dex-flaky-test-remediation",
+      "index": 125,
+      "group": "Group M",
+      "domain": "Advanced Software Verification"
+    },
+    {
+      "id": "dex-test-data-management",
+      "index": 126,
+      "group": "Group M",
+      "domain": "Advanced Software Verification"
+    },
+    {
+      "id": "dex-compatibility-matrix-testing",
+      "index": 127,
+      "group": "Group M",
+      "domain": "Advanced Software Verification"
+    },
+    {
+      "id": "dex-reproducible-benchmarking",
+      "index": 128,
+      "group": "Group M",
+      "domain": "Advanced Software Verification"
+    },
+    {
+      "id": "dex-formal-invariant-checks",
+      "index": 129,
+      "group": "Group M",
+      "domain": "Advanced Software Verification"
+    },
+    {
+      "id": "dex-coverage-risk-analysis",
+      "index": 130,
+      "group": "Group M",
+      "domain": "Advanced Software Verification"
+    },
+    {
+      "id": "dex-load-and-stress-testing",
+      "index": 131,
+      "group": "Group N",
+      "domain": "Advanced SRE & Distributed Systems"
+    },
+    {
+      "id": "dex-traffic-shaping-backpressure",
+      "index": 132,
+      "group": "Group N",
+      "domain": "Advanced SRE & Distributed Systems"
+    },
+    {
+      "id": "dex-rate-limiting-quotas",
+      "index": 133,
+      "group": "Group N",
+      "domain": "Advanced SRE & Distributed Systems"
+    },
+    {
+      "id": "dex-distributed-consistency",
+      "index": 134,
+      "group": "Group N",
+      "domain": "Advanced SRE & Distributed Systems"
+    },
+    {
+      "id": "dex-service-failover",
+      "index": 135,
+      "group": "Group N",
+      "domain": "Advanced SRE & Distributed Systems"
+    },
+    {
+      "id": "dex-alert-quality-engineering",
+      "index": 136,
+      "group": "Group N",
+      "domain": "Advanced SRE & Distributed Systems"
+    },
+    {
+      "id": "dex-log-pipeline-design",
+      "index": 137,
+      "group": "Group N",
+      "domain": "Advanced SRE & Distributed Systems"
+    },
+    {
+      "id": "dex-metric-cardinality-control",
+      "index": 138,
+      "group": "Group N",
+      "domain": "Advanced SRE & Distributed Systems"
+    },
+    {
+      "id": "dex-oncall-handover",
+      "index": 139,
+      "group": "Group N",
+      "domain": "Advanced SRE & Distributed Systems"
+    },
+    {
+      "id": "dex-operational-game-days",
+      "index": 140,
+      "group": "Group N",
+      "domain": "Advanced SRE & Distributed Systems"
+    },
+    {
+      "id": "dex-serverless-architecture",
+      "index": 141,
+      "group": "Group O",
+      "domain": "Advanced Cloud Platform"
+    },
+    {
+      "id": "dex-edge-runtime-engineering",
+      "index": 142,
+      "group": "Group O",
+      "domain": "Advanced Cloud Platform"
+    },
+    {
+      "id": "dex-cloud-iam-policy-review",
+      "index": 143,
+      "group": "Group O",
+      "domain": "Advanced Cloud Platform"
+    },
+    {
+      "id": "dex-cloud-network-design",
+      "index": 144,
+      "group": "Group O",
+      "domain": "Advanced Cloud Platform"
+    },
+    {
+      "id": "dex-gitops-workflows",
+      "index": 145,
+      "group": "Group O",
+      "domain": "Advanced Cloud Platform"
+    },
+    {
+      "id": "dex-kubernetes-policy-enforcement",
+      "index": 146,
+      "group": "Group O",
+      "domain": "Advanced Cloud Platform"
+    },
+    {
+      "id": "dex-platform-service-catalog",
+      "index": 147,
+      "group": "Group O",
+      "domain": "Advanced Cloud Platform"
+    },
+    {
+      "id": "dex-environment-promotion",
+      "index": 148,
+      "group": "Group O",
+      "domain": "Advanced Cloud Platform"
+    },
+    {
+      "id": "dex-service-discovery",
+      "index": 149,
+      "group": "Group O",
+      "domain": "Advanced Cloud Platform"
+    },
+    {
+      "id": "dex-cloud-resource-tagging",
+      "index": 150,
+      "group": "Group O",
+      "domain": "Advanced Cloud Platform"
+    },
+    {
+      "id": "dex-typescript-type-safety",
+      "index": 151,
+      "group": "Group P",
+      "domain": "Language & Runtime Engineering"
+    },
+    {
+      "id": "dex-nodejs-runtime-diagnostics",
+      "index": 152,
+      "group": "Group P",
+      "domain": "Language & Runtime Engineering"
+    },
+    {
+      "id": "dex-python-project-engineering",
+      "index": 153,
+      "group": "Group P",
+      "domain": "Language & Runtime Engineering"
+    },
+    {
+      "id": "dex-rust-unsafe-audit",
+      "index": 154,
+      "group": "Group P",
+      "domain": "Language & Runtime Engineering"
+    },
+    {
+      "id": "dex-cpp-memory-safety",
+      "index": 155,
+      "group": "Group P",
+      "domain": "Language & Runtime Engineering"
+    },
+    {
+      "id": "dex-go-concurrency-patterns",
+      "index": 156,
+      "group": "Group P",
+      "domain": "Language & Runtime Engineering"
+    },
+    {
+      "id": "dex-jvm-performance-diagnostics",
+      "index": 157,
+      "group": "Group P",
+      "domain": "Language & Runtime Engineering"
+    },
+    {
+      "id": "dex-dotnet-application-engineering",
+      "index": 158,
+      "group": "Group P",
+      "domain": "Language & Runtime Engineering"
+    },
+    {
+      "id": "dex-webassembly-integration",
+      "index": 159,
+      "group": "Group P",
+      "domain": "Language & Runtime Engineering"
+    },
+    {
+      "id": "dex-ffi-boundary-contracts",
+      "index": 160,
+      "group": "Group P",
+      "domain": "Language & Runtime Engineering"
+    },
+    {
+      "id": "dex-mcp-server-design",
+      "index": 161,
+      "group": "Group Q",
+      "domain": "Advanced AI Systems"
+    },
+    {
+      "id": "dex-vector-index-design",
+      "index": 162,
+      "group": "Group Q",
+      "domain": "Advanced AI Systems"
+    },
+    {
+      "id": "dex-reranking-strategies",
+      "index": 163,
+      "group": "Group Q",
+      "domain": "Advanced AI Systems"
+    },
+    {
+      "id": "dex-structured-llm-output",
+      "index": 164,
+      "group": "Group Q",
+      "domain": "Advanced AI Systems"
+    },
+    {
+      "id": "dex-prompt-injection-defense",
+      "index": 165,
+      "group": "Group Q",
+      "domain": "Advanced AI Systems"
+    },
+    {
+      "id": "dex-grounding-citation-audit",
+      "index": 166,
+      "group": "Group Q",
+      "domain": "Advanced AI Systems"
+    },
+    {
+      "id": "dex-agent-memory-governance",
+      "index": 167,
+      "group": "Group Q",
+      "domain": "Advanced AI Systems"
+    },
+    {
+      "id": "dex-multimodal-input-pipelines",
+      "index": 168,
+      "group": "Group Q",
+      "domain": "Advanced AI Systems"
+    },
+    {
+      "id": "dex-agent-evaluation-harness",
+      "index": 169,
+      "group": "Group Q",
+      "domain": "Advanced AI Systems"
+    },
+    {
+      "id": "dex-llm-fallback-routing",
+      "index": 170,
+      "group": "Group Q",
+      "domain": "Advanced AI Systems"
+    },
+    {
+      "id": "dex-user-journey-mapping",
+      "index": 171,
+      "group": "Group R",
+      "domain": "Product Design & User Research"
+    },
+    {
+      "id": "dex-information-architecture",
+      "index": 172,
+      "group": "Group R",
+      "domain": "Product Design & User Research"
+    },
+    {
+      "id": "dex-usability-study-design",
+      "index": 173,
+      "group": "Group R",
+      "domain": "Product Design & User Research"
+    },
+    {
+      "id": "dex-accessibility-automation",
+      "index": 174,
+      "group": "Group R",
+      "domain": "Product Design & User Research"
+    },
+    {
+      "id": "dex-design-handoff-verification",
+      "index": 175,
+      "group": "Group R",
+      "domain": "Product Design & User Research"
+    },
+    {
+      "id": "dex-product-requirements-writing",
+      "index": 176,
+      "group": "Group R",
+      "domain": "Product Design & User Research"
+    },
+    {
+      "id": "dex-conversion-funnel-analysis",
+      "index": 177,
+      "group": "Group R",
+      "domain": "Product Design & User Research"
+    },
+    {
+      "id": "dex-feature-adoption-analysis",
+      "index": 178,
+      "group": "Group R",
+      "domain": "Product Design & User Research"
+    },
+    {
+      "id": "dex-user-consent-ux",
+      "index": 179,
+      "group": "Group R",
+      "domain": "Product Design & User Research"
+    },
+    {
+      "id": "dex-supportability-engineering",
+      "index": 180,
+      "group": "Group R",
+      "domain": "Product Design & User Research"
+    },
+    {
+      "id": "dex-sast-finding-triage",
+      "index": 181,
+      "group": "Group S",
+      "domain": "Application Security Specialists"
+    },
+    {
+      "id": "dex-dast-scoping",
+      "index": 182,
+      "group": "Group S",
+      "domain": "Application Security Specialists"
+    },
+    {
+      "id": "dex-api-abuse-prevention",
+      "index": 183,
+      "group": "Group S",
+      "domain": "Application Security Specialists"
+    },
+    {
+      "id": "dex-web-security-headers",
+      "index": 184,
+      "group": "Group S",
+      "domain": "Application Security Specialists"
+    },
+    {
+      "id": "dex-browser-extension-hardening",
+      "index": 185,
+      "group": "Group S",
+      "domain": "Application Security Specialists"
+    },
+    {
+      "id": "dex-sbom-verification",
+      "index": 186,
+      "group": "Group S",
+      "domain": "Application Security Specialists"
+    },
+    {
+      "id": "dex-vulnerability-remediation",
+      "index": 187,
+      "group": "Group S",
+      "domain": "Application Security Specialists"
+    },
+    {
+      "id": "dex-security-logging-detection",
+      "index": 188,
+      "group": "Group S",
+      "domain": "Application Security Specialists"
+    },
+    {
+      "id": "dex-cryptographic-api-review",
+      "index": 189,
+      "group": "Group S",
+      "domain": "Application Security Specialists"
+    },
+    {
+      "id": "dex-secure-build-runners",
+      "index": 190,
+      "group": "Group S",
+      "domain": "Application Security Specialists"
+    },
+    {
+      "id": "dex-skill-discovery-indexer",
+      "index": 191,
+      "group": "Group T",
+      "domain": "SkillOps Engineering"
+    },
+    {
+      "id": "dex-skill-license-provenance",
+      "index": 192,
+      "group": "Group T",
+      "domain": "SkillOps Engineering"
+    },
+    {
+      "id": "dex-skill-semantic-deduplication",
+      "index": 193,
+      "group": "Group T",
+      "domain": "SkillOps Engineering"
+    },
+    {
+      "id": "dex-skill-security-screening",
+      "index": 194,
+      "group": "Group T",
+      "domain": "SkillOps Engineering"
+    },
+    {
+      "id": "dex-skill-import-packaging",
+      "index": 195,
+      "group": "Group T",
+      "domain": "SkillOps Engineering"
+    },
+    {
+      "id": "dex-skill-upstream-sync",
+      "index": 196,
+      "group": "Group T",
+      "domain": "SkillOps Engineering"
+    },
+    {
+      "id": "dex-skill-activation-evaluation",
+      "index": 197,
+      "group": "Group T",
+      "domain": "SkillOps Engineering"
+    },
+    {
+      "id": "dex-skill-host-adapters",
+      "index": 198,
+      "group": "Group T",
+      "domain": "SkillOps Engineering"
+    },
+    {
+      "id": "dex-skill-dependency-graph",
+      "index": 199,
+      "group": "Group T",
+      "domain": "SkillOps Engineering"
+    },
+    {
+      "id": "dex-skill-quality-benchmarking",
+      "index": 200,
+      "group": "Group T",
+      "domain": "SkillOps Engineering"
+    },
+    {
+      "id": "dex-design-brief-synthesis",
+      "index": 201,
+      "group": "Group U",
+      "domain": "Visual Design Intelligence"
+    },
+    {
+      "id": "dex-visual-hierarchy-audit",
+      "index": 202,
+      "group": "Group U",
+      "domain": "Visual Design Intelligence"
+    },
+    {
+      "id": "dex-layout-composition-patterns",
+      "index": 203,
+      "group": "Group U",
+      "domain": "Visual Design Intelligence"
+    },
+    {
+      "id": "dex-color-contrast-systems",
+      "index": 204,
+      "group": "Group U",
+      "domain": "Visual Design Intelligence"
+    },
+    {
+      "id": "dex-fluid-typography-engineering",
+      "index": 205,
+      "group": "Group U",
+      "domain": "Visual Design Intelligence"
+    },
+    {
+      "id": "dex-motion-interaction-specification",
+      "index": 206,
+      "group": "Group U",
+      "domain": "Visual Design Intelligence"
+    },
+    {
+      "id": "dex-dashboard-data-storytelling",
+      "index": 207,
+      "group": "Group U",
+      "domain": "Visual Design Intelligence"
+    },
+    {
+      "id": "dex-design-reference-evaluation",
+      "index": 208,
+      "group": "Group U",
+      "domain": "Visual Design Intelligence"
+    },
+    {
+      "id": "dex-design-system-documentation",
+      "index": 209,
+      "group": "Group U",
+      "domain": "Visual Design Intelligence"
+    },
+    {
+      "id": "dex-ui-visual-qa-review",
+      "index": 210,
+      "group": "Group U",
+      "domain": "Visual Design Intelligence"
+    },
+    {
+      "id": "dex-web-animation-performance",
+      "index": 211,
+      "group": "Group V",
+      "domain": "Advanced Web Experiences"
+    },
+    {
+      "id": "dex-media-delivery-pipelines",
+      "index": 212,
+      "group": "Group V",
+      "domain": "Advanced Web Experiences"
+    },
+    {
+      "id": "dex-hls-dash-playback",
+      "index": 213,
+      "group": "Group V",
+      "domain": "Advanced Web Experiences"
+    },
+    {
+      "id": "dex-progressive-web-apps",
+      "index": 214,
+      "group": "Group V",
+      "domain": "Advanced Web Experiences"
+    },
+    {
+      "id": "dex-web-push-permission-flow",
+      "index": 215,
+      "group": "Group V",
+      "domain": "Advanced Web Experiences"
+    },
+    {
+      "id": "dex-search-interface-experience",
+      "index": 216,
+      "group": "Group V",
+      "domain": "Advanced Web Experiences"
+    },
+    {
+      "id": "dex-virtualized-infinite-lists",
+      "index": 217,
+      "group": "Group V",
+      "domain": "Advanced Web Experiences"
+    },
+    {
+      "id": "dex-web-canvas-rendering",
+      "index": 218,
+      "group": "Group V",
+      "domain": "Advanced Web Experiences"
+    },
+    {
+      "id": "dex-webgpu-rendering-fundamentals",
+      "index": 219,
+      "group": "Group V",
+      "domain": "Advanced Web Experiences"
+    },
+    {
+      "id": "dex-frontend-error-recovery",
+      "index": 220,
+      "group": "Group V",
+      "domain": "Advanced Web Experiences"
+    },
+    {
+      "id": "dex-browser-extension-mv3",
+      "index": 221,
+      "group": "Group W",
+      "domain": "Browser Extensions & Automation"
+    },
+    {
+      "id": "dex-extension-message-security",
+      "index": 222,
+      "group": "Group W",
+      "domain": "Browser Extensions & Automation"
+    },
+    {
+      "id": "dex-extension-background-lifecycle",
+      "index": 223,
+      "group": "Group W",
+      "domain": "Browser Extensions & Automation"
+    },
+    {
+      "id": "dex-extension-content-script-isolation",
+      "index": 224,
+      "group": "Group W",
+      "domain": "Browser Extensions & Automation"
+    },
+    {
+      "id": "dex-extension-storage-migration",
+      "index": 225,
+      "group": "Group W",
+      "domain": "Browser Extensions & Automation"
+    },
+    {
+      "id": "dex-browser-automation-testing",
+      "index": 226,
+      "group": "Group W",
+      "domain": "Browser Extensions & Automation"
+    },
+    {
+      "id": "dex-cdp-observability",
+      "index": 227,
+      "group": "Group W",
+      "domain": "Browser Extensions & Automation"
+    },
+    {
+      "id": "dex-headless-ui-verification",
+      "index": 228,
+      "group": "Group W",
+      "domain": "Browser Extensions & Automation"
+    },
+    {
+      "id": "dex-web-permission-ux",
+      "index": 229,
+      "group": "Group W",
+      "domain": "Browser Extensions & Automation"
+    },
+    {
+      "id": "dex-cross-origin-integration",
+      "index": 230,
+      "group": "Group W",
+      "domain": "Browser Extensions & Automation"
+    },
+    {
+      "id": "dex-pe-elf-structure-inspection",
+      "index": 231,
+      "group": "Group X",
+      "domain": "Authorized Reverse Engineering"
+    },
+    {
+      "id": "dex-native-symbol-mapping",
+      "index": 232,
+      "group": "Group X",
+      "domain": "Authorized Reverse Engineering"
+    },
+    {
+      "id": "dex-disassembly-cfg-reconstruction",
+      "index": 233,
+      "group": "Group X",
+      "domain": "Authorized Reverse Engineering"
+    },
+    {
+      "id": "dex-managed-assembly-inspection",
+      "index": 234,
+      "group": "Group X",
+      "domain": "Authorized Reverse Engineering"
+    },
+    {
+      "id": "dex-electron-artifact-analysis",
+      "index": 235,
+      "group": "Group X",
+      "domain": "Authorized Reverse Engineering"
+    },
+    {
+      "id": "dex-javascript-sourcemap-recovery",
+      "index": 236,
+      "group": "Group X",
+      "domain": "Authorized Reverse Engineering"
+    },
+    {
+      "id": "dex-mobile-package-static-audit",
+      "index": 237,
+      "group": "Group X",
+      "domain": "Authorized Reverse Engineering"
+    },
+    {
+      "id": "dex-firmware-metadata-inspection",
+      "index": 238,
+      "group": "Group X",
+      "domain": "Authorized Reverse Engineering"
+    },
+    {
+      "id": "dex-binary-diff-regression",
+      "index": 239,
+      "group": "Group X",
+      "domain": "Authorized Reverse Engineering"
+    },
+    {
+      "id": "dex-reverse-evidence-chain",
+      "index": 240,
+      "group": "Group X",
+      "domain": "Authorized Reverse Engineering"
+    },
+    {
+      "id": "dex-mqtt-client-reliability",
+      "index": 241,
+      "group": "Group Y",
+      "domain": "Protocols & Service Integration"
+    },
+    {
+      "id": "dex-websocket-session-recovery",
+      "index": 242,
+      "group": "Group Y",
+      "domain": "Protocols & Service Integration"
+    },
+    {
+      "id": "dex-stream-processing-semantics",
+      "index": 243,
+      "group": "Group Y",
+      "domain": "Protocols & Service Integration"
+    },
+    {
+      "id": "dex-event-schema-registry",
+      "index": 244,
+      "group": "Group Y",
+      "domain": "Protocols & Service Integration"
+    },
+    {
+      "id": "dex-http-client-connection-pooling",
+      "index": 245,
+      "group": "Group Y",
+      "domain": "Protocols & Service Integration"
+    },
+    {
+      "id": "dex-oauth-oidc-integration",
+      "index": 246,
+      "group": "Group Y",
+      "domain": "Protocols & Service Integration"
+    },
+    {
+      "id": "dex-webhook-signature-validation",
+      "index": 247,
+      "group": "Group Y",
+      "domain": "Protocols & Service Integration"
+    },
+    {
+      "id": "dex-api-pagination-cursors",
+      "index": 248,
+      "group": "Group Y",
+      "domain": "Protocols & Service Integration"
+    },
+    {
+      "id": "dex-service-contract-simulation",
+      "index": 249,
+      "group": "Group Y",
+      "domain": "Protocols & Service Integration"
+    },
+    {
+      "id": "dex-offline-message-delivery",
+      "index": 250,
+      "group": "Group Y",
+      "domain": "Protocols & Service Integration"
+    },
+    {
+      "id": "dex-llm-evaluation-dataset-design",
+      "index": 251,
+      "group": "Group Z",
+      "domain": "AI Agent Operations"
+    },
+    {
+      "id": "dex-agent-task-planning-validation",
+      "index": 252,
+      "group": "Group Z",
+      "domain": "AI Agent Operations"
+    },
+    {
+      "id": "dex-agent-trace-replay",
+      "index": 253,
+      "group": "Group Z",
+      "domain": "AI Agent Operations"
+    },
+    {
+      "id": "dex-llm-human-review-gates",
+      "index": 254,
+      "group": "Group Z",
+      "domain": "AI Agent Operations"
+    },
+    {
+      "id": "dex-retrieval-permission-filtering",
+      "index": 255,
+      "group": "Group Z",
+      "domain": "AI Agent Operations"
+    },
+    {
+      "id": "dex-multimodal-evaluation",
+      "index": 256,
+      "group": "Group Z",
+      "domain": "AI Agent Operations"
+    },
+    {
+      "id": "dex-ai-safety-red-teaming",
+      "index": 257,
+      "group": "Group Z",
+      "domain": "AI Agent Operations"
+    },
+    {
+      "id": "dex-agent-long-running-task-checkpoints",
+      "index": 258,
+      "group": "Group Z",
+      "domain": "AI Agent Operations"
+    },
+    {
+      "id": "dex-mcp-client-integration",
+      "index": 259,
+      "group": "Group Z",
+      "domain": "AI Agent Operations"
+    },
+    {
+      "id": "dex-inference-latency-optimization",
+      "index": 260,
+      "group": "Group Z",
+      "domain": "AI Agent Operations"
+    },
+    {
+      "id": "dex-sql-metric-semantic-layer",
+      "index": 261,
+      "group": "Group AA",
+      "domain": "Advanced Data & Analytics"
+    },
+    {
+      "id": "dex-time-series-diagnostics",
+      "index": 262,
+      "group": "Group AA",
+      "domain": "Advanced Data & Analytics"
+    },
+    {
+      "id": "dex-data-anomaly-detection",
+      "index": 263,
+      "group": "Group AA",
+      "domain": "Advanced Data & Analytics"
+    },
+    {
+      "id": "dex-feature-store-engineering",
+      "index": 264,
+      "group": "Group AA",
+      "domain": "Advanced Data & Analytics"
+    },
+    {
+      "id": "dex-analytics-cohort-retention",
+      "index": 265,
+      "group": "Group AA",
+      "domain": "Advanced Data & Analytics"
+    },
+    {
+      "id": "dex-ab-test-statistical-analysis",
+      "index": 266,
+      "group": "Group AA",
+      "domain": "Advanced Data & Analytics"
+    },
+    {
+      "id": "dex-geospatial-data-pipelines",
+      "index": 267,
+      "group": "Group AA",
+      "domain": "Advanced Data & Analytics"
+    },
+    {
+      "id": "dex-data-warehouse-cost-tuning",
+      "index": 268,
+      "group": "Group AA",
+      "domain": "Advanced Data & Analytics"
+    },
+    {
+      "id": "dex-backfill-reconciliation",
+      "index": 269,
+      "group": "Group AA",
+      "domain": "Advanced Data & Analytics"
+    },
+    {
+      "id": "dex-machine-learning-data-drift",
+      "index": 270,
+      "group": "Group AA",
+      "domain": "Advanced Data & Analytics"
+    },
+    {
+      "id": "dex-chess-engine-search-testing",
+      "index": 271,
+      "group": "Group AB",
+      "domain": "Native, Graphics & Game Engineering"
+    },
+    {
+      "id": "dex-simulation-determinism",
+      "index": 272,
+      "group": "Group AB",
+      "domain": "Native, Graphics & Game Engineering"
+    },
+    {
+      "id": "dex-physics-engine-validation",
+      "index": 273,
+      "group": "Group AB",
+      "domain": "Native, Graphics & Game Engineering"
+    },
+    {
+      "id": "dex-game-loop-timing",
+      "index": 274,
+      "group": "Group AB",
+      "domain": "Native, Graphics & Game Engineering"
+    },
+    {
+      "id": "dex-rendering-frame-pacing",
+      "index": 275,
+      "group": "Group AB",
+      "domain": "Native, Graphics & Game Engineering"
+    },
+    {
+      "id": "dex-gpu-shader-profiling",
+      "index": 276,
+      "group": "Group AB",
+      "domain": "Native, Graphics & Game Engineering"
+    },
+    {
+      "id": "dex-gpu-resource-lifetime",
+      "index": 277,
+      "group": "Group AB",
+      "domain": "Native, Graphics & Game Engineering"
+    },
+    {
+      "id": "dex-native-plugin-abi-testing",
+      "index": 278,
+      "group": "Group AB",
+      "domain": "Native, Graphics & Game Engineering"
+    },
+    {
+      "id": "dex-real-time-input-latency",
+      "index": 279,
+      "group": "Group AB",
+      "domain": "Native, Graphics & Game Engineering"
+    },
+    {
+      "id": "dex-asset-pipeline-optimization",
+      "index": 280,
+      "group": "Group AB",
+      "domain": "Native, Graphics & Game Engineering"
+    },
+    {
+      "id": "dex-open-source-license-scanning",
+      "index": 281,
+      "group": "Group AC",
+      "domain": "Software Trust & Distribution"
+    },
+    {
+      "id": "dex-third-party-attribution",
+      "index": 282,
+      "group": "Group AC",
+      "domain": "Software Trust & Distribution"
+    },
+    {
+      "id": "dex-artifact-signature-verification",
+      "index": 283,
+      "group": "Group AC",
+      "domain": "Software Trust & Distribution"
+    },
+    {
+      "id": "dex-dependency-vulnerability-intelligence",
+      "index": 284,
+      "group": "Group AC",
+      "domain": "Software Trust & Distribution"
+    },
+    {
+      "id": "dex-secret-rotation-drills",
+      "index": 285,
+      "group": "Group AC",
+      "domain": "Software Trust & Distribution"
+    },
+    {
+      "id": "dex-code-signing-release-process",
+      "index": 286,
+      "group": "Group AC",
+      "domain": "Software Trust & Distribution"
+    },
+    {
+      "id": "dex-software-update-trust-chains",
+      "index": 287,
+      "group": "Group AC",
+      "domain": "Software Trust & Distribution"
+    },
+    {
+      "id": "dex-vulnerability-disclosure-workflows",
+      "index": 288,
+      "group": "Group AC",
+      "domain": "Software Trust & Distribution"
+    },
+    {
+      "id": "dex-maintainer-contribution-governance",
+      "index": 289,
+      "group": "Group AC",
+      "domain": "Software Trust & Distribution"
+    },
+    {
+      "id": "dex-release-reproducibility-audit",
+      "index": 290,
+      "group": "Group AC",
+      "domain": "Software Trust & Distribution"
+    },
+    {
+      "id": "dex-skill-catalog-taxonomy",
+      "index": 291,
+      "group": "Group AD",
+      "domain": "Advanced SkillOps Governance"
+    },
+    {
+      "id": "dex-skill-source-integrity",
+      "index": 292,
+      "group": "Group AD",
+      "domain": "Advanced SkillOps Governance"
+    },
+    {
+      "id": "dex-skill-risk-scoring",
+      "index": 293,
+      "group": "Group AD",
+      "domain": "Advanced SkillOps Governance"
+    },
+    {
+      "id": "dex-skill-reference-graph",
+      "index": 294,
+      "group": "Group AD",
+      "domain": "Advanced SkillOps Governance"
+    },
+    {
+      "id": "dex-skill-routing-conflict-tests",
+      "index": 295,
+      "group": "Group AD",
+      "domain": "Advanced SkillOps Governance"
+    },
+    {
+      "id": "dex-skill-execution-evidence-ledger",
+      "index": 296,
+      "group": "Group AD",
+      "domain": "Advanced SkillOps Governance"
+    },
+    {
+      "id": "dex-skill-documentation-drift",
+      "index": 297,
+      "group": "Group AD",
+      "domain": "Advanced SkillOps Governance"
+    },
+    {
+      "id": "dex-skill-upgrade-migrations",
+      "index": 298,
+      "group": "Group AD",
+      "domain": "Advanced SkillOps Governance"
+    },
+    {
+      "id": "dex-skill-rollback-verification",
+      "index": 299,
+      "group": "Group AD",
+      "domain": "Advanced SkillOps Governance"
+    },
+    {
+      "id": "dex-skill-retirement-governance",
+      "index": 300,
+      "group": "Group AD",
+      "domain": "Advanced SkillOps Governance"
+    },
+    {
+      "id": "dex-architecture-decision-records",
+      "index": 301,
+      "group": "Group AE",
+      "domain": "Enterprise Software Architecture"
+    },
+    {
+      "id": "dex-modular-monolith-boundaries",
+      "index": 302,
+      "group": "Group AE",
+      "domain": "Enterprise Software Architecture"
+    },
+    {
+      "id": "dex-saga-compensation-workflows",
+      "index": 303,
+      "group": "Group AE",
+      "domain": "Enterprise Software Architecture"
+    },
+    {
+      "id": "dex-cqrs-projection-management",
+      "index": 304,
+      "group": "Group AE",
+      "domain": "Enterprise Software Architecture"
+    },
+    {
+      "id": "dex-multi-region-data-residency",
+      "index": 305,
+      "group": "Group AE",
+      "domain": "Enterprise Software Architecture"
+    },
+    {
+      "id": "dex-tenant-provisioning-lifecycle",
+      "index": 306,
+      "group": "Group AE",
+      "domain": "Enterprise Software Architecture"
+    },
+    {
+      "id": "dex-legacy-strangler-migration",
+      "index": 307,
+      "group": "Group AE",
+      "domain": "Enterprise Software Architecture"
+    },
+    {
+      "id": "dex-public-api-deprecation",
+      "index": 308,
+      "group": "Group AE",
+      "domain": "Enterprise Software Architecture"
+    },
+    {
+      "id": "dex-configuration-schema-design",
+      "index": 309,
+      "group": "Group AE",
+      "domain": "Enterprise Software Architecture"
+    },
+    {
+      "id": "dex-contract-first-development",
+      "index": 310,
+      "group": "Group AE",
+      "domain": "Enterprise Software Architecture"
+    },
+    {
+      "id": "dex-exactly-once-claims-audit",
+      "index": 311,
+      "group": "Group AF",
+      "domain": "Distributed Systems Deep Engineering"
+    },
+    {
+      "id": "dex-message-poison-queue-recovery",
+      "index": 312,
+      "group": "Group AF",
+      "domain": "Distributed Systems Deep Engineering"
+    },
+    {
+      "id": "dex-distributed-lock-lease-safety",
+      "index": 313,
+      "group": "Group AF",
+      "domain": "Distributed Systems Deep Engineering"
+    },
+    {
+      "id": "dex-scheduler-misfire-recovery",
+      "index": 314,
+      "group": "Group AF",
+      "domain": "Distributed Systems Deep Engineering"
+    },
+    {
+      "id": "dex-regional-outage-exercises",
+      "index": 315,
+      "group": "Group AF",
+      "domain": "Distributed Systems Deep Engineering"
+    },
+    {
+      "id": "dex-partition-fault-simulation",
+      "index": 316,
+      "group": "Group AF",
+      "domain": "Distributed Systems Deep Engineering"
+    },
+    {
+      "id": "dex-event-replay-safety",
+      "index": 317,
+      "group": "Group AF",
+      "domain": "Distributed Systems Deep Engineering"
+    },
+    {
+      "id": "dex-consumer-lag-control",
+      "index": 318,
+      "group": "Group AF",
+      "domain": "Distributed Systems Deep Engineering"
+    },
+    {
+      "id": "dex-hot-partition-mitigation",
+      "index": 319,
+      "group": "Group AF",
+      "domain": "Distributed Systems Deep Engineering"
+    },
+    {
+      "id": "dex-clock-skew-resilience",
+      "index": 320,
+      "group": "Group AF",
+      "domain": "Distributed Systems Deep Engineering"
+    },
+    {
+      "id": "dex-embedding-data-preparation",
+      "index": 321,
+      "group": "Group AG",
+      "domain": "Applied AI Systems"
+    },
+    {
+      "id": "dex-hybrid-search-fusion",
+      "index": 322,
+      "group": "Group AG",
+      "domain": "Applied AI Systems"
+    },
+    {
+      "id": "dex-rag-freshness-control",
+      "index": 323,
+      "group": "Group AG",
+      "domain": "Applied AI Systems"
+    },
+    {
+      "id": "dex-context-window-budgeting",
+      "index": 324,
+      "group": "Group AG",
+      "domain": "Applied AI Systems"
+    },
+    {
+      "id": "dex-agent-tool-output-sanitization",
+      "index": 325,
+      "group": "Group AG",
+      "domain": "Applied AI Systems"
+    },
+    {
+      "id": "dex-model-output-calibration",
+      "index": 326,
+      "group": "Group AG",
+      "domain": "Applied AI Systems"
+    },
+    {
+      "id": "dex-ai-feedback-labeling",
+      "index": 327,
+      "group": "Group AG",
+      "domain": "Applied AI Systems"
+    },
+    {
+      "id": "dex-prompt-version-experiments",
+      "index": 328,
+      "group": "Group AG",
+      "domain": "Applied AI Systems"
+    },
+    {
+      "id": "dex-inference-provider-rate-controls",
+      "index": 329,
+      "group": "Group AG",
+      "domain": "Applied AI Systems"
+    },
+    {
+      "id": "dex-human-ai-workflow-design",
+      "index": 330,
+      "group": "Group AG",
+      "domain": "Applied AI Systems"
+    },
+    {
+      "id": "dex-kotlin-multiplatform-builds",
+      "index": 331,
+      "group": "Group AH",
+      "domain": "Extended Polyglot Engineering"
+    },
+    {
+      "id": "dex-swift-concurrency-review",
+      "index": 332,
+      "group": "Group AH",
+      "domain": "Extended Polyglot Engineering"
+    },
+    {
+      "id": "dex-dart-flutter-state-debugging",
+      "index": 333,
+      "group": "Group AH",
+      "domain": "Extended Polyglot Engineering"
+    },
+    {
+      "id": "dex-ruby-gem-engineering",
+      "index": 334,
+      "group": "Group AH",
+      "domain": "Extended Polyglot Engineering"
+    },
+    {
+      "id": "dex-php-framework-hardening",
+      "index": 335,
+      "group": "Group AH",
+      "domain": "Extended Polyglot Engineering"
+    },
+    {
+      "id": "dex-scala-effect-systems",
+      "index": 336,
+      "group": "Group AH",
+      "domain": "Extended Polyglot Engineering"
+    },
+    {
+      "id": "dex-elixir-otp-supervision",
+      "index": 337,
+      "group": "Group AH",
+      "domain": "Extended Polyglot Engineering"
+    },
+    {
+      "id": "dex-zig-build-engineering",
+      "index": 338,
+      "group": "Group AH",
+      "domain": "Extended Polyglot Engineering"
+    },
+    {
+      "id": "dex-lua-embedding-safety",
+      "index": 339,
+      "group": "Group AH",
+      "domain": "Extended Polyglot Engineering"
+    },
+    {
+      "id": "dex-shell-portability-testing",
+      "index": 340,
+      "group": "Group AH",
+      "domain": "Extended Polyglot Engineering"
+    },
+    {
+      "id": "dex-design-token-migration",
+      "index": 341,
+      "group": "Group AI",
+      "domain": "Advanced UI/UX Engineering"
+    },
+    {
+      "id": "dex-component-state-matrix",
+      "index": 342,
+      "group": "Group AI",
+      "domain": "Advanced UI/UX Engineering"
+    },
+    {
+      "id": "dex-typography-scale-localization",
+      "index": 343,
+      "group": "Group AI",
+      "domain": "Advanced UI/UX Engineering"
+    },
+    {
+      "id": "dex-high-density-dashboard-layout",
+      "index": 344,
+      "group": "Group AI",
+      "domain": "Advanced UI/UX Engineering"
+    },
+    {
+      "id": "dex-gesture-interaction-accessibility",
+      "index": 345,
+      "group": "Group AI",
+      "domain": "Advanced UI/UX Engineering"
+    },
+    {
+      "id": "dex-rtl-bidi-layout-readiness",
+      "index": 346,
+      "group": "Group AI",
+      "domain": "Advanced UI/UX Engineering"
+    },
+    {
+      "id": "dex-animation-storyboard-specs",
+      "index": 347,
+      "group": "Group AI",
+      "domain": "Advanced UI/UX Engineering"
+    },
+    {
+      "id": "dex-chart-visualization-accessibility",
+      "index": 348,
+      "group": "Group AI",
+      "domain": "Advanced UI/UX Engineering"
+    },
+    {
+      "id": "dex-perceived-performance-patterns",
+      "index": 349,
+      "group": "Group AI",
+      "domain": "Advanced UI/UX Engineering"
+    },
+    {
+      "id": "dex-cross-platform-ui-parity",
+      "index": 350,
+      "group": "Group AI",
+      "domain": "Advanced UI/UX Engineering"
+    },
+    {
+      "id": "dex-binary-provenance-matching",
+      "index": 351,
+      "group": "Group AJ",
+      "domain": "Authorized Software Inspection"
+    },
+    {
+      "id": "dex-debug-symbols-correlation",
+      "index": 352,
+      "group": "Group AJ",
+      "domain": "Authorized Software Inspection"
+    },
+    {
+      "id": "dex-toolchain-reproducibility-audit",
+      "index": 353,
+      "group": "Group AJ",
+      "domain": "Authorized Software Inspection"
+    },
+    {
+      "id": "dex-installer-package-static-review",
+      "index": 354,
+      "group": "Group AJ",
+      "domain": "Authorized Software Inspection"
+    },
+    {
+      "id": "dex-sbom-binary-correlation",
+      "index": 355,
+      "group": "Group AJ",
+      "domain": "Authorized Software Inspection"
+    },
+    {
+      "id": "dex-mobile-permission-surface-diffing",
+      "index": 356,
+      "group": "Group AJ",
+      "domain": "Authorized Software Inspection"
+    },
+    {
+      "id": "dex-javascript-bundle-obfuscation-audit",
+      "index": 357,
+      "group": "Group AJ",
+      "domain": "Authorized Software Inspection"
+    },
+    {
+      "id": "dex-macos-entitlements-review",
+      "index": 358,
+      "group": "Group AJ",
+      "domain": "Authorized Software Inspection"
+    },
+    {
+      "id": "dex-firmware-image-structure-diffing",
+      "index": 359,
+      "group": "Group AJ",
+      "domain": "Authorized Software Inspection"
+    },
+    {
+      "id": "dex-reverse-engineering-reporting",
+      "index": 360,
+      "group": "Group AJ",
+      "domain": "Authorized Software Inspection"
+    },
+    {
+      "id": "dex-online-offline-feature-parity",
+      "index": 361,
+      "group": "Group AK",
+      "domain": "ML Platform & Data Systems"
+    },
+    {
+      "id": "dex-training-data-leakage-audit",
+      "index": 362,
+      "group": "Group AK",
+      "domain": "ML Platform & Data Systems"
+    },
+    {
+      "id": "dex-model-serving-canary-rollouts",
+      "index": 363,
+      "group": "Group AK",
+      "domain": "ML Platform & Data Systems"
+    },
+    {
+      "id": "dex-ml-experiment-reproducibility",
+      "index": 364,
+      "group": "Group AK",
+      "domain": "ML Platform & Data Systems"
+    },
+    {
+      "id": "dex-data-label-quality-assessment",
+      "index": 365,
+      "group": "Group AK",
+      "domain": "ML Platform & Data Systems"
+    },
+    {
+      "id": "dex-batch-inference-pipeline-tuning",
+      "index": 366,
+      "group": "Group AK",
+      "domain": "ML Platform & Data Systems"
+    },
+    {
+      "id": "dex-vector-embedding-migration",
+      "index": 367,
+      "group": "Group AK",
+      "domain": "ML Platform & Data Systems"
+    },
+    {
+      "id": "dex-realtime-analytics-windowing",
+      "index": 368,
+      "group": "Group AK",
+      "domain": "ML Platform & Data Systems"
+    },
+    {
+      "id": "dex-metadata-catalog-lineage",
+      "index": 369,
+      "group": "Group AK",
+      "domain": "ML Platform & Data Systems"
+    },
+    {
+      "id": "dex-data-masking-synthetic-generation",
+      "index": 370,
+      "group": "Group AK",
+      "domain": "ML Platform & Data Systems"
+    },
+    {
+      "id": "dex-developer-workstation-bootstrap",
+      "index": 371,
+      "group": "Group AL",
+      "domain": "Developer Platform & Polyglot Tooling"
+    },
+    {
+      "id": "dex-toolchain-version-pinning",
+      "index": 372,
+      "group": "Group AL",
+      "domain": "Developer Platform & Polyglot Tooling"
+    },
+    {
+      "id": "dex-polyglot-build-orchestration",
+      "index": 373,
+      "group": "Group AL",
+      "domain": "Developer Platform & Polyglot Tooling"
+    },
+    {
+      "id": "dex-build-cache-integrity",
+      "index": 374,
+      "group": "Group AL",
+      "domain": "Developer Platform & Polyglot Tooling"
+    },
+    {
+      "id": "dex-cross-language-contract-tests",
+      "index": 375,
+      "group": "Group AL",
+      "domain": "Developer Platform & Polyglot Tooling"
+    },
+    {
+      "id": "dex-reproducible-devcontainers",
+      "index": 376,
+      "group": "Group AL",
+      "domain": "Developer Platform & Polyglot Tooling"
+    },
+    {
+      "id": "dex-cli-command-contracts",
+      "index": 377,
+      "group": "Group AL",
+      "domain": "Developer Platform & Polyglot Tooling"
+    },
+    {
+      "id": "dex-windows-linux-path-compatibility",
+      "index": 378,
+      "group": "Group AL",
+      "domain": "Developer Platform & Polyglot Tooling"
+    },
+    {
+      "id": "dex-package-publishing-preflight",
+      "index": 379,
+      "group": "Group AL",
+      "domain": "Developer Platform & Polyglot Tooling"
+    },
+    {
+      "id": "dex-monorepo-template-conformance",
+      "index": 380,
+      "group": "Group AL",
+      "domain": "Developer Platform & Polyglot Tooling"
+    },
+    {
+      "id": "dex-secretless-cicd-oidc",
+      "index": 381,
+      "group": "Group AM",
+      "domain": "Advanced Security & Trust"
+    },
+    {
+      "id": "dex-ephemeral-test-credentials",
+      "index": 382,
+      "group": "Group AM",
+      "domain": "Advanced Security & Trust"
+    },
+    {
+      "id": "dex-container-runtime-isolation",
+      "index": 383,
+      "group": "Group AM",
+      "domain": "Advanced Security & Trust"
+    },
+    {
+      "id": "dex-api-authorization-matrix-tests",
+      "index": 384,
+      "group": "Group AM",
+      "domain": "Advanced Security & Trust"
+    },
+    {
+      "id": "dex-privacy-safe-observability",
+      "index": 385,
+      "group": "Group AM",
+      "domain": "Advanced Security & Trust"
+    },
+    {
+      "id": "dex-dns-tls-certificate-monitoring",
+      "index": 386,
+      "group": "Group AM",
+      "domain": "Advanced Security & Trust"
+    },
+    {
+      "id": "dex-incident-evidence-preservation",
+      "index": 387,
+      "group": "Group AM",
+      "domain": "Advanced Security & Trust"
+    },
+    {
+      "id": "dex-saas-risk-surface-review",
+      "index": 388,
+      "group": "Group AM",
+      "domain": "Advanced Security & Trust"
+    },
+    {
+      "id": "dex-dependency-update-risk-scoring",
+      "index": 389,
+      "group": "Group AM",
+      "domain": "Advanced Security & Trust"
+    },
+    {
+      "id": "dex-service-account-lifecycle",
+      "index": 390,
+      "group": "Group AM",
+      "domain": "Advanced Security & Trust"
+    },
+    {
+      "id": "dex-skill-catalog-reconciliation",
+      "index": 391,
+      "group": "Group AN",
+      "domain": "SkillOps Quality & Governance"
+    },
+    {
+      "id": "dex-agent-skills-spec-compatibility",
+      "index": 392,
+      "group": "Group AN",
+      "domain": "SkillOps Quality & Governance"
+    },
+    {
+      "id": "dex-skill-example-test-fixtures",
+      "index": 393,
+      "group": "Group AN",
+      "domain": "SkillOps Quality & Governance"
+    },
+    {
+      "id": "dex-instruction-injection-testing",
+      "index": 394,
+      "group": "Group AN",
+      "domain": "SkillOps Quality & Governance"
+    },
+    {
+      "id": "dex-runtime-capability-probing",
+      "index": 395,
+      "group": "Group AN",
+      "domain": "SkillOps Quality & Governance"
+    },
+    {
+      "id": "dex-semantic-routing-evaluations",
+      "index": 396,
+      "group": "Group AN",
+      "domain": "SkillOps Quality & Governance"
+    },
+    {
+      "id": "dex-upstream-license-diffing",
+      "index": 397,
+      "group": "Group AN",
+      "domain": "SkillOps Quality & Governance"
+    },
+    {
+      "id": "dex-cross-platform-release-matrices",
+      "index": 398,
+      "group": "Group AN",
+      "domain": "SkillOps Quality & Governance"
+    },
+    {
+      "id": "dex-skill-quality-scorecards",
+      "index": 399,
+      "group": "Group AN",
+      "domain": "SkillOps Quality & Governance"
+    },
+    {
+      "id": "dex-execution-sandbox-policies",
+      "index": 400,
+      "group": "Group AN",
+      "domain": "SkillOps Quality & Governance"
+    },
+    {
+      "id": "dex-postgres-rls-policy-verification",
+      "index": 401,
+      "group": "Group AO",
+      "domain": "Supabase & Advanced PostgreSQL"
+    },
+    {
+      "id": "dex-postgres-migration-lock-budget",
+      "index": 402,
+      "group": "Group AO",
+      "domain": "Supabase & Advanced PostgreSQL"
+    },
+    {
+      "id": "dex-postgres-index-maintenance",
+      "index": 403,
+      "group": "Group AO",
+      "domain": "Supabase & Advanced PostgreSQL"
+    },
+    {
+      "id": "dex-postgres-logical-replication",
+      "index": 404,
+      "group": "Group AO",
+      "domain": "Supabase & Advanced PostgreSQL"
+    },
+    {
+      "id": "dex-postgres-vacuum-bloat-diagnostics",
+      "index": 405,
+      "group": "Group AO",
+      "domain": "Supabase & Advanced PostgreSQL"
+    },
+    {
+      "id": "dex-postgres-partition-lifecycle",
+      "index": 406,
+      "group": "Group AO",
+      "domain": "Supabase & Advanced PostgreSQL"
+    },
+    {
+      "id": "dex-supabase-auth-ssr-integration",
+      "index": 407,
+      "group": "Group AO",
+      "domain": "Supabase & Advanced PostgreSQL"
+    },
+    {
+      "id": "dex-supabase-edge-function-reliability",
+      "index": 408,
+      "group": "Group AO",
+      "domain": "Supabase & Advanced PostgreSQL"
+    },
+    {
+      "id": "dex-supabase-realtime-delivery",
+      "index": 409,
+      "group": "Group AO",
+      "domain": "Supabase & Advanced PostgreSQL"
+    },
+    {
+      "id": "dex-supabase-storage-access-policies",
+      "index": 410,
+      "group": "Group AO",
+      "domain": "Supabase & Advanced PostgreSQL"
+    },
+    {
+      "id": "dex-agent-tool-permission-modeling",
+      "index": 411,
+      "group": "Group AP",
+      "domain": "Autonomous Agent Engineering"
+    },
+    {
+      "id": "dex-agent-execution-budget-controls",
+      "index": 412,
+      "group": "Group AP",
+      "domain": "Autonomous Agent Engineering"
+    },
+    {
+      "id": "dex-agent-output-reproducibility",
+      "index": 413,
+      "group": "Group AP",
+      "domain": "Autonomous Agent Engineering"
+    },
+    {
+      "id": "dex-agent-trajectory-diffing",
+      "index": 414,
+      "group": "Group AP",
+      "domain": "Autonomous Agent Engineering"
+    },
+    {
+      "id": "dex-tool-error-recovery-policy",
+      "index": 415,
+      "group": "Group AP",
+      "domain": "Autonomous Agent Engineering"
+    },
+    {
+      "id": "dex-agent-state-persistence-contracts",
+      "index": 416,
+      "group": "Group AP",
+      "domain": "Autonomous Agent Engineering"
+    },
+    {
+      "id": "dex-agent-reviewer-independence",
+      "index": 417,
+      "group": "Group AP",
+      "domain": "Autonomous Agent Engineering"
+    },
+    {
+      "id": "dex-agent-context-source-trust",
+      "index": 418,
+      "group": "Group AP",
+      "domain": "Autonomous Agent Engineering"
+    },
+    {
+      "id": "dex-llm-eval-benchmark-contamination",
+      "index": 419,
+      "group": "Group AP",
+      "domain": "Autonomous Agent Engineering"
+    },
+    {
+      "id": "dex-agent-shutdown-and-cancellation",
+      "index": 420,
+      "group": "Group AP",
+      "domain": "Autonomous Agent Engineering"
+    },
+    {
+      "id": "dex-video-transcoding-ladders",
+      "index": 421,
+      "group": "Group AQ",
+      "domain": "Streaming & Digital Media Systems"
+    },
+    {
+      "id": "dex-streaming-manifest-validation",
+      "index": 422,
+      "group": "Group AQ",
+      "domain": "Streaming & Digital Media Systems"
+    },
+    {
+      "id": "dex-drm-compliant-playback-integration",
+      "index": 423,
+      "group": "Group AQ",
+      "domain": "Streaming & Digital Media Systems"
+    },
+    {
+      "id": "dex-live-stream-latency-control",
+      "index": 424,
+      "group": "Group AQ",
+      "domain": "Streaming & Digital Media Systems"
+    },
+    {
+      "id": "dex-audio-loudness-normalization",
+      "index": 425,
+      "group": "Group AQ",
+      "domain": "Streaming & Digital Media Systems"
+    },
+    {
+      "id": "dex-media-caption-timedtext",
+      "index": 426,
+      "group": "Group AQ",
+      "domain": "Streaming & Digital Media Systems"
+    },
+    {
+      "id": "dex-manga-reader-performance",
+      "index": 427,
+      "group": "Group AQ",
+      "domain": "Streaming & Digital Media Systems"
+    },
+    {
+      "id": "dex-media-metadata-normalization",
+      "index": 428,
+      "group": "Group AQ",
+      "domain": "Streaming & Digital Media Systems"
+    },
+    {
+      "id": "dex-streaming-qoe-telemetry",
+      "index": 429,
+      "group": "Group AQ",
+      "domain": "Streaming & Digital Media Systems"
+    },
+    {
+      "id": "dex-media-content-ingest-moderation",
+      "index": 430,
+      "group": "Group AQ",
+      "domain": "Streaming & Digital Media Systems"
+    },
+    {
+      "id": "dex-chess-legal-movegen-perft",
+      "index": 431,
+      "group": "Group AR",
+      "domain": "Chess & Native Performance"
+    },
+    {
+      "id": "dex-chess-search-pruning-evals",
+      "index": 432,
+      "group": "Group AR",
+      "domain": "Chess & Native Performance"
+    },
+    {
+      "id": "dex-chess-transposition-table-correctness",
+      "index": 433,
+      "group": "Group AR",
+      "domain": "Chess & Native Performance"
+    },
+    {
+      "id": "dex-chess-nnue-evaluation-integration",
+      "index": 434,
+      "group": "Group AR",
+      "domain": "Chess & Native Performance"
+    },
+    {
+      "id": "dex-chess-uci-protocol-compliance",
+      "index": 435,
+      "group": "Group AR",
+      "domain": "Chess & Native Performance"
+    },
+    {
+      "id": "dex-chess-opening-book-validation",
+      "index": 436,
+      "group": "Group AR",
+      "domain": "Chess & Native Performance"
+    },
+    {
+      "id": "dex-chess-endgame-tablebase-integration",
+      "index": 437,
+      "group": "Group AR",
+      "domain": "Chess & Native Performance"
+    },
+    {
+      "id": "dex-cpp-rust-ffi-validation",
+      "index": 438,
+      "group": "Group AR",
+      "domain": "Chess & Native Performance"
+    },
+    {
+      "id": "dex-native-simd-dispatch",
+      "index": 439,
+      "group": "Group AR",
+      "domain": "Chess & Native Performance"
+    },
+    {
+      "id": "dex-chess-engine-match-statistics",
+      "index": 440,
+      "group": "Group AR",
+      "domain": "Chess & Native Performance"
+    },
+    {
+      "id": "dex-windows-input-api-integration",
+      "index": 441,
+      "group": "Group AS",
+      "domain": "Windows & Desktop Systems"
+    },
+    {
+      "id": "dex-win32-dpi-multi-monitor-layout",
+      "index": 442,
+      "group": "Group AS",
+      "domain": "Windows & Desktop Systems"
+    },
+    {
+      "id": "dex-windows-app-startup-profiling",
+      "index": 443,
+      "group": "Group AS",
+      "domain": "Windows & Desktop Systems"
+    },
+    {
+      "id": "dex-windows-app-crash-dumps",
+      "index": 444,
+      "group": "Group AS",
+      "domain": "Windows & Desktop Systems"
+    },
+    {
+      "id": "dex-windows-service-recovery",
+      "index": 445,
+      "group": "Group AS",
+      "domain": "Windows & Desktop Systems"
+    },
+    {
+      "id": "dex-windows-code-signing-installer",
+      "index": 446,
+      "group": "Group AS",
+      "domain": "Windows & Desktop Systems"
+    },
+    {
+      "id": "dex-windows-usb-portability",
+      "index": 447,
+      "group": "Group AS",
+      "domain": "Windows & Desktop Systems"
+    },
+    {
+      "id": "dex-windows-com-interop",
+      "index": 448,
+      "group": "Group AS",
+      "domain": "Windows & Desktop Systems"
+    },
+    {
+      "id": "dex-windows-native-ui-accessibility",
+      "index": 449,
+      "group": "Group AS",
+      "domain": "Windows & Desktop Systems"
+    },
+    {
+      "id": "dex-desktop-gpu-inference-fallback",
+      "index": 450,
+      "group": "Group AS",
+      "domain": "Windows & Desktop Systems"
+    },
+    {
+      "id": "dex-cloud-database-failover-drills",
+      "index": 451,
+      "group": "Group AT",
+      "domain": "Platform Resilience & Infrastructure"
+    },
+    {
+      "id": "dex-kubernetes-secret-delivery",
+      "index": 452,
+      "group": "Group AT",
+      "domain": "Platform Resilience & Infrastructure"
+    },
+    {
+      "id": "dex-terraform-module-contract-tests",
+      "index": 453,
+      "group": "Group AT",
+      "domain": "Platform Resilience & Infrastructure"
+    },
+    {
+      "id": "dex-infrastructure-policy-as-code",
+      "index": 454,
+      "group": "Group AT",
+      "domain": "Platform Resilience & Infrastructure"
+    },
+    {
+      "id": "dex-release-progressive-metrics",
+      "index": 455,
+      "group": "Group AT",
+      "domain": "Platform Resilience & Infrastructure"
+    },
+    {
+      "id": "dex-queue-capacity-saturation",
+      "index": 456,
+      "group": "Group AT",
+      "domain": "Platform Resilience & Infrastructure"
+    },
+    {
+      "id": "dex-api-circuit-breaker-verification",
+      "index": 457,
+      "group": "Group AT",
+      "domain": "Platform Resilience & Infrastructure"
+    },
+    {
+      "id": "dex-storage-backup-restore-drills",
+      "index": 458,
+      "group": "Group AT",
+      "domain": "Platform Resilience & Infrastructure"
+    },
+    {
+      "id": "dex-platform-selfservice-templates",
+      "index": 459,
+      "group": "Group AT",
+      "domain": "Platform Resilience & Infrastructure"
+    },
+    {
+      "id": "dex-operational-dependency-mapping",
+      "index": 460,
+      "group": "Group AT",
+      "domain": "Platform Resilience & Infrastructure"
+    },
+    {
+      "id": "dex-ux-design-research-synthesis",
+      "index": 461,
+      "group": "Group AU",
+      "domain": "Product Experience & Design Systems"
+    },
+    {
+      "id": "dex-design-critique-rubric",
+      "index": 462,
+      "group": "Group AU",
+      "domain": "Product Experience & Design Systems"
+    },
+    {
+      "id": "dex-interaction-prototype-validation",
+      "index": 463,
+      "group": "Group AU",
+      "domain": "Product Experience & Design Systems"
+    },
+    {
+      "id": "dex-email-template-rendering",
+      "index": 464,
+      "group": "Group AU",
+      "domain": "Product Experience & Design Systems"
+    },
+    {
+      "id": "dex-forms-error-recovery-ux",
+      "index": 465,
+      "group": "Group AU",
+      "domain": "Product Experience & Design Systems"
+    },
+    {
+      "id": "dex-onboarding-activation-experiments",
+      "index": 466,
+      "group": "Group AU",
+      "domain": "Product Experience & Design Systems"
+    },
+    {
+      "id": "dex-enterprise-permission-interface",
+      "index": 467,
+      "group": "Group AU",
+      "domain": "Product Experience & Design Systems"
+    },
+    {
+      "id": "dex-mobile-safe-area-layout",
+      "index": 468,
+      "group": "Group AU",
+      "domain": "Product Experience & Design Systems"
+    },
+    {
+      "id": "dex-visual-asset-licensing",
+      "index": 469,
+      "group": "Group AU",
+      "domain": "Product Experience & Design Systems"
+    },
+    {
+      "id": "dex-design-system-governance-at-scale",
+      "index": 470,
+      "group": "Group AU",
+      "domain": "Product Experience & Design Systems"
+    },
+    {
+      "id": "dex-nextjs-app-router-data-cache",
+      "index": 471,
+      "group": "Group AV",
+      "domain": "Advanced TypeScript & Full Stack"
+    },
+    {
+      "id": "dex-react-server-component-boundaries",
+      "index": 472,
+      "group": "Group AV",
+      "domain": "Advanced TypeScript & Full Stack"
+    },
+    {
+      "id": "dex-typescript-package-dual-publish",
+      "index": 473,
+      "group": "Group AV",
+      "domain": "Advanced TypeScript & Full Stack"
+    },
+    {
+      "id": "dex-react-render-profiling",
+      "index": 474,
+      "group": "Group AV",
+      "domain": "Advanced TypeScript & Full Stack"
+    },
+    {
+      "id": "dex-vue-composition-reusability",
+      "index": 475,
+      "group": "Group AV",
+      "domain": "Advanced TypeScript & Full Stack"
+    },
+    {
+      "id": "dex-express-api-hardening",
+      "index": 476,
+      "group": "Group AV",
+      "domain": "Advanced TypeScript & Full Stack"
+    },
+    {
+      "id": "dex-nodejs-worker-thread-architecture",
+      "index": 477,
+      "group": "Group AV",
+      "domain": "Advanced TypeScript & Full Stack"
+    },
+    {
+      "id": "dex-prisma-schema-migration-safety",
+      "index": 478,
+      "group": "Group AV",
+      "domain": "Advanced TypeScript & Full Stack"
+    },
+    {
+      "id": "dex-tanstack-query-cache-coherence",
+      "index": 479,
+      "group": "Group AV",
+      "domain": "Advanced TypeScript & Full Stack"
+    },
+    {
+      "id": "dex-playwright-browser-flake-diagnostics",
+      "index": 480,
+      "group": "Group AV",
+      "domain": "Advanced TypeScript & Full Stack"
+    },
+    {
+      "id": "dex-dependency-provenance-attestation",
+      "index": 481,
+      "group": "Group AW",
+      "domain": "Security, Privacy & Resilience Governance"
+    },
+    {
+      "id": "dex-build-slsa-controls",
+      "index": 482,
+      "group": "Group AW",
+      "domain": "Security, Privacy & Resilience Governance"
+    },
+    {
+      "id": "dex-security-incident-triage-playbooks",
+      "index": 483,
+      "group": "Group AW",
+      "domain": "Security, Privacy & Resilience Governance"
+    },
+    {
+      "id": "dex-privacy-request-fulfillment",
+      "index": 484,
+      "group": "Group AW",
+      "domain": "Security, Privacy & Resilience Governance"
+    },
+    {
+      "id": "dex-data-classification-enforcement",
+      "index": 485,
+      "group": "Group AW",
+      "domain": "Security, Privacy & Resilience Governance"
+    },
+    {
+      "id": "dex-model-inference-data-privacy",
+      "index": 486,
+      "group": "Group AW",
+      "domain": "Security, Privacy & Resilience Governance"
+    },
+    {
+      "id": "dex-api-schema-abuse-regression",
+      "index": 487,
+      "group": "Group AW",
+      "domain": "Security, Privacy & Resilience Governance"
+    },
+    {
+      "id": "dex-disclosure-coordinated-triage",
+      "index": 488,
+      "group": "Group AW",
+      "domain": "Security, Privacy & Resilience Governance"
+    },
+    {
+      "id": "dex-business-continuity-tabletops",
+      "index": 489,
+      "group": "Group AW",
+      "domain": "Security, Privacy & Resilience Governance"
+    },
+    {
+      "id": "dex-third-party-api-sla-assessment",
+      "index": 490,
+      "group": "Group AW",
+      "domain": "Security, Privacy & Resilience Governance"
+    },
+    {
+      "id": "dex-skill-knowledge-boundaries",
+      "index": 491,
+      "group": "Group AX",
+      "domain": "SkillOps Intelligence & Scalability"
+    },
+    {
+      "id": "dex-skill-provenance-revalidation",
+      "index": 492,
+      "group": "Group AX",
+      "domain": "SkillOps Intelligence & Scalability"
+    },
+    {
+      "id": "dex-skill-crosshost-fixture-tests",
+      "index": 493,
+      "group": "Group AX",
+      "domain": "SkillOps Intelligence & Scalability"
+    },
+    {
+      "id": "dex-skill-progressive-disclosure-metrics",
+      "index": 494,
+      "group": "Group AX",
+      "domain": "SkillOps Intelligence & Scalability"
+    },
+    {
+      "id": "dex-skill-task-suitability-classifier",
+      "index": 495,
+      "group": "Group AX",
+      "domain": "SkillOps Intelligence & Scalability"
+    },
+    {
+      "id": "dex-skill-conflict-precedence",
+      "index": 496,
+      "group": "Group AX",
+      "domain": "SkillOps Intelligence & Scalability"
+    },
+    {
+      "id": "dex-skill-migration-compatibility-tests",
+      "index": 497,
+      "group": "Group AX",
+      "domain": "SkillOps Intelligence & Scalability"
+    },
+    {
+      "id": "dex-skill-evidence-quality-grading",
+      "index": 498,
+      "group": "Group AX",
+      "domain": "SkillOps Intelligence & Scalability"
+    },
+    {
+      "id": "dex-skill-change-impact-forecast",
+      "index": 499,
+      "group": "Group AX",
+      "domain": "SkillOps Intelligence & Scalability"
+    },
+    {
+      "id": "dex-skill-lifecycle-health-dashboard",
+      "index": 500,
+      "group": "Group AX",
+      "domain": "SkillOps Intelligence & Scalability"
+    }
+  ]
+}
