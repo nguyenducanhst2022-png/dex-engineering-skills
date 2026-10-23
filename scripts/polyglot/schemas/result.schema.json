@@ -1,0 +1,66 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "DEXPolyglotExecutionResult",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "command",
+    "status",
+    "exit_code",
+    "duration_ms",
+    "commands_executed",
+    "evidence",
+    "warnings",
+    "errors",
+    "timestamp"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "enum": ["1.0.0"]
+    },
+    "command": {
+      "type": "string"
+    },
+    "language": {
+      "type": ["string", "null"]
+    },
+    "status": {
+      "type": "string",
+      "enum": ["SUCCESS", "FAILED", "TOOL_NOT_AVAILABLE", "SKIPPED", "DRY_RUN"]
+    },
+    "exit_code": {
+      "type": "integer"
+    },
+    "duration_ms": {
+      "type": "number",
+      "minimum": 0
+    },
+    "commands_executed": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "evidence": {
+      "type": "object"
+    },
+    "stdout": {
+      "type": "string"
+    },
+    "stderr": {
+      "type": "string"
+    },
+    "warnings": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "errors": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "additionalProperties": false
+}
