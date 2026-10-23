@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 """
-Pytest suite for DEX Framework v6.0: Skill Registry & Catalog Audit.
+Pytest suite for DEX Framework v8.0: Skill Registry & Catalog Audit.
 Asserts:
-- Exactly 300 specialized skills exist.
+- Exactly 400 specialized skills exist.
 - Exactly 1 Master Orchestrator exists.
-- Exactly 301 native skill directories in .agents/skills/.
+- Exactly 401 native skill directories in .agents/skills/.
 - No duplicate names.
-- All 30 groups (A to AD) contain exactly 10 skills each.
+- All 40 groups (A to AN) contain exactly 10 skills each.
 """
 
 import os
@@ -19,16 +19,16 @@ MANIFEST_FILE = os.path.join(ROOT_DIR, "manifests", "dex-skills.json")
 
 def test_exact_skill_inventory():
     dirs = [d for d in os.listdir(SKILLS_DIR) if os.path.isdir(os.path.join(SKILLS_DIR, d))]
-    assert len(dirs) == 301, f"Expected 301 skill directories, found {len(dirs)}"
+    assert len(dirs) == 401, f"Expected 401 skill directories, found {len(dirs)}"
 
     orchestrators = [d for d in dirs if d == "dex-master-orchestrator"]
     assert len(orchestrators) == 1, "Expected exactly 1 Master Orchestrator"
 
     specialized = [d for d in dirs if d != "dex-master-orchestrator"]
-    assert len(specialized) == 300, f"Expected exactly 300 specialized skills, found {len(specialized)}"
+    assert len(specialized) == 400, f"Expected exactly 400 specialized skills, found {len(specialized)}"
 
     # Check for duplicate names
-    assert len(set(dirs)) == 301, "Detected duplicate skill directory names"
+    assert len(set(dirs)) == 401, "Detected duplicate skill directory names"
 
 def test_manifest_synchronization():
     assert os.path.isfile(MANIFEST_FILE), f"Manifest file missing at {MANIFEST_FILE}"
@@ -36,9 +36,9 @@ def test_manifest_synchronization():
         data = json.load(f)
 
     native_skills = data.get("native_skills", [])
-    assert len(native_skills) == 301, f"Expected 301 native skills in manifest, found {len(native_skills)}"
+    assert len(native_skills) == 401, f"Expected 401 native skills in manifest, found {len(native_skills)}"
 
-    # Check group counts: Groups A to AD should each have exactly 10 skills
+    # Check group counts: Groups A to AN should each have exactly 10 skills
     group_counts = {}
     for s in native_skills:
         grp = s.get("group")
@@ -47,9 +47,12 @@ def test_manifest_synchronization():
     assert group_counts.get("Root") == 1, "Expected 1 Root Master Orchestrator in manifest"
 
     expected_groups = [f"Group {chr(c)}" for c in range(ord('A'), ord('Z') + 1)] + [
-        "Group AA", "Group AB", "Group AC", "Group AD"
+        "Group AA", "Group AB", "Group AC", "Group AD",
+        "Group AE", "Group AF", "Group AG", "Group AH",
+        "Group AI", "Group AJ", "Group AK", "Group AL",
+        "Group AM", "Group AN"
     ]
-    assert len(expected_groups) == 30, f"Expected 30 groups, got {len(expected_groups)}"
+    assert len(expected_groups) == 40, f"Expected 40 groups, got {len(expected_groups)}"
     for grp in expected_groups:
         count = group_counts.get(grp, 0)
         assert count == 10, f"{grp}: Expected exactly 10 skills, found {count}"

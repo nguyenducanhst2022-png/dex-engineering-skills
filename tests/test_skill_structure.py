@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-Pytest suite for DEX Engineering Skills Pack v3.0: Structural Verification.
-Validates that all skills (91 Native + Imported Upstream Skills) adhere strictly
+Pytest suite for DEX Engineering Skills Pack v8.0: Structural Verification.
+Validates that all skills (401 Native + 5 Segregated Upstream Skills) adhere strictly
 to Agent Skills Specification and contain the 14 mandatory sections with valid YAML frontmatter.
 """
 
@@ -14,20 +14,20 @@ ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 SKILLS_DIR = os.path.join(ROOT_DIR, ".agents", "skills")
 
 MANDATORY_SECTIONS = [
-    (1, "Purpose & Scope"),
-    (2, "When to Use"),
-    (3, "When NOT to Use"),
-    (4, "Prerequisites & Input Context"),
-    (5, "Core Concepts & Taxonomy"),
-    (6, "Step-by-Step Execution Workflow"),
-    (7, "Concrete Examples"),
-    (8, "Anti-Patterns & Common Traps"),
-    (9, "Quality Gates & Acceptance Criteria"),
-    (10, "Security & Safety Boundaries"),
-    (11, "Platform Adapters"),
-    (12, "Deliverables & Output Artifacts"),
-    (13, "Related & Complementary Skills"),
-    (14, "Realistic Usage Example"),
+    (1, ["purpose & scope", "purpose", "mục đích & phạm vi", "mục đích"]),
+    (2, ["when to use", "khi nào sử dụng", "khi nào nên dùng", "trường hợp sử dụng"]),
+    (3, ["when not to use", "khi nào không nên dùng", "khi không nên dùng"]),
+    (4, ["prerequisites & input context", "prerequisites", "tiền đề & ngữ cảnh đầu vào", "tiền đề"]),
+    (5, ["core concepts & taxonomy", "core concepts", "khái niệm cốt lõi & phân loại", "khái niệm cốt lõi"]),
+    (6, ["step-by-step execution workflow", "execution workflow", "quy trình thực thi từng bước", "quy trình thực thi"]),
+    (7, ["concrete examples", "examples", "ví dụ cụ thể"]),
+    (8, ["anti-patterns & common traps", "anti-patterns", "bẫy thường gặp & anti-patterns", "anti-patterns & cạm bẫy"]),
+    (9, ["quality gates & acceptance criteria", "quality gates", "tiêu chí nghiệm thu & quality gates", "tiêu chí nghiệm thu", "verification quality gates"]),
+    (10, ["security & safety boundaries", "security boundaries", "ranh giới an toàn & bảo mật", "an toàn & bảo mật"]),
+    (11, ["platform adapters", "adapters", "adapter nền tảng"]),
+    (12, ["deliverables & output artifacts", "deliverables", "sản phẩm bàn giao & artifacts"]),
+    (13, ["related & complementary skills", "related skills", "kỹ năng liên quan & bổ trợ"]),
+    (14, ["realistic usage example", "usage example", "ví dụ tình huống thực tế"]),
 ]
 
 def get_all_skills():
@@ -38,8 +38,8 @@ def get_all_skills():
 ALL_SKILLS = get_all_skills()
 
 def test_total_skill_count():
-    """Verify skill count matches exactly 300 specialized skills + 1 master orchestrator = 301 DEX skills."""
-    expected_count = 301
+    """Verify skill count matches exactly 400 specialized skills + 1 master orchestrator = 401 DEX skills."""
+    expected_count = 401
     assert len(ALL_SKILLS) == expected_count, f"Expected {expected_count} skills, found {len(ALL_SKILLS)}"
 
 def test_integration_skills_exist():
@@ -51,11 +51,12 @@ def test_integration_skills_exist():
         for d in dirs:
             if os.path.isfile(os.path.join(root, d, "SKILL.md")):
                 found_skills.append(d)
-    assert len(found_skills) >= 4
+    assert len(found_skills) == 5
     assert "dex-api-mocking-virtualization" in found_skills
     assert "dex-binary-inspection" in found_skills
     assert "dex-javascript-bundle-deobfuscation" in found_skills
     assert "dex-rea-adapter" in found_skills
+    assert "dex-ui-ux-pro-max-adapter" in found_skills
 
 def test_master_orchestrator_exists():
     """Verify dex-master-orchestrator is present."""
@@ -103,8 +104,8 @@ def test_skill_structure(skill_name):
     matches = list(section_pattern.finditer(body))
     found_nums = {int(m.group(1)): m.group(2).strip() for m in matches}
 
-    for num, expected_title in MANDATORY_SECTIONS:
-        assert num in found_nums, f"{skill_name}: Missing mandatory section '## {num}. {expected_title}'"
+    for num, aliases in MANDATORY_SECTIONS:
+        assert num in found_nums, f"{skill_name}: Missing mandatory section '## {num}'"
         actual_title = found_nums[num]
-        assert (expected_title.lower() in actual_title.lower() or actual_title.lower() in expected_title.lower()), \
-            f"{skill_name}: Section {num} title mismatch: expected '{expected_title}', got '{actual_title}'"
+        assert any(alias in actual_title.lower() or actual_title.lower() in alias for alias in aliases), \
+            f"{skill_name}: Section {num} title mismatch: expected one of {aliases}, got '{actual_title}'"

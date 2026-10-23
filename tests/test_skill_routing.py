@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-Pytest suite for DEX Engineering Skills Framework v6.0: Routing Matrix Verification.
-Tests the Master Orchestrator dynamic skill dispatch engine across 30 realistic scenarios (A through AD)
-covering all 30 specialized engineering groups (Groups A to AD) and segregated upstream integrations.
+Pytest suite for DEX Engineering Skills Framework v8.0: Routing Matrix Verification.
+Tests the Master Orchestrator dynamic skill dispatch engine across 40 realistic scenarios (A through AN)
+covering all 40 specialized engineering groups (Groups A to AN) and segregated upstream integrations.
 """
 
 import os
@@ -158,6 +158,56 @@ SCENARIOS = {
         "description": "Govern multi-tier skill catalog taxonomies, verify SHA256 integrity trees against tampering, and record immutable execution ledgers.",
         "primary_skills": ["dex-skill-catalog-taxonomy", "dex-skill-source-integrity", "dex-skill-execution-evidence-ledger"],
         "complementary_skills": ["dex-skill-routing-conflict-tests", "dex-skill-documentation-drift"],
+    },
+    "Scenario AE: Enterprise Architecture & Migration (Group AE)": {
+        "description": "Establish architecture decision records, govern modular monolith boundaries, and implement legacy strangler migration.",
+        "primary_skills": ["dex-architecture-decision-records", "dex-modular-monolith-boundaries", "dex-legacy-strangler-migration"],
+        "complementary_skills": ["dex-saga-compensation-workflows", "dex-contract-first-development"],
+    },
+    "Scenario AF: Advanced Distributed Systems & Resilience (Group AF)": {
+        "description": "Recover from message poison queues, ensure distributed lock lease safety, and mitigate consumer lag.",
+        "primary_skills": ["dex-message-poison-queue-recovery", "dex-distributed-lock-lease-safety", "dex-consumer-lag-control"],
+        "complementary_skills": ["dex-exactly-once-claims-audit", "dex-partition-fault-simulation"],
+    },
+    "Scenario AG: Applied AI & Foundation Model Systems (Group AG)": {
+        "description": "Maintain RAG freshness controls, prepare high-quality embedding datasets, and enforce context window budgeting.",
+        "primary_skills": ["dex-rag-freshness-control", "dex-embedding-data-preparation", "dex-context-window-budgeting"],
+        "complementary_skills": ["dex-hybrid-search-fusion", "dex-model-output-calibration"],
+    },
+    "Scenario AH: Extended Polyglot Engineering (Group AH)": {
+        "description": "Orchestrate Kotlin Multiplatform builds, debug Flutter/Dart state lifecycles, and configure Zig native build pipelines.",
+        "primary_skills": ["dex-kotlin-multiplatform-builds", "dex-dart-flutter-state-debugging", "dex-zig-build-engineering"],
+        "complementary_skills": ["dex-swift-concurrency-review", "dex-ruby-gem-engineering"],
+    },
+    "Scenario AI: Advanced UI/UX & Specialized Interfaces (Group AI)": {
+        "description": "Migrate design tokens across frameworks, layout high-density analytics dashboards, and ensure accessible charts.",
+        "primary_skills": ["dex-design-token-migration", "dex-high-density-dashboard-layout", "dex-chart-visualization-accessibility"],
+        "complementary_skills": ["dex-component-state-matrix", "dex-perceived-performance-patterns"],
+    },
+    "Scenario AJ: Authorized Software & System Inspection (Group AJ)": {
+        "description": "Match binary provenance signatures, correlate debug symbols, and structure authorized reverse engineering reports.",
+        "primary_skills": ["dex-binary-provenance-matching", "dex-debug-symbols-correlation", "dex-reverse-engineering-reporting"],
+        "complementary_skills": ["dex-sbom-binary-correlation", "dex-toolchain-reproducibility-audit"],
+    },
+    "Scenario AK: ML Platform & Production Engineering (Group AK)": {
+        "description": "Enforce ML experiment reproducibility, manage model serving canary rollouts, and tune batch inference throughput.",
+        "primary_skills": ["dex-ml-experiment-reproducibility", "dex-model-serving-canary-rollouts", "dex-batch-inference-pipeline-tuning"],
+        "complementary_skills": ["dex-online-offline-feature-parity", "dex-vector-embedding-migration"],
+    },
+    "Scenario AL: Developer Platform & Polyglot Tooling (Group AL)": {
+        "description": "Orchestrate polyglot monorepo builds, provide reproducible devcontainers, and verify cross-language contract tests.",
+        "primary_skills": ["dex-polyglot-build-orchestration", "dex-reproducible-devcontainers", "dex-cross-language-contract-tests"],
+        "complementary_skills": ["dex-cli-command-contracts", "dex-build-cache-integrity"],
+    },
+    "Scenario AM: Advanced Application & Infrastructure Security (Group AM)": {
+        "description": "Implement secretless CI/CD with OIDC, automate API authorization matrix testing, and enforce container isolation.",
+        "primary_skills": ["dex-secretless-cicd-oidc", "dex-api-authorization-matrix-tests", "dex-container-runtime-isolation"],
+        "complementary_skills": ["dex-ephemeral-test-credentials", "dex-service-account-lifecycle"],
+    },
+    "Scenario AN: SkillOps Quality, Governance & Interoperability (Group AN)": {
+        "description": "Generate skill quality scorecards, enforce Agent Skills specification compatibility, and run semantic routing evaluations.",
+        "primary_skills": ["dex-skill-quality-scorecards", "dex-agent-skills-spec-compatibility", "dex-semantic-routing-evaluations"],
+        "complementary_skills": ["dex-skill-catalog-reconciliation", "dex-skill-example-test-fixtures"],
     },
 }
 

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Pytest suite for DEX Framework v6.0: Skill Dependency Graph & DAG Validation.
+Pytest suite for DEX Framework v8.0: Skill Dependency Graph & DAG Validation.
 Verifies that all cross-skill references resolve to existing skills,
 and that the declared dependency graph is an acyclic Directed Acyclic Graph (DAG).
 """
@@ -40,7 +40,7 @@ def build_dependency_graph():
 GRAPH = build_dependency_graph()
 
 def test_all_skills_in_graph():
-    assert len(GRAPH) == 301
+    assert len(GRAPH) == 401
 
 def test_no_dangling_skill_references():
     for s_name, refs in GRAPH.items():
