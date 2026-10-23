@@ -123,7 +123,7 @@ go test -v -race -count=5 ./...
 - Báo cáo kết quả kiểm thử `-race` sạch sẽ.
 
 ## 13. Related & Complementary Skills
-dex-traffic-shaping-backpressure, dex-load-and-stress-testing, dex-backend-architecture
+dex-traffic-shaping-backpressure, dex-load-and-stress-testing, dex-software-architecture
 
 ## 14. Realistic Usage Example
 ### Tình huống thực tế:

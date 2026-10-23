@@ -95,7 +95,7 @@ npx playwright test tests/a11y/
 - Báo cáo kiểm toán Accessibility VPAT (Voluntary Product Accessibility Template) sơ bộ.
 
 ## 13. Related & Complementary Skills
-dex-usability-study-design, dex-frontend-architecture, dex-design-handoff-verification
+dex-usability-study-design, dex-frontend-data-flow, dex-design-handoff-verification
 
 ## 14. Realistic Usage Example
 ### Tình huống thực tế:

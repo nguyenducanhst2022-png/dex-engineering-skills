@@ -82,7 +82,7 @@ export function verifyTokenWithRotation(token: string): any {
 1. Biên bản nghiệm thu diễn tập quay vòng khóa `SECRET_ROTATION_REPORT.md`.
 
 ## 13. Related & Complementary Skills
-- [`dex-crypto-key-rotation-kms`](.agents/skills/dex-crypto-key-rotation-kms/SKILL.md)
+- [`dex-secrets-management`](.agents/skills/dex-secrets-management/SKILL.md)
 - [`dex-secrets-management`](.agents/skills/dex-secrets-management/SKILL.md)
 - [`dex-security-audit`](.agents/skills/dex-security-audit/SKILL.md)
 

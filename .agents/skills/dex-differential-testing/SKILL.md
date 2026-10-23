@@ -79,7 +79,7 @@ pytest tests/differential/test_tax_engine.py --count=5000
 - Báo cáo phân tích sai lệch và test case hồi quy.
 
 ## 13. Related & Complementary Skills
-dex-refactoring-mastery, dex-reproducible-benchmarking, dex-unit-testing
+dex-technical-debt-refactoring, dex-reproducible-benchmarking, dex-testing-engineering
 
 ## 14. Realistic Usage Example
 ### Tình huống thực tế:

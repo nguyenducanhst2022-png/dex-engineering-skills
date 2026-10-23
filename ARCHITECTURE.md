@@ -1,132 +1,165 @@
-> **v9 candidate status (2026-10-22, America/Los_Angeles): NOT_READY.**
-> Current inventory: 500 specialists + 1 master; 8 external adapters are separate.
-> Structural validity does not establish domain runtime correctness.
-> All seven configured upstream pins now resolve; import-origin/content review remains separate. See [current evidence](docs/audits/DEX_V9_PROVENANCE_RECHECK.json).
-> The text below includes prior-version documentation; current limitations and validation are recorded in [v9 progress](docs/audits/DEX_V9_PROGRESS.md).
+# DEX Engineering Skills Framework v10.0 — Architectural Specification
 
-# DEX Engineering Skills Framework v8.0 — Architectural Specification
-
-> **Principal Architecture Blueprint for 400 Specialized Skills + Master Orchestrator + Polyglot Script Engine + SkillOps Framework**
+> **Principal Architecture Blueprint for 500 Specialized Skills + Master Orchestrator + Polyglot Script Engine + Quality Verification Architecture**
 
 ---
 
 ## 1. System Topology & Directory Structure
 
-DEX v8.0 is organized into four strictly separated tiers: Native Skills Catalog, Segregated Integrations, Polyglot Script Engine, and SkillOps Toolchain.
+DEX v10.0 is organized into four strictly separated tiers: Native Skills Catalog, Segregated Upstream Integrations, Polyglot Script Engine, and Quality & SkillOps Toolchain.
 
 ```
 dex-engineering-skills/
-├── .agents/skills/                    # Native DEX Catalog (Exactly 401 skills)
+├── .agents/skills/                    # Native DEX Catalog (Exactly 501 skills)
 │   ├── dex-master-orchestrator/       # Master Control Plane (Skill 000)
 │   ├── dex-development-workflow/      # Skill 001 (Group A)
-│   │   └── SKILL.md                   # 14 Mandatory Sections
-│   └── ...                            # Skills 002 to 400 (Groups A to AN)
+│   │   └── SKILL.md                   # 14 Mandatory Sections (Spec compliant)
+│   └── ...                            # Skills 002 to 500 (Groups A to AX)
 ├── integrations/                      # Segregated Third-Party Upstream Integrations
-│   ├── agentic-awesome-skills/        # Agentic Awesome Skills (MIT)
-│   ├── reverse-skill/                 # Reverse Skill (MIT)
+│   ├── aas/                           # Agentic Awesome Skills (MIT)
+│   ├── mattpocock/                    # Matt Pocock Skills (MIT)
 │   ├── rea/                           # Reverse Engineer Anything (Apache-2.0, MCP Adapter)
+│   ├── reverse-skill/                 # Reverse Skill (MIT)
+│   ├── supabase/                      # Supabase Agent Skills (MIT)
+│   ├── superpowers/                   # Superpowers Skills (MIT)
 │   └── ui-ux-pro-max/                 # UI/UX Pro Max (MIT, Search Bridge)
 ├── manifests/                         # Machine-Readable Catalog Registry
-│   ├── dex-skills.json                # Complete metadata index of 401 native skills
-│   └── upstream-sources.json          # Pinned commits and licensing for 4 upstream repos
-├── scripts/                           # SkillOps Lifecycle Toolchain & Polyglot Engine
-│   ├── polyglot/                      # DEX Polyglot Script Engine v8.0 (11 Runtimes)
+│   ├── dex-skills.json                # Complete metadata index of 501 native skills + 8 adapters
+│   ├── native-skills.json             # Pinned catalog targets & canonical index mapping
+│   └── upstream-sources.json          # Pinned commits and licensing for 7 upstream repos
+├── scripts/                           # Quality Toolchain & Polyglot Engine
+│   ├── polyglot/                      # DEX Polyglot Script Engine v10.0 (11 Runtimes)
 │   │   ├── core/                      # Executor, detector, security, schema, reporting
 │   │   ├── adapters/                  # 11 language runtime adapters
 │   │   ├── wrappers/                  # dex.ps1, dex.bat, dex.sh
 │   │   ├── schemas/                   # result.schema.json
-│   │   ├── tests/                     # 37 polyglot unit and integration tests
-│   │   └── dex.py                     # Unified CLI entrypoint
-│   ├── discover_skills.py             # Catalog indexing and taxonomy normalization
-│   ├── audit_skills.py                # Static AST and security screening (QG-06, QG-15)
-│   ├── evaluate_routing.py            # Dynamic routing accuracy benchmark (F1 >= 0.85 across 40 groups)
-│   ├── sync_upstream.py               # Upstream provenance verification
-│   ├── import_skills.py               # Packaging and rollback engine
-│   └── validate_pack.py               # Zero-dependency specification validator
-├── tests/                             # Comprehensive Pytest Test Suite (1,360 tests)
-│   ├── test_skill_structure.py        # Validates directory, file presence, and 14 sections
-│   ├── test_skill_metadata.py         # Validates YAML frontmatter conformity
-│   ├── test_skill_registry.py         # Asserts exact 400+1 counts and 40-group taxonomy
+│   │   └── dex.py                     # Unified CLI entrypoint (with verify subcommand)
+│   ├── audit_skills.py                # 100-Point quality rubric & security auditor
+│   ├── validate_skills.py             # Zero-dependency specification validator
+│   ├── evaluate_routing_v10.py        # 25-scenario V10 dynamic routing benchmark (Groups A-AX)
+│   ├── fix_dangling_references.py     # Automated cross-reference remediation
+│   └── skillops.py                    # Read-only catalog evidence & release gates
+├── tests/                             # Comprehensive Pytest Test Suite (>1,689 tests)
+│   ├── test_skill_structure.py        # Directory, file presence, and 14-section validation
+│   ├── test_skill_metadata.py         # YAML frontmatter conformity
+│   ├── test_skill_registry.py         # Asserts exact 500+1 counts and 50-group taxonomy
 │   ├── test_skill_security.py         # Screens against unsafe tokens and injection
-│   ├── test_skill_dependencies.py     # DAG cycle detection and dangling links
-│   ├── test_skill_routing.py          # 40-scenario routing matrix validation
-│   ├── test_skill_evaluations_v6.py   # 16 real-world evaluation scenarios
-│   ├── test_skill_evaluations_v8.py   # 12 production-grade evaluation scenarios (A to L)
-│   └── test_ui_ux_pro_max.py          # UI/UX Pro Max adapter and backend exclusion tests
-└── docs/                              # Framework Specifications & Audit Trails
+│   ├── test_skill_dependencies.py     # DAG cycle detection and reference integrity
+│   ├── test_skill_routing.py          # Routing matrix validation
+│   ├── test_functional_v10.py         # Multi-domain real-world functional test harness
+│   └── test_quality_scoring_v10.py    # 100-point quality scoring test suite
+└── docs/                              # Framework Specifications & Quality Governance
+    ├── quality/                       # V10 Quality Governance
+    │   ├── BASELINE_V10.md            # Empirical release baseline
+    │   ├── SKILL_AUDIT_V10.json       # Per-skill 100-point quality audit records
+    │   ├── DEFECT_REGISTER.md         # Exhaustive defect register & remediation log
+    │   └── DEX_V10_ROUTING_FIXTURES.json # 25/25 routing execution evidence
+    └── audits/                        # Historical audit archives (v6, v8, v9)
 ```
 
 ---
 
-## 2. 40-Group Domain Taxonomy (Groups A through AN)
+## 2. Canonical Engineering Taxonomy (50 Groups)
 
-Every specialized skill belongs to exactly one domain group with exactly 10 skills per group:
+The framework organizes 500 specialized skills into 50 canonical engineering groups, each containing exactly 10 specialists, presided over by `dex-master-orchestrator`:
 
-| Domain Group | Focus | Skills Range |
-|:---|:---|:---|
-| **Group A: Core Engineering** | Trunk-based Git, code layout, root-cause debugging, CI/CD | `001–010` |
-| **Group B: Architecture & AI Agents** | Multi-agent orchestration, context engineering, architecture | `011–020` |
-| **Group C: Production Engineering** | Blast radius, dependency management, reliability, feature flags | `021–030` |
-| **Group D: Frontend Engineering** | Performance, visual regression, design tokens, forms validation | `031–040` |
-| **Group E: Backend & Integration** | DDD, event-driven systems, idempotent operations, job queues | `041–050` |
-| **Group F: Data Engineering** | Data contracts, pipelines, schema evolution, query optimization | `051–060` |
-| **Group G: AI & LLM Engineering** | RAG pipelines, RAGAS retrieval eval, token cost optimization | `061–070` |
-| **Group H: Developer Experience** | Monorepo governance, CLI engineering, semantic versioning | `071–080` |
-| **Group I: Security & Reliability** | STRIDE threat modeling, secrets management, supply chain SBOM | `081–090` |
-| **Group J: Cloud & Infrastructure** | Unprivileged OCI images, Kubernetes rollouts, IaC, FinOps | `091–100` |
-| **Group K: Mobile & Desktop** | Offline-first sync, Android/iOS architecture, Tauri desktop | `101–110` |
-| **Group L: Product & Operations** | Compliance mapping, audit trails, operational readiness reviews | `111–120` |
-| **Group M: Advanced Verification** | Mutation testing, flaky test remediation, invariant verification | `121–130` |
-| **Group N: Advanced SRE** | High-scale load testing, rate limiting quotas, backpressure | `131–140` |
-| **Group O: Advanced Cloud Platform** | Least-privilege IAM review, GitOps workflows, Kubernetes policy | `141–150` |
-| **Group P: Language & Runtime** | Rust unsafe audit, C++ memory safety, Node/JVM diagnostics | `151–160` |
-| **Group Q: Advanced AI Systems** | MCP servers, vector indices, structured JSON schemas | `161–170` |
-| **Group R: Product Design & UX** | User journey maps, WCAG accessibility, design token handoff | `171–180` |
-| **Group S: Application Security** | SAST triage, signed SBOMs, browser extension CSP hardening | `181–190` |
-| **Group T: SkillOps Engineering** | Catalog indexing, security screening, routing F1 evaluation | `191–200` |
-| **Group U: Visual Design Intelligence** | Design brief synthesis, visual hierarchy, APCA/WCAG contrast | `201–210` |
-| **Group V: Advanced Web Experiences** | Animation performance, PWA offline, virtualized infinite lists | `211–220` |
-| **Group W: Browser Extensions & Automation** | MV3 background service workers, content script isolation, CDP | `221–230` |
-| **Group X: Authorized Reverse Engineering** | PE/ELF headers, disassembly CFG, symbol mapping, evidence chain | `231–240` |
-| **Group Y: Protocols & Service Integration** | MQTT client QoS, WebSocket recovery, HMAC webhook validation | `241–250` |
-| **Group Z: AI Agent Operations** | LLM eval datasets, task planning validation, red teaming defense | `251–260` |
-| **Group AA: Advanced Data & Analytics** | SQL metric layers, anomaly detection, warehouse cost tuning, H3 | `261–270` |
-| **Group AB: Native, Graphics & Game Engineering** | Alpha-beta chess search, fixed-point determinism, WebGPU/shaders | `271–280` |
-| **Group AC: Software Trust & Distribution** | License scanning, artifact signatures, code signing, trust chains | `281–290` |
-| **Group AD: Advanced SkillOps Governance** | Taxonomy, source integrity, execution ledgers, drift prevention | `291–300` |
-| **Group AE: Enterprise Architecture & Migration** | ADRs, modular monoliths, saga compensation, CQRS, data residency | `301–310` |
-| **Group AF: Advanced Distributed Systems** | Exactly-once audit, poison queues, lock lease safety, partition faults | `311–320` |
-| **Group AG: Applied AI & Foundation Model Systems** | Embedding data prep, hybrid search fusion (RRF), RAG freshness | `321–330` |
-| **Group AH: Extended Polyglot Engineering** | Kotlin Multiplatform, Swift concurrency, Flutter, Zig, Lua safety | `331–340` |
-| **Group AI: Advanced UI/UX & Specialized Interfaces** | Design tokens (W3C), component state matrix, dashboard layouts | `341–350` |
-| **Group AJ: Authorized Software & System Inspection** | Binary provenance, debug symbols, toolchain reproducibility, SBOM | `351–360` |
-| **Group AK: ML Platform & Production Engineering** | Online-offline feature parity, data leakage, canary serving rollouts | `361–370` |
-| **Group AL: Developer Platform & Polyglot Tooling** | Workstation bootstrap, version pinning (mise), polyglot builds | `371–380` |
-| **Group AM: Advanced Application & Infrastructure Security** | Secretless CI/CD (OIDC), ephemeral credentials, container isolation | `381–390` |
-| **Group AN: SkillOps Quality, Governance & Interoperability** | Spec compatibility, routing evaluations, scorecards, sandbox policies | `391–400` |
-
----
-
-## 3. Dynamic Skill Routing & Execution Pipeline
-
-The Master Orchestrator resolves requests into execution DAGs based on:
-1. **Keyword & Semantic Parsing**: Matches incoming terms with skill triggers.
-2. **Domain Boundary Mapping**: Identifies the primary discipline (Groups A to AN).
-3. **Execution Mode Assignment**:
-   - `QUICK`: Single-file bugfixes, small tasks (Gates QG-01 to QG-03).
-   - `STANDARD`: Feature implementation, refactoring (Gates QG-01 to QG-08).
-   - `STRICT`: Production infra, security, database, or releases (Gates QG-01 to QG-15).
-4. **Polyglot Script Engine Dispatch**: Invokes appropriate runtime adapters for building, testing, linting, and diagnosing tasks across 11 languages.
-5. **DAG Topological Sort**: Dispatches prerequisite skills before downstream dependents.
-6. **Quality Gate Verification**: Blocks progress if terminal evidence or tests fail.
+| Group | Skills Range | Domain | Focus Area |
+|:---|:---:|:---|:---|
+| **Root** | 000 | Master Orchestration | `dex-master-orchestrator` Root Control Plane |
+| **A** | 001–010 | Core Engineering | Development workflow, task breakdown, atomic git commits |
+| **B** | 011–020 | Architecture & AI Agents | Modular architecture, multi-agent coordination, database design |
+| **C** | 021–030 | Production Engineering | Impact analysis, reliability, feature flags, code review |
+| **D** | 031–040 | Frontend Engineering | Component contracts, data flow, accessibility, SSR |
+| **E** | 041–050 | Backend & Integration | Event-driven architecture, idempotency, background job queues |
+| **F** | 051–060 | Data Engineering | Data contracts, pipelines, query plan optimization |
+| **G** | 061–070 | AI & LLM Engineering | RAG pipelines, retrieval evaluation, LLM cost controls |
+| **H** | 071–080 | Developer Experience | Monorepo governance, CLI engineering, semantic versioning |
+| **I** | 081–090 | Security & Reliability | Secrets management, circuit breakers, incident postmortems |
+| **J** | 091–100 | Cloud & Infrastructure | Cloud network design, infrastructure contracts, container topology |
+| **K** | 101–110 | Mobile & Desktop Engineering | Safe area layouts, offline sync, performance profiling |
+| **L** | 111–120 | Product & Operations Engineering | Growth experiments, A/B testing statistics, telemetry |
+| **M** | 121–130 | Advanced Software Verification | Contract-first development, fuzzing, property-based tests |
+| **N** | 131–140 | Advanced SRE & Distributed Systems | Distributed tracing, chaos engineering, consensus protocols |
+| **O** | 141–150 | Advanced Cloud Platform | Multi-region data residency, failover drills, cost tuning |
+| **P** | 151–160 | Language & Runtime Engineering | FFI boundaries, memory safety, binary inspection |
+| **Q** | 161–170 | Advanced AI Systems | Training data leakage audit, prompt injection defenses |
+| **R** | 171–180 | Product Design & User Research | Design systems documentation, usability research |
+| **S** | 181–190 | Application Security Specialists | API security boundaries, zero-trust verification |
+| **T** | 191–200 | SkillOps Engineering | Skill evaluation benchmarks, quality gates |
+| **U** | 201–210 | Visual Design Intelligence | Visual hierarchy audit, fluid typography, WCAG compliance |
+| **V** | 211–220 | Advanced Web Experiences | Web animation performance, micro-frontend boundaries |
+| **W** | 221–230 | Browser Extensions & Automation | Extension MV3, artifact signature verification, SLSA |
+| **X** | 231–240 | Authorized Reverse Engineering | Bundle deobfuscation, bytecode analysis, binary diffing |
+| **Y** | 241–250 | Protocols & Service Integration | Service contract simulation, gRPC/Protobuf evolution |
+| **Z** | 251–260 | AI Agent Operations | Agent evaluation harness, state persistence, memory governance |
+| **AA** | 261–270 | Advanced Data & Analytics | Columnar storage optimization, stream processing |
+| **AB** | 271–280 | Native, Graphics & Game Engineering | Native performance profiling, shaders, game state machines |
+| **AC** | 281–290 | Software Trust & Distribution | Supply chain trust, signed release attestation |
+| **AD** | 291–300 | Advanced SkillOps Governance | Catalog health, dependency cycle analysis |
+| **AE** | 301–310 | Enterprise Software Architecture | Clean architecture boundaries, domain event streaming |
+| **AF** | 311–320 | Distributed Systems Deep Engineering | Raft consensus, vector clocks, split-brain mitigation |
+| **AG** | 321–330 | Applied AI Systems | Fine-tuning dataset curation, LLM guardrails |
+| **AH** | 331–340 | Extended Polyglot Engineering | Cross-language FFI interop, multi-runtime bridges |
+| **AI** | 341–350 | Advanced UI/UX Engineering | Design token migration, high-density dashboard layouts |
+| **AJ** | 351–360 | Authorized Software Inspection | Static binary analysis, memory leak diagnostics |
+| **AK** | 361–370 | ML Platform & Data Systems | Feature store engineering, model inference privacy |
+| **AL** | 371–380 | Developer Platform & Polyglot Tooling | CLI command contracts, AST transformation tooling |
+| **AM** | 381–390 | Advanced Security & Trust | Secret rotation drills, audit trail immutability |
+| **AN** | 391–400 | SkillOps Quality & Governance | Automated skill compliance, release readiness gates |
+| **AO** | 401–410 | Supabase & Advanced PostgreSQL | PostgreSQL RLS policy verification, storage policies |
+| **AP** | 411–420 | Autonomous Agent Engineering | Tool permission modeling, execution budget cutoffs |
+| **AQ** | 421–430 | Streaming & Digital Media Systems | HLS/DASH manifest validation, video transcoding ladders |
+| **AR** | 431–440 | Chess & Native Performance | UCI protocol compliance, Perft movegen, Zobrist hashing |
+| **AS** | 441–450 | Windows & Desktop Systems | Win32 DPI multi-monitor scaling, COM interop boundaries |
+| **AT** | 451–460 | Platform Resilience & Infrastructure | Kubernetes secret delivery, Terraform contract tests |
+| **AU** | 461–470 | Product Experience & Design Systems | Design critique rubrics, responsive layout verification |
+| **AV** | 471–480 | Advanced TypeScript & Full Stack | Package dual-publish (ESM/CJS), Next.js data cache |
+| **AW** | 481–490 | Security, Privacy & Resilience Governance | Dependency provenance attestation, SLSA build controls |
+| **AX** | 491–500 | SkillOps Intelligence & Scalability | Skill conflict precedence, lifecycle health dashboards |
 
 ---
 
-## 4. Security & Isolation Architecture
+## 3. V10 Quality Gate Architecture (100-Point Rubric)
 
-DEX enforces strict defense-in-depth security:
-- **No Unsafe Execution**: SKILL.md files never execute arbitrary code; they specify deterministic agent workflows.
-- **Polyglot Sandbox**: Subprocess execution strictly uses `shell=False`, enforces 512KB output caps, path traversal checks, and timeout kill timers.
-- **Air-Gapped Operation**: Native skills require zero network connectivity during static evaluation.
-- **AST Security Screening**: Automated AST scanner (`scripts/audit_skills.py`) detects and blocks dangerous shell tokens (`curl | sh`, `rm -rf /`, `eval(...)`).
-- **Segregated Third-Party Upstream**: External code resides in `integrations/` with pinned SHA-1 commits and independent licenses.
+DEX v10.0 enforces an evidence-based Quality Architecture where each skill is audited across 6 weighted dimensions:
+
+```mermaid
+flowchart TD
+    subgraph Rubric["100-Point Quality Rubric"]
+        FC["Functional Correctness (30 pts)"]
+        AR["Activation & Routing Accuracy (25 pts)"]
+        TP["Technical Precision (15 pts)"]
+        SS["Security & Safety (10 pts)"]
+        DU["Documentation & Usability (10 pts)"]
+        MI["Maintainability & Integration (10 pts)"]
+    end
+
+    subgraph Gates["Quality Gates & Evidence States"]
+        V["VERIFIED (30 pts FC): Executed on live host runtime"]
+        P["PARTIAL (22 pts FC): Executed via AST/mock/schema fixture"]
+        NT["NOT_TESTED (15 pts FC): Syntactically valid, missing toolchain"]
+    end
+
+    FC --> V
+    FC --> P
+    FC --> NT
+```
+
+1. **Functional Correctness (30 pts):** Verified real-world execution. No skill receives 30 points without reproducible execution evidence.
+2. **Activation & Routing Accuracy (25 pts):** Trigger conditions, distinct `When to Use` vs `When NOT to Use`, concise descriptions, verified routing benchmark results.
+3. **Technical Precision (15 pts):** Full 14-section compliance, explicit inputs/outputs, measurable acceptance criteria.
+4. **Security & Safety (10 pts):** Zero prompt injection vulnerabilities, zero destructive command patterns (`rm -rf /`, `curl | sh`), credential isolation.
+5. **Documentation & Usability (10 pts):** Actionable step-by-step workflow, realistic implementation scenarios, readable markdown.
+6. **Maintainability & Integration (10 pts):** Zero dangling references in Section 13, valid cross-skill integration links, platform adapter definitions.
+
+---
+
+## 4. Polyglot Script Engine Architecture
+
+The Polyglot Script Engine (`scripts/polyglot/`) provides automated, multi-language execution through 11 language adapters:
+
+- **Python Adapter:** `python`, `pytest`, AST inspection, linting.
+- **TypeScript / JavaScript Adapter:** `node`, `npm`, `npx`, schema verification, ESM/CJS compatibility.
+- **PowerShell Adapter:** Windows management, security execution policies, system probes.
+- **C++ Adapter:** `cmake` validation, native compilation (when compiler available).
+- **Graceful Toolchain Degradation:** Missing runtimes (Rust, Go, C#, Java, PHP, Bash) return `TOOL_NOT_AVAILABLE` with exit code 127/0 and installation instructions, never manufacturing false success.

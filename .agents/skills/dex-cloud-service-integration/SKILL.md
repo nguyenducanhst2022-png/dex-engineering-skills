@@ -105,7 +105,7 @@ export async function fetchDocument(bucket: string, key: string): Promise<Uint8A
 ## 13. Related & Complementary Skills
 - `dex-infrastructure-as-code`: Tạo IAM roles và cloud resources.
 - `dex-secrets-management`: Quản lý kết nối và credentials an toàn.
-- `dex-resilience-engineering`: Kiểm soát circuit breaker và timeout khi gọi dịch vụ ngoài.
+- `dex-reliability-engineering`: Kiểm soát circuit breaker và timeout khi gọi dịch vụ ngoài.
 
 ## 14. Realistic Usage Example
 ### Tình huống thực tế:

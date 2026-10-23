@@ -100,7 +100,7 @@ export function validateAgentPlan(plan: AgentTaskPlan, availableTools: Set<strin
 ## 13. Related & Complementary Skills
 - [`dex-agent-engineering`](.agents/skills/dex-agent-engineering/SKILL.md)
 - [`dex-multi-agent-orchestration`](.agents/skills/dex-multi-agent-orchestration/SKILL.md)
-- [`dex-agent-loop-safety-cutoffs`](.agents/skills/dex-agent-loop-safety-cutoffs/SKILL.md)
+- [`dex-agent-execution-budget-controls`](.agents/skills/dex-agent-execution-budget-controls/SKILL.md)
 
 ## 14. Realistic Usage Example
 ### Tình huống triển khai thực tế:

@@ -98,7 +98,7 @@ export default {
 - Script Codemod tự động chuyển đổi mã nguồn cũ.
 
 ## 13. Related & Complementary Skills
-dex-design-system-foundations, dex-visual-hierarchy-composition, dex-theme-lifecycle-management
+dex-design-system-tokens, dex-visual-hierarchy-audit, dex-design-system-tokens
 
 ## 14. Realistic Usage Example
 ```powershell

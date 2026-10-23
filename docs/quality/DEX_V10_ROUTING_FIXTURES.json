@@ -1,0 +1,427 @@
+[
+  {
+    "id": "A",
+    "task_input": "Standard iterative development workflow for AI coding, breaking tasks down, modular code and safe checkpoints.",
+    "expected_skills": [
+      "dex-development-workflow"
+    ],
+    "forbidden_skills": [
+      "dex-chess-search-pruning-evals"
+    ],
+    "required_tools": "Git CLI",
+    "routing_result": "PASS",
+    "actual_output": [
+      "dex-development-workflow",
+      "dex-contract-first-development",
+      "dex-task-delegation"
+    ]
+  },
+  {
+    "id": "B",
+    "task_input": "Multi-agent coordination, role division, concurrent subagent task execution and peer reviews.",
+    "expected_skills": [
+      "dex-multi-agent-orchestration"
+    ],
+    "forbidden_skills": [
+      "dex-streaming-manifest-validation"
+    ],
+    "required_tools": "Agent Runtime",
+    "routing_result": "PASS",
+    "actual_output": [
+      "dex-execution-sandbox-policies",
+      "dex-task-delegation",
+      "dex-multi-agent-orchestration"
+    ]
+  },
+  {
+    "id": "C",
+    "task_input": "Evaluate change impact analysis for database schema migrations before production.",
+    "expected_skills": [
+      "dex-change-impact-analysis"
+    ],
+    "forbidden_skills": [
+      "dex-color-contrast-systems"
+    ],
+    "required_tools": "Impact Analyzer",
+    "routing_result": "PASS",
+    "actual_output": [
+      "dex-change-impact-analysis",
+      "dex-database-engineering",
+      "dex-schema-evolution"
+    ]
+  },
+  {
+    "id": "D",
+    "task_input": "Enforce strict TypeScript design system token contracts and component prop validation.",
+    "expected_skills": [
+      "dex-ui-component-contracts"
+    ],
+    "forbidden_skills": [
+      "dex-win32-dpi-multi-monitor-layout"
+    ],
+    "required_tools": "TypeScript Compiler",
+    "routing_result": "PASS",
+    "actual_output": [
+      "dex-ui-component-contracts",
+      "dex-design-system-documentation",
+      "dex-design-token-migration"
+    ]
+  },
+  {
+    "id": "E",
+    "task_input": "Design resilient event-driven architecture with idempotent event processing queues.",
+    "expected_skills": [
+      "dex-event-driven-architecture"
+    ],
+    "forbidden_skills": [
+      "dex-design-critique-rubric"
+    ],
+    "required_tools": "Message Broker",
+    "routing_result": "PASS",
+    "actual_output": [
+      "dex-event-driven-architecture",
+      "dex-idempotent-operations",
+      "dex-design-reference-evaluation"
+    ]
+  },
+  {
+    "id": "F",
+    "task_input": "Formulate data contracts and pipeline validation rules for warehouse ingestion.",
+    "expected_skills": [
+      "dex-data-contracts"
+    ],
+    "forbidden_skills": [
+      "dex-chess-uci-protocol-compliance"
+    ],
+    "required_tools": "Data Contract CLI",
+    "routing_result": "PASS",
+    "actual_output": [
+      "dex-data-contracts",
+      "dex-forms-and-validation",
+      "dex-data-warehouse-cost-tuning"
+    ]
+  },
+  {
+    "id": "G",
+    "task_input": "Build dense retrieval RAG pipeline with relevance re-ranking and hallucination checks.",
+    "expected_skills": [
+      "dex-rag-pipelines"
+    ],
+    "forbidden_skills": [
+      "dex-terraform-module-contract-tests"
+    ],
+    "required_tools": "Vector DB",
+    "routing_result": "PASS",
+    "actual_output": [
+      "dex-retrieval-evaluation",
+      "dex-rag-pipelines",
+      "dex-reranking-strategies"
+    ]
+  },
+  {
+    "id": "H",
+    "task_input": "Manage enterprise monorepo workspace boundaries and package dependency graphs.",
+    "expected_skills": [
+      "dex-monorepo-governance"
+    ],
+    "forbidden_skills": [
+      "dex-video-transcoding-ladders"
+    ],
+    "required_tools": "Monorepo CLI",
+    "routing_result": "PASS",
+    "actual_output": [
+      "dex-monorepo-governance",
+      "dex-dependency-management",
+      "dex-modular-monolith-boundaries"
+    ]
+  },
+  {
+    "id": "I",
+    "task_input": "Manage application secrets, zero-hardcoded credentials policy, secret rotation, HashiCorp Vault / AWS Secrets Manager.",
+    "expected_skills": [
+      "dex-secrets-management"
+    ],
+    "forbidden_skills": [
+      "dex-email-template-rendering"
+    ],
+    "required_tools": "KMS / Vault",
+    "routing_result": "PASS",
+    "actual_output": [
+      "dex-secrets-management",
+      "dex-secret-rotation-drills",
+      "dex-kubernetes-secret-delivery"
+    ]
+  },
+  {
+    "id": "J",
+    "task_input": "Review Supabase multi-tenant PostgreSQL RLS SELECT INSERT UPDATE DELETE isolation.",
+    "expected_skills": [
+      "dex-postgres-rls-policy-verification"
+    ],
+    "forbidden_skills": [
+      "dex-supabase-storage-access-policies"
+    ],
+    "required_tools": "PostgreSQL Instance",
+    "routing_result": "PASS",
+    "actual_output": [
+      "dex-postgres-rls-policy-verification",
+      "dex-software-update-trust-chains",
+      "dex-supabase-auth-ssr-integration"
+    ]
+  },
+  {
+    "id": "K",
+    "task_input": "Validate agent tool permission scopes and approval boundaries.",
+    "expected_skills": [
+      "dex-agent-tool-permission-modeling"
+    ],
+    "forbidden_skills": [
+      "dex-agent-execution-budget-controls"
+    ],
+    "required_tools": "Agent Sandbox",
+    "routing_result": "PASS",
+    "actual_output": [
+      "dex-agent-tool-permission-modeling",
+      "dex-agent-engineering",
+      "dex-agent-skills-spec-compatibility"
+    ]
+  },
+  {
+    "id": "L",
+    "task_input": "Validate, audit, and debug HLS (m3u8) and MPEG-DASH (mpd) streaming manifests segment sequencing.",
+    "expected_skills": [
+      "dex-streaming-manifest-validation"
+    ],
+    "forbidden_skills": [
+      "dex-chess-search-pruning-evals"
+    ],
+    "required_tools": "Manifest Validator",
+    "routing_result": "PASS",
+    "actual_output": [
+      "dex-streaming-manifest-validation",
+      "dex-hls-dash-playback",
+      "dex-debug-symbols-correlation"
+    ]
+  },
+  {
+    "id": "M",
+    "task_input": "Test chess UCI handshake stop ponder command ordering.",
+    "expected_skills": [
+      "dex-chess-uci-protocol-compliance"
+    ],
+    "forbidden_skills": [
+      "dex-chess-search-pruning-evals"
+    ],
+    "required_tools": "Chess Engine",
+    "routing_result": "PASS",
+    "actual_output": [
+      "dex-chess-uci-protocol-compliance",
+      "dex-chess-engine-search-testing",
+      "dex-cli-command-contracts"
+    ]
+  },
+  {
+    "id": "N",
+    "task_input": "Review C++ Rust FFI ownership boundaries and ABI layout safety.",
+    "expected_skills": [
+      "dex-cpp-rust-ffi-validation"
+    ],
+    "forbidden_skills": [
+      "dex-chess-nnue-evaluation-integration"
+    ],
+    "required_tools": "FFI Analyzer",
+    "routing_result": "PASS",
+    "actual_output": [
+      "dex-cpp-rust-ffi-validation",
+      "dex-rust-unsafe-audit",
+      "dex-ffi-boundary-contracts"
+    ]
+  },
+  {
+    "id": "O",
+    "task_input": "Reproduce Windows per-monitor DPI coordinate translation and layout scaling defects.",
+    "expected_skills": [
+      "dex-win32-dpi-multi-monitor-layout"
+    ],
+    "forbidden_skills": [
+      "dex-windows-com-interop"
+    ],
+    "required_tools": "Win32 Sandbox",
+    "routing_result": "PASS",
+    "actual_output": [
+      "dex-win32-dpi-multi-monitor-layout",
+      "dex-windows-packaging",
+      "dex-windows-input-api-integration"
+    ]
+  },
+  {
+    "id": "P",
+    "task_input": "Test Kubernetes secret delivery and credential rotation inside ephemeral pods.",
+    "expected_skills": [
+      "dex-kubernetes-secret-delivery"
+    ],
+    "forbidden_skills": [
+      "dex-terraform-module-contract-tests"
+    ],
+    "required_tools": "Kubectl / Minikube",
+    "routing_result": "PASS",
+    "actual_output": [
+      "dex-kubernetes-secret-delivery",
+      "dex-secret-rotation-drills",
+      "dex-ephemeral-test-credentials"
+    ]
+  },
+  {
+    "id": "Q",
+    "task_input": "Critique visual hierarchy, usability and accessibility when reviewing screens or dashboard designs.",
+    "expected_skills": [
+      "dex-design-critique-rubric"
+    ],
+    "forbidden_skills": [
+      "dex-email-template-rendering"
+    ],
+    "required_tools": "Browser Fixtures",
+    "routing_result": "PASS",
+    "actual_output": [
+      "dex-design-critique-rubric",
+      "dex-visual-hierarchy-audit",
+      "dex-ui-visual-qa-review"
+    ]
+  },
+  {
+    "id": "R",
+    "task_input": "Verify TypeScript ESM CommonJS dual publish exports declarations with package consumers.",
+    "expected_skills": [
+      "dex-typescript-package-dual-publish"
+    ],
+    "forbidden_skills": [
+      "dex-react-render-profiling"
+    ],
+    "required_tools": "Node & TypeScript",
+    "routing_result": "PASS",
+    "actual_output": [
+      "dex-typescript-package-dual-publish",
+      "dex-typescript-type-safety",
+      "dex-monorepo-governance"
+    ]
+  },
+  {
+    "id": "S",
+    "task_input": "Diagnose Next.js App Router data cache invalidation stale read behaviors.",
+    "expected_skills": [
+      "dex-nextjs-app-router-data-cache"
+    ],
+    "forbidden_skills": [
+      "dex-vue-composition-reusability"
+    ],
+    "required_tools": "Next.js Sandbox",
+    "routing_result": "PASS",
+    "actual_output": [
+      "dex-nextjs-app-router-data-cache",
+      "dex-build-cache-integrity",
+      "dex-tanstack-query-cache-coherence"
+    ]
+  },
+  {
+    "id": "T",
+    "task_input": "Audit software dependency provenance attestation and SLSA build identity digests.",
+    "expected_skills": [
+      "dex-dependency-provenance-attestation"
+    ],
+    "forbidden_skills": [
+      "dex-disclosure-coordinated-triage"
+    ],
+    "required_tools": "Attestation Verifier",
+    "routing_result": "PASS",
+    "actual_output": [
+      "dex-dependency-provenance-attestation",
+      "dex-release-reproducibility-audit",
+      "dex-build-cache-integrity"
+    ]
+  },
+  {
+    "id": "U",
+    "task_input": "Review skill conflict precedence across overlapping engineering domain workflows.",
+    "expected_skills": [
+      "dex-skill-conflict-precedence"
+    ],
+    "forbidden_skills": [
+      "dex-skill-lifecycle-health-dashboard"
+    ],
+    "required_tools": "Catalog Matrix",
+    "routing_result": "PASS",
+    "actual_output": [
+      "dex-skill-conflict-precedence",
+      "dex-skill-routing-conflict-tests",
+      "dex-skill-catalog-reconciliation"
+    ]
+  },
+  {
+    "id": "V",
+    "task_input": "Test agent shutdown cancellation checkpoint recovery without duplicated side effects.",
+    "expected_skills": [
+      "dex-agent-shutdown-and-cancellation"
+    ],
+    "forbidden_skills": [
+      "dex-agent-reviewer-independence"
+    ],
+    "required_tools": "Agent Harness",
+    "routing_result": "PASS",
+    "actual_output": [
+      "dex-agent-shutdown-and-cancellation",
+      "dex-agent-engineering",
+      "dex-multi-agent-orchestration"
+    ]
+  },
+  {
+    "id": "W",
+    "task_input": "Revalidate upstream skill provenance pinned commit before importing into catalog.",
+    "expected_skills": [
+      "dex-skill-provenance-revalidation"
+    ],
+    "forbidden_skills": [
+      "dex-skill-task-suitability-classifier"
+    ],
+    "required_tools": "Git Sandbox",
+    "routing_result": "PASS",
+    "actual_output": [
+      "dex-skill-provenance-revalidation",
+      "dex-skill-upstream-sync",
+      "dex-skill-license-provenance"
+    ]
+  },
+  {
+    "id": "X",
+    "task_input": "Test skill crosshost fixture compatibility across coding agent host environments.",
+    "expected_skills": [
+      "dex-skill-crosshost-fixture-tests"
+    ],
+    "forbidden_skills": [
+      "dex-skill-progressive-disclosure-metrics"
+    ],
+    "required_tools": "Agent Hosts",
+    "routing_result": "PASS",
+    "actual_output": [
+      "dex-skill-crosshost-fixture-tests",
+      "dex-agent-skills-spec-compatibility",
+      "dex-agent-engineering"
+    ]
+  },
+  {
+    "id": "Y",
+    "task_input": "Generate skill lifecycle health dashboard with actual verified test execution counts.",
+    "expected_skills": [
+      "dex-skill-lifecycle-health-dashboard"
+    ],
+    "forbidden_skills": [
+      "dex-skill-task-suitability-classifier"
+    ],
+    "required_tools": "Health Ledger",
+    "routing_result": "PASS",
+    "actual_output": [
+      "dex-skill-lifecycle-health-dashboard",
+      "dex-skill-execution-evidence-ledger",
+      "dex-skill-security-screening"
+    ]
+  }
+]

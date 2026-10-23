@@ -89,7 +89,7 @@ pd schedule list-shifts --schedule-id=P123456
 - Danh sách cập nhật tài liệu Runbooks cho các sự cố mới.
 
 ## 13. Related & Complementary Skills
-dex-incident-retrospective-authoring, dex-alert-quality-engineering, dex-operational-game-days
+dex-incident-postmortems, dex-alert-quality-engineering, dex-operational-game-days
 
 ## 14. Realistic Usage Example
 ### Tình huống thực tế:

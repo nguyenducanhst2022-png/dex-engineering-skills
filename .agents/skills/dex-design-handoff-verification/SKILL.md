@@ -92,7 +92,7 @@ npx playwright test --update-snapshots
 - Báo cáo Visual Regression Diff tự động trong Pull Request.
 
 ## 13. Related & Complementary Skills
-dex-frontend-architecture, dex-accessibility-automation, dex-usability-study-design
+dex-frontend-data-flow, dex-accessibility-automation, dex-usability-study-design
 
 ## 14. Realistic Usage Example
 ### Tình huống thực tế:

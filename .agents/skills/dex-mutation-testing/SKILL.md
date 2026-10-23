@@ -83,7 +83,7 @@ mutmut run --paths-to-mutate=src/payment/
 - PR cập nhật các test assertions bổ sung.
 
 ## 13. Related & Complementary Skills
-dex-coverage-risk-analysis, dex-unit-testing, dex-formal-invariant-checks
+dex-coverage-risk-analysis, dex-testing-engineering, dex-formal-invariant-checks
 
 ## 14. Realistic Usage Example
 ### Tình huống thực tế:

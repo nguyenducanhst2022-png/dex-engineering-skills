@@ -77,7 +77,7 @@ Thiết kế và xây dựng bộ dữ liệu đánh giá mô hình ngôn ngữ 
 ## 13. Related & Complementary Skills
 - [`dex-prompt-evaluation`](.agents/skills/dex-prompt-evaluation/SKILL.md)
 - [`dex-model-evaluation`](.agents/skills/dex-model-evaluation/SKILL.md)
-- [`dex-agent-multi-turn-eval-harness`](.agents/skills/dex-agent-multi-turn-eval-harness/SKILL.md)
+- [`dex-agent-evaluation-harness`](.agents/skills/dex-agent-evaluation-harness/SKILL.md)
 
 ## 14. Realistic Usage Example
 ### Tình huống triển khai thực tế:

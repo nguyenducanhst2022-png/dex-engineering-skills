@@ -77,7 +77,7 @@ Thiết kế và triển khai các biểu đồ dữ liệu có khả năng ti�
 - Chế độ xem bảng dữ liệu dự phòng có thể chuyển đổi.
 
 ## 13. Related & Complementary Skills
-dex-wcag-compliance-audit, dex-high-density-dashboard-layout, dex-component-state-matrix
+dex-accessibility-automation, dex-high-density-dashboard-layout, dex-component-state-matrix
 
 ## 14. Realistic Usage Example
 ```powershell

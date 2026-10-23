@@ -82,7 +82,7 @@ tox -e py310,py311,py312
 - Bảng ma trận hỗ trợ chính thức trong tài liệu README.
 
 ## 13. Related & Complementary Skills
-dex-ci-pipeline-optimization, dex-cross-platform-engineering, dex-python-project-engineering
+dex-cicd-automation, dex-cli-engineering, dex-python-project-engineering
 
 ## 14. Realistic Usage Example
 ### Tình huống thực tế:

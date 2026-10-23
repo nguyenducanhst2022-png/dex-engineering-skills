@@ -93,7 +93,7 @@ dotnet-dump analyze core_dump.dmp
 - Báo cáo phân tích hiệu năng và tài liệu cấu hình chẩn đoán production.
 
 ## 13. Related & Complementary Skills
-dex-backend-architecture, dex-load-and-stress-testing, dex-database-design
+dex-software-architecture, dex-load-and-stress-testing, dex-database-engineering
 
 ## 14. Realistic Usage Example
 ### Tình huống thực tế:

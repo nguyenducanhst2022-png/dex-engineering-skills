@@ -95,7 +95,7 @@ export const AllStatesMatrix: StoryObj = {
 - Test suite xác thực chặn sự kiện khi disabled.
 
 ## 13. Related & Complementary Skills
-dex-wcag-compliance-audit, dex-design-token-migration, dex-gesture-interaction-accessibility
+dex-accessibility-automation, dex-design-token-migration, dex-gesture-interaction-accessibility
 
 ## 14. Realistic Usage Example
 ```powershell

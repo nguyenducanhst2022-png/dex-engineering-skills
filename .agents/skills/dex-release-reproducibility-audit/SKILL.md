@@ -79,7 +79,7 @@ diffoscope build_run_1/release.tar.gz build_run_2/release.tar.gz
 ## 13. Related & Complementary Skills
 - [`dex-binary-diff-regression`](.agents/skills/dex-binary-diff-regression/SKILL.md)
 - [`dex-code-signing-release-process`](.agents/skills/dex-code-signing-release-process/SKILL.md)
-- [`dex-slsa-provenance-verification`](.agents/skills/dex-slsa-provenance-verification/SKILL.md)
+- [`dex-build-slsa-controls`](.agents/skills/dex-build-slsa-controls/SKILL.md)
 
 ## 14. Realistic Usage Example
 ### Tình huống triển khai thực tế:

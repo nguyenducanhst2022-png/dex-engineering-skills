@@ -99,7 +99,7 @@ uv run mypy src/
 - Cấu hình Pre-commit hooks và Dockerfile tối ưu hóa tốc độ build.
 
 ## 13. Related & Complementary Skills
-dex-unit-testing, dex-compatibility-matrix-testing, dex-ci-pipeline-optimization
+dex-testing-engineering, dex-compatibility-matrix-testing, dex-cicd-automation
 
 ## 14. Realistic Usage Example
 ### Tình huống thực tế:

@@ -91,7 +91,7 @@ wasm-opt -O3 pkg/image_filter_bg.wasm -o pkg/image_filter_bg.wasm
 - Bộ test suite tích hợp và benchmark so sánh hiệu năng.
 
 ## 13. Related & Complementary Skills
-dex-ffi-boundary-contracts, dex-reproducible-benchmarking, dex-frontend-architecture
+dex-ffi-boundary-contracts, dex-reproducible-benchmarking, dex-frontend-data-flow
 
 ## 14. Realistic Usage Example
 ### Tình huống thực tế:

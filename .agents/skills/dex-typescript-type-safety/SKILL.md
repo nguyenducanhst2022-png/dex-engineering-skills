@@ -95,7 +95,7 @@ npx tsc --noEmit
 - Bộ modules Zod schemas và Branded types chuẩn mực.
 
 ## 13. Related & Complementary Skills
-dex-nodejs-runtime-diagnostics, dex-frontend-architecture, dex-api-contract-testing
+dex-nodejs-runtime-diagnostics, dex-frontend-data-flow, dex-contract-first-development
 
 ## 14. Realistic Usage Example
 ### Tình huống thực tế:

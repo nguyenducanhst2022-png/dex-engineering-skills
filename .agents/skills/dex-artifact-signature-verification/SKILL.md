@@ -75,8 +75,8 @@ gpg --verify release-v6.0.0.tar.gz.asc release-v6.0.0.tar.gz
 1. Tệp chữ ký số đính kèm bản phát hành `release.tar.gz.asc`.
 
 ## 13. Related & Complementary Skills
-- [`dex-container-image-signing-cosign`](.agents/skills/dex-container-image-signing-cosign/SKILL.md)
-- [`dex-slsa-provenance-verification`](.agents/skills/dex-slsa-provenance-verification/SKILL.md)
+- [`dex-artifact-signature-verification`](.agents/skills/dex-artifact-signature-verification/SKILL.md)
+- [`dex-build-slsa-controls`](.agents/skills/dex-build-slsa-controls/SKILL.md)
 - [`dex-code-signing-release-process`](.agents/skills/dex-code-signing-release-process/SKILL.md)
 
 ## 14. Realistic Usage Example

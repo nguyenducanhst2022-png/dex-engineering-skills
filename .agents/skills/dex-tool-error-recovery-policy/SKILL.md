@@ -93,7 +93,7 @@ class ToolErrorPolicy:
 - Bộ kiểm thử unit test giả lập các kịch bản lỗi mạng và lỗi cú pháp.
 
 ## 13. Related & Complementary Skills
-dex-agent-execution-budget-controls, dex-agent-engineering, dex-resilience-circuit-breaker
+dex-agent-execution-budget-controls, dex-agent-engineering, dex-api-circuit-breaker-verification
 
 ## 14. Realistic Usage Example
 ```bash

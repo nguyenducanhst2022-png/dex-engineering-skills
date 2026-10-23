@@ -84,7 +84,7 @@ pytest tests/e2e/test_checkout.py --count=100 -n auto
 - PR sửa mã nguồn test và dỡ bỏ trạng thái quarantine.
 
 ## 13. Related & Complementary Skills
-dex-unit-testing, dex-test-data-management, dex-ci-pipeline-optimization
+dex-testing-engineering, dex-test-data-management, dex-cicd-automation
 
 ## 14. Realistic Usage Example
 ### Tình huống thực tế:

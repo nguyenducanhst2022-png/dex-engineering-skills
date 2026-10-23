@@ -98,7 +98,7 @@ k6 run --out json=results.json scripts/load-test.js
 - Báo cáo phân tích hiệu năng và biểu đồ độ trễ kèm đề xuất cấu hình hạ tầng.
 
 ## 13. Related & Complementary Skills
-dex-traffic-shaping-backpressure, dex-rate-limiting-quotas, dex-performance-profiling
+dex-traffic-shaping-backpressure, dex-rate-limiting-quotas, dex-performance-optimization
 
 ## 14. Realistic Usage Example
 ### Tình huống thực tế:

@@ -1,6 +1,6 @@
 {
   "framework": "DEX Engineering Skills Framework",
-  "version": "9.0.0-rc.0",
+  "version": "10.0.0",
   "target_skills_count": 501,
   "native_skills": [
     {

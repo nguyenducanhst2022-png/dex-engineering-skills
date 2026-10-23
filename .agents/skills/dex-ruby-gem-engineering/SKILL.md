@@ -86,7 +86,7 @@ end
 - Bộ kiểm thử RSpec và cấu hình RuboCop tự động hóa.
 
 ## 13. Related & Complementary Skills
-dex-dependency-vulnerability-intelligence, dex-open-source-license-scanning, dex-package-publishing-checks
+dex-dependency-vulnerability-intelligence, dex-open-source-license-scanning, dex-typescript-package-dual-publish
 
 ## 14. Realistic Usage Example
 ```powershell

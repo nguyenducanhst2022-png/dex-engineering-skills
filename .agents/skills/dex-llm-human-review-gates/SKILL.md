@@ -85,7 +85,7 @@ export async function hitlApprovalGate(action: { tool: string; params: any }, us
 ## 13. Related & Complementary Skills
 - [`dex-agent-permissions`](.agents/skills/dex-agent-permissions/SKILL.md)
 - [`dex-agent-engineering`](.agents/skills/dex-agent-engineering/SKILL.md)
-- [`dex-agent-loop-safety-cutoffs`](.agents/skills/dex-agent-loop-safety-cutoffs/SKILL.md)
+- [`dex-agent-execution-budget-controls`](.agents/skills/dex-agent-execution-budget-controls/SKILL.md)
 
 ## 14. Realistic Usage Example
 ### Tình huống triển khai thực tế:

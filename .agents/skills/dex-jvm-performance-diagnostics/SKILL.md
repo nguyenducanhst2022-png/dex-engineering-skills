@@ -85,7 +85,7 @@ JAVA_OPTS="-Xms4g -Xmx4g \
 - Bộ cờ khởi động JVM tối ưu hóa cho môi trường container Kubernetes.
 
 ## 13. Related & Complementary Skills
-dex-performance-profiling, dex-load-and-stress-testing, dex-backend-architecture
+dex-performance-optimization, dex-load-and-stress-testing, dex-software-architecture
 
 ## 14. Realistic Usage Example
 ### Tình huống thực tế:

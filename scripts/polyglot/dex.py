@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-DEX Polyglot Script Engine v7.0 / v8.0 — CLI Entrypoint
+DEX Polyglot Script Engine v10.0 — CLI Entrypoint
 Unified multi-language automation across Python, TypeScript, JavaScript,
 PowerShell, Bash, Rust, Go, C++, C#, Java, and PHP.
 """
@@ -8,6 +8,8 @@ PowerShell, Bash, Rust, Go, C++, C#, Java, and PHP.
 import os
 import sys
 import argparse
+import re
+import json
 from pathlib import Path
 
 # Add repo root to sys.path so scripts.polyglot can be imported
@@ -42,6 +44,10 @@ def build_parser() -> argparse.ArgumentParser:
     skills.add_argument("--format", "-f", choices=["text", "json"], default="text")
     skills.add_argument("--dry-run", action="store_true", help="All current skills commands are read-only")
 
+    verify_p = subparsers.add_parser("verify", help="Verify a specific skill against DEX quality specifications")
+    verify_p.add_argument("--skill", "-s", required=True, help="Skill name to verify")
+    verify_p.add_argument("--format", "-f", choices=["text", "json"], default="text")
+
     # Global options
     for sub in [
         "status", "detect", "doctor", "lint", "typecheck",
@@ -65,7 +71,7 @@ def cmd_status(args) -> ExecutionResult:
     available = [l for l in all_langs if REGISTRY.get_adapter(l).is_available()]
 
     lines = [
-        f"DEX Polyglot Script Engine v8.0.0",
+        f"DEX Polyglot Script Engine v10.0.0",
         f"Working Directory: {Path(args.cwd).resolve()}",
         f"Supported Languages: {len(all_langs)} ({', '.join(all_langs)})",
         f"Available on Host:   {len(available)} ({', '.join(available)})",
@@ -216,6 +222,40 @@ def main():
     if args.command == "skills":
         from scripts.skillops import run
         sys.exit(run(args))
+
+    if args.command == "verify":
+        from scripts.validate_skills import validate_skill
+        from scripts.audit_skills import audit_single_skill, compute_quality_score, parse_frontmatter
+        skills_base = os.path.join(REPO_ROOT, ".agents", "skills")
+        skill_dir = os.path.join(skills_base, args.skill)
+        if not os.path.exists(skill_dir):
+            print(f"Error: Skill '{args.skill}' not found in {skills_base}")
+            sys.exit(1)
+        errs = validate_skill(skill_dir, args.skill)
+        skill_file = os.path.join(skill_dir, "SKILL.md")
+        with open(skill_file, "r", encoding="utf-8") as sf:
+            s_content = sf.read()
+        s_fm, s_body = parse_frontmatter(s_content)
+        sec_matches = list(re.finditer(r"^##\s+(\d+)\.\s*(.*?)$", s_body, re.M))
+        found_sec = {}
+        for i, m in enumerate(sec_matches):
+            num = int(m.group(1))
+            hdr = m.group(2).strip()
+            start = m.end()
+            end = sec_matches[i+1].start() if i+1 < len(sec_matches) else len(s_body)
+            found_sec[num] = (hdr, s_body[start:end].strip())
+        issues = audit_single_skill(skill_dir, args.skill, set(os.listdir(skills_base)))
+        score = compute_quality_score(args.skill, s_content, s_fm, s_body, found_sec, issues, "VERIFIED")
+        if args.format == "json":
+            import json
+            print(json.dumps({"skill": args.skill, "status": "PASS" if not errs and not issues else "FAIL", "quality_score": score["total_score"], "errors": errs, "issues": issues}, indent=2))
+        else:
+            status_sym = "[PASS]" if not errs and not issues else "[FAIL]"
+            print(f"{status_sym} Verified Skill: {args.skill}")
+            print(f"  Quality Score : {score['total_score']} / 100")
+            print(f"  Spec Errors   : {len(errs)}")
+            print(f"  Audit Issues  : {len(issues)}")
+        sys.exit(0 if not errs and not [i for i in issues if i["severity"] in ["CRITICAL", "HIGH"]] else 1)
 
     if args.command == "status":
         result = cmd_status(args)

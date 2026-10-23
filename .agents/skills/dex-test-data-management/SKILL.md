@@ -87,7 +87,7 @@ pytest --setup-show tests/integration/
 - Script seed và reset database tự động.
 
 ## 13. Related & Complementary Skills
-dex-flaky-test-remediation, dex-database-design, dex-integration-testing
+dex-flaky-test-remediation, dex-database-engineering, dex-testing-engineering
 
 ## 14. Realistic Usage Example
 ### Tình huống thực tế:

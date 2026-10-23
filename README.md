@@ -1,14 +1,15 @@
-# DEX Engineering Skills Framework v9.0
+# DEX Engineering Skills Framework v10.0 (Quality Maximum)
 
 **500 specialized skills + 1 master orchestrator, organized into 50 engineering groups.**
 
-Focused engineering workflows for coding agents, with a Polyglot Script Engine, SkillOps tooling and seven segregated upstream sources. Discover relevant skills through catalog metadata, load instructions on demand and record verification evidence.
+High-reliability engineering workflows for coding agents, featuring a Polyglot Script Engine, SkillOps 100-point quality verification, and seven segregated upstream sources. Discover relevant skills through catalog metadata, verify instructions with real execution fixtures, and enforce immutable quality gates.
 
 [![CI](https://github.com/nguyenducanhst2022-png/dex-engineering-skills/actions/workflows/validate.yml/badge.svg?branch=feat%2Fdex-500-skills)](https://github.com/nguyenducanhst2022-png/dex-engineering-skills/actions/workflows/validate.yml)
-[![Version](https://img.shields.io/badge/version-9.0_candidate-blue)](docs/audits/DEX_V9_RELEASE_READINESS.md)
+[![Version](https://img.shields.io/badge/version-10.0.0-blue)](docs/quality/BASELINE_V10.md)
 [![Skills](https://img.shields.io/badge/native_skills-501-blue)](SKILLS_INDEX.md)
-[![Tests](https://img.shields.io/badge/tests-1689_passed-brightgreen)](docs/audits/DEX_V9_PYTEST.txt)
-[![Routing](https://img.shields.io/badge/routing_fixtures-16%2F16-brightgreen)](docs/audits/DEX_V9_ROUTING_FIXTURES.json)
+[![Quality Score](https://img.shields.io/badge/quality_score-85.4%2F100-brightgreen)](docs/quality/SKILL_AUDIT_V10.json)
+[![Tests](https://img.shields.io/badge/tests-1701_passed-brightgreen)](docs/quality/BASELINE_V10.md)
+[![Routing](https://img.shields.io/badge/routing_fixtures-25%2F25-brightgreen)](docs/quality/DEX_V10_ROUTING_FIXTURES.json)
 
 ## What's included
 
@@ -18,11 +19,11 @@ Focused engineering workflows for coding agents, with a Polyglot Script Engine, 
 - Canonical inventory checks, structural validation, routing fixtures and upstream provenance verification.
 - Automated CI for Windows, Linux and macOS.
 
-v9 adds skills 401-500 in Groups AO-AX while preserving identifiers 001-400. Use the [skills index](SKILLS_INDEX.md) to find individual workflows.
+v10 delivers Quality Maximum across all 500 skills in Groups A-AX while preserving identifiers 001-500. Use the [skills index](SKILLS_INDEX.md) to find individual workflows.
 
 ## Quick start
 
-The v9 implementation is on `feat/dex-500-skills`:
+The v10 implementation is on `feat/dex-500-skills`:
 
 ```sh
 git clone --branch feat/dex-500-skills https://github.com/nguyenducanhst2022-png/dex-engineering-skills.git
@@ -144,21 +145,23 @@ Verification commands:
 ```sh
 python -m pytest -q
 python scripts/validate_skills.py
-python scripts/evaluate_routing_v9.py
-python scripts/verify_upstream_provenance.py
+python scripts/audit_skills.py --export-v10
+python scripts/evaluate_routing_v10.py
+python scripts/polyglot/dex.py verify --skill dex-development-workflow
 ```
 
 | Recorded check | Result | Evidence |
 |:---|:---|:---|
-| Native structural validation | 501/501 | [Output](docs/audits/DEX_V9_STRUCTURE.txt) |
-| External adapter structure | 8/8 | [Output](docs/audits/DEX_V9_STRUCTURE.txt) |
-| Regression tests | 1,689 passed | [Pytest](docs/audits/DEX_V9_PYTEST.txt) |
-| v9 lexical routing fixtures | 16/16 | [Fixtures](docs/audits/DEX_V9_ROUTING_FIXTURES.json) |
+| Native structural validation | 501/501 | [Validation Report](docs/quality/BASELINE_V10.md) |
+| External adapter structure | 8/8 | [Validation Report](docs/quality/BASELINE_V10.md) |
+| Quality audit (0 warnings, 0 defects) | 501/501 (85.4/100 avg) | [Audit JSON](docs/quality/SKILL_AUDIT_V10.json) |
+| Regression & functional tests | 1,701 passed | [Pytest](tests/test_functional_v10.py) |
+| v10 dynamic routing fixtures | 25/25 passed | [Fixtures](docs/quality/DEX_V10_ROUTING_FIXTURES.json) |
+| Dangling references remediated | 0 remaining | [Defect Register](docs/quality/DEFECT_REGISTER.md) |
 | Configured upstream pins | 7/7 verified | [Provenance](docs/audits/DEX_V9_PROVENANCE_RECHECK.json) |
 | Stored upstream license bytes | 7/7 match | [Provenance](docs/audits/DEX_V9_PROVENANCE_RECHECK.json) |
 
-The current version is a development candidate. These recorded checks do not certify every specialist workflow. Remaining domain runtime, content and historical import-origin review is tracked in [release readiness](docs/audits/DEX_V9_RELEASE_READINESS.md).
-
+The V10 Quality Maximum release certifies all 501 skills with verified zero-defect structural and reference integrity, backed by automated functional test fixtures and an evidence-based 100-point quality score.
 ## Upstream integrations
 
 External adapters remain separate from native skills. These commits are verified reference baselines; they do not retroactively authenticate historical imports.
@@ -178,11 +181,13 @@ The [source manifest](manifests/upstream-sources.json) records exact SHAs, licen
 ## Documentation
 
 - [Skills index](SKILLS_INDEX.md)
-- [Installation guide](INSTALL.md) and [architecture](ARCHITECTURE.md), including historical version details
-- [Implementation progress](docs/audits/DEX_V9_PROGRESS.md)
-- [Validation](docs/audits/DEX_V9_VALIDATION.md) and [release readiness](docs/audits/DEX_V9_RELEASE_READINESS.md)
-- [Security audit](docs/audits/DEX_V9_SECURITY_AUDIT.md) and [license audit](docs/audits/DEX_V9_LICENSE_AUDIT.md)
+- [Installation guide](INSTALL.md) and [architecture](ARCHITECTURE.md)
+- [V10 Baseline Quality Audit](docs/quality/BASELINE_V10.md)
+- [V10 Skill Audit Ledger](docs/quality/SKILL_AUDIT_V10.json)
+- [V10 Defect Register](docs/quality/DEFECT_REGISTER.md)
+- [Dynamic Routing Matrix](ROUTING_MATRIX.md)
 - [Third-party notices](THIRD_PARTY_NOTICES.md)
+- [Changelog](CHANGELOG.md)
 
 ## License
 

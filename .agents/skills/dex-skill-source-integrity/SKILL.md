@@ -77,7 +77,7 @@ def verify_skill_integrity(skill_dir_path: str, expected_tree_hash: str) -> bool
 ## 13. Related & Complementary Skills
 - [`dex-skill-license-provenance`](.agents/skills/dex-skill-license-provenance/SKILL.md)
 - [`dex-skill-security-screening`](.agents/skills/dex-skill-security-screening/SKILL.md)
-- [`dex-skill-provenance-ledger`](.agents/skills/dex-skill-provenance-ledger/SKILL.md)
+- [`dex-skill-provenance-revalidation`](.agents/skills/dex-skill-provenance-revalidation/SKILL.md)
 
 ## 14. Realistic Usage Example
 ### Tình huống triển khai thực tế:

@@ -93,7 +93,7 @@ python run.py --dataset glove-100-angular --algorithm hnswlib
 - Báo cáo phân tích đường cong đánh đổi Recall vs Latency.
 
 ## 13. Related & Complementary Skills
-dex-reranking-strategies, dex-grounding-citation-audit, dex-database-design
+dex-reranking-strategies, dex-grounding-citation-audit, dex-database-engineering
 
 ## 14. Realistic Usage Example
 ### Tình huống thực tế:

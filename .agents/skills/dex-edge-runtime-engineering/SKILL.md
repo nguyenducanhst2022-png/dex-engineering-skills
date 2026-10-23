@@ -99,7 +99,7 @@ npx wrangler deploy --dry-run
 - File cấu hình triển khai `wrangler.toml` kèm bộ kiểm thử cục bộ.
 
 ## 13. Related & Complementary Skills
-dex-serverless-architecture, dex-web-security-headers, dex-frontend-architecture
+dex-serverless-architecture, dex-web-security-headers, dex-frontend-data-flow
 
 ## 14. Realistic Usage Example
 ### Tình huống thực tế:

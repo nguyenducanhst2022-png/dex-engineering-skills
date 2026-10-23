@@ -81,7 +81,7 @@ pytest tests/benchmarks/ --benchmark-only --benchmark-compare --benchmark-autosa
 - Cam kết hiệu năng với số liệu sai số thống kê rõ ràng.
 
 ## 13. Related & Complementary Skills
-dex-performance-profiling, dex-differential-testing, dex-jvm-performance-diagnostics
+dex-performance-optimization, dex-differential-testing, dex-jvm-performance-diagnostics
 
 ## 14. Realistic Usage Example
 ### Tình huống thực tế:

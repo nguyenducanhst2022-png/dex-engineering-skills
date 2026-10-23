@@ -87,7 +87,7 @@ user_stats_view = FeatureView(
 ## 13. Related & Complementary Skills
 - [`dex-machine-learning-data-drift`](.agents/skills/dex-machine-learning-data-drift/SKILL.md)
 - [`dex-data-pipelines`](.agents/skills/dex-data-pipelines/SKILL.md)
-- [`dex-parquet-arrow-data-interop`](.agents/skills/dex-parquet-arrow-data-interop/SKILL.md)
+- [`dex-data-pipelines`](.agents/skills/dex-data-pipelines/SKILL.md)
 
 ## 14. Realistic Usage Example
 ### Tình huống triển khai thực tế:

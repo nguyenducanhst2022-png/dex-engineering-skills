@@ -81,7 +81,7 @@ description: Specify, storyboard, and engineer performant UI motion choreography
 - Báo cáo kiểm thử FPS và tuân thủ WCAG Motion.
 
 ## 13. Related & Complementary Skills
-dex-60fps-web-animation, dex-component-state-matrix, dex-perceived-performance-patterns
+dex-web-animation-performance, dex-component-state-matrix, dex-perceived-performance-patterns
 
 ## 14. Realistic Usage Example
 ```powershell

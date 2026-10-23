@@ -90,7 +90,7 @@ fn test_kiwipete_depth_4() {
 ## 13. Related & Complementary Skills
 - [`dex-simulation-determinism`](.agents/skills/dex-simulation-determinism/SKILL.md)
 - [`dex-game-loop-timing`](.agents/skills/dex-game-loop-timing/SKILL.md)
-- [`dex-algorithm-optimization`](.agents/skills/dex-algorithm-optimization/SKILL.md)
+- [`dex-performance-optimization`](.agents/skills/dex-performance-optimization/SKILL.md)
 
 ## 14. Realistic Usage Example
 ### Tình huống triển khai thực tế:

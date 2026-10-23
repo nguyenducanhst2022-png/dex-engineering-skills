@@ -88,7 +88,7 @@ pytest tests/stateful/test_ledger.py --hypothesis-seed=42
 - Tài liệu đặc tả các bất biến nghiệp vụ chính thức.
 
 ## 13. Related & Complementary Skills
-dex-unit-testing, dex-database-design, dex-mutation-testing
+dex-testing-engineering, dex-database-engineering, dex-mutation-testing
 
 ## 14. Realistic Usage Example
 ### Tình huống thực tế:

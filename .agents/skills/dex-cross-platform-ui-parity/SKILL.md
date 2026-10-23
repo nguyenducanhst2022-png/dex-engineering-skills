@@ -67,7 +67,7 @@ Thiết lập quy trình kiểm toán và tự động hóa tính tương đươ
 - Bộ kịch bản kiểm thử trực quan trên thiết bị thực tế.
 
 ## 13. Related & Complementary Skills
-dex-design-token-migration, dex-component-state-matrix, dex-mobile-first-responsive-patterns
+dex-design-token-migration, dex-component-state-matrix, dex-mobile-safe-area-layout
 
 ## 14. Realistic Usage Example
 ```powershell

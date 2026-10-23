@@ -91,7 +91,7 @@ npx clinic flame -- node server.js
 - Bản vá khắc phục triệt để lỗi rò rỉ bộ nhớ hoặc chặn Event Loop.
 
 ## 13. Related & Complementary Skills
-dex-typescript-type-safety, dex-load-and-stress-testing, dex-performance-profiling
+dex-typescript-type-safety, dex-load-and-stress-testing, dex-performance-optimization
 
 ## 14. Realistic Usage Example
 ### Tình huống thực tế:

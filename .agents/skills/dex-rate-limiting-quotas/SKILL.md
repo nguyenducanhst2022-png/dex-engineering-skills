@@ -94,7 +94,7 @@ for i in {1..15}; do curl -s -o /dev/null -w "%{http_code}\n" http://localhost:8
 - Bộ test suite tự động kiểm chứng các kịch bản biên của rate limit.
 
 ## 13. Related & Complementary Skills
-dex-api-abuse-prevention, dex-traffic-shaping-backpressure, dex-backend-architecture
+dex-api-abuse-prevention, dex-traffic-shaping-backpressure, dex-software-architecture
 
 ## 14. Realistic Usage Example
 ### Tình huống thực tế:

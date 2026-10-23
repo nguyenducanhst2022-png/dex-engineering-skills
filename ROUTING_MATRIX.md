@@ -1,13 +1,7 @@
-> **v9 candidate status (2026-10-22, America/Los_Angeles): NOT_READY.**
-> Current inventory: 500 specialists + 1 master; 8 external adapters are separate.
-> Structural validity does not establish domain runtime correctness.
-> All seven configured upstream pins now resolve; import-origin/content review remains separate. See [current evidence](docs/audits/DEX_V9_PROVENANCE_RECHECK.json).
-> The text below includes prior-version documentation; current limitations and validation are recorded in [v9 progress](docs/audits/DEX_V9_PROGRESS.md).
-
-# DEX Engineering Skills Framework v8.0 — Dynamic Routing Matrix
+# DEX Engineering Skills Framework v10.0 — Dynamic Routing Matrix
 
 > **Comprehensive Multi-Domain Dispatch Matrix for Master Orchestrator**  
-> Covers 40 real-world engineering scenarios corresponding to Groups A through AN, detailing primary/complementary skill chains, execution modes, and mandatory Quality Gates.
+> Covers 50 real-world engineering scenarios corresponding to Groups A through AX (500 Specialized Skills), detailing primary/complementary skill chains, execution modes, and mandatory Quality Gates.
 
 ---
 
@@ -32,7 +26,7 @@ graph TD
 
 ---
 
-## 2. 40 Domain Benchmark Scenarios (Groups A to AN)
+## 2. 50 Domain Benchmark Scenarios (Groups A to AX)
 
 ### Scenario A: Core Engineering Workflow & Git Governance (Group A)
 
@@ -682,5 +676,150 @@ Third-party integrations in `integrations/` are coordinated through `dex-master-
 - **Complementary Skills:**
   - [`dex-task-delegation`](.agents/skills/dex-task-delegation/SKILL.md)
   - [`dex-context-engineering`](.agents/skills/dex-context-engineering/SKILL.md)
+
+---
+
+### Scenario AO: Supabase & Advanced PostgreSQL RLS Isolation (Group AO)
+
+- **Trigger / Problem Statement:** Verify and enforce multi-tenant PostgreSQL Row Level Security (RLS) policies and storage isolation rules under high-concurrency client mutations.
+- **Execution Mode:** `STRICT`
+- **Mandatory Quality Gates:** `QG-01`, `QG-04`, `QG-06`, `QG-10`
+- **Primary Skills:**
+  - [`dex-postgres-rls-policy-verification`](.agents/skills/dex-postgres-rls-policy-verification/SKILL.md)
+  - [`dex-supabase-storage-access-policies`](.agents/skills/dex-supabase-storage-access-policies/SKILL.md)
+- **Complementary Skills:**
+  - [`dex-database-engineering`](.agents/skills/dex-database-engineering/SKILL.md)
+  - [`dex-access-control-tenancy`](.agents/skills/dex-access-control-tenancy/SKILL.md)
+
+---
+
+### Scenario AP: Autonomous Agent Safety & Execution Budgets (Group AP)
+
+- **Trigger / Problem Statement:** Configure strict tool invocation scopes, execution budgets, checkpoint rollbacks, and independent reviewer validation for autonomous coding agents.
+- **Execution Mode:** `STRICT`
+- **Mandatory Quality Gates:** `QG-01`, `QG-06`, `QG-10`, `QG-12`
+- **Primary Skills:**
+  - [`dex-agent-tool-permission-modeling`](.agents/skills/dex-agent-tool-permission-modeling/SKILL.md)
+  - [`dex-agent-execution-budget-controls`](.agents/skills/dex-agent-execution-budget-controls/SKILL.md)
+  - [`dex-agent-shutdown-and-cancellation`](.agents/skills/dex-agent-shutdown-and-cancellation/SKILL.md)
+- **Complementary Skills:**
+  - [`dex-agent-reviewer-independence`](.agents/skills/dex-agent-reviewer-independence/SKILL.md)
+  - [`dex-multi-agent-orchestration`](.agents/skills/dex-multi-agent-orchestration/SKILL.md)
+
+---
+
+### Scenario AQ: Streaming Media & Manifest Validation (Group AQ)
+
+- **Trigger / Problem Statement:** Validate, audit, and debug HLS (m3u8) and MPEG-DASH (mpd) streaming manifests, verifying segment sequencing, discontinuity tags, and video transcoding ladders.
+- **Execution Mode:** `STANDARD`
+- **Mandatory Quality Gates:** `QG-01`, `QG-03`, `QG-05`, `QG-07`
+- **Primary Skills:**
+  - [`dex-streaming-manifest-validation`](.agents/skills/dex-streaming-manifest-validation/SKILL.md)
+  - [`dex-video-transcoding-ladders`](.agents/skills/dex-video-transcoding-ladders/SKILL.md)
+- **Complementary Skills:**
+  - [`dex-media-metadata-normalization`](.agents/skills/dex-media-metadata-normalization/SKILL.md)
+  - [`dex-performance-optimization`](.agents/skills/dex-performance-optimization/SKILL.md)
+
+---
+
+### Scenario AR: Chess & Native Performance Engineering (Group AR)
+
+- **Trigger / Problem Statement:** Verify UCI protocol compliance, validate legal move generation via Perft node enumeration, and enforce Transposition Table Zobrist hash correctness.
+- **Execution Mode:** `STRICT`
+- **Mandatory Quality Gates:** `QG-01`, `QG-03`, `QG-05`, `QG-09`
+- **Primary Skills:**
+  - [`dex-chess-uci-protocol-compliance`](.agents/skills/dex-chess-uci-protocol-compliance/SKILL.md)
+  - [`dex-chess-legal-movegen-perft`](.agents/skills/dex-chess-legal-movegen-perft/SKILL.md)
+  - [`dex-chess-transposition-table-correctness`](.agents/skills/dex-chess-transposition-table-correctness/SKILL.md)
+- **Complementary Skills:**
+  - [`dex-chess-search-pruning-evals`](.agents/skills/dex-chess-search-pruning-evals/SKILL.md)
+  - [`dex-chess-nnue-evaluation-integration`](.agents/skills/dex-chess-nnue-evaluation-integration/SKILL.md)
+
+---
+
+### Scenario AS: Windows & Desktop Systems Engineering (Group AS)
+
+- **Trigger / Problem Statement:** Reproduce and fix Win32 per-monitor DPI coordinate translation defects, layout scaling, and Windows COM interop boundaries.
+- **Execution Mode:** `STANDARD`
+- **Mandatory Quality Gates:** `QG-01`, `QG-03`, `QG-05`, `QG-08`
+- **Primary Skills:**
+  - [`dex-win32-dpi-multi-monitor-layout`](.agents/skills/dex-win32-dpi-multi-monitor-layout/SKILL.md)
+  - [`dex-windows-com-interop`](.agents/skills/dex-windows-com-interop/SKILL.md)
+- **Complementary Skills:**
+  - [`dex-desktop-ipc-design`](.agents/skills/dex-desktop-ipc-design/SKILL.md)
+  - [`dex-cli-engineering`](.agents/skills/dex-cli-engineering/SKILL.md)
+
+---
+
+### Scenario AT: Platform Resilience & Infrastructure Security (Group AT)
+
+- **Trigger / Problem Statement:** Manage Kubernetes pod secret delivery, automated credential rotation, and validate Terraform infrastructure modules against contract tests.
+- **Execution Mode:** `STRICT`
+- **Mandatory Quality Gates:** `QG-01`, `QG-04`, `QG-06`, `QG-10`
+- **Primary Skills:**
+  - [`dex-kubernetes-secret-delivery`](.agents/skills/dex-kubernetes-secret-delivery/SKILL.md)
+  - [`dex-terraform-module-contract-tests`](.agents/skills/dex-terraform-module-contract-tests/SKILL.md)
+- **Complementary Skills:**
+  - [`dex-cloud-network-design`](.agents/skills/dex-cloud-network-design/SKILL.md)
+  - [`dex-secrets-management`](.agents/skills/dex-secrets-management/SKILL.md)
+
+---
+
+### Scenario AU: Product Experience & Design Systems Evaluation (Group AU)
+
+- **Trigger / Problem Statement:** Critique UI visual hierarchy, usability, color contrast, and typographic scales against verified design system tokens.
+- **Execution Mode:** `STANDARD`
+- **Mandatory Quality Gates:** `QG-01`, `QG-03`, `QG-07`, `QG-14`
+- **Primary Skills:**
+  - [`dex-design-critique-rubric`](.agents/skills/dex-design-critique-rubric/SKILL.md)
+  - [`dex-design-reference-evaluation`](.agents/skills/dex-design-reference-evaluation/SKILL.md)
+- **Complementary Skills:**
+  - [`dex-design-system-tokens`](.agents/skills/dex-design-system-tokens/SKILL.md)
+  - [`dex-accessibility-automation`](.agents/skills/dex-accessibility-automation/SKILL.md)
+
+---
+
+### Scenario AV: Advanced TypeScript & Full Stack Packaging (Group AV)
+
+- **Trigger / Problem Statement:** Verify dual-publishing of ESM and CommonJS TypeScript packages, diagnose Next.js App Router cache invalidations, and enforce React Server Component boundaries.
+- **Execution Mode:** `STANDARD`
+- **Mandatory Quality Gates:** `QG-01`, `QG-03`, `QG-05`, `QG-08`
+- **Primary Skills:**
+  - [`dex-typescript-package-dual-publish`](.agents/skills/dex-typescript-package-dual-publish/SKILL.md)
+  - [`dex-nextjs-app-router-data-cache`](.agents/skills/dex-nextjs-app-router-data-cache/SKILL.md)
+  - [`dex-react-server-component-boundaries`](.agents/skills/dex-react-server-component-boundaries/SKILL.md)
+- **Complementary Skills:**
+  - [`dex-frontend-data-flow`](.agents/skills/dex-frontend-data-flow/SKILL.md)
+  - [`dex-contract-first-development`](.agents/skills/dex-contract-first-development/SKILL.md)
+
+---
+
+### Scenario AW: Security, Privacy & SLSA Governance (Group AW)
+
+- **Trigger / Problem Statement:** Enforce SLSA Level 3 build provenance attestation, subject digest verification, data classification boundaries, and coordinated vulnerability disclosure.
+- **Execution Mode:** `STRICT`
+- **Mandatory Quality Gates:** `QG-01`, `QG-06`, `QG-10`, `QG-15`
+- **Primary Skills:**
+  - [`dex-dependency-provenance-attestation`](.agents/skills/dex-dependency-provenance-attestation/SKILL.md)
+  - [`dex-build-slsa-controls`](.agents/skills/dex-build-slsa-controls/SKILL.md)
+  - [`dex-data-classification-enforcement`](.agents/skills/dex-data-classification-enforcement/SKILL.md)
+- **Complementary Skills:**
+  - [`dex-open-source-license-scanning`](.agents/skills/dex-open-source-license-scanning/SKILL.md)
+  - [`dex-artifact-signature-verification`](.agents/skills/dex-artifact-signature-verification/SKILL.md)
+
+---
+
+### Scenario AX: SkillOps Intelligence & Scalability (Group AX)
+
+- **Trigger / Problem Statement:** Resolve skill conflict precedence across overlapping domain workflows, revalidate upstream skill provenance, and publish verified lifecycle health dashboards.
+- **Execution Mode:** `STRICT`
+- **Mandatory Quality Gates:** `QG-01`, `QG-06`, `QG-11`, `QG-13`
+- **Primary Skills:**
+  - [`dex-skill-conflict-precedence`](.agents/skills/dex-skill-conflict-precedence/SKILL.md)
+  - [`dex-skill-lifecycle-health-dashboard`](.agents/skills/dex-skill-lifecycle-health-dashboard/SKILL.md)
+  - [`dex-skill-provenance-revalidation`](.agents/skills/dex-skill-provenance-revalidation/SKILL.md)
+- **Complementary Skills:**
+  - [`dex-skill-crosshost-fixture-tests`](.agents/skills/dex-skill-crosshost-fixture-tests/SKILL.md)
+  - [`dex-skill-evaluation-benchmarks`](.agents/skills/dex-skill-evaluation-benchmarks/SKILL.md)
 
 ---

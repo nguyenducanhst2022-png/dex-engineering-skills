@@ -96,7 +96,7 @@ Thiết kế, phân loại và cấu trúc hóa kiến trúc thông tin (Informa
 - Bảng đối soát thuật ngữ nhãn điều hướng (Taxonomy & Labeling Dictionary).
 
 ## 13. Related & Complementary Skills
-dex-user-journey-mapping, dex-usability-study-design, dex-frontend-architecture
+dex-user-journey-mapping, dex-usability-study-design, dex-frontend-data-flow
 
 ## 14. Realistic Usage Example
 ### Tình huống thực tế:

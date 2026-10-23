@@ -83,7 +83,7 @@ Thiết kế và triển khai thang tỷ lệ typography có khả năng co giã
 - Báo cáo kiểm thử hiển thị trên các locale trọng điểm.
 
 ## 13. Related & Complementary Skills
-dex-fluid-typography-scaling, dex-rtl-bidi-layout-readiness, dex-cross-platform-ui-parity
+dex-fluid-typography-engineering, dex-rtl-bidi-layout-readiness, dex-cross-platform-ui-parity
 
 ## 14. Realistic Usage Example
 ```powershell

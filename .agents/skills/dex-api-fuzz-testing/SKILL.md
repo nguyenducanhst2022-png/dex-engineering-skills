@@ -82,7 +82,7 @@ curl -X POST http://localhost:8080/api/v1/orders -H 'Content-Type: application/j
 - Danh sách cURL reproducer cho từng lỗi phát hiện được.
 
 ## 13. Related & Complementary Skills
-dex-api-contract-testing, dex-api-abuse-prevention, dex-sast-finding-triage
+dex-contract-first-development, dex-api-abuse-prevention, dex-sast-finding-triage
 
 ## 14. Realistic Usage Example
 ### Tình huống thực tế:

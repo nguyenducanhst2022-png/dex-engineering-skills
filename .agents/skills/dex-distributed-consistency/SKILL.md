@@ -86,7 +86,7 @@ for i in {1..5}; do curl -X POST http://localhost:8080/api/v1/orders -H 'Idempot
 - Mã nguồn triển khai Transactional Outbox và Idempotent Handler.
 
 ## 13. Related & Complementary Skills
-dex-distributed-tracing, dex-database-design, dex-service-failover
+dex-distributed-tracing, dex-database-engineering, dex-service-failover
 
 ## 14. Realistic Usage Example
 ### Tình huống thực tế:

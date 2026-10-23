@@ -75,7 +75,7 @@ print(f'Phat hien {len(undeclared)} thu vien khong khai bao: {undeclared}')
 - Báo cáo rủi ro lỗ hổng CVE tương ứng với các thành phần thực tế.
 
 ## 13. Related & Complementary Skills
-dex-binary-provenance-matching, dex-software-license-compliance-scan, dex-dependency-vulnerability-remediation
+dex-binary-provenance-matching, dex-open-source-license-scanning, dex-dependency-management
 
 ## 14. Realistic Usage Example
 ```powershell

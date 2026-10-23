@@ -90,7 +90,7 @@ export function useOptimisticLike(postId: string) {
 - Báo cáo đo lường Core Web Vitals (INP, CLS).
 
 ## 13. Related & Complementary Skills
-dex-60fps-web-animation, dex-component-state-matrix, dex-high-density-dashboard-layout
+dex-web-animation-performance, dex-component-state-matrix, dex-high-density-dashboard-layout
 
 ## 14. Realistic Usage Example
 ```powershell

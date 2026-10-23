@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-Validation script for DEX Engineering Skills Framework v8.0.
-Verifies all 401 Native DEX Skills (400 Specialized Skills + 1 Master Orchestrator)
+Validation script for DEX Engineering Skills Framework v10.0.
+Verifies all 501 Native DEX Skills (500 Specialized Skills + 1 Master Orchestrator)
 and segregated upstream integration skills against the Agent Skills Specification
 and strict 14-section requirements.
 """
@@ -134,7 +134,7 @@ def main():
     skills_base = os.path.join(root_dir, ".agents", "skills")
     integrations_base = os.path.join(root_dir, "integrations")
 
-    print("=== DEX ENGINEERING SKILLS FRAMEWORK v8.0 SPECIFICATION VALIDATOR ===")
+    print("=== DEX ENGINEERING SKILLS FRAMEWORK v10.0 SPECIFICATION VALIDATOR ===")
     print(f"Scanning native skills in: {skills_base}")
 
     if not os.path.exists(skills_base):

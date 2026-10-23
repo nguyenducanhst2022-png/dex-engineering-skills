@@ -85,7 +85,7 @@ semgrep --config rules/custom-rules.yaml tests/fixtures/static-analysis/
 - Bộ test suite fixtures chứng minh độ chính xác.
 
 ## 13. Related & Complementary Skills
-dex-sast-finding-triage, dex-code-review-excellence, dex-architecture-design
+dex-sast-finding-triage, dex-code-review, dex-software-architecture
 
 ## 14. Realistic Usage Example
 ### Tình huống thực tế:

@@ -71,7 +71,7 @@ diffoscope build1/output.tar.gz build2/output.tar.gz --html diff_report.html
 - Tài liệu hướng dẫn xác minh độc lập cho bên thứ ba.
 
 ## 13. Related & Complementary Skills
-dex-binary-provenance-matching, dex-reproducible-build-audit, dex-debug-symbols-correlation
+dex-binary-provenance-matching, dex-build-slsa-controls, dex-debug-symbols-correlation
 
 ## 14. Realistic Usage Example
 ```powershell

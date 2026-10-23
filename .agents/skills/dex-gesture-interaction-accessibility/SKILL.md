@@ -83,7 +83,7 @@ export const DismissibleItem: React.FC<DismissibleItemProps> = ({ id, onDismiss,
 - Tài liệu hướng dẫn thao tác tương tác đa phương thức.
 
 ## 13. Related & Complementary Skills
-dex-wcag-compliance-audit, dex-component-state-matrix, dex-mobile-first-responsive-patterns
+dex-accessibility-automation, dex-component-state-matrix, dex-mobile-safe-area-layout
 
 ## 14. Realistic Usage Example
 ```powershell

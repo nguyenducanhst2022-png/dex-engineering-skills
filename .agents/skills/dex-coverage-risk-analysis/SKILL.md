@@ -80,7 +80,7 @@ git log --name-only --format='' --since='3 months ago' src/ | sort | uniq -c | s
 - Danh sách backlog các test cases cần bổ sung theo thứ tự ưu tiên ROI.
 
 ## 13. Related & Complementary Skills
-dex-mutation-testing, dex-git-flow-and-cherry-picking, dex-unit-testing
+dex-mutation-testing, dex-git-workflow, dex-testing-engineering
 
 ## 14. Realistic Usage Example
 ### Tình huống thực tế:

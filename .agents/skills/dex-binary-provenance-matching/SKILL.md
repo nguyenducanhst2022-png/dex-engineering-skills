@@ -74,7 +74,7 @@ cosign verify-blob-attestation `
 - Chứng chỉ kết quả kiểm toán tuân thủ SLSA.
 
 ## 13. Related & Complementary Skills
-dex-reproducible-build-audit, dex-software-license-compliance-scan, dex-sbom-binary-correlation
+dex-build-slsa-controls, dex-open-source-license-scanning, dex-sbom-binary-correlation
 
 ## 14. Realistic Usage Example
 ```powershell
