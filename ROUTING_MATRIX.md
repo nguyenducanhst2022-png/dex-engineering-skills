@@ -1,7 +1,7 @@
-# DEX Engineering Skills Framework v6.0 — Dynamic Routing Matrix
+# DEX Engineering Skills Framework v8.0 — Dynamic Routing Matrix
 
 > **Comprehensive Multi-Domain Dispatch Matrix for Master Orchestrator**  
-> Covers 30 real-world engineering scenarios corresponding to Groups A through AD, detailing primary/complementary skill chains, execution modes, and mandatory Quality Gates.
+> Covers 40 real-world engineering scenarios corresponding to Groups A through AN, detailing primary/complementary skill chains, execution modes, and mandatory Quality Gates.
 
 ---
 
@@ -17,7 +17,7 @@ graph TD
     SelectMode -->|Feature/Refactor| STANDARD[STANDARD MODE]
     SelectMode -->|Arch/Infra/Sec| STRICT[STRICT MODE]
     
-    Intent --> MapGroup[Map to Domain Group A-AD]
+    Intent --> MapGroup[Map to Domain Group A-AN]
     MapGroup --> ResolveDAG[Resolve Primary & Complementary DAG]
     ResolveDAG --> ExecuteChain[Execute Skills Sequentially/Concurrently]
     ExecuteChain --> EnforceGates[Enforce Quality Gates QG-01..15]
@@ -26,7 +26,7 @@ graph TD
 
 ---
 
-## 2. 30 Domain Benchmark Scenarios (Groups A to AD)
+## 2. 40 Domain Benchmark Scenarios (Groups A to AN)
 
 ### Scenario A: Core Engineering Workflow & Git Governance (Group A)
 
@@ -478,3 +478,152 @@ graph TD
 
 ---
 
+### Scenario AE: Enterprise Architecture & Migration (Group AE)
+
+- **Trigger / Problem Statement:** Ghi nhận architecture decision records cho thiết kế modular monolith boundaries và chiến lược migration legacy strangler migration.
+- **Execution Mode:** STRICT
+- **Mandatory Quality Gates:** QG-01, QG-02, QG-04, QG-08, QG-13
+- **Primary Skills:**
+  - [dex-architecture-decision-records](.agents/skills/dex-architecture-decision-records/SKILL.md)
+  - [dex-modular-monolith-boundaries](.agents/skills/dex-modular-monolith-boundaries/SKILL.md)
+  - [dex-legacy-strangler-migration](.agents/skills/dex-legacy-strangler-migration/SKILL.md)
+- **Complementary Skills:**
+  - [dex-saga-compensation-workflows](.agents/skills/dex-saga-compensation-workflows/SKILL.md)
+  - [dex-contract-first-development](.agents/skills/dex-contract-first-development/SKILL.md)
+
+---
+
+### Scenario AF: Advanced Distributed Systems & Resilience (Group AF)
+
+- **Trigger / Problem Statement:** Xử lý message poison queue recovery, đảm bảo distributed lock lease safety và kiểm soát consumer lag control trong distributed systems.
+- **Execution Mode:** STRICT
+- **Mandatory Quality Gates:** QG-02, QG-05, QG-09, QG-14
+- **Primary Skills:**
+  - [dex-message-poison-queue-recovery](.agents/skills/dex-message-poison-queue-recovery/SKILL.md)
+  - [dex-distributed-lock-lease-safety](.agents/skills/dex-distributed-lock-lease-safety/SKILL.md)
+  - [dex-consumer-lag-control](.agents/skills/dex-consumer-lag-control/SKILL.md)
+- **Complementary Skills:**
+  - [dex-exactly-once-claims-audit](.agents/skills/dex-exactly-once-claims-audit/SKILL.md)
+  - [dex-partition-fault-simulation](.agents/skills/dex-partition-fault-simulation/SKILL.md)
+
+---
+
+### Scenario AG: Applied AI & Foundation Model Systems (Group AG)
+
+- **Trigger / Problem Statement:** Thiết lập pipeline rag freshness control, chuẩn bị embedding data preparation và kiểm soát context window budgeting cho LLM.
+- **Execution Mode:** STANDARD
+- **Mandatory Quality Gates:** QG-01, QG-03, QG-07, QG-10
+- **Primary Skills:**
+  - [dex-rag-freshness-control](.agents/skills/dex-rag-freshness-control/SKILL.md)
+  - [dex-embedding-data-preparation](.agents/skills/dex-embedding-data-preparation/SKILL.md)
+  - [dex-context-window-budgeting](.agents/skills/dex-context-window-budgeting/SKILL.md)
+- **Complementary Skills:**
+  - [dex-hybrid-search-fusion](.agents/skills/dex-hybrid-search-fusion/SKILL.md)
+  - [dex-model-output-calibration](.agents/skills/dex-model-output-calibration/SKILL.md)
+
+---
+
+### Scenario AH: Extended Polyglot Engineering (Group AH)
+
+- **Trigger / Problem Statement:** Biên dịch dự án kotlin multiplatform builds, gỡ lỗi dart flutter state debugging và xây dựng hệ thống zig build engineering.
+- **Execution Mode:** STANDARD
+- **Mandatory Quality Gates:** QG-02, QG-06, QG-11, QG-15
+- **Primary Skills:**
+  - [dex-kotlin-multiplatform-builds](.agents/skills/dex-kotlin-multiplatform-builds/SKILL.md)
+  - [dex-dart-flutter-state-debugging](.agents/skills/dex-dart-flutter-state-debugging/SKILL.md)
+  - [dex-zig-build-engineering](.agents/skills/dex-zig-build-engineering/SKILL.md)
+- **Complementary Skills:**
+  - [dex-swift-concurrency-review](.agents/skills/dex-swift-concurrency-review/SKILL.md)
+  - [dex-ruby-gem-engineering](.agents/skills/dex-ruby-gem-engineering/SKILL.md)
+
+---
+
+### Scenario AI: Advanced UI/UX & Specialized Interfaces (Group AI)
+
+- **Trigger / Problem Statement:** Di chuyển design token migration, bố trí high density dashboard layout và đảm bảo chart visualization accessibility.
+- **Execution Mode:** STANDARD
+- **Mandatory Quality Gates:** QG-01, QG-03, QG-07, QG-12
+- **Primary Skills:**
+  - [dex-design-token-migration](.agents/skills/dex-design-token-migration/SKILL.md)
+  - [dex-high-density-dashboard-layout](.agents/skills/dex-high-density-dashboard-layout/SKILL.md)
+  - [dex-chart-visualization-accessibility](.agents/skills/dex-chart-visualization-accessibility/SKILL.md)
+- **Complementary Skills:**
+  - [dex-component-state-matrix](.agents/skills/dex-component-state-matrix/SKILL.md)
+  - [dex-perceived-performance-patterns](.agents/skills/dex-perceived-performance-patterns/SKILL.md)
+
+---
+
+### Scenario AJ: Authorized Software & System Inspection (Group AJ)
+
+- **Trigger / Problem Statement:** Đối soát binary provenance matching, tương quan debug symbols correlation và lập báo cáo reverse engineering reporting.
+- **Execution Mode:** STRICT
+- **Mandatory Quality Gates:** QG-01, QG-08, QG-10, QG-15
+- **Primary Skills:**
+  - [dex-binary-provenance-matching](.agents/skills/dex-binary-provenance-matching/SKILL.md)
+  - [dex-debug-symbols-correlation](.agents/skills/dex-debug-symbols-correlation/SKILL.md)
+  - [dex-reverse-engineering-reporting](.agents/skills/dex-reverse-engineering-reporting/SKILL.md)
+- **Complementary Skills:**
+  - [dex-sbom-binary-correlation](.agents/skills/dex-sbom-binary-correlation/SKILL.md)
+  - [dex-toolchain-reproducibility-audit](.agents/skills/dex-toolchain-reproducibility-audit/SKILL.md)
+
+---
+
+### Scenario AK: ML Platform & Production Engineering (Group AK)
+
+- **Trigger / Problem Statement:** Đảm bảo tính tái lập ml experiment reproducibility, triển khai model serving canary rollouts và tối ưu batch inference pipeline tuning.
+- **Execution Mode:** STRICT
+- **Mandatory Quality Gates:** QG-02, QG-05, QG-09, QG-14
+- **Primary Skills:**
+  - [dex-ml-experiment-reproducibility](.agents/skills/dex-ml-experiment-reproducibility/SKILL.md)
+  - [dex-model-serving-canary-rollouts](.agents/skills/dex-model-serving-canary-rollouts/SKILL.md)
+  - [dex-batch-inference-pipeline-tuning](.agents/skills/dex-batch-inference-pipeline-tuning/SKILL.md)
+- **Complementary Skills:**
+  - [dex-online-offline-feature-parity](.agents/skills/dex-online-offline-feature-parity/SKILL.md)
+  - [dex-vector-embedding-migration](.agents/skills/dex-vector-embedding-migration/SKILL.md)
+
+---
+
+### Scenario AL: Developer Platform & Polyglot Tooling (Group AL)
+
+- **Trigger / Problem Statement:** Điều phối polyglot build orchestration, khởi tạo reproducible devcontainers và kiểm thử cross language contract tests.
+- **Execution Mode:** STANDARD
+- **Mandatory Quality Gates:** QG-01, QG-04, QG-06, QG-11
+- **Primary Skills:**
+  - [dex-polyglot-build-orchestration](.agents/skills/dex-polyglot-build-orchestration/SKILL.md)
+  - [dex-reproducible-devcontainers](.agents/skills/dex-reproducible-devcontainers/SKILL.md)
+  - [dex-cross-language-contract-tests](.agents/skills/dex-cross-language-contract-tests/SKILL.md)
+- **Complementary Skills:**
+  - [dex-cli-command-contracts](.agents/skills/dex-cli-command-contracts/SKILL.md)
+  - [dex-build-cache-integrity](.agents/skills/dex-build-cache-integrity/SKILL.md)
+
+---
+
+### Scenario AM: Advanced Application & Infrastructure Security (Group AM)
+
+- **Trigger / Problem Statement:** Thiết lập xác thực secretless cicd oidc, kiểm thử api authorization matrix tests và cô lập container runtime isolation.
+- **Execution Mode:** STRICT
+- **Mandatory Quality Gates:** QG-01, QG-08, QG-10, QG-15
+- **Primary Skills:**
+  - [dex-secretless-cicd-oidc](.agents/skills/dex-secretless-cicd-oidc/SKILL.md)
+  - [dex-api-authorization-matrix-tests](.agents/skills/dex-api-authorization-matrix-tests/SKILL.md)
+  - [dex-container-runtime-isolation](.agents/skills/dex-container-runtime-isolation/SKILL.md)
+- **Complementary Skills:**
+  - [dex-ephemeral-test-credentials](.agents/skills/dex-ephemeral-test-credentials/SKILL.md)
+  - [dex-service-account-lifecycle](.agents/skills/dex-service-account-lifecycle/SKILL.md)
+
+---
+
+### Scenario AN: SkillOps Quality, Governance & Interoperability (Group AN)
+
+- **Trigger / Problem Statement:** Đánh giá skill quality scorecards, kiểm thử agent skills spec compatibility và đo lường semantic routing evaluations.
+- **Execution Mode:** STRICT
+- **Mandatory Quality Gates:** QG-01, QG-02, QG-08, QG-15
+- **Primary Skills:**
+  - [dex-skill-quality-scorecards](.agents/skills/dex-skill-quality-scorecards/SKILL.md)
+  - [dex-agent-skills-spec-compatibility](.agents/skills/dex-agent-skills-spec-compatibility/SKILL.md)
+  - [dex-semantic-routing-evaluations](.agents/skills/dex-semantic-routing-evaluations/SKILL.md)
+- **Complementary Skills:**
+  - [dex-skill-catalog-reconciliation](.agents/skills/dex-skill-catalog-reconciliation/SKILL.md)
+  - [dex-skill-example-test-fixtures](.agents/skills/dex-skill-example-test-fixtures/SKILL.md)
+
+---

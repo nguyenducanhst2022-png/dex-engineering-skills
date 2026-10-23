@@ -1,4 +1,4 @@
-# DEX Engineering Skills Framework v6.0 — Installation & Integration Guide
+# DEX Engineering Skills Framework v8.0 — Installation & Integration Guide
 
 > Comprehensive setup instructions for Windows 11, OpenAI Codex, VS Code, Cursor, and Claude Code.
 
@@ -34,23 +34,26 @@ pip install pytest pyyaml
 
 ## 3. Validating the Installation
 
-Verify that all 301 native skills and 5 integrations are intact:
+Verify that all 401 native skills, 5 integrations, and Polyglot Script Engine are intact:
 
 ```powershell
-# 1. Run zero-dependency specification validator (301 native + 5 integrations)
+# 1. Run zero-dependency specification validator (401 native + 5 integrations)
 python scripts/validate_pack.py
 
-# 2. Run SkillOps security audit (4 upstream sources)
+# 2. Run SkillOps security audit (401 native skills + 4 upstream sources)
 python scripts/audit_skills.py
 
-# 3. Benchmark dynamic routing accuracy (F1 >= 0.85 across 30 scenarios)
+# 3. Benchmark dynamic routing accuracy (F1 >= 0.85 across 40 scenarios)
 python scripts/evaluate_routing.py
 
-# 4. Run full pytest suite (1,001 tests)
-pytest tests/ -v
+# 4. Run Polyglot Toolchain Diagnostics
+python scripts/polyglot/dex.py doctor
+
+# 5. Run full pytest suite (1,360 tests)
+pytest tests/ scripts/polyglot/tests/ -v
 ```
 
-All 1,001 tests and validators should return 100% PASS with 0 errors.
+All 1,360 tests and validators should return 100% PASS with 0 errors.
 
 ---
 

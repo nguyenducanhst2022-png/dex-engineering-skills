@@ -1,8 +1,8 @@
-# Third-Party Notices & Upstream Source Provenance (v6.0.0)
+# Third-Party Notices & Upstream Source Provenance (v8.0.0)
 
 > **DEX Engineering Skills Segregated Integration Policy**  
 > External upstream projects are maintained in `integrations/` with strict namespace isolation.  
-> Third-party skills are never counted toward the native 300 DEX skills catalog.
+> Third-party skills are never counted toward the native 400 DEX skills catalog.
 
 ---
 
@@ -10,7 +10,7 @@
 
 | Upstream Identifier | Project Name | Repository URL | Pinned Commit | License | Mount Directory |
 |:---|:---|:---|:---|:---|:---|
-| `source-a-aas` | **Agentic Awesome Skills** | [https://github.com/sickn33/agentic-awesome-skills](https://github.com/sickn33/agentic-awesome-skills) | `7b4e28f1` | MIT | `integrations/aas/` |
+| `source-a-aas` | **Agentic Awesome Skills** | [https://github.com/sickn33/agentic-awesome-skills](https://github.com/sickn33/agentic-awesome-skills) | `7b4e28f1` | MIT | `integrations/agentic-awesome-skills/` |
 | `source-b-reverse-skill` | **Reverse Skill** | [https://github.com/zhaoxuya520/reverse-skill](https://github.com/zhaoxuya520/reverse-skill) | `a3f5c90d` | MIT | `integrations/reverse-skill/` |
 | `source-c-rea` | **Reverse Engineer Anything (REA)** | [https://github.com/morluto/rea](https://github.com/morluto/rea) | `c4d12e89` | Apache-2.0 | `integrations/rea/` |
 | `source-d-ui-ux-pro-max` | **UI/UX Pro Max** | [https://github.com/nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) | `04cfb449` | MIT | `integrations/ui-ux-pro-max/` |
@@ -23,7 +23,7 @@
 - **Upstream Repository:** `https://github.com/sickn33/agentic-awesome-skills`
 - **Pinned Commit:** `7b4e28f192a837c4d5e901a2f6b8c4d3e2a1b9c8`
 - **License:** MIT License
-- **Imported Skill:** `dex-api-mocking-virtualization` (mounted in `integrations/aas/`)
+- **Imported Skill:** `dex-api-mocking-virtualization` (mounted in `integrations/agentic-awesome-skills/`)
 - **Attribution Notice:** Copyright (c) 2024 sickn33.
 
 ### Source B: Reverse Skill
