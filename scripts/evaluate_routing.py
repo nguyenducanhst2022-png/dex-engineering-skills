@@ -2,7 +2,7 @@
 """
 DEX SKILLOPS — ROUTING EVALUATION HARNESS (scripts/evaluate_routing.py)
 Evaluates, benchmarks, and scores Master Orchestrator skill routing precision,
-recall, and false-positive activations across all 30 engineering groups (A to AD).
+recall, and false-positive activations across all 40 engineering groups (A to AN).
 """
 
 import os
@@ -197,6 +197,66 @@ BENCHMARK_SCENARIOS = [
         "id": "scenario-30-adv-skillops",
         "prompt": "Quản trị skill catalog taxonomy, kiểm tra skill source integrity và ghi nhận sổ cái skill execution evidence ledger.",
         "expected": ["dex-skill-catalog-taxonomy", "dex-skill-source-integrity", "dex-skill-execution-evidence-ledger"]
+    },
+    # Group AE: Enterprise Architecture & Migration
+    {
+        "id": "scenario-31-ae-arch-migration",
+        "prompt": "Ghi nhận architecture decision records cho thiết kế modular monolith boundaries và chiến lược migration legacy strangler migration.",
+        "expected": ["dex-architecture-decision-records", "dex-modular-monolith-boundaries", "dex-legacy-strangler-migration"]
+    },
+    # Group AF: Advanced Distributed Systems
+    {
+        "id": "scenario-32-af-dist-sys",
+        "prompt": "Xử lý message poison queue recovery, đảm bảo distributed lock lease safety và kiểm soát consumer lag control trong distributed systems.",
+        "expected": ["dex-message-poison-queue-recovery", "dex-distributed-lock-lease-safety", "dex-consumer-lag-control"]
+    },
+    # Group AG: Applied AI & Foundation Model Systems
+    {
+        "id": "scenario-33-ag-applied-ai",
+        "prompt": "Thiết lập pipeline rag freshness control, chuẩn bị embedding data preparation và kiểm soát context window budgeting cho LLM.",
+        "expected": ["dex-rag-freshness-control", "dex-embedding-data-preparation", "dex-context-window-budgeting"]
+    },
+    # Group AH: Extended Polyglot Engineering
+    {
+        "id": "scenario-34-ah-polyglot",
+        "prompt": "Biên dịch dự án kotlin multiplatform builds, gỡ lỗi dart flutter state debugging và xây dựng hệ thống zig build engineering.",
+        "expected": ["dex-kotlin-multiplatform-builds", "dex-dart-flutter-state-debugging", "dex-zig-build-engineering"]
+    },
+    # Group AI: Advanced UI/UX & Specialized Interfaces
+    {
+        "id": "scenario-35-ai-adv-ui",
+        "prompt": "Di chuyển design token migration, bố trí high density dashboard layout và đảm bảo chart visualization accessibility.",
+        "expected": ["dex-design-token-migration", "dex-high-density-dashboard-layout", "dex-chart-visualization-accessibility"]
+    },
+    # Group AJ: Authorized Software & System Inspection
+    {
+        "id": "scenario-36-aj-inspection",
+        "prompt": "Đối soát binary provenance matching, tương quan debug symbols correlation và lập báo cáo reverse engineering reporting.",
+        "expected": ["dex-binary-provenance-matching", "dex-debug-symbols-correlation", "dex-reverse-engineering-reporting"]
+    },
+    # Group AK: ML Platform & Production Engineering
+    {
+        "id": "scenario-37-ak-ml-platform",
+        "prompt": "Đảm bảo tính tái lập ml experiment reproducibility, triển khai model serving canary rollouts và tối ưu batch inference pipeline tuning.",
+        "expected": ["dex-ml-experiment-reproducibility", "dex-model-serving-canary-rollouts", "dex-batch-inference-pipeline-tuning"]
+    },
+    # Group AL: Developer Platform & Polyglot Tooling
+    {
+        "id": "scenario-38-al-dev-platform",
+        "prompt": "Điều phối polyglot build orchestration, khởi tạo reproducible devcontainers và kiểm thử cross language contract tests.",
+        "expected": ["dex-polyglot-build-orchestration", "dex-reproducible-devcontainers", "dex-cross-language-contract-tests"]
+    },
+    # Group AM: Advanced Application & Infrastructure Security
+    {
+        "id": "scenario-39-am-adv-sec",
+        "prompt": "Thiết lập xác thực secretless cicd oidc, kiểm thử api authorization matrix tests và cô lập container runtime isolation.",
+        "expected": ["dex-secretless-cicd-oidc", "dex-api-authorization-matrix-tests", "dex-container-runtime-isolation"]
+    },
+    # Group AN: SkillOps Quality, Governance & Interoperability
+    {
+        "id": "scenario-40-an-skillops-gov",
+        "prompt": "Đánh giá skill quality scorecards, kiểm thử agent skills spec compatibility và đo lường semantic routing evaluations.",
+        "expected": ["dex-skill-quality-scorecards", "dex-agent-skills-spec-compatibility", "dex-semantic-routing-evaluations"]
     }
 ]
 
@@ -248,7 +308,7 @@ def main():
 
     skills_list = catalog.get("native_skills", [])
     print(f"=== DEX ROUTING EVALUATION HARNESS ===")
-    print(f"Evaluating {len(BENCHMARK_SCENARIOS)} benchmark scenarios across 30 groups (Groups A to AD)...")
+    print(f"Evaluating {len(BENCHMARK_SCENARIOS)} benchmark scenarios across 40 groups (Groups A to AN)...")
 
     total_precision = []
     total_recall = []

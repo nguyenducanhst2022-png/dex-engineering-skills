@@ -379,6 +379,126 @@ SKILL_CANONICAL_GROUPS = {
     "dex-skill-upgrade-migrations": ("Group AD", "Advanced SkillOps Governance", 298),
     "dex-skill-rollback-verification": ("Group AD", "Advanced SkillOps Governance", 299),
     "dex-skill-retirement-governance": ("Group AD", "Advanced SkillOps Governance", 300),
+
+    # Group AE: Enterprise Software Architecture (301-310)
+    "dex-architecture-decision-records": ("Group AE", "Enterprise Software Architecture", 301),
+    "dex-modular-monolith-boundaries": ("Group AE", "Enterprise Software Architecture", 302),
+    "dex-saga-compensation-workflows": ("Group AE", "Enterprise Software Architecture", 303),
+    "dex-cqrs-projection-management": ("Group AE", "Enterprise Software Architecture", 304),
+    "dex-multi-region-data-residency": ("Group AE", "Enterprise Software Architecture", 305),
+    "dex-tenant-provisioning-lifecycle": ("Group AE", "Enterprise Software Architecture", 306),
+    "dex-legacy-strangler-migration": ("Group AE", "Enterprise Software Architecture", 307),
+    "dex-public-api-deprecation": ("Group AE", "Enterprise Software Architecture", 308),
+    "dex-configuration-schema-design": ("Group AE", "Enterprise Software Architecture", 309),
+    "dex-contract-first-development": ("Group AE", "Enterprise Software Architecture", 310),
+
+    # Group AF: Distributed Systems Deep Engineering (311-320)
+    "dex-exactly-once-claims-audit": ("Group AF", "Distributed Systems Deep Engineering", 311),
+    "dex-message-poison-queue-recovery": ("Group AF", "Distributed Systems Deep Engineering", 312),
+    "dex-distributed-lock-lease-safety": ("Group AF", "Distributed Systems Deep Engineering", 313),
+    "dex-scheduler-misfire-recovery": ("Group AF", "Distributed Systems Deep Engineering", 314),
+    "dex-regional-outage-exercises": ("Group AF", "Distributed Systems Deep Engineering", 315),
+    "dex-partition-fault-simulation": ("Group AF", "Distributed Systems Deep Engineering", 316),
+    "dex-event-replay-safety": ("Group AF", "Distributed Systems Deep Engineering", 317),
+    "dex-consumer-lag-control": ("Group AF", "Distributed Systems Deep Engineering", 318),
+    "dex-hot-partition-mitigation": ("Group AF", "Distributed Systems Deep Engineering", 319),
+    "dex-clock-skew-resilience": ("Group AF", "Distributed Systems Deep Engineering", 320),
+
+    # Group AG: Applied AI Systems (321-330)
+    "dex-embedding-data-preparation": ("Group AG", "Applied AI Systems", 321),
+    "dex-hybrid-search-fusion": ("Group AG", "Applied AI Systems", 322),
+    "dex-rag-freshness-control": ("Group AG", "Applied AI Systems", 323),
+    "dex-context-window-budgeting": ("Group AG", "Applied AI Systems", 324),
+    "dex-agent-tool-output-sanitization": ("Group AG", "Applied AI Systems", 325),
+    "dex-model-output-calibration": ("Group AG", "Applied AI Systems", 326),
+    "dex-ai-feedback-labeling": ("Group AG", "Applied AI Systems", 327),
+    "dex-prompt-version-experiments": ("Group AG", "Applied AI Systems", 328),
+    "dex-inference-provider-rate-controls": ("Group AG", "Applied AI Systems", 329),
+    "dex-human-ai-workflow-design": ("Group AG", "Applied AI Systems", 330),
+
+    # Group AH: Extended Polyglot Engineering (331-340)
+    "dex-kotlin-multiplatform-builds": ("Group AH", "Extended Polyglot Engineering", 331),
+    "dex-swift-concurrency-review": ("Group AH", "Extended Polyglot Engineering", 332),
+    "dex-dart-flutter-state-debugging": ("Group AH", "Extended Polyglot Engineering", 333),
+    "dex-ruby-gem-engineering": ("Group AH", "Extended Polyglot Engineering", 334),
+    "dex-php-framework-hardening": ("Group AH", "Extended Polyglot Engineering", 335),
+    "dex-scala-effect-systems": ("Group AH", "Extended Polyglot Engineering", 336),
+    "dex-elixir-otp-supervision": ("Group AH", "Extended Polyglot Engineering", 337),
+    "dex-zig-build-engineering": ("Group AH", "Extended Polyglot Engineering", 338),
+    "dex-lua-embedding-safety": ("Group AH", "Extended Polyglot Engineering", 339),
+    "dex-shell-portability-testing": ("Group AH", "Extended Polyglot Engineering", 340),
+
+    # Group AI: Advanced UI/UX Engineering (341-350)
+    "dex-design-token-migration": ("Group AI", "Advanced UI/UX Engineering", 341),
+    "dex-component-state-matrix": ("Group AI", "Advanced UI/UX Engineering", 342),
+    "dex-typography-scale-localization": ("Group AI", "Advanced UI/UX Engineering", 343),
+    "dex-high-density-dashboard-layout": ("Group AI", "Advanced UI/UX Engineering", 344),
+    "dex-gesture-interaction-accessibility": ("Group AI", "Advanced UI/UX Engineering", 345),
+    "dex-rtl-bidi-layout-readiness": ("Group AI", "Advanced UI/UX Engineering", 346),
+    "dex-animation-storyboard-specs": ("Group AI", "Advanced UI/UX Engineering", 347),
+    "dex-chart-visualization-accessibility": ("Group AI", "Advanced UI/UX Engineering", 348),
+    "dex-perceived-performance-patterns": ("Group AI", "Advanced UI/UX Engineering", 349),
+    "dex-cross-platform-ui-parity": ("Group AI", "Advanced UI/UX Engineering", 350),
+
+    # Group AJ: Authorized Software Inspection (351-360)
+    "dex-binary-provenance-matching": ("Group AJ", "Authorized Software Inspection", 351),
+    "dex-debug-symbols-correlation": ("Group AJ", "Authorized Software Inspection", 352),
+    "dex-toolchain-reproducibility-audit": ("Group AJ", "Authorized Software Inspection", 353),
+    "dex-installer-package-static-review": ("Group AJ", "Authorized Software Inspection", 354),
+    "dex-sbom-binary-correlation": ("Group AJ", "Authorized Software Inspection", 355),
+    "dex-mobile-permission-surface-diffing": ("Group AJ", "Authorized Software Inspection", 356),
+    "dex-javascript-bundle-obfuscation-audit": ("Group AJ", "Authorized Software Inspection", 357),
+    "dex-macos-entitlements-review": ("Group AJ", "Authorized Software Inspection", 358),
+    "dex-firmware-image-structure-diffing": ("Group AJ", "Authorized Software Inspection", 359),
+    "dex-reverse-engineering-reporting": ("Group AJ", "Authorized Software Inspection", 360),
+
+    # Group AK: ML Platform & Data Systems (361-370)
+    "dex-online-offline-feature-parity": ("Group AK", "ML Platform & Data Systems", 361),
+    "dex-training-data-leakage-audit": ("Group AK", "ML Platform & Data Systems", 362),
+    "dex-model-serving-canary-rollouts": ("Group AK", "ML Platform & Data Systems", 363),
+    "dex-ml-experiment-reproducibility": ("Group AK", "ML Platform & Data Systems", 364),
+    "dex-data-label-quality-assessment": ("Group AK", "ML Platform & Data Systems", 365),
+    "dex-batch-inference-pipeline-tuning": ("Group AK", "ML Platform & Data Systems", 366),
+    "dex-vector-embedding-migration": ("Group AK", "ML Platform & Data Systems", 367),
+    "dex-realtime-analytics-windowing": ("Group AK", "ML Platform & Data Systems", 368),
+    "dex-metadata-catalog-lineage": ("Group AK", "ML Platform & Data Systems", 369),
+    "dex-data-masking-synthetic-generation": ("Group AK", "ML Platform & Data Systems", 370),
+
+    # Group AL: Developer Platform & Polyglot Tooling (371-380)
+    "dex-developer-workstation-bootstrap": ("Group AL", "Developer Platform & Polyglot Tooling", 371),
+    "dex-toolchain-version-pinning": ("Group AL", "Developer Platform & Polyglot Tooling", 372),
+    "dex-polyglot-build-orchestration": ("Group AL", "Developer Platform & Polyglot Tooling", 373),
+    "dex-build-cache-integrity": ("Group AL", "Developer Platform & Polyglot Tooling", 374),
+    "dex-cross-language-contract-tests": ("Group AL", "Developer Platform & Polyglot Tooling", 375),
+    "dex-reproducible-devcontainers": ("Group AL", "Developer Platform & Polyglot Tooling", 376),
+    "dex-cli-command-contracts": ("Group AL", "Developer Platform & Polyglot Tooling", 377),
+    "dex-windows-linux-path-compatibility": ("Group AL", "Developer Platform & Polyglot Tooling", 378),
+    "dex-package-publishing-preflight": ("Group AL", "Developer Platform & Polyglot Tooling", 379),
+    "dex-monorepo-template-conformance": ("Group AL", "Developer Platform & Polyglot Tooling", 380),
+
+    # Group AM: Advanced Security & Trust (381-390)
+    "dex-secretless-cicd-oidc": ("Group AM", "Advanced Security & Trust", 381),
+    "dex-ephemeral-test-credentials": ("Group AM", "Advanced Security & Trust", 382),
+    "dex-container-runtime-isolation": ("Group AM", "Advanced Security & Trust", 383),
+    "dex-api-authorization-matrix-tests": ("Group AM", "Advanced Security & Trust", 384),
+    "dex-privacy-safe-observability": ("Group AM", "Advanced Security & Trust", 385),
+    "dex-dns-tls-certificate-monitoring": ("Group AM", "Advanced Security & Trust", 386),
+    "dex-incident-evidence-preservation": ("Group AM", "Advanced Security & Trust", 387),
+    "dex-saas-risk-surface-review": ("Group AM", "Advanced Security & Trust", 388),
+    "dex-dependency-update-risk-scoring": ("Group AM", "Advanced Security & Trust", 389),
+    "dex-service-account-lifecycle": ("Group AM", "Advanced Security & Trust", 390),
+
+    # Group AN: SkillOps Quality & Governance (391-400)
+    "dex-skill-catalog-reconciliation": ("Group AN", "SkillOps Quality & Governance", 391),
+    "dex-agent-skills-spec-compatibility": ("Group AN", "SkillOps Quality & Governance", 392),
+    "dex-skill-example-test-fixtures": ("Group AN", "SkillOps Quality & Governance", 393),
+    "dex-instruction-injection-testing": ("Group AN", "SkillOps Quality & Governance", 394),
+    "dex-runtime-capability-probing": ("Group AN", "SkillOps Quality & Governance", 395),
+    "dex-semantic-routing-evaluations": ("Group AN", "SkillOps Quality & Governance", 396),
+    "dex-upstream-license-diffing": ("Group AN", "SkillOps Quality & Governance", 397),
+    "dex-cross-platform-release-matrices": ("Group AN", "SkillOps Quality & Governance", 398),
+    "dex-skill-quality-scorecards": ("Group AN", "SkillOps Quality & Governance", 399),
+    "dex-execution-sandbox-policies": ("Group AN", "SkillOps Quality & Governance", 400),
 }
 
 def parse_frontmatter(content):
@@ -411,8 +531,8 @@ def discover_all_skills(root_dir):
 
     catalog = {
         "framework": "DEX Engineering Skills Framework",
-        "version": "6.0.0",
-        "target_skills_count": 301,
+        "version": "8.0.0",
+        "target_skills_count": 401,
         "native_skills": [],
         "segregated_integrations": []
     }
@@ -446,7 +566,7 @@ def discover_all_skills(root_dir):
         else:
             grp_code, grp_title, idx = SKILL_CANONICAL_GROUPS.get(s_name, ("Custom", "Specialized Skill", 999))
         
-        rel_match = re.search(r"## 13\.\s+Related & Complementary Skills\s*\n(.*?)(?=\n##|$)", body, re.S)
+        rel_match = re.search(r"## 13\.\s+Related.*?\n(.*?)(?=\n##|$)", body, re.S)
         related = []
         if rel_match:
             rel_text = rel_match.group(1)
@@ -458,7 +578,7 @@ def discover_all_skills(root_dir):
             "index": idx,
             "name": fm.get("name", s_name),
             "description": fm.get("description", ""),
-            "version": fm.get("version", "5.0.0"),
+            "version": fm.get("version", "8.0.0"),
             "group": grp_code,
             "domain": grp_title,
             "path": f".agents/skills/{s_name}/SKILL.md",

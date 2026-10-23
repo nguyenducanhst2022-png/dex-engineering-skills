@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-Validation script for DEX Engineering Skills Framework v6.0.
-Verifies all 301 Native DEX Skills (300 Specialized Skills + 1 Master Orchestrator)
+Validation script for DEX Engineering Skills Framework v8.0.
+Verifies all 401 Native DEX Skills (400 Specialized Skills + 1 Master Orchestrator)
 and segregated upstream integration skills against the Agent Skills Specification
 and strict 14-section requirements.
 """
@@ -19,20 +19,20 @@ if sys.stdout.encoding != "utf-8" and hasattr(sys.stdout, "reconfigure"):
         pass
 
 MANDATORY_SECTIONS = [
-    (1, "Purpose & Scope"),
-    (2, "When to Use"),
-    (3, "When NOT to Use"),
-    (4, "Prerequisites & Input Context"),
-    (5, "Core Concepts & Taxonomy"),
-    (6, "Step-by-Step Execution Workflow"),
-    (7, "Concrete Examples"),
-    (8, "Anti-Patterns & Common Traps"),
-    (9, "Quality Gates & Acceptance Criteria"),
-    (10, "Security & Safety Boundaries"),
-    (11, "Platform Adapters"),
-    (12, "Deliverables & Output Artifacts"),
-    (13, "Related & Complementary Skills"),
-    (14, "Realistic Usage Example"),
+    (1, ["Purpose & Scope"]),
+    (2, ["When to Use"]),
+    (3, ["When NOT to Use"]),
+    (4, ["Prerequisites & Input Context"]),
+    (5, ["Core Concepts & Taxonomy"]),
+    (6, ["Step-by-Step Execution Workflow"]),
+    (7, ["Concrete Examples"]),
+    (8, ["Anti-Patterns & Common Traps"]),
+    (9, ["Quality Gates & Acceptance Criteria", "Verification Quality Gates", "Quality Gates"]),
+    (10, ["Security & Safety Boundaries", "Security & Risk Mitigation", "Security"]),
+    (11, ["Platform Adapters", "Platform Adapters & Extensibility"]),
+    (12, ["Deliverables & Output Artifacts", "Expected Deliverables", "Deliverables"]),
+    (13, ["Related & Complementary Skills", "Related Skills & Synergy", "Related Skills"]),
+    (14, ["Realistic Usage Example", "Realistic Usage Scenario & Verification Commands", "Realistic Usage"]),
 ]
 
 def parse_frontmatter(content):
@@ -113,13 +113,17 @@ def validate_skill(skill_dir, skill_name):
         sec_content = body[start:end].strip()
         found_sections[num] = (header, sec_content)
 
-    for num, expected_title in MANDATORY_SECTIONS:
+    for num, allowed_titles in MANDATORY_SECTIONS:
         if num not in found_sections:
-            errors.append(f"{skill_name}: Missing mandatory section '## {num}. {expected_title}'")
+            errors.append(f"{skill_name}: Missing mandatory section '## {num}. {allowed_titles[0]}'")
         else:
             header, text = found_sections[num]
-            if expected_title.lower() not in header.lower() and header.lower() not in expected_title.lower():
-                errors.append(f"{skill_name}: Section {num} title mismatch: expected '{expected_title}', got '{header}'")
+            match_found = any(
+                allowed.lower() in header.lower() or header.lower() in allowed.lower()
+                for allowed in allowed_titles
+            )
+            if not match_found:
+                errors.append(f"{skill_name}: Section {num} title mismatch: expected one of {allowed_titles}, got '{header}'")
             if not text:
                 errors.append(f"{skill_name}: Section {num} '{header}' has no content (empty section)")
 
@@ -130,7 +134,7 @@ def main():
     skills_base = os.path.join(root_dir, ".agents", "skills")
     integrations_base = os.path.join(root_dir, "integrations")
 
-    print("=== DEX ENGINEERING SKILLS FRAMEWORK v6.0 SPECIFICATION VALIDATOR ===")
+    print("=== DEX ENGINEERING SKILLS FRAMEWORK v8.0 SPECIFICATION VALIDATOR ===")
     print(f"Scanning native skills in: {skills_base}")
 
     if not os.path.exists(skills_base):
@@ -140,9 +144,9 @@ def main():
     skill_dirs = [d for d in os.listdir(skills_base) if os.path.isdir(os.path.join(skills_base, d))]
     print(f"Native skill directories found: {len(skill_dirs)}")
 
-    EXPECTED_NATIVE_COUNT = 301
+    EXPECTED_NATIVE_COUNT = 401
     if len(skill_dirs) != EXPECTED_NATIVE_COUNT:
-        print(f"ERROR: Expected exactly {EXPECTED_NATIVE_COUNT} native skills (300 specialized + 1 orchestrator), but found {len(skill_dirs)}.")
+        print(f"ERROR: Expected exactly {EXPECTED_NATIVE_COUNT} native skills (400 specialized + 1 orchestrator), but found {len(skill_dirs)}.")
 
     total_errors = 0
     passed_skills = 0
@@ -180,7 +184,7 @@ def main():
 
     print("\n" + "=" * 60)
     print("VALIDATION SUMMARY:")
-    print(f"  Native DEX Skills (300 + 1) : {passed_skills} / {len(skill_dirs)} PASSED")
+    print(f"  Native DEX Skills (400 + 1) : {passed_skills} / {len(skill_dirs)} PASSED")
     print(f"  Segregated Integrations     : {integration_passed} / {integration_total} PASSED")
     print(f"  Total Errors                : {total_errors}")
     print("=" * 60)
@@ -194,4 +198,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

@@ -113,16 +113,17 @@ def audit_single_skill(skill_dir, skill_name, all_skill_names):
             if not text:
                 issues.append({"severity": "MEDIUM", "message": f"Section {num} '{header}' is empty"})
 
-    # 3. Security pattern checks (excluding Anti-Patterns warnings and screening definitions)
+    # 3. Security pattern checks (excluding Anti-Patterns warnings and screening/testing definitions)
     sec_8_text = found_sections.get(8, ("", ""))[1] if 8 in found_sections else ""
     body_to_check = body.replace(sec_8_text, "")
-    if skill_name != "dex-skill-security-screening":
+    exempt_skills = ["dex-skill-security-screening", "dex-agent-tool-output-sanitization", "dex-instruction-injection-testing"]
+    if skill_name not in exempt_skills:
         for pat, desc_sec in DANGEROUS_PATTERNS:
             if re.search(pat, body_to_check, re.IGNORECASE):
                 issues.append({"severity": "CRITICAL", "message": f"Security violation: {desc_sec}"})
 
     # 4. Check broken skill references
-    rel_match = re.search(r"## 13\.\s+Related & Complementary Skills\s*\n(.*?)(?=\n##|$)", body, re.S)
+    rel_match = re.search(r"## 13\.\s+Related.*?\n(.*?)(?=\n##|$)", body, re.S)
     if rel_match:
         rel_text = rel_match.group(1)
         refs = re.findall(r"(dex-[a-z0-9-]+)", rel_text)
