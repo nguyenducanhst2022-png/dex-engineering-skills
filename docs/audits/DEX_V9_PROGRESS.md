@@ -15,3 +15,6 @@ Incomplete stages: full technical review, version-sensitive domain reference rev
 ## Current correction checkpoint ? 2026-10-22
 
 Current correction checkpoint: fixed bounded executor output, credential inheritance defaults, timeout child cleanup, provenance metadata, false-positive sync success, RLS guidance and missing active CI configuration. Strict routing is now 16/16; regression suite is 1,685 PASS; three local execution smoke checks PASS. The earlier statement that changes were uncommitted/no push describes the initial checkpoint only: commit 02124d1 was subsequently pushed. New fixes are being prepared as a follow-up commit. Release remains NOT_READY for the specific blockers in DEX_V9_RELEASE_READINESS.md.
+
+
+Follow-up fixes were pushed through commit abd5f07. GitHub Actions run 39898598204 completed successfully on Windows, Linux and macOS. See https://github.com/nguyenducanhst2022-png/dex-engineering-skills/actions/runs/39898598204 . This records automated host regression coverage, not full skill runtime certification.
