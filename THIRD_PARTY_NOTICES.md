@@ -1,7 +1,7 @@
 > **v9 candidate status (2026-10-22, America/Los_Angeles): NOT_READY.**
 > Current inventory: 500 specialists + 1 master; 8 external adapters are separate.
 > Structural validity does not establish domain runtime correctness.
-> Three upstream pins failed remote resolution; see [current evidence](docs/audits/DEX_V9_UPSTREAM_EVIDENCE.json).
+> All seven configured upstream pins now resolve; import-origin/content review remains separate. See [current evidence](docs/audits/DEX_V9_PROVENANCE_RECHECK.json).
 > The text below includes prior-version documentation; current limitations and validation are recorded in [v9 progress](docs/audits/DEX_V9_PROGRESS.md).
 
 # Third-Party Notices & Upstream Source Provenance (v8.1.0)
@@ -83,5 +83,5 @@ The four resolvable D/E/F/G sources have verbatim upstream license copies at
 `integrations/{ui-ux-pro-max,supabase,superpowers,mattpocock}/UPSTREAM_LICENSE`.
 SHA-256 values and pinned revisions are recorded in manifests/upstream-sources.json.
 Existing local LICENSE notices were preserved; their content differs and attribution
-must be reconciled. A/B/C pin provenance remains unresolved. These records do not
+must be reconciled. A/B/C now have verified upstream reference baselines; historical adapter import origins remain unverified. These records do not
 assert imported source review or grant additional rights.

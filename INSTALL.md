@@ -1,7 +1,7 @@
 > **v9 candidate status (2026-10-22, America/Los_Angeles): NOT_READY.**
 > Current inventory: 500 specialists + 1 master; 8 external adapters are separate.
 > Structural validity does not establish domain runtime correctness.
-> Three upstream pins failed remote resolution; see [current evidence](docs/audits/DEX_V9_UPSTREAM_EVIDENCE.json).
+> All seven configured upstream pins now resolve; import-origin/content review remains separate. See [current evidence](docs/audits/DEX_V9_PROVENANCE_RECHECK.json).
 > The text below includes prior-version documentation; current limitations and validation are recorded in [v9 progress](docs/audits/DEX_V9_PROGRESS.md).
 
 # DEX Engineering Skills Framework v8.0 — Installation & Integration Guide

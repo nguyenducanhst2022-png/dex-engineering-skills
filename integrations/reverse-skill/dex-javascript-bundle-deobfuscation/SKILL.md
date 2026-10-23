@@ -5,6 +5,8 @@ description: Analyze and deobfuscate minified client-side JavaScript and Electro
 
 # dex-javascript-bundle-deobfuscation
 
+> Provenance correction: the attribution/commit below is a historical, unverified import claim. The current verified upstream reference baseline is `cab634bd855fc287f6e420c1f36fd1a6b9245960`; it does not authenticate the origin of this DEX adapter. See the root `manifests/upstream-sources.json` and `docs/audits/DEX_V9_PIN_CANDIDATES.json`.
+
 > **Source Attribution:** Adapted from [Reverse Skill](https://github.com/zhaoxuya520/reverse-skill) under MIT License.  
 > **Original Author:** zhaoxuya520 and contributors  
 > **Upstream Path:** `skills/web-analysis/js-bundle-deobfuscation` (Commit: `c3d4e5f60718293a4b5c6d7e8f90123456789a0b`)

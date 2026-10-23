@@ -6,48 +6,72 @@
       "upstream_id": "source-a-aas",
       "name": "Agentic Awesome Skills",
       "repository_url": "https://github.com/sickn33/agentic-awesome-skills",
-      "pinned_commit": "7b4e28f192a837c4d5e901a2f6b8c4d3e2a1b9c8",
+      "pinned_commit": "8bda5fa7264cafe8259fc8212550d13bf690bfb0",
       "license": "MIT",
-      "license_file": "integrations/aas/LICENSE",
+      "license_file": "integrations/aas/UPSTREAM_LICENSE",
       "mount_path": "integrations/aas",
       "skills_imported": [
         "dex-api-mocking-virtualization"
       ],
       "last_sync_date": "2026-10-22",
-      "status": "PIN_UNRESOLVED",
+      "status": "CONTENT_REVIEW_REQUIRED",
       "previous_status": "ACTIVE_VERIFIED",
-      "pin_verification": "UNRESOLVED",
+      "pin_verification": "VERIFIED",
       "content_verification": "NOT_VERIFIED",
       "verification_evidence": "docs/audits/DEX_V9_PROVENANCE_RECHECK.json",
-      "candidate_commit_not_imported": "8bda5fa7264cafe8259fc8212550d13bf690bfb0"
+      "pin_history": [
+        {
+          "pinned_commit": "7b4e28f192a837c4d5e901a2f6b8c4d3e2a1b9c8",
+          "pin_verification": "UNRESOLVED",
+          "reason": "Legacy configured SHA could not be resolved (HTTP 422); retained for audit."
+        }
+      ],
+      "pin_verified_date": "2026-10-22",
+      "pin_purpose": "UPSTREAM_REFERENCE_BASELINE",
+      "import_origin_verification": "NOT_VERIFIED",
+      "upstream_license_file": "integrations/aas/UPSTREAM_LICENSE",
+      "upstream_license_sha256": "af98370a7edc0f00ec46979d049517833c9a7fa2ba74e3cf8cc42f7db557299d",
+      "pin_update_evidence": "docs/audits/DEX_V9_PIN_CANDIDATES.json"
     },
     {
       "upstream_id": "source-b-reverse-skill",
       "name": "Reverse Skill",
       "repository_url": "https://github.com/zhaoxuya520/reverse-skill",
-      "pinned_commit": "a3f5c90d81e74b21648a901e23f45b76812c34d5",
+      "pinned_commit": "cab634bd855fc287f6e420c1f36fd1a6b9245960",
       "license": "MIT",
-      "license_file": "integrations/reverse-skill/LICENSE",
+      "license_file": "integrations/reverse-skill/UPSTREAM_LICENSE",
       "mount_path": "integrations/reverse-skill",
       "skills_imported": [
         "dex-binary-inspection",
         "dex-javascript-bundle-deobfuscation"
       ],
       "last_sync_date": "2026-10-22",
-      "status": "PIN_UNRESOLVED",
+      "status": "CONTENT_REVIEW_REQUIRED",
       "previous_status": "ACTIVE_VERIFIED",
-      "pin_verification": "UNRESOLVED",
+      "pin_verification": "VERIFIED",
       "content_verification": "NOT_VERIFIED",
       "verification_evidence": "docs/audits/DEX_V9_PROVENANCE_RECHECK.json",
-      "candidate_commit_not_imported": "cab634bd855fc287f6e420c1f36fd1a6b9245960"
+      "pin_history": [
+        {
+          "pinned_commit": "a3f5c90d81e74b21648a901e23f45b76812c34d5",
+          "pin_verification": "UNRESOLVED",
+          "reason": "Legacy configured SHA could not be resolved (HTTP 422); retained for audit."
+        }
+      ],
+      "pin_verified_date": "2026-10-22",
+      "pin_purpose": "UPSTREAM_REFERENCE_BASELINE",
+      "import_origin_verification": "NOT_VERIFIED",
+      "upstream_license_file": "integrations/reverse-skill/UPSTREAM_LICENSE",
+      "upstream_license_sha256": "20876806ebaaae11d53fe07e221a4de4e67a017b6c91bb02d62df906213d2f60",
+      "pin_update_evidence": "docs/audits/DEX_V9_PIN_CANDIDATES.json"
     },
     {
       "upstream_id": "source-c-rea",
       "name": "Reverse Engineer Anything (REA)",
       "repository_url": "https://github.com/morluto/rea",
-      "pinned_commit": "c4d12e89ab014567ef890123456789abcdef0123",
-      "license": "Apache-2.0",
-      "license_file": "integrations/rea/LICENSE",
+      "pinned_commit": "e32a0494d42dedd5e79ca341d20c53f07479d9bb",
+      "license": "MIT",
+      "license_file": "integrations/rea/UPSTREAM_LICENSE",
       "mount_path": "integrations/rea",
       "adapter_type": "MCP_PROBE_ADAPTER",
       "adapter_script": "scripts/rea_mcp_probe.py",
@@ -55,12 +79,24 @@
         "dex-rea-adapter"
       ],
       "last_sync_date": "2026-10-22",
-      "status": "PIN_UNRESOLVED",
+      "status": "CONTENT_REVIEW_REQUIRED",
       "previous_status": "ACTIVE_VERIFIED",
-      "pin_verification": "UNRESOLVED",
+      "pin_verification": "VERIFIED",
       "content_verification": "NOT_VERIFIED",
       "verification_evidence": "docs/audits/DEX_V9_PROVENANCE_RECHECK.json",
-      "candidate_commit_not_imported": "e32a0494d42dedd5e79ca341d20c53f07479d9bb"
+      "pin_history": [
+        {
+          "pinned_commit": "c4d12e89ab014567ef890123456789abcdef0123",
+          "pin_verification": "UNRESOLVED",
+          "reason": "Legacy configured SHA could not be resolved (HTTP 422); retained for audit."
+        }
+      ],
+      "pin_verified_date": "2026-10-22",
+      "pin_purpose": "UPSTREAM_REFERENCE_BASELINE",
+      "import_origin_verification": "NOT_VERIFIED",
+      "upstream_license_file": "integrations/rea/UPSTREAM_LICENSE",
+      "upstream_license_sha256": "798f9e4d18e49b30bf2f12696c8ced73dc4e1413da375a333d01281543a1ea8b",
+      "pin_update_evidence": "docs/audits/DEX_V9_PIN_CANDIDATES.json"
     },
     {
       "upstream_id": "source-d-ui-ux-pro-max",

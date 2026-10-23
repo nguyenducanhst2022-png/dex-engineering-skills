@@ -5,6 +5,8 @@ description: Architect hermetic API mocking, WireMock integration, Mock Service 
 
 # dex-api-mocking-virtualization
 
+> Provenance correction: the attribution/commit below is a historical, unverified import claim. The current verified upstream reference baseline is `8bda5fa7264cafe8259fc8212550d13bf690bfb0`; it does not authenticate the origin of this DEX adapter. See the root `manifests/upstream-sources.json` and `docs/audits/DEX_V9_PIN_CANDIDATES.json`.
+
 > **Source Attribution:** Adapted from [Agentic Awesome Skills](https://github.com/sickn33/agentic-awesome-skills) under MIT License.  
 > **Original Author:** sickn33 and contributors  
 > **Upstream Path:** `skills/testing/api-mocking-virtualization` (Commit: `a1b2c3d4e5f60718293a4b5c6d7e8f9012345678`)

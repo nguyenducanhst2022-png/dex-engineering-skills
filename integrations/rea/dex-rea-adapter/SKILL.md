@@ -5,6 +5,8 @@ description: Model Context Protocol (MCP) bridge and coordination skill connecti
 
 # dex-rea-adapter
 
+> Provenance correction: the attribution/commit below is a historical, unverified import claim. The current verified upstream reference baseline is `e32a0494d42dedd5e79ca341d20c53f07479d9bb`; it does not authenticate the origin of this DEX adapter. See the root `manifests/upstream-sources.json` and `docs/audits/DEX_V9_PIN_CANDIDATES.json`.
+
 > **Source Attribution:** Adapted from [Reverse Engineer Anything (REA)](https://github.com/morluto/rea) under Apache-2.0 License.  
 > **Original Author:** morluto and REA contributors  
 > **Upstream Path:** `adapter/rea-mcp-bridge` (Commit: `d4e5f60718293a4b5c6d7e8f90123456789a0b1c`)

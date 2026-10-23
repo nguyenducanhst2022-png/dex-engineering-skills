@@ -10,3 +10,8 @@ Tests include legacy content assertions and mock fixtures; their aggregate pass 
 ## Current correction checkpoint ? 2026-10-22
 
 Current run supersedes the earlier count: 1,685 tests passed in 11.96s. New tests exercise capped dual-stream output, credential opt-in, timeout descendant side effects, legacy ACTIVE_VERIFIED rejection and exact upstream SHA matching. Python/JavaScript/PowerShell smoke execution passed; see DEX_V9_RUNTIME_SMOKE.json. 501 native + 8 external structural checks pass. No claim of all specialist runtime verification is made.
+
+
+## Three-pin update validation
+
+Current regression run: 1,689 tests passed in 12.77s. All seven configured pins resolve and all seven stored upstream license files match the fetched pinned bytes. Tests verify exact-SHA patch fallback during API rate limits, rejection of mismatched commit headers, preserved old-pin history, and the separation of verified reference pins from unverified import origins. Structural checks remain 501/501 native plus 8/8 external; routing remains 16/16.

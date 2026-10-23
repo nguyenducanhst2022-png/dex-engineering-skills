@@ -18,3 +18,15 @@ Current correction checkpoint: fixed bounded executor output, credential inherit
 
 
 Follow-up fixes were pushed through commit abd5f07. GitHub Actions run 39898598204 completed successfully on Windows, Linux and macOS. See https://github.com/nguyenducanhst2022-png/dex-engineering-skills/actions/runs/39898598204 . This records automated host regression coverage, not full skill runtime certification.
+
+
+## Three-pin resolution checkpoint - 2026-10-22
+A/B/C now point to verified upstream reference baselines. GitHub exact-commit
+resolution and git ls-remote HEAD agreed for each source. All seven configured
+pins now resolve. See DEX_V9_PIN_CANDIDATES.json and DEX_V9_PROVENANCE_RECHECK.json.
+The old invalid pins remain in manifest pin_history. Existing imported skills
+still have unverified historical origin; their old claims were not rewritten
+as if content had been re-imported. Exact A/B/C upstream licenses are retained
+as UPSTREAM_LICENSE. REA's current pinned root license is MIT; its prior Apache
+claim is historical and unverified. AAS root text is MIT, while GitHub's automatic
+SPDX classification returned NOASSERTION. No external code was installed or run.
