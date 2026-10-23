@@ -47,16 +47,22 @@ def check_upstream_sources(manifest_path, dry_run=True):
             print(f"  - WARNING: Mount path {mount} does not exist locally")
             all_synced = False
 
-        print("  - Synchronization Status: PINNED_STABLE (No unreviewed mutations)\n")
+        pin_state = src.get("pin_verification", "NOT_VERIFIED")
+        content_state = src.get("content_verification", "NOT_VERIFIED")
+        print(f"  - Recorded pin verification: {pin_state}")
+        print(f"  - Recorded content verification: {content_state}")
+        print("  - This read-only command does not perform network or file-hash verification.\n")
+        if pin_state != "VERIFIED" or content_state != "VERIFIED":
+            all_synced = False
 
     print("=" * 50)
     print("UPSTREAM SYNC SUMMARY:")
     print(f"  Total Sources Monitored : {len(sources)}")
-    print(f"  Pinned Commits Enforced : 100%")
-    print(f"  Segregation Integrity   : 100% ISOLATED (Not counted in native 200 skills)")
+    print("  Pin enforcement: NOT_VERIFIED by this command")
+    print("  External mounts remain separate from the native catalog")
     print("=" * 50)
-    print("\nRESULT: ALL UPSTREAM SOURCES PINNED & VERIFIED.")
-    return 0
+    print("\nRESULT: Recorded review states complete." if all_synced and sources else "\nRESULT: NOT_VERIFIED; resolve provenance and content review before sync.")
+    return 0 if all_synced and sources else 1
 
 def main():
     parser = argparse.ArgumentParser(description="DEX SkillOps Upstream Synchronizer")

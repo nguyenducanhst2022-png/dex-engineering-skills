@@ -69,14 +69,14 @@ ROLLBACK;
 ```
 
 ## 8. Anti-Patterns & Common Traps
-- **Missing WITH CHECK Clause:** Chỉ định nghĩa mệnh đề `USING` cho policy `FOR UPDATE` khiến người dùng có thể đổi `tenant_id` của bản ghi sang tenant khác khi update.
+- **Missing WITH CHECK Clause:** For ALL and UPDATE policies, omitted `WITH CHECK` falls back to `USING`; omission alone does not permit tenant reassignment. Inspect permissive OR and restrictive AND composition and test reassignment explicitly.
 - **Unindexed Foreign Tenant ID:** Viết RLS filter dựa trên `tenant_id` nhưng quên đánh chỉ mục cho cột này, khiến mọi câu truy vấn của người dùng biến thành Full Table Scan.
 - **Direct Querying as Superuser/postgres:** Chạy test kiểm thử bằng role `postgres` (mặc định bypass RLS) dẫn đến ảo giác an ninh rằng policy hoạt động tốt.
 
 ## 9. Quality Gates & Acceptance Criteria
-- **QG-01**: 100% các bảng chứa dữ liệu người dùng đều có lệnh `ENABLE ROW LEVEL SECURITY;` và `FORCE ROW LEVEL SECURITY;`.
+- **QG-01**: Enable RLS on tenant tables; assess FORCE ROW LEVEL SECURITY when table owners should also be subject to policies. Test application roles without superuser or BYPASSRLS privileges.
 - **QG-02**: Không có bất kỳ policy nào cho phép user xem hoặc sửa đổi bản ghi của tenant khác trong kịch bản kiểm thử tự động.
-- **QG-03**: Tất cả các hàm `SECURITY DEFINER` được dùng trong RLS đều khóa chặt `search_path = public, pg_temp;`.
+- **QG-03**: SECURITY DEFINER functions use a controlled search_path containing only trusted schemas, with pg_temp last; schema-qualify sensitive objects and review CREATE/EXECUTE grants. Do not assume public is trusted.
 
 ## 10. Security & Safety Boundaries
 - Tuân thủ nguyên tắc Least Privilege; cô lập hoàn toàn ranh giới dữ liệu giữa các khách hàng trên hạ tầng cơ sở dữ liệu dùng chung.
@@ -100,3 +100,5 @@ psql "$DATABASE_URL" -v ON_ERROR_STOP=1 -f tests/sql/test_rls_isolation.sql
 # Kiem tra ma tran RLS bang script Python tu dong
 python -m pytest tests/test_postgres_rls.py -v
 ```
+
+Official policy semantics: https://www.postgresql.org/docs/current/sql-createpolicy.html

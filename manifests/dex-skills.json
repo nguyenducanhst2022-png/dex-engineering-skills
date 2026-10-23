@@ -7453,7 +7453,7 @@
       "id": "dex-skill-provenance-revalidation",
       "index": 492,
       "name": "dex-skill-provenance-revalidation",
-      "description": "\"Recheck upstream commits, source content and license changes.\"",
+      "description": "\"Revalidate upstream skill provenance when checking pinned commit SHAs, source file hashes or license changes before imports and synchronization.\"",
       "version": "8.0.0",
       "group": "Group AX",
       "domain": "SkillOps Intelligence & Scalability",

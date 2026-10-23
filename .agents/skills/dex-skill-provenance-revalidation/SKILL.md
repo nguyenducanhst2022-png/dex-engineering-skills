@@ -1,6 +1,6 @@
 ---
 name: dex-skill-provenance-revalidation
-description: "Recheck upstream commits, source content and license changes."
+description: "Revalidate upstream skill provenance when checking pinned commit SHAs, source file hashes or license changes before imports and synchronization."
 ---
 
 # dex-skill-provenance-revalidation

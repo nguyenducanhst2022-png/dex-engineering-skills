@@ -1,53 +1,53 @@
-=== DEX ROUTING EVALUATION HARNESS ===
-Evaluating 40 benchmark scenarios across 40 groups (Groups A to AN)...
-[PASS] Scenario 01 (scenario-01-core): Precision=33.33%, Recall=50.00%
-[PASS] Scenario 02 (scenario-02-arch-agent): Precision=66.67%, Recall=66.67%
-[PASS] Scenario 03 (scenario-03-prod-eng): Precision=66.67%, Recall=66.67%
-[PASS] Scenario 04 (scenario-04-frontend): Precision=100.00%, Recall=100.00%
-[PASS] Scenario 05 (scenario-05-backend): Precision=66.67%, Recall=66.67%
-[PASS] Scenario 06 (scenario-06-data-eng): Precision=100.00%, Recall=100.00%
-[PASS] Scenario 07 (scenario-07-ai-llm): Precision=100.00%, Recall=100.00%
-[PASS] Scenario 08 (scenario-08-dx): Precision=66.67%, Recall=66.67%
-[PASS] Scenario 09 (scenario-09-sec-rel): Precision=100.00%, Recall=100.00%
-[PASS] Scenario 10 (scenario-10-cloud-k8s): Precision=66.67%, Recall=66.67%
-[PASS] Scenario 11 (scenario-11-mobile-desktop): Precision=66.67%, Recall=66.67%
-[PASS] Scenario 12 (scenario-12-product-ops): Precision=100.00%, Recall=100.00%
-[PASS] Scenario 13 (scenario-13-adv-verification): Precision=100.00%, Recall=100.00%
-[PASS] Scenario 14 (scenario-14-adv-sre): Precision=100.00%, Recall=100.00%
-[PASS] Scenario 15 (scenario-15-adv-cloud): Precision=100.00%, Recall=100.00%
-[PASS] Scenario 16 (scenario-16-language-runtime): Precision=100.00%, Recall=100.00%
-[PASS] Scenario 17 (scenario-17-adv-ai): Precision=66.67%, Recall=66.67%
-[PASS] Scenario 18 (scenario-18-ux-research): Precision=100.00%, Recall=100.00%
-[PASS] Scenario 19 (scenario-19-appsec-specialists): Precision=100.00%, Recall=100.00%
-[PASS] Scenario 20 (scenario-20-skillops): Precision=100.00%, Recall=100.00%
-[PASS] Scenario 21 (scenario-21-visual-design): Precision=100.00%, Recall=100.00%
-[PASS] Scenario 22 (scenario-22-adv-web): Precision=100.00%, Recall=100.00%
-[PASS] Scenario 23 (scenario-23-extensions-auto): Precision=100.00%, Recall=100.00%
-[PASS] Scenario 24 (scenario-24-reverse-eng): Precision=100.00%, Recall=100.00%
-[PASS] Scenario 25 (scenario-25-protocols-service): Precision=100.00%, Recall=100.00%
-[PASS] Scenario 26 (scenario-26-agent-ops): Precision=100.00%, Recall=100.00%
-[PASS] Scenario 27 (scenario-27-data-analytics): Precision=100.00%, Recall=100.00%
-[PASS] Scenario 28 (scenario-28-graphics-game): Precision=100.00%, Recall=100.00%
-[PASS] Scenario 29 (scenario-29-trust-distribution): Precision=100.00%, Recall=100.00%
-[PASS] Scenario 30 (scenario-30-adv-skillops): Precision=100.00%, Recall=100.00%
-[PASS] Scenario 31 (scenario-31-ae-arch-migration): Precision=100.00%, Recall=100.00%
-[PASS] Scenario 32 (scenario-32-af-dist-sys): Precision=100.00%, Recall=100.00%
-[PASS] Scenario 33 (scenario-33-ag-applied-ai): Precision=100.00%, Recall=100.00%
-[PASS] Scenario 34 (scenario-34-ah-polyglot): Precision=100.00%, Recall=100.00%
-[PASS] Scenario 35 (scenario-35-ai-adv-ui): Precision=100.00%, Recall=100.00%
-[PASS] Scenario 36 (scenario-36-aj-inspection): Precision=100.00%, Recall=100.00%
-[PASS] Scenario 37 (scenario-37-ak-ml-platform): Precision=100.00%, Recall=100.00%
-[PASS] Scenario 38 (scenario-38-al-dev-platform): Precision=100.00%, Recall=100.00%
-[PASS] Scenario 39 (scenario-39-am-adv-sec): Precision=100.00%, Recall=100.00%
-[PASS] Scenario 40 (scenario-40-an-skillops-gov): Precision=100.00%, Recall=100.00%
-
-==================================================
-ROUTING EVALUATION RESULTS:
-  Total Scenarios Evaluated  : 40
-  Passed Scenarios           : 40 / 40
-  Average Routing Precision   : 92.50%
-  Average Routing Recall      : 92.92%
-  Overall Routing F1-Score    : 0.927
-==================================================
-
-RESULT: ROUTING EVALUATION PASSED (F1 >= 0.85)
+=== DEX ROUTING EVALUATION HARNESS ===
+Evaluating 40 benchmark scenarios across 40 groups (Groups A to AN)...
+[PASS] Scenario 01 (scenario-01-core): Precision=33.33%, Recall=50.00%
+[PASS] Scenario 02 (scenario-02-arch-agent): Precision=66.67%, Recall=66.67%
+[PASS] Scenario 03 (scenario-03-prod-eng): Precision=66.67%, Recall=66.67%
+[PASS] Scenario 04 (scenario-04-frontend): Precision=100.00%, Recall=100.00%
+[PASS] Scenario 05 (scenario-05-backend): Precision=66.67%, Recall=66.67%
+[PASS] Scenario 06 (scenario-06-data-eng): Precision=100.00%, Recall=100.00%
+[PASS] Scenario 07 (scenario-07-ai-llm): Precision=100.00%, Recall=100.00%
+[PASS] Scenario 08 (scenario-08-dx): Precision=66.67%, Recall=66.67%
+[PASS] Scenario 09 (scenario-09-sec-rel): Precision=100.00%, Recall=100.00%
+[PASS] Scenario 10 (scenario-10-cloud-k8s): Precision=66.67%, Recall=66.67%
+[PASS] Scenario 11 (scenario-11-mobile-desktop): Precision=66.67%, Recall=66.67%
+[PASS] Scenario 12 (scenario-12-product-ops): Precision=100.00%, Recall=100.00%
+[PASS] Scenario 13 (scenario-13-adv-verification): Precision=100.00%, Recall=100.00%
+[PASS] Scenario 14 (scenario-14-adv-sre): Precision=100.00%, Recall=100.00%
+[PASS] Scenario 15 (scenario-15-adv-cloud): Precision=100.00%, Recall=100.00%
+[PASS] Scenario 16 (scenario-16-language-runtime): Precision=100.00%, Recall=100.00%
+[PASS] Scenario 17 (scenario-17-adv-ai): Precision=66.67%, Recall=66.67%
+[PASS] Scenario 18 (scenario-18-ux-research): Precision=100.00%, Recall=100.00%
+[PASS] Scenario 19 (scenario-19-appsec-specialists): Precision=100.00%, Recall=100.00%
+[PASS] Scenario 20 (scenario-20-skillops): Precision=100.00%, Recall=100.00%
+[PASS] Scenario 21 (scenario-21-visual-design): Precision=100.00%, Recall=100.00%
+[PASS] Scenario 22 (scenario-22-adv-web): Precision=100.00%, Recall=100.00%
+[PASS] Scenario 23 (scenario-23-extensions-auto): Precision=100.00%, Recall=100.00%
+[PASS] Scenario 24 (scenario-24-reverse-eng): Precision=100.00%, Recall=100.00%
+[PASS] Scenario 25 (scenario-25-protocols-service): Precision=100.00%, Recall=100.00%
+[PASS] Scenario 26 (scenario-26-agent-ops): Precision=100.00%, Recall=100.00%
+[PASS] Scenario 27 (scenario-27-data-analytics): Precision=100.00%, Recall=100.00%
+[PASS] Scenario 28 (scenario-28-graphics-game): Precision=100.00%, Recall=100.00%
+[PASS] Scenario 29 (scenario-29-trust-distribution): Precision=100.00%, Recall=100.00%
+[PASS] Scenario 30 (scenario-30-adv-skillops): Precision=100.00%, Recall=100.00%
+[PASS] Scenario 31 (scenario-31-ae-arch-migration): Precision=100.00%, Recall=100.00%
+[PASS] Scenario 32 (scenario-32-af-dist-sys): Precision=100.00%, Recall=100.00%
+[PASS] Scenario 33 (scenario-33-ag-applied-ai): Precision=100.00%, Recall=100.00%
+[PASS] Scenario 34 (scenario-34-ah-polyglot): Precision=100.00%, Recall=100.00%
+[PASS] Scenario 35 (scenario-35-ai-adv-ui): Precision=100.00%, Recall=100.00%
+[PASS] Scenario 36 (scenario-36-aj-inspection): Precision=100.00%, Recall=100.00%
+[PASS] Scenario 37 (scenario-37-ak-ml-platform): Precision=100.00%, Recall=100.00%
+[PASS] Scenario 38 (scenario-38-al-dev-platform): Precision=100.00%, Recall=100.00%
+[PASS] Scenario 39 (scenario-39-am-adv-sec): Precision=100.00%, Recall=100.00%
+[PASS] Scenario 40 (scenario-40-an-skillops-gov): Precision=100.00%, Recall=100.00%
+
+==================================================
+ROUTING EVALUATION RESULTS:
+  Total Scenarios Evaluated  : 40
+  Passed Scenarios           : 40 / 40
+  Average Routing Precision   : 92.50%
+  Average Routing Recall      : 92.92%
+  Overall Routing F1-Score    : 0.927
+==================================================
+
+RESULT: ROUTING EVALUATION PASSED (F1 >= 0.85)

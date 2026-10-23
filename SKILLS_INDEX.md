@@ -755,7 +755,7 @@
 | # | Skill ID | Description | Path |
 |:---|:---|:---|:---|
 | `491` | **`dex-skill-knowledge-boundaries`** | "Define skill ownership and handoffs when responsibilities overlap." | [dex-skill-knowledge-boundaries](.agents/skills/dex-skill-knowledge-boundaries/SKILL.md) |
-| `492` | **`dex-skill-provenance-revalidation`** | "Recheck upstream commits, source content and license changes." | [dex-skill-provenance-revalidation](.agents/skills/dex-skill-provenance-revalidation/SKILL.md) |
+| `492` | **`dex-skill-provenance-revalidation`** | "Revalidate upstream skill provenance when checking pinned commit SHAs, source file hashes or license changes before imports and synchronization." | [dex-skill-provenance-revalidation](.agents/skills/dex-skill-provenance-revalidation/SKILL.md) |
 | `493` | **`dex-skill-crosshost-fixture-tests`** | "Test Agent Skills portability across coding-agent hosts." | [dex-skill-crosshost-fixture-tests](.agents/skills/dex-skill-crosshost-fixture-tests/SKILL.md) |
 | `494` | **`dex-skill-progressive-disclosure-metrics`** | "Measure skill context cost and reference loading behavior." | [dex-skill-progressive-disclosure-metrics](.agents/skills/dex-skill-progressive-disclosure-metrics/SKILL.md) |
 | `495` | **`dex-skill-task-suitability-classifier`** | "Evaluate task-to-skill selection using labeled routing cases." | [dex-skill-task-suitability-classifier](.agents/skills/dex-skill-task-suitability-classifier/SKILL.md) |

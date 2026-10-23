@@ -341,11 +341,11 @@
     ],
     "expected_output": "Expected skill selected and forbidden skill absent",
     "actual_output": [
+      "dex-skill-provenance-revalidation",
       "dex-skill-upstream-sync",
-      "dex-skill-license-provenance",
-      "dex-skill-import-packaging"
+      "dex-skill-license-provenance"
     ],
-    "routing_result": "FAIL",
+    "routing_result": "PASS",
     "domain_test_result": "NOT_VERIFIED",
     "limitations": "Lexical simulation tests discovery only; no agent or domain runtime executed."
   },

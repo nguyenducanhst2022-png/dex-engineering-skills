@@ -9,3 +9,8 @@ Unresolved findings:
 - Full repository secret scanning, dependency vulnerability evaluation and executable source review were not performed.
 
 No critical-security-clearance claim is made. Release gate remains NOT_READY.
+
+
+## Current correction checkpoint ? 2026-10-22
+
+Current fixes supersede the first three executor findings: bounded streaming capture replaces post-capture slicing; a runtime/OS environment allowlist replaces ambient inheritance; timeout and KeyboardInterrupt paths stop the direct child and attempt process-tree cleanup. A real delayed-child side-effect test passed on Windows. Strong containment of escaped descendants remains unverified. Corrected RLS omission, FORCE and trusted-search_path guidance in both skill and authoring source. Upstream statuses no longer assert ACTIVE_VERIFIED for unreviewed content; sync now returns nonzero for incomplete review. Full secret/dependency review remains incomplete.

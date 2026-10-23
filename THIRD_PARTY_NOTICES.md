@@ -76,3 +76,12 @@
 - **License:** MIT License
 - **Imported Skill:** `dex-mattpocock-adapter` (mounted in `integrations/mattpocock/`)
 - **Attribution Notice:** Copyright (c) 2026 Matt Pocock.
+
+
+## Exact pinned license evidence
+The four resolvable D/E/F/G sources have verbatim upstream license copies at
+`integrations/{ui-ux-pro-max,supabase,superpowers,mattpocock}/UPSTREAM_LICENSE`.
+SHA-256 values and pinned revisions are recorded in manifests/upstream-sources.json.
+Existing local LICENSE notices were preserved; their content differs and attribution
+must be reconciled. A/B/C pin provenance remains unresolved. These records do not
+assert imported source review or grant additional rights.

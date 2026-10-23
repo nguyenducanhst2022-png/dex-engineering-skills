@@ -4,3 +4,8 @@ Existing lexical simulator: 40 legacy scenarios, reported F1 0.927, precision 92
 Added 16 A?P fixtures with task input, expected and forbidden selection, tools, execution steps, expected/actual output and limitations. Strict result: 15 PASS, 1 FAIL. Scenario N selected existing upstream-sync/license/import skills but missed the expected provenance-revalidation specialist. The evaluator exits nonzero for that failure. See DEX_V9_ROUTING_FIXTURES.json.
 
 This is metadata-based lexical simulation, not observation of the master agent choosing and executing skills. Domain executions and independent held-out semantic evaluations remain NOT_VERIFIED. The failing case is retained rather than tuning the expected answer to inflate the score.
+
+
+## Current correction checkpoint ? 2026-10-22
+
+Current run: 16/16 recorded v9 fixtures pass after correcting the provenance specialist's discovery description. Expected and forbidden selections were unchanged. A separate exploratory paraphrase about pinned commits and changed licenses selected adjacent license specialists; this remains a semantic routing limitation. Fixture coverage is not a claim of general semantic accuracy.

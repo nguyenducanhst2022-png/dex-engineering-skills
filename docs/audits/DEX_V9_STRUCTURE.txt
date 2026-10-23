@@ -1,14 +1,14 @@
-=== DEX ENGINEERING SKILLS FRAMEWORK v8.0 SPECIFICATION VALIDATOR ===
-Scanning native skills in: D:\VibeCoding\dex-engineering-skills\.agents\skills
-Native skill directories found: 501
-
-Scanning segregated integrations in: D:\VibeCoding\dex-engineering-skills\integrations
-
-============================================================
-VALIDATION SUMMARY:
-  Native DEX Skills : 501 / 501 PASSED
-  Segregated Integrations     : 8 / 8 PASSED
-  Total Errors                : 0
-============================================================
-
-RESULT: 100% PASSED - ALL 501 NATIVE DEX SKILLS & 8 INTEGRATIONS STRUCTURALLY VALIDATED (runtime behavior NOT_VERIFIED)!
+=== DEX ENGINEERING SKILLS FRAMEWORK v8.0 SPECIFICATION VALIDATOR ===
+Scanning native skills in: D:\VibeCoding\dex-engineering-skills\.agents\skills
+Native skill directories found: 501
+
+Scanning segregated integrations in: D:\VibeCoding\dex-engineering-skills\integrations
+
+============================================================
+VALIDATION SUMMARY:
+  Native DEX Skills : 501 / 501 PASSED
+  Segregated Integrations     : 8 / 8 PASSED
+  Total Errors                : 0
+============================================================
+
+RESULT: 100% PASSED - ALL 501 NATIVE DEX SKILLS & 8 INTEGRATIONS STRUCTURALLY VALIDATED (runtime behavior NOT_VERIFIED)!

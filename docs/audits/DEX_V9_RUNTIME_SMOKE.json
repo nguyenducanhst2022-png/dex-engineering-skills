@@ -1,0 +1,65 @@
+[
+  {
+    "language": "python",
+    "result": {
+      "command": "smoke",
+      "status": "SUCCESS",
+      "exit_code": 0,
+      "duration_ms": 51.86,
+      "schema_version": "1.0.0",
+      "language": "python",
+      "commands_executed": [
+        "C:\\Users\\ACER\\AppData\\Local\\Programs\\Python\\Python312\\python.exe -c assert sum([1,2,3]) == 6; print(\"DEX_SMOKE_OK\")"
+      ],
+      "evidence": {},
+      "stdout": "DEX_SMOKE_OK\r\n",
+      "stderr": "",
+      "warnings": [],
+      "errors": [],
+      "timestamp": "2026-10-23T04:04:41.436374+00:00"
+    },
+    "assertion_passed": true
+  },
+  {
+    "language": "javascript",
+    "result": {
+      "command": "smoke",
+      "status": "SUCCESS",
+      "exit_code": 0,
+      "duration_ms": 46.68,
+      "schema_version": "1.0.0",
+      "language": "javascript",
+      "commands_executed": [
+        "node -e if([1,2,3].reduce((a,b)=>a+b,0)!==6)process.exit(1);console.log(\"DEX_SMOKE_OK\")"
+      ],
+      "evidence": {},
+      "stdout": "DEX_SMOKE_OK\n",
+      "stderr": "",
+      "warnings": [],
+      "errors": [],
+      "timestamp": "2026-10-23T04:04:41.483053+00:00"
+    },
+    "assertion_passed": true
+  },
+  {
+    "language": "powershell",
+    "result": {
+      "command": "smoke",
+      "status": "SUCCESS",
+      "exit_code": 0,
+      "duration_ms": 193.39,
+      "schema_version": "1.0.0",
+      "language": "powershell",
+      "commands_executed": [
+        "powershell -NoProfile -NonInteractive -Command if ((1+2+3) -ne 6) { exit 1 }; Write-Output DEX_SMOKE_OK"
+      ],
+      "evidence": {},
+      "stdout": "DEX_SMOKE_OK\r\n",
+      "stderr": "",
+      "warnings": [],
+      "errors": [],
+      "timestamp": "2026-10-23T04:04:41.676437+00:00"
+    },
+    "assertion_passed": true
+  }
+]

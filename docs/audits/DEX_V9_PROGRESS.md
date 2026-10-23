@@ -10,3 +10,8 @@ Date: 2026-10-22 (America/Los_Angeles). Status: NOT_READY.
 - Updated the master discovery/evidence instructions, generated index and documentation status notices. Earlier documentation remains historical and is not fully rewritten.
 
 Incomplete stages: full technical review, version-sensitive domain reference review, all 16 domain runtime scenarios, complete Polyglot security upgrade, upstream content/license reconciliation, full lifecycle state transition ledger, all SkillOps commands, cross-platform execution, active CI and release review. No release, push or PR was performed. Changes remain uncommitted for review, including pre-existing user work; committing all files together would obscure ownership.
+
+
+## Current correction checkpoint ? 2026-10-22
+
+Current correction checkpoint: fixed bounded executor output, credential inheritance defaults, timeout child cleanup, provenance metadata, false-positive sync success, RLS guidance and missing active CI configuration. Strict routing is now 16/16; regression suite is 1,685 PASS; three local execution smoke checks PASS. The earlier statement that changes were uncommitted/no push describes the initial checkpoint only: commit 02124d1 was subsequently pushed. New fixes are being prepared as a follow-up commit. Release remains NOT_READY for the specific blockers in DEX_V9_RELEASE_READINESS.md.

@@ -11,6 +11,8 @@ import time
 import shutil
 import platform
 import subprocess
+import threading
+import signal
 from pathlib import Path
 from typing import List, Optional, Dict, Any
 
@@ -54,7 +56,7 @@ def execute_command(
     evidence: Optional[Dict[str, Any]] = None,
 ) -> ExecutionResult:
     """
-    Execute a command safely using subprocess.run with shell=False.
+    Execute a command safely using bounded streaming capture with shell=False.
     """
     start_time = time.time()
     ev = evidence or {}
@@ -130,83 +132,107 @@ def execute_command(
 
     prepared_args = [resolved_binary] + cmd_args[1:]
 
-    # 5. Execute subprocess
-    merged_env = os.environ.copy()
+    # Only runtime/OS configuration is inherited. Credentials require explicit opt-in.
+    allowed_env = {"PATH", "PATHEXT", "SYSTEMROOT", "WINDIR", "COMSPEC", "TEMP", "TMP",
+                   "HOME", "USERPROFILE", "APPDATA", "LOCALAPPDATA", "PROGRAMFILES",
+                   "PROGRAMFILES(X86)", "PROGRAMDATA", "VIRTUAL_ENV", "JAVA_HOME",
+                   "DOTNET_ROOT", "CARGO_HOME", "RUSTUP_HOME", "GOPATH", "GOROOT"}
+    merged_env = {k: v for k, v in os.environ.items() if k.upper() in allowed_env}
     if env:
         merged_env.update(env)
-
-    # Enforce UTF-8 where possible
     merged_env["PYTHONIOENCODING"] = "utf-8"
     merged_env["LC_ALL"] = "C.UTF-8"
 
+    buffers = [bytearray(), bytearray()]
+    truncated = [False, False]
+
+    def drain(stream, index):
+        # Drain both pipes continuously; retain at most the configured cap per pipe.
+        try:
+            while True:
+                chunk = stream.read(8192)
+                if not chunk:
+                    break
+                remaining = MAX_OUTPUT_BYTES - len(buffers[index])
+                buffers[index].extend(chunk[:remaining])
+                if len(chunk) > remaining:
+                    truncated[index] = True
+        finally:
+            stream.close()
+
+    def stop_tree(proc):
+        if os.name == "nt":
+            # taskkill receives a numeric PID as an argument, never shell input.
+            killer = os.path.join(os.environ.get("SystemRoot", r"C:\Windows"), "System32", "taskkill.exe")
+            try:
+                subprocess.run([killer, "/PID", str(proc.pid), "/T", "/F"],
+                               stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, timeout=5)
+            except (OSError, subprocess.TimeoutExpired):
+                pass
+        else:
+            try:
+                os.killpg(proc.pid, signal.SIGKILL)
+            except ProcessLookupError:
+                pass
+        if proc.poll() is None:
+            proc.kill()
+        proc.wait(timeout=5)
+
+    proc = None
+    readers = []
+    timed_out = False
     try:
-        proc = subprocess.run(
-            prepared_args,
-            cwd=resolved_cwd,
-            shell=False,
-            capture_output=True,
-            timeout=timeout,
-            env=merged_env
+        if timeout <= 0:
+            raise ValueError("timeout must be positive")
+        proc = subprocess.Popen(
+            prepared_args, cwd=resolved_cwd, shell=False,
+            stdout=subprocess.PIPE, stderr=subprocess.PIPE, env=merged_env,
+            start_new_session=(os.name != "nt"),
         )
-        duration_ms = (time.time() - start_time) * 1000.0
-
-        # Cap output buffer to 512KB and sanitize
-        raw_stdout = proc.stdout[:MAX_OUTPUT_BYTES].decode("utf-8", errors="replace")
-        raw_stderr = proc.stderr[:MAX_OUTPUT_BYTES].decode("utf-8", errors="replace")
-
-        clean_stdout = sanitize_secrets(raw_stdout)
-        clean_stderr = sanitize_secrets(raw_stderr)
-
-        warnings = []
-        if len(proc.stdout) > MAX_OUTPUT_BYTES:
-            warnings.append(f"stdout exceeded {MAX_OUTPUT_BYTES} bytes cap and was truncated.")
-        if len(proc.stderr) > MAX_OUTPUT_BYTES:
-            warnings.append(f"stderr exceeded {MAX_OUTPUT_BYTES} bytes cap and was truncated.")
-
-        status = "SUCCESS" if proc.returncode == 0 else "FAILED"
-        errors = [f"Process exited with non-zero code {proc.returncode}"] if proc.returncode != 0 else []
-
+        for index, stream in enumerate((proc.stdout, proc.stderr)):
+            thread = threading.Thread(target=drain, args=(stream, index), daemon=True)
+            thread.start()
+            readers.append(thread)
+        try:
+            proc.wait(timeout=timeout)
+            # Children can retain inherited pipe handles after the parent exits.
+            deadline = start_time + timeout
+            for thread in readers:
+                thread.join(max(0, deadline - time.time()))
+            if any(thread.is_alive() for thread in readers):
+                timed_out = True
+                stop_tree(proc)
+        except subprocess.TimeoutExpired:
+            timed_out = True
+            stop_tree(proc)
+        for thread in readers:
+            thread.join(5)
+        warnings = [f"{name} exceeded {MAX_OUTPUT_BYTES} bytes cap and was truncated."
+                    for index, name in enumerate(("stdout", "stderr")) if truncated[index]]
+        if any(thread.is_alive() for thread in readers):
+            warnings.append("Descendant pipe cleanup incomplete; process isolation requires host supervision.")
+        if timed_out:
+            warnings.insert(0, f"Execution timed out after {timeout} seconds.")
+        exit_code = -1 if timed_out else proc.returncode
         return ExecutionResult(
-            command=command_name,
-            language=language,
-            status=status,
-            exit_code=proc.returncode,
-            duration_ms=round(duration_ms, 2),
-            commands_executed=[cmd_str],
-            evidence=ev,
-            stdout=clean_stdout,
-            stderr=clean_stderr,
+            command=command_name, language=language,
+            status="SUCCESS" if exit_code == 0 else "FAILED", exit_code=exit_code,
+            duration_ms=round((time.time() - start_time) * 1000, 2),
+            commands_executed=[cmd_str], evidence=ev,
+            stdout=sanitize_secrets(bytes(buffers[0]).decode("utf-8", errors="replace")),
+            stderr=sanitize_secrets(bytes(buffers[1]).decode("utf-8", errors="replace")),
             warnings=warnings,
-            errors=errors
+            errors=([f"Command exceeded timeout limit of {timeout}s."] if timed_out else
+                    [f"Process exited with non-zero code {exit_code}"] if exit_code else []),
         )
-
-    except subprocess.TimeoutExpired as e:
-        duration_ms = (time.time() - start_time) * 1000.0
-        out = e.stdout[:MAX_OUTPUT_BYTES].decode("utf-8", errors="replace") if e.stdout else ""
-        err = e.stderr[:MAX_OUTPUT_BYTES].decode("utf-8", errors="replace") if e.stderr else ""
-        return ExecutionResult(
-            command=command_name,
-            language=language,
-            status="FAILED",
-            exit_code=-1,
-            duration_ms=round(duration_ms, 2),
-            commands_executed=[cmd_str],
-            evidence=ev,
-            stdout=sanitize_secrets(out),
-            stderr=sanitize_secrets(err),
-            warnings=[f"Execution timed out after {timeout} seconds."],
-            errors=[f"Command exceeded timeout limit of {timeout}s."]
-        )
-
     except Exception as e:
-        duration_ms = (time.time() - start_time) * 1000.0
         return ExecutionResult(
-            command=command_name,
-            language=language,
-            status="FAILED",
-            exit_code=1,
-            duration_ms=round(duration_ms, 2),
-            commands_executed=[cmd_str],
-            evidence=ev,
-            errors=[f"Subprocess invocation error: {str(e)}"]
+            command=command_name, language=language, status="FAILED", exit_code=1,
+            duration_ms=round((time.time() - start_time) * 1000, 2),
+            commands_executed=[cmd_str], evidence=ev,
+            errors=[sanitize_secrets(f"Subprocess invocation error: {e}")],
         )
+    finally:
+        # Also runs for KeyboardInterrupt/cancellation; never leave a live direct child.
+        if proc is not None and proc.poll() is None:
+            stop_tree(proc)
