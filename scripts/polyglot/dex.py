@@ -36,6 +36,12 @@ def build_parser() -> argparse.ArgumentParser:
 
     subparsers = parser.add_subparsers(dest="command", help="Command to execute")
 
+    skills = subparsers.add_parser("skills", help="Read-only catalog evidence and release gates")
+    skills.add_argument("skills_command", choices=["status", "audit", "validate", "plan", "report"])
+    skills.add_argument("--cwd", "-C", default=REPO_ROOT)
+    skills.add_argument("--format", "-f", choices=["text", "json"], default="text")
+    skills.add_argument("--dry-run", action="store_true", help="All current skills commands are read-only")
+
     # Global options
     for sub in [
         "status", "detect", "doctor", "lint", "typecheck",
@@ -206,6 +212,10 @@ def main():
         sys.exit(0)
 
     args = parser.parse_args()
+
+    if args.command == "skills":
+        from scripts.skillops import run
+        sys.exit(run(args))
 
     if args.command == "status":
         result = cmd_status(args)

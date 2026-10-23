@@ -13,6 +13,12 @@ import json
 import pytest
 
 ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+from pathlib import Path as _CatalogPath
+import json as _catalog_json
+_TARGET = _catalog_json.loads((_CatalogPath(ROOT_DIR) / "manifests/native-skills.json").read_text(encoding="utf-8"))
+TARGET_NATIVE = _TARGET["target_native"]
+TARGET_SPECIALIZED = _TARGET["target_specialized"]
+
 sys.path.insert(0, os.path.join(ROOT_DIR, "scripts"))
 
 from validate_skills import parse_frontmatter, MANDATORY_SECTIONS
@@ -200,7 +206,7 @@ def test_11_native_dex_skill_count_invariant():
     """Assertion 11: Verify native DEX skill count remains exactly 401 (400 specialized + 1 orchestrator)."""
     native_skills_dir = os.path.join(ROOT_DIR, ".agents", "skills")
     native_dirs = [d for d in os.listdir(native_skills_dir) if os.path.isdir(os.path.join(native_skills_dir, d))]
-    assert len(native_dirs) == 401, f"Native skill count invariant violated: expected 401, found {len(native_dirs)}"
+    assert len(native_dirs) == TARGET_NATIVE, f"Native skill count invariant violated: expected 401, found {len(native_dirs)}"
     assert "dex-master-orchestrator" in native_dirs
 
 

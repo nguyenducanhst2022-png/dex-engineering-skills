@@ -10,6 +10,12 @@ import re
 import pytest
 
 ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+from pathlib import Path as _CatalogPath
+import json as _catalog_json
+_TARGET = _catalog_json.loads((_CatalogPath(ROOT_DIR) / "manifests/native-skills.json").read_text(encoding="utf-8"))
+TARGET_NATIVE = _TARGET["target_native"]
+TARGET_SPECIALIZED = _TARGET["target_specialized"]
+
 SKILLS_DIR = os.path.join(ROOT_DIR, ".agents", "skills")
 
 def get_native_skills():
@@ -40,7 +46,7 @@ def build_dependency_graph():
 GRAPH = build_dependency_graph()
 
 def test_all_skills_in_graph():
-    assert len(GRAPH) == 401
+    assert len(GRAPH) == TARGET_NATIVE
 
 def test_no_dangling_skill_references():
     for s_name, refs in GRAPH.items():

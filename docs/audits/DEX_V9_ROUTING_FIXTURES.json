@@ -1,0 +1,402 @@
+[
+  {
+    "id": "A",
+    "task_input": "Review Supabase multi tenant PostgreSQL RLS SELECT INSERT UPDATE DELETE isolation.",
+    "expected_skills": [
+      "dex-postgres-rls-policy-verification"
+    ],
+    "forbidden_skills": [
+      "dex-supabase-storage-access-policies"
+    ],
+    "required_tools": "PostgreSQL test instance",
+    "execution_steps": [
+      "Run metadata route simulation",
+      "Compare selected and forbidden skills",
+      "Execute selected skill on isolated domain fixture when available"
+    ],
+    "expected_output": "Expected skill selected and forbidden skill absent",
+    "actual_output": [
+      "dex-postgres-rls-policy-verification",
+      "dex-retrieval-permission-filtering",
+      "dex-tenant-provisioning-lifecycle"
+    ],
+    "routing_result": "PASS",
+    "domain_test_result": "NOT_VERIFIED",
+    "limitations": "Lexical simulation tests discovery only; no agent or domain runtime executed."
+  },
+  {
+    "id": "B",
+    "task_input": "Validate agent tool permission scopes and approval boundaries.",
+    "expected_skills": [
+      "dex-agent-tool-permission-modeling"
+    ],
+    "forbidden_skills": [
+      "dex-agent-execution-budget-controls"
+    ],
+    "required_tools": "Isolated fake tools",
+    "execution_steps": [
+      "Run metadata route simulation",
+      "Compare selected and forbidden skills",
+      "Execute selected skill on isolated domain fixture when available"
+    ],
+    "expected_output": "Expected skill selected and forbidden skill absent",
+    "actual_output": [
+      "dex-agent-tool-permission-modeling",
+      "dex-agent-engineering",
+      "dex-agent-skills-spec-compatibility"
+    ],
+    "routing_result": "PASS",
+    "domain_test_result": "NOT_VERIFIED",
+    "limitations": "Lexical simulation tests discovery only; no agent or domain runtime executed."
+  },
+  {
+    "id": "C",
+    "task_input": "Validate HLS DASH streaming manifest segment references and codecs.",
+    "expected_skills": [
+      "dex-streaming-manifest-validation"
+    ],
+    "forbidden_skills": [
+      "dex-video-transcoding-ladders"
+    ],
+    "required_tools": "Manifest fixtures",
+    "execution_steps": [
+      "Run metadata route simulation",
+      "Compare selected and forbidden skills",
+      "Execute selected skill on isolated domain fixture when available"
+    ],
+    "expected_output": "Expected skill selected and forbidden skill absent",
+    "actual_output": [
+      "dex-streaming-manifest-validation",
+      "dex-hls-dash-playback",
+      "dex-streaming-qoe-telemetry"
+    ],
+    "routing_result": "PASS",
+    "domain_test_result": "NOT_VERIFIED",
+    "limitations": "Lexical simulation tests discovery only; no agent or domain runtime executed."
+  },
+  {
+    "id": "D",
+    "task_input": "Test chess UCI handshake stop ponder command ordering.",
+    "expected_skills": [
+      "dex-chess-uci-protocol-compliance"
+    ],
+    "forbidden_skills": [
+      "dex-chess-search-pruning-evals"
+    ],
+    "required_tools": "Chess engine binary",
+    "execution_steps": [
+      "Run metadata route simulation",
+      "Compare selected and forbidden skills",
+      "Execute selected skill on isolated domain fixture when available"
+    ],
+    "expected_output": "Expected skill selected and forbidden skill absent",
+    "actual_output": [
+      "dex-chess-uci-protocol-compliance",
+      "dex-chess-engine-search-testing",
+      "dex-cli-command-contracts"
+    ],
+    "routing_result": "PASS",
+    "domain_test_result": "NOT_VERIFIED",
+    "limitations": "Lexical simulation tests discovery only; no agent or domain runtime executed."
+  },
+  {
+    "id": "E",
+    "task_input": "Review C++ Rust FFI ownership and ABI error boundaries.",
+    "expected_skills": [
+      "dex-cpp-rust-ffi-validation"
+    ],
+    "forbidden_skills": [
+      "dex-chess-nnue-evaluation-integration"
+    ],
+    "required_tools": "C++ and Rust compilers",
+    "execution_steps": [
+      "Run metadata route simulation",
+      "Compare selected and forbidden skills",
+      "Execute selected skill on isolated domain fixture when available"
+    ],
+    "expected_output": "Expected skill selected and forbidden skill absent",
+    "actual_output": [
+      "dex-cpp-rust-ffi-validation",
+      "dex-ffi-boundary-contracts",
+      "dex-code-review"
+    ],
+    "routing_result": "PASS",
+    "domain_test_result": "NOT_VERIFIED",
+    "limitations": "Lexical simulation tests discovery only; no agent or domain runtime executed."
+  },
+  {
+    "id": "F",
+    "task_input": "Reproduce Windows per monitor DPI coordinate translation bug.",
+    "expected_skills": [
+      "dex-win32-dpi-multi-monitor-layout"
+    ],
+    "forbidden_skills": [
+      "dex-windows-com-interop"
+    ],
+    "required_tools": "Windows multi-monitor host",
+    "execution_steps": [
+      "Run metadata route simulation",
+      "Compare selected and forbidden skills",
+      "Execute selected skill on isolated domain fixture when available"
+    ],
+    "expected_output": "Expected skill selected and forbidden skill absent",
+    "actual_output": [
+      "dex-win32-dpi-multi-monitor-layout",
+      "dex-windows-packaging",
+      "dex-windows-input-api-integration"
+    ],
+    "routing_result": "PASS",
+    "domain_test_result": "NOT_VERIFIED",
+    "limitations": "Lexical simulation tests discovery only; no agent or domain runtime executed."
+  },
+  {
+    "id": "G",
+    "task_input": "Test Kubernetes secret delivery and credential rotation.",
+    "expected_skills": [
+      "dex-kubernetes-secret-delivery"
+    ],
+    "forbidden_skills": [
+      "dex-terraform-module-contract-tests"
+    ],
+    "required_tools": "Isolated Kubernetes cluster",
+    "execution_steps": [
+      "Run metadata route simulation",
+      "Compare selected and forbidden skills",
+      "Execute selected skill on isolated domain fixture when available"
+    ],
+    "expected_output": "Expected skill selected and forbidden skill absent",
+    "actual_output": [
+      "dex-kubernetes-secret-delivery",
+      "dex-kubernetes-deployment",
+      "dex-notification-delivery"
+    ],
+    "routing_result": "PASS",
+    "domain_test_result": "NOT_VERIFIED",
+    "limitations": "Lexical simulation tests discovery only; no agent or domain runtime executed."
+  },
+  {
+    "id": "H",
+    "task_input": "Critique premium dashboard hierarchy typography spacing and visual quality.",
+    "expected_skills": [
+      "dex-design-critique-rubric"
+    ],
+    "forbidden_skills": [
+      "dex-email-template-rendering"
+    ],
+    "required_tools": "Browser and screenshot fixtures",
+    "execution_steps": [
+      "Run metadata route simulation",
+      "Compare selected and forbidden skills",
+      "Execute selected skill on isolated domain fixture when available"
+    ],
+    "expected_output": "Expected skill selected and forbidden skill absent",
+    "actual_output": [
+      "dex-visual-hierarchy-audit",
+      "dex-design-critique-rubric",
+      "dex-ui-visual-qa-review"
+    ],
+    "routing_result": "PASS",
+    "domain_test_result": "NOT_VERIFIED",
+    "limitations": "Lexical simulation tests discovery only; no agent or domain runtime executed."
+  },
+  {
+    "id": "I",
+    "task_input": "Verify TypeScript ESM CommonJS dual publish exports declarations with package consumers.",
+    "expected_skills": [
+      "dex-typescript-package-dual-publish"
+    ],
+    "forbidden_skills": [
+      "dex-react-render-profiling"
+    ],
+    "required_tools": "Node and TypeScript",
+    "execution_steps": [
+      "Run metadata route simulation",
+      "Compare selected and forbidden skills",
+      "Execute selected skill on isolated domain fixture when available"
+    ],
+    "expected_output": "Expected skill selected and forbidden skill absent",
+    "actual_output": [
+      "dex-typescript-package-dual-publish",
+      "dex-typescript-type-safety",
+      "dex-monorepo-governance"
+    ],
+    "routing_result": "PASS",
+    "domain_test_result": "NOT_VERIFIED",
+    "limitations": "Lexical simulation tests discovery only; no agent or domain runtime executed."
+  },
+  {
+    "id": "J",
+    "task_input": "Diagnose Next.js App Router data cache invalidation stale reads.",
+    "expected_skills": [
+      "dex-nextjs-app-router-data-cache"
+    ],
+    "forbidden_skills": [
+      "dex-vue-composition-reusability"
+    ],
+    "required_tools": "Next.js application",
+    "execution_steps": [
+      "Run metadata route simulation",
+      "Compare selected and forbidden skills",
+      "Execute selected skill on isolated domain fixture when available"
+    ],
+    "expected_output": "Expected skill selected and forbidden skill absent",
+    "actual_output": [
+      "dex-nextjs-app-router-data-cache",
+      "dex-build-cache-integrity",
+      "dex-tanstack-query-cache-coherence"
+    ],
+    "routing_result": "PASS",
+    "domain_test_result": "NOT_VERIFIED",
+    "limitations": "Lexical simulation tests discovery only; no agent or domain runtime executed."
+  },
+  {
+    "id": "K",
+    "task_input": "Audit dependency provenance attestation subject digest build identity.",
+    "expected_skills": [
+      "dex-dependency-provenance-attestation"
+    ],
+    "forbidden_skills": [
+      "dex-disclosure-coordinated-triage"
+    ],
+    "required_tools": "Attestation verifier",
+    "execution_steps": [
+      "Run metadata route simulation",
+      "Compare selected and forbidden skills",
+      "Execute selected skill on isolated domain fixture when available"
+    ],
+    "expected_output": "Expected skill selected and forbidden skill absent",
+    "actual_output": [
+      "dex-dependency-provenance-attestation",
+      "dex-release-reproducibility-audit",
+      "dex-build-cache-integrity"
+    ],
+    "routing_result": "PASS",
+    "domain_test_result": "NOT_VERIFIED",
+    "limitations": "Lexical simulation tests discovery only; no agent or domain runtime executed."
+  },
+  {
+    "id": "L",
+    "task_input": "Review skill conflict precedence across overlapping domain workflows.",
+    "expected_skills": [
+      "dex-skill-conflict-precedence"
+    ],
+    "forbidden_skills": [
+      "dex-skill-lifecycle-health-dashboard"
+    ],
+    "required_tools": "Conflicting instruction fixtures",
+    "execution_steps": [
+      "Run metadata route simulation",
+      "Compare selected and forbidden skills",
+      "Execute selected skill on isolated domain fixture when available"
+    ],
+    "expected_output": "Expected skill selected and forbidden skill absent",
+    "actual_output": [
+      "dex-skill-conflict-precedence",
+      "dex-skill-routing-conflict-tests",
+      "dex-skill-catalog-reconciliation"
+    ],
+    "routing_result": "PASS",
+    "domain_test_result": "NOT_VERIFIED",
+    "limitations": "Lexical simulation tests discovery only; no agent or domain runtime executed."
+  },
+  {
+    "id": "M",
+    "task_input": "Test agent shutdown cancellation checkpoint recovery without repeated effects.",
+    "expected_skills": [
+      "dex-agent-shutdown-and-cancellation"
+    ],
+    "forbidden_skills": [
+      "dex-agent-reviewer-independence"
+    ],
+    "required_tools": "Isolated agent harness",
+    "execution_steps": [
+      "Run metadata route simulation",
+      "Compare selected and forbidden skills",
+      "Execute selected skill on isolated domain fixture when available"
+    ],
+    "expected_output": "Expected skill selected and forbidden skill absent",
+    "actual_output": [
+      "dex-agent-shutdown-and-cancellation",
+      "dex-agent-engineering",
+      "dex-multi-agent-orchestration"
+    ],
+    "routing_result": "PASS",
+    "domain_test_result": "NOT_VERIFIED",
+    "limitations": "Lexical simulation tests discovery only; no agent or domain runtime executed."
+  },
+  {
+    "id": "N",
+    "task_input": "Revalidate upstream skill provenance pinned commit before import and rollback.",
+    "expected_skills": [
+      "dex-skill-provenance-revalidation"
+    ],
+    "forbidden_skills": [
+      "dex-skill-task-suitability-classifier"
+    ],
+    "required_tools": "Git and importer sandbox",
+    "execution_steps": [
+      "Run metadata route simulation",
+      "Compare selected and forbidden skills",
+      "Execute selected skill on isolated domain fixture when available"
+    ],
+    "expected_output": "Expected skill selected and forbidden skill absent",
+    "actual_output": [
+      "dex-skill-upstream-sync",
+      "dex-skill-license-provenance",
+      "dex-skill-import-packaging"
+    ],
+    "routing_result": "FAIL",
+    "domain_test_result": "NOT_VERIFIED",
+    "limitations": "Lexical simulation tests discovery only; no agent or domain runtime executed."
+  },
+  {
+    "id": "O",
+    "task_input": "Test skill crosshost fixture compatibility across coding agent hosts.",
+    "expected_skills": [
+      "dex-skill-crosshost-fixture-tests"
+    ],
+    "forbidden_skills": [
+      "dex-skill-progressive-disclosure-metrics"
+    ],
+    "required_tools": "Actual target agent hosts",
+    "execution_steps": [
+      "Run metadata route simulation",
+      "Compare selected and forbidden skills",
+      "Execute selected skill on isolated domain fixture when available"
+    ],
+    "expected_output": "Expected skill selected and forbidden skill absent",
+    "actual_output": [
+      "dex-skill-crosshost-fixture-tests",
+      "dex-agent-skills-spec-compatibility",
+      "dex-agent-engineering"
+    ],
+    "routing_result": "PASS",
+    "domain_test_result": "NOT_VERIFIED",
+    "limitations": "Lexical simulation tests discovery only; no agent or domain runtime executed."
+  },
+  {
+    "id": "P",
+    "task_input": "Report skill lifecycle health dashboard actual counts and release evidence.",
+    "expected_skills": [
+      "dex-skill-lifecycle-health-dashboard"
+    ],
+    "forbidden_skills": [
+      "dex-skill-task-suitability-classifier"
+    ],
+    "required_tools": "Catalog and evidence records",
+    "execution_steps": [
+      "Run metadata route simulation",
+      "Compare selected and forbidden skills",
+      "Execute selected skill on isolated domain fixture when available"
+    ],
+    "expected_output": "Expected skill selected and forbidden skill absent",
+    "actual_output": [
+      "dex-skill-lifecycle-health-dashboard",
+      "dex-skill-rollback-verification",
+      "dex-skill-catalog-reconciliation"
+    ],
+    "routing_result": "PASS",
+    "domain_test_result": "NOT_VERIFIED",
+    "limitations": "Lexical simulation tests discovery only; no agent or domain runtime executed."
+  }
+]

@@ -525,14 +525,23 @@ def parse_frontmatter(content):
         data[current_key] = " ".join(current_val).strip()
     return data, parts[2]
 
+# Versioned canonical target; presence in this file does not imply implementation.
+_canonical_path = os.path.join(os.path.dirname(__file__), "..", "manifests", "native-skills.json")
+if os.path.isfile(_canonical_path):
+    with open(_canonical_path, encoding="utf-8") as _f:
+        SKILL_CANONICAL_GROUPS.update({
+            x["id"]: (x["group"], x["domain"], x["index"])
+            for x in json.load(_f)["skills"] if x["index"] > 0
+        })
+
 def discover_all_skills(root_dir):
     skills_base = os.path.join(root_dir, ".agents", "skills")
     integrations_base = os.path.join(root_dir, "integrations")
 
     catalog = {
         "framework": "DEX Engineering Skills Framework",
-        "version": "8.0.0",
-        "target_skills_count": 401,
+        "version": "9.0.0-rc.0",
+        "target_skills_count": 501,
         "native_skills": [],
         "segregated_integrations": []
     }

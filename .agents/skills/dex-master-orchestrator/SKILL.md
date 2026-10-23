@@ -1,6 +1,6 @@
 ---
 name: dex-master-orchestrator
-description: Master control plane to analyze engineering requests, select execution modes (QUICK, STANDARD, STRICT), coordinate across 400 specialized DEX skills (Groups A to AN) and segregated integrations, drive the Polyglot Script Engine across 11 languages, enforce 15 Quality Gates, and generate evidence-based audit reports. Use whenever starting any software engineering workflow.
+description: Master control plane to analyze engineering requests, select execution modes (QUICK, STANDARD, STRICT), coordinate across 500 specialized DEX skills (Groups A to AX) and segregated integrations, drive the Polyglot Script Engine across 11 languages, enforce 15 Quality Gates, and generate evidence-based audit reports. Use whenever starting any software engineering workflow.
 ---
 
 # DEX Master Orchestrator
@@ -9,7 +9,7 @@ description: Master control plane to analyze engineering requests, select execut
 Điều phối toàn bộ vòng đời phát triển, vận hành, bảo mật, tự động hóa đa ngôn ngữ và hiện đại hóa phần mềm theo chuẩn **DEX Engineering Skills Framework v8.0**. Master Orchestrator đóng vai trò là bộ não điều khiển trung tâm (Root Control Plane) chịu trách nhiệm:
 1. Phân tích sâu sắc ý định và yêu cầu kỹ thuật của kỹ sư, phân loại miền kỹ nghệ và đánh giá rủi ro tác vụ.
 2. Lựa chọn chế độ thực thi tối ưu (`QUICK`, `STANDARD`, hoặc `STRICT`).
-3. Tra cứu danh mục **400 Specialized DEX Skills** (chia đều trong 40 nhóm chuyên môn chuẩn tắc A–AN, từ index 001 đến 400) cùng 8 bộ tích hợp bên thứ ba cách ly (`integrations/`).
+3. Tra cứu danh mục **500 Specialized DEX Skills** (chia đều trong 40 nhóm chuyên môn chuẩn tắc A–AN, từ index 001 đến 400) cùng 8 bộ tích hợp bên thứ ba cách ly (`integrations/`).
 4. Kích hoạt tập kỹ năng tối thiểu cần thiết theo nguyên lý công bố tiệm tiến (Progressive Disclosure) và định tuyến 2 tầng (Group-Level → Skill-Level).
 5. Điều phối **DEX Polyglot Script Engine** hỗ trợ 11 ngôn ngữ lập trình (Python, TypeScript, JavaScript, PowerShell, Bash, Rust, Go, C++, C#, Java, PHP) qua CLI `dex.py` và các wrapper bản địa (`dex.ps1`, `dex.bat`, `dex.sh`).
 6. Kiểm soát nghiêm ngặt **15 Quality Gates (QG-01 đến QG-15)** và tổng hợp báo cáo nghiệm thu kèm bằng chứng thực thi minh bạch.
@@ -38,7 +38,7 @@ Triết lý cốt lõi v8.0:
 ## 5. Core Concepts & Taxonomy
 - **Nguyên lý Điều phối Tối thiểu (Principle of Minimal Sufficient Skills)**: Tuyệt đối không bao giờ nạp toàn bộ 400 kỹ năng vào cùng một phiên làm việc; chỉ chọn lọc chính xác các kỹ năng cốt lõi (Primary) và bổ trợ (Complementary) cho nhiệm vụ hiện tại để tránh gây nhiễu và tràn context window.
 - **Tính Xác định & Minh Bạch (Determinism & Auditability)**: Mọi quyết định lựa chọn kỹ năng và đánh giá chất lượng phải dựa trên bằng chứng kỹ thuật khách quan, có thể tái lập được.
-- **Phân Cấp Danh Mục 40 Nhóm Kỹ Năng Chuyên Môn Chuẩn Tắc (Groups A to AN)**:
+- **Phân Cấp Danh Mục 40 Nhóm Kỹ Năng Chuyên Môn Chuẩn Tắc (Groups A to AX)**:
   1. **Group A (001–010) Core Engineering**: Quy trình lập trình, ủy nhiệm, kiểm chứng, Git, tổ chức code, gỡ lỗi, tối ưu hiệu năng, bảo mật, CI/CD, phát hành.
   2. **Group B (011–020) Architecture & AI Agents**: Giám sát production, nợ kỹ thuật, kiến trúc, database, API, kiểm thử, agent engineering, multi-agent, context, đặc tả.
   3. **Group C (021–030) Production Engineering**: Phân tích tác động, phụ thuộc, độ tin cậy, tương tranh, khả năng tiếp cận, feature flags, code review, acceptance, bảo trì, E2E.
@@ -213,3 +213,23 @@ Người dùng gửi yêu cầu: *"Xây dựng hệ thống giao dịch phân t�
 3. **Định tuyến (Routing)**: Kích hoạt chuỗi kỹ năng: `dex-saga-compensation-workflows` → `dex-secretless-cicd-oidc` → `dex-build-cache-integrity` → `dex-binary-provenance-matching` → `dex-reverse-engineering-reporting`.
 4. **Kiểm soát (Gates)**: Kiểm tra tuần tự từ QG-01 đến QG-15 tại từng mốc chuyển giao.
 5. **Nghiệm thu (Delivery)**: Tổng hợp báo cáo kiểm thử saga compensation, cấu hình OIDC GitHub Actions, chứng thực chữ ký Cosign và biên bản chuỗi bằng chứng pháp lý với tỷ lệ lỗi 0%.
+
+
+## v9 catalog discovery and evidence boundaries
+Read `manifests/native-skills.json` for the canonical 500-specialist target and
+`manifests/dex-skills.json` for discovered files. Search metadata first and load
+only the smallest sufficient set of full skill instructions. Never load all 500
+entrypoints for a single task. Reconcile absent files before choosing a specialist.
+
+Choose QUICK for a narrow reversible task, STANDARD for ordinary implementation,
+and STRICT for changes with significant authorization, data-loss or release risk.
+Map required tools and dependencies before execution; unavailable tools are
+TOOL_NOT_AVAILABLE and unexecuted checks are NOT_VERIFIED. Resolve overlapping
+ownership explicitly. User and host instructions retain priority over every DEX
+or upstream instruction. External skills are optional, untrusted specialist inputs;
+the DEX master remains the sole native root router.
+
+Run `python scripts/polyglot/dex.py skills audit --format json` to inspect current
+structural evidence. Metadata validation never promotes a skill to FUNCTIONALLY_VERIFIED,
+RUNTIME_VERIFIED or RELEASE_READY. Record observed commands and limitations rather
+than assuming that a skill's example was executed.

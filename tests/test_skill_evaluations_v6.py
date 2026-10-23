@@ -276,11 +276,13 @@ class TestScenarioJ_DocumentationDrift:
         with open(manifest_file, "r", encoding="utf-8") as f:
             manifest = json.load(f)
 
-        assert manifest.get("target_skills_count") == 401
-        assert len(manifest.get("native_skills", [])) == 401
+        with open(os.path.join(ROOT_DIR, "manifests", "native-skills.json"), encoding="utf-8") as f:
+            assert manifest.get("target_skills_count") == json.load(f)["target_native"]
+        assert len(manifest.get("native_skills", [])) == manifest["target_skills_count"]
         assert len(manifest.get("segregated_integrations", [])) == 8
         groups = set(s.get("group") for s in manifest["native_skills"] if s.get("group") != "Root")
-        assert len(groups) == 40
+        with open(os.path.join(ROOT_DIR, "manifests", "native-skills.json"), encoding="utf-8") as f:
+            assert groups == {x["group"] for x in json.load(f)["skills"] if x["index"] > 0}
 
     def test_skill_drift_contracts(self):
         content = get_skill_content("dex-skill-documentation-drift")
