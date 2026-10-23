@@ -51,12 +51,15 @@ def test_integration_skills_exist():
         for d in dirs:
             if os.path.isfile(os.path.join(root, d, "SKILL.md")):
                 found_skills.append(d)
-    assert len(found_skills) == 5
+    assert len(found_skills) == 8
     assert "dex-api-mocking-virtualization" in found_skills
     assert "dex-binary-inspection" in found_skills
     assert "dex-javascript-bundle-deobfuscation" in found_skills
     assert "dex-rea-adapter" in found_skills
     assert "dex-ui-ux-pro-max-adapter" in found_skills
+    assert "dex-supabase-adapter" in found_skills
+    assert "dex-superpowers-adapter" in found_skills
+    assert "dex-mattpocock-adapter" in found_skills
 
 def test_master_orchestrator_exists():
     """Verify dex-master-orchestrator is present."""

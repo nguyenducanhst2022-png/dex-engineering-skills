@@ -6161,6 +6161,12 @@
       "path": "integrations/aas/dex-api-mocking-virtualization/SKILL.md"
     },
     {
+      "id": "dex-mattpocock-adapter",
+      "name": "dex-mattpocock-adapter",
+      "description": "Developer-agent collaboration protocols, hypothesis-driven bug diagnosis, specification-to-ticket decomposition, and structured session handoff adapter. Bridges DEX engineering practices to Matt Pocock agent skills. Use when diagnosing elusive bugs, decomposing features into atomic tickets, or handing off agent context.",
+      "path": "integrations/mattpocock/dex-mattpocock-adapter/SKILL.md"
+    },
+    {
       "id": "dex-rea-adapter",
       "name": "dex-rea-adapter",
       "description": "Model Context Protocol (MCP) bridge and coordination skill connecting DEX AI agents to the Reverse Engineer Anything (REA) MCP toolchain for authorized binary decompilation, symbol discovery, and evidence-based reporting. Use when interacting with local REA MCP servers.",
@@ -6177,6 +6183,18 @@
       "name": "dex-javascript-bundle-deobfuscation",
       "description": "Analyze and deobfuscate minified client-side JavaScript and Electron bundles, reconstruct sourcemap trees, extract third-party SDK dependencies, and audit exposed API endpoints for authorized defensive security reviews. Use when auditing web bundles or Electron apps.",
       "path": "integrations/reverse-skill/dex-javascript-bundle-deobfuscation/SKILL.md"
+    },
+    {
+      "id": "dex-supabase-adapter",
+      "name": "dex-supabase-adapter",
+      "description": "Supabase BaaS PostgreSQL, Row-Level Security (RLS) hardening, connection pooling optimization, and Edge Function integration adapter. Bridges DEX database engineering to official Supabase best practices. Use when building, auditing, or optimizing Supabase database architectures.",
+      "path": "integrations/supabase/dex-supabase-adapter/SKILL.md"
+    },
+    {
+      "id": "dex-superpowers-adapter",
+      "name": "dex-superpowers-adapter",
+      "description": "Disciplined software engineering workflows, Test-Driven Development (TDD) loops, systematic defect isolation, and Git worktree isolation adapter. Bridges DEX engineering practices to Superpowers methodologies under strict Master Orchestrator control. Use when executing complex TDD cycles, structured plan executions, or worktree development.",
+      "path": "integrations/superpowers/dex-superpowers-adapter/SKILL.md"
     },
     {
       "id": "dex-ui-ux-pro-max-adapter",

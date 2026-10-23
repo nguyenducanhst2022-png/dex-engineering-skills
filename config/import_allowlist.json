@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "version": "1.0.0",
+  "version": "8.1.0",
   "description": "Allowlist and governance rules for external Agent Skills sources integrated into DEX Engineering Skills",
   "approved_sources": [
     {
@@ -61,6 +61,85 @@
       "prohibited_patterns": [
         "sudo rm -rf",
         "format C:"
+      ],
+      "auto_import_allowed": false,
+      "requires_manual_audit": true
+    },
+    {
+      "source_id": "SOURCE_D_UI_UX_PRO_MAX",
+      "name": "UI/UX Pro Max",
+      "repository_url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
+      "allowed_licenses": ["MIT"],
+      "allowed_domains": [
+        "Design Systems",
+        "UI Styling",
+        "Color Palettes",
+        "Typography",
+        "Component Patterns"
+      ],
+      "prohibited_patterns": [
+        "eval(",
+        "exec(",
+        "rm -rf",
+        "drop table"
+      ],
+      "auto_import_allowed": false,
+      "requires_manual_audit": true
+    },
+    {
+      "source_id": "SOURCE_E_SUPABASE",
+      "name": "Supabase Agent Skills",
+      "repository_url": "https://github.com/supabase/agent-skills",
+      "allowed_licenses": ["MIT"],
+      "allowed_domains": [
+        "PostgreSQL",
+        "Row-Level Security",
+        "Connection Pooling",
+        "Database Engineering",
+        "Edge Functions"
+      ],
+      "prohibited_patterns": [
+        "service_role_key_leak",
+        "drop database",
+        "disable rls public"
+      ],
+      "auto_import_allowed": false,
+      "requires_manual_audit": true
+    },
+    {
+      "source_id": "SOURCE_F_SUPERPOWERS",
+      "name": "Superpowers",
+      "repository_url": "https://github.com/obra/superpowers",
+      "allowed_licenses": ["MIT"],
+      "allowed_domains": [
+        "Test-Driven Development",
+        "Systematic Debugging",
+        "Git Worktrees",
+        "Structured Plan Execution"
+      ],
+      "prohibited_patterns": [
+        "override_master_orchestrator",
+        "git worktree remove --force /",
+        "system_prompt_hijack"
+      ],
+      "auto_import_allowed": false,
+      "requires_manual_audit": true
+    },
+    {
+      "source_id": "SOURCE_G_MATTPOCOCK",
+      "name": "Matt Pocock Skills",
+      "repository_url": "https://github.com/mattpocock/skills",
+      "allowed_licenses": ["MIT"],
+      "allowed_domains": [
+        "Bug Diagnosis",
+        "Specification Decomposition",
+        "Session Handoff",
+        "Agent Collaboration"
+      ],
+      "prohibited_patterns": [
+        "shotgun_debugging",
+        "credential_leak",
+        "unbounded_loop"
       ],
       "auto_import_allowed": false,
       "requires_manual_audit": true

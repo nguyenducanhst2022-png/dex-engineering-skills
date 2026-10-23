@@ -1,6 +1,6 @@
 # DEX Engineering Skills Catalog Index (v8.0.0)
 
-> Complete index of all **400 Specialized Engineering Skills** + **1 Master Orchestrator** (401 Native Skills) and **5 Segregated Integrations**.
+> Complete index of all **400 Specialized Engineering Skills** + **1 Master Orchestrator** (401 Native Skills) and **8 Segregated Integrations**.
 > Every skill strictly complies with the [Agent Skills Specification](https://agentskills.io/specification).
 
 ---
@@ -617,7 +617,7 @@
 
 ---
 
-## 3. Segregated Upstream Integrations (5 Skills)
+## 3. Segregated Upstream Integrations (8 Skills)
 
 > Quarantined in `integrations/`, isolated from native numbering, and accessed exclusively via adapters.
 
@@ -628,3 +628,6 @@
 | **`dex-binary-inspection`** | `zhaoxuya520/reverse-skill` | Perform defensive, authorized static binary inspection, PE/ELF header analysis, symbol table dumping, imported DLL/shared library auditing, and compiler flag verification using safe cross-platform CLI utilities. Use when verifying compiled binaries, build integrity, or native dependencies. | [dex-binary-inspection](integrations/reverse-skill/dex-binary-inspection/SKILL.md) |
 | **`dex-javascript-bundle-deobfuscation`** | `zhaoxuya520/reverse-skill` | Analyze and deobfuscate minified client-side JavaScript and Electron bundles, reconstruct sourcemap trees, extract third-party SDK dependencies, and audit exposed API endpoints for authorized defensive security reviews. Use when auditing web bundles or Electron apps. | [dex-javascript-bundle-deobfuscation](integrations/reverse-skill/dex-javascript-bundle-deobfuscation/SKILL.md) |
 | **`dex-ui-ux-pro-max-adapter`** | `nextlevelbuilder/ui-ux-pro-max-skill` | Design intelligence bridge connecting DEX AI agents to UI/UX Pro Max search engine for data-driven UI styles, color palettes, typography pairings, design system generation, and 22 framework-specific implementation guidelines. Use when designing user interfaces, redesigning web/mobile screens, or establishing design tokens. | [dex-ui-ux-pro-max-adapter](integrations/ui-ux-pro-max/dex-ui-ux-pro-max-adapter/SKILL.md) |
+| **`dex-supabase-adapter`** | `supabase/agent-skills` | Supabase BaaS PostgreSQL, Row-Level Security (RLS) hardening, connection pooling optimization, and Edge Function integration adapter. Bridges DEX database engineering to official Supabase best practices. Use when building, auditing, or optimizing Supabase database architectures. | [dex-supabase-adapter](integrations/supabase/dex-supabase-adapter/SKILL.md) |
+| **`dex-superpowers-adapter`** | `obra/superpowers` | Disciplined software engineering workflows, Test-Driven Development (TDD) loops, systematic defect isolation, and Git worktree isolation adapter. Bridges DEX engineering practices to Superpowers methodologies under strict Master Orchestrator control. Use when executing complex TDD cycles, structured plan executions, or worktree development. | [dex-superpowers-adapter](integrations/superpowers/dex-superpowers-adapter/SKILL.md) |
+| **`dex-mattpocock-adapter`** | `mattpocock/skills` | Developer-agent collaboration protocols, hypothesis-driven bug diagnosis, specification-to-ticket decomposition, and structured session handoff adapter. Bridges DEX engineering practices to Matt Pocock agent skills. Use when diagnosing elusive bugs, decomposing features into atomic tickets, or handing off agent context. | [dex-mattpocock-adapter](integrations/mattpocock/dex-mattpocock-adapter/SKILL.md) |

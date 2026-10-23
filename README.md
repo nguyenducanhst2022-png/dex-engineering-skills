@@ -1,6 +1,6 @@
 # DEX Engineering Skills Framework v8.0
 
-> **400 Specialized Agent Skills + 1 Master Orchestrator (401 Native DEX Skills Total) + 4 Segregated Upstream Integrations (5 Integration Skills) + Polyglot Script Engine (11 Languages) + SkillOps Lifecycle Suite**  
+> **400 Specialized Agent Skills + 1 Master Orchestrator (401 Native DEX Skills Total) + 7 Segregated Upstream Integrations (8 Integration Skills) + Polyglot Script Engine (11 Languages) + SkillOps Lifecycle Suite**  
 > Industrial-strength, deterministic agent skills ecosystem adhering strictly to the [Agent Skills Specification](https://agentskills.io/specification).
 
 [![Validate DEX Skills](https://img.shields.io/badge/Validate%20DEX%20Skills-401%2F401%20passed-brightgreen.svg?logo=githubactions&logoColor=white)](https://github.com/nguyenducanhst2022-png/dex-engineering-skills)
@@ -19,7 +19,7 @@
 - **Strict 400+1 Taxonomy**: Exactly **400 Specialized Skills** organized into 40 distinct canonical engineering domains (Groups A through AN, exactly 10 skills each) plus **1 Master Orchestrator** (`dex-master-orchestrator`), totaling **401 Native DEX Skills** in `.agents/skills/`.
 - **DEX Polyglot Script Engine v8.0**: Unified automation runtime supporting **11 programming languages** (Python, TypeScript, JavaScript, PowerShell, Bash, Rust, Go, C++, C#, Java, PHP) with standardized JSON execution envelopes (`result.schema.json`), dry-run execution, timeout controls, output truncation guards, and automated toolchain absence fallback (`TOOL_NOT_AVAILABLE`).
 - **Complete SkillOps Toolchain**: Dedicated operations framework in `scripts/` providing automated discovery, AST security screening, routing accuracy benchmarking (F1 = 0.927), upstream synchronization, and evidence ledger logging.
-- **Segregated Multi-Source Integration**: External capabilities from curated repositories (`sickn33/agentic-awesome-skills`, `zhaoxuya520/reverse-skill`, `morluto/rea`, `nextlevelbuilder/ui-ux-pro-max-skill`) remain strictly isolated in `integrations/`, accessible via MCP adapters and manifests without polluting native numbering.
+- **Segregated Multi-Source Integration**: External capabilities from 7 curated repositories (`sickn33/agentic-awesome-skills`, `zhaoxuya520/reverse-skill`, `morluto/rea`, `nextlevelbuilder/ui-ux-pro-max-skill`, `supabase/agent-skills`, `obra/superpowers`, `mattpocock/skills`) remain strictly isolated in `integrations/`, accessible via dedicated adapters and manifests without polluting native numbering.
 - **14 Mandatory Sections Standard**: Every skill strictly implements all 14 mandatory sections (Purpose & Scope, When to Use, When NOT to Use, Prerequisites & Input Context, Core Concepts & Taxonomy, Step-by-Step Execution Workflow, Concrete Examples, Anti-Patterns & Common Traps, Quality Gates & Acceptance Criteria, Security & Safety Boundaries, Platform Adapters, Deliverables & Output Artifacts, Related & Complementary Skills, and Realistic Usage Example). Zero stubs. Zero empty placeholders.
 - **15 Quality Gates (QG-01 to QG-15)**: Automated technical acceptance gates enforcing terminal evidence, hermetic reproducibility, and strict boundary safety.
 - **Full Pytest Suite**: 1,360 comprehensive automated tests executing across structure, YAML metadata, registry consistency, security screening, DAG dependencies, 40 routing scenarios, and 28 real-world evaluations.
@@ -189,6 +189,9 @@ Third-party skills remain isolated in `integrations/` to protect the integrity o
 | **Reverse Skill** | `a3f5c90d` | MIT | `integrations/reverse-skill/` | Defensive CLI Wrappers (`dex-binary-inspection`, `dex-javascript-bundle-deobfuscation`) |
 | **Reverse Engineer Anything (REA)**| `c4d12e89` | Apache-2.0 | `integrations/rea/` | MCP Bridge (`dex-rea-adapter`) |
 | **UI/UX Pro Max** | `04cfb449` | MIT | `integrations/ui-ux-pro-max/` | CLI Search Bridge (`dex-ui-ux-pro-max-adapter`) |
+| **Supabase Agent Skills** | `c9be0e93` | MIT | `integrations/supabase/` | BaaS Postgres & RLS Hardening (`dex-supabase-adapter`) |
+| **Superpowers** | `2ce8aa15` | MIT | `integrations/superpowers/` | TDD Loop & Worktrees (`dex-superpowers-adapter`) |
+| **Matt Pocock Skills** | `5beb35b0` | MIT | `integrations/mattpocock/` | Bug Diagnosis & Handoff (`dex-mattpocock-adapter`) |
 
 Tracked in machine-readable format via `manifests/upstream-sources.json`.
 
@@ -199,10 +202,10 @@ Tracked in machine-readable format via `manifests/upstream-sources.json`.
 Run the full verification and pytest suite:
 
 ```powershell
-# 1. Run zero-dependency specification validator (401 native + 5 integrations)
+# 1. Run zero-dependency specification validator (401 native + 8 integrations)
 python scripts/validate_pack.py
 
-# 2. Run SkillOps security audit (401 native skills + 4 upstream sources)
+# 2. Run SkillOps security audit (401 native skills + 7 upstream sources)
 python scripts/audit_skills.py
 
 # 3. Benchmark dynamic routing accuracy across 40 groups (F1 >= 0.85)

@@ -66,9 +66,12 @@ def test_segregated_integrations():
             if os.path.isfile(os.path.join(root, d, "SKILL.md")):
                 found_skills.append(d)
 
-    assert len(found_skills) == 5, f"Expected 5 segregated integration skills, found {len(found_skills)}"
+    assert len(found_skills) == 8, f"Expected 8 segregated integration skills, found {len(found_skills)}"
     assert "dex-api-mocking-virtualization" in found_skills
     assert "dex-binary-inspection" in found_skills
     assert "dex-javascript-bundle-deobfuscation" in found_skills
     assert "dex-rea-adapter" in found_skills
     assert "dex-ui-ux-pro-max-adapter" in found_skills
+    assert "dex-supabase-adapter" in found_skills
+    assert "dex-superpowers-adapter" in found_skills
+    assert "dex-mattpocock-adapter" in found_skills

@@ -9,7 +9,7 @@ description: Master control plane to analyze engineering requests, select execut
 Điều phối toàn bộ vòng đời phát triển, vận hành, bảo mật, tự động hóa đa ngôn ngữ và hiện đại hóa phần mềm theo chuẩn **DEX Engineering Skills Framework v8.0**. Master Orchestrator đóng vai trò là bộ não điều khiển trung tâm (Root Control Plane) chịu trách nhiệm:
 1. Phân tích sâu sắc ý định và yêu cầu kỹ thuật của kỹ sư, phân loại miền kỹ nghệ và đánh giá rủi ro tác vụ.
 2. Lựa chọn chế độ thực thi tối ưu (`QUICK`, `STANDARD`, hoặc `STRICT`).
-3. Tra cứu danh mục **400 Specialized DEX Skills** (chia đều trong 40 nhóm chuyên môn chuẩn tắc A–AN, từ index 001 đến 400) cùng 5 bộ tích hợp bên thứ ba cách ly (`integrations/`).
+3. Tra cứu danh mục **400 Specialized DEX Skills** (chia đều trong 40 nhóm chuyên môn chuẩn tắc A–AN, từ index 001 đến 400) cùng 8 bộ tích hợp bên thứ ba cách ly (`integrations/`).
 4. Kích hoạt tập kỹ năng tối thiểu cần thiết theo nguyên lý công bố tiệm tiến (Progressive Disclosure) và định tuyến 2 tầng (Group-Level → Skill-Level).
 5. Điều phối **DEX Polyglot Script Engine** hỗ trợ 11 ngôn ngữ lập trình (Python, TypeScript, JavaScript, PowerShell, Bash, Rust, Go, C++, C#, Java, PHP) qua CLI `dex.py` và các wrapper bản địa (`dex.ps1`, `dex.bat`, `dex.sh`).
 6. Kiểm soát nghiêm ngặt **15 Quality Gates (QG-01 đến QG-15)** và tổng hợp báo cáo nghiệm thu kèm bằng chứng thực thi minh bạch.
@@ -79,7 +79,11 @@ Triết lý cốt lõi v8.0:
   38. **Group AL (371–380) Developer Platform & Polyglot Tooling**: Developer workstation bootstrap, toolchain version pinning (mise), polyglot build orchestration, build cache integrity, cross-language contract tests (Pact), reproducible devcontainers, CLI command contracts, Windows/Linux path compatibility, package publishing preflight, monorepo template conformance.
   39. **Group AM (381–390) Advanced Security & Trust**: Secretless CI/CD authentication (OIDC), ephemeral test credentials (Vault), container runtime isolation (gVisor/Kata), API authorization matrix tests (BOLA/BOPLA), privacy-safe observability, DNS/TLS certificate monitoring, incident evidence preservation (Forensics/WORM), SaaS risk surface reviews, dependency update risk scoring, service account lifecycle.
   40. **Group AN (391–400) SkillOps Quality & Governance**: Skill catalog reconciliation, Agent Skills spec compatibility, skill example test fixtures, instruction injection testing, runtime capability probing, semantic routing evaluations, upstream license diffing, cross-platform release matrices, skill quality scorecards, execution sandbox policies.
-- **Ranh Giới Kỹ Năng Tích Hợp Thứ Ba (`integrations/`)**: 5 kỹ năng mở rộng từ bên ngoài (`integrations/agentic-awesome-skills/dex-api-mocking-virtualization`, `integrations/reverse-skill/dex-binary-inspection`, `integrations/reverse-skill/dex-javascript-bundle-deobfuscation`, `integrations/rea/dex-rea-adapter`, `integrations/ui-ux-pro-max/dex-ui-ux-pro-max-adapter`) được quản lý trong không gian riêng biệt, không tính gộp vào 400 kỹ năng bản địa, chỉ kích hoạt khi có yêu cầu đặc thù và luôn chịu sự giám sát an ninh của Master Orchestrator.
+- **Ranh Giới Kỹ Năng Tích Hợp Thứ Ba (integrations/)**: 8 kỹ năng mở rộng từ 7 nguồn upstream (integrations/aas/dex-api-mocking-virtualization, integrations/reverse-skill/dex-binary-inspection, integrations/reverse-skill/dex-javascript-bundle-deobfuscation, integrations/rea/dex-rea-adapter, integrations/ui-ux-pro-max/dex-ui-ux-pro-max-adapter, integrations/supabase/dex-supabase-adapter, integrations/superpowers/dex-superpowers-adapter, integrations/mattpocock/dex-mattpocock-adapter) được quản lý trong không gian riêng biệt, không tính gộp vào 400 kỹ năng bản địa, chỉ kích hoạt khi có yêu cầu đặc thù và luôn chịu sự giám sát an ninh tối cao của Master Orchestrator.
+- **Quy tắc Điều phối Tích hợp Nguồn Mới (v8.1 Sources E, F, G)**:
+  - *Tác vụ Supabase & BaaS Postgres*: Kích hoạt chuỗi dex-database-engineering + dex-access-control-tenancy + dex-supabase-adapter.
+  - *Tác vụ Superpowers TDD & Worktrees*: Kích hoạt chuỗi dex-development-workflow + dex-testing-engineering + dex-superpowers-adapter. Nghiêm cấm các meta-router bên ngoài (như using-superpowers) ghi đè hoặc chiếm quyền điều phối của Master Orchestrator.
+  - *Tác vụ Matt Pocock Bug Diagnosis & Tickets*: Kích hoạt chuỗi dex-root-cause-debugging + dex-specification-driven + dex-mattpocock-adapter.
 - **Quy tắc Loại trừ Backend của UI/UX Pro Max**: Chặn kích hoạt trên các tác vụ backend, database hoặc DevOps. Bộ adapter `dex-ui-ux-pro-max-adapter` phối hợp cùng `dex-design-system-tokens` và `dex-design-token-migration` CHỈ ĐƯỢC PHÉP kích hoạt cho các tác vụ thiết kế giao diện (UI style, bảng màu, typography, bố cục layout, component styling); TUYỆT ĐỐI KHÔNG kích hoạt cho các tác vụ logic backend, database migrations, CI/CD pipelines, phân tích nhị phân hoặc quản trị đám mây.
 
 ## 6. Step-by-Step Execution Workflow
@@ -133,7 +137,7 @@ Tổng hợp kết quả sau khi hoàn thành toàn bộ chuỗi công việc:
 
 ## 7. Concrete Examples
 ```bash
-# Lệnh kiểm tra tính toàn vẹn của toàn bộ 401 Native DEX Skills và 5 Integrations
+# Lệnh kiểm tra tính toàn vẹn của toàn bộ 401 Native DEX Skills và 8 Integrations
 python scripts/validate_skills.py
 
 # Lệnh đối soát và đồng bộ hóa danh mục kỹ năng

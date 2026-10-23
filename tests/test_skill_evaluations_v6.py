@@ -278,7 +278,7 @@ class TestScenarioJ_DocumentationDrift:
 
         assert manifest.get("target_skills_count") == 401
         assert len(manifest.get("native_skills", [])) == 401
-        assert len(manifest.get("segregated_integrations", [])) == 5
+        assert len(manifest.get("segregated_integrations", [])) == 8
         groups = set(s.get("group") for s in manifest["native_skills"] if s.get("group") != "Root")
         assert len(groups) == 40
 

@@ -1,4 +1,4 @@
-# Third-Party Notices & Upstream Source Provenance (v8.0.0)
+# Third-Party Notices & Upstream Source Provenance (v8.1.0)
 
 > **DEX Engineering Skills Segregated Integration Policy**  
 > External upstream projects are maintained in `integrations/` with strict namespace isolation.  
@@ -10,10 +10,13 @@
 
 | Upstream Identifier | Project Name | Repository URL | Pinned Commit | License | Mount Directory |
 |:---|:---|:---|:---|:---|:---|
-| `source-a-aas` | **Agentic Awesome Skills** | [https://github.com/sickn33/agentic-awesome-skills](https://github.com/sickn33/agentic-awesome-skills) | `7b4e28f1` | MIT | `integrations/agentic-awesome-skills/` |
+| `source-a-aas` | **Agentic Awesome Skills** | [https://github.com/sickn33/agentic-awesome-skills](https://github.com/sickn33/agentic-awesome-skills) | `7b4e28f1` | MIT | `integrations/aas/` |
 | `source-b-reverse-skill` | **Reverse Skill** | [https://github.com/zhaoxuya520/reverse-skill](https://github.com/zhaoxuya520/reverse-skill) | `a3f5c90d` | MIT | `integrations/reverse-skill/` |
 | `source-c-rea` | **Reverse Engineer Anything (REA)** | [https://github.com/morluto/rea](https://github.com/morluto/rea) | `c4d12e89` | Apache-2.0 | `integrations/rea/` |
 | `source-d-ui-ux-pro-max` | **UI/UX Pro Max** | [https://github.com/nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) | `04cfb449` | MIT | `integrations/ui-ux-pro-max/` |
+| `source-e-supabase` | **Supabase Agent Skills** | [https://github.com/supabase/agent-skills](https://github.com/supabase/agent-skills) | `c9be0e93` | MIT | `integrations/supabase/` |
+| `source-f-superpowers` | **Superpowers** | [https://github.com/obra/superpowers](https://github.com/obra/superpowers) | `2ce8aa15` | MIT | `integrations/superpowers/` |
+| `source-g-mattpocock` | **Matt Pocock Skills** | [https://github.com/mattpocock/skills](https://github.com/mattpocock/skills) | `5beb35b0` | MIT | `integrations/mattpocock/` |
 
 ---
 
@@ -23,7 +26,7 @@
 - **Upstream Repository:** `https://github.com/sickn33/agentic-awesome-skills`
 - **Pinned Commit:** `7b4e28f192a837c4d5e901a2f6b8c4d3e2a1b9c8`
 - **License:** MIT License
-- **Imported Skill:** `dex-api-mocking-virtualization` (mounted in `integrations/agentic-awesome-skills/`)
+- **Imported Skill:** `dex-api-mocking-virtualization` (mounted in `integrations/aas/`)
 - **Attribution Notice:** Copyright (c) 2024 sickn33.
 
 ### Source B: Reverse Skill
@@ -46,3 +49,24 @@
 - **License:** MIT License
 - **Integration Mechanism:** CLI Python Search Bridge (`scripts/ui_ux_pro_max_runner.py` and `integrations/ui-ux-pro-max/dex-ui-ux-pro-max-adapter/`)
 - **Attribution Notice:** Copyright (c) 2024 NextLevelBuilder.
+
+### Source E: Supabase Agent Skills
+- **Upstream Repository:** `https://github.com/supabase/agent-skills`
+- **Pinned Commit:** `c9be0e931b7930f7d02126d04774d904c381e7d7`
+- **License:** MIT License
+- **Imported Skill:** `dex-supabase-adapter` (mounted in `integrations/supabase/`)
+- **Attribution Notice:** Copyright (c) 2026 Supabase.
+
+### Source F: Superpowers
+- **Upstream Repository:** `https://github.com/obra/superpowers`
+- **Pinned Commit:** `2ce8aa15d05bd57213e6f746f953aafb7ded7a8b`
+- **License:** MIT License
+- **Imported Skill:** `dex-superpowers-adapter` (mounted in `integrations/superpowers/`)
+- **Attribution Notice:** Copyright (c) 2025 Jesse Vincent.
+
+### Source G: Matt Pocock Skills
+- **Upstream Repository:** `https://github.com/mattpocock/skills`
+- **Pinned Commit:** `5beb35b040e3de97e54fa9e386d7e42d15c295c2`
+- **License:** MIT License
+- **Imported Skill:** `dex-mattpocock-adapter` (mounted in `integrations/mattpocock/`)
+- **Attribution Notice:** Copyright (c) 2026 Matt Pocock.

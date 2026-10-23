@@ -1,6 +1,6 @@
 {
-  "schema_version": "5.0.0",
-  "policy": "Segregated Integration (Third-party skills remain isolated in integrations/ and are not counted towards native 200 DEX skills)",
+  "schema_version": "8.1.0",
+  "policy": "Segregated Integration (Third-party skills remain isolated in integrations/ and are not counted towards native 400 DEX skills)",
   "sources": [
     {
       "upstream_id": "source-a-aas",
@@ -11,8 +11,7 @@
       "license_file": "integrations/aas/LICENSE",
       "mount_path": "integrations/aas",
       "skills_imported": [
-        "github-actions-specialist",
-        "sre-incident-commander"
+        "dex-api-mocking-virtualization"
       ],
       "last_sync_date": "2026-10-22",
       "status": "ACTIVE_VERIFIED"
@@ -26,7 +25,8 @@
       "license_file": "integrations/reverse-skill/LICENSE",
       "mount_path": "integrations/reverse-skill",
       "skills_imported": [
-        "reverse-skill-analyzer"
+        "dex-binary-inspection",
+        "dex-javascript-bundle-deobfuscation"
       ],
       "last_sync_date": "2026-10-22",
       "status": "ACTIVE_VERIFIED"
@@ -42,7 +42,7 @@
       "adapter_type": "MCP_PROBE_ADAPTER",
       "adapter_script": "scripts/rea_mcp_probe.py",
       "skills_imported": [
-        "rea-binary-dissector"
+        "dex-rea-adapter"
       ],
       "last_sync_date": "2026-10-22",
       "status": "ACTIVE_VERIFIED"
@@ -61,6 +61,51 @@
         "dex-ui-ux-pro-max-adapter"
       ],
       "last_sync_date": "2026-10-22",
+      "status": "ACTIVE_VERIFIED"
+    },
+    {
+      "upstream_id": "source-e-supabase",
+      "name": "Supabase Agent Skills",
+      "repository_url": "https://github.com/supabase/agent-skills",
+      "pinned_commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
+      "license": "MIT",
+      "license_file": "integrations/supabase/LICENSE",
+      "mount_path": "integrations/supabase",
+      "adapter_type": "BAAS_POSTGRES_RLS_ADAPTER",
+      "skills_imported": [
+        "dex-supabase-adapter"
+      ],
+      "last_sync_date": "2026-10-23",
+      "status": "ACTIVE_VERIFIED"
+    },
+    {
+      "upstream_id": "source-f-superpowers",
+      "name": "Superpowers",
+      "repository_url": "https://github.com/obra/superpowers",
+      "pinned_commit": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b",
+      "license": "MIT",
+      "license_file": "integrations/superpowers/LICENSE",
+      "mount_path": "integrations/superpowers",
+      "adapter_type": "TDD_WORKFLOW_WORKTREE_ADAPTER",
+      "skills_imported": [
+        "dex-superpowers-adapter"
+      ],
+      "last_sync_date": "2026-10-23",
+      "status": "ACTIVE_VERIFIED"
+    },
+    {
+      "upstream_id": "source-g-mattpocock",
+      "name": "Matt Pocock Skills",
+      "repository_url": "https://github.com/mattpocock/skills",
+      "pinned_commit": "5beb35b040e3de97e54fa9e386d7e42d15c295c2",
+      "license": "MIT",
+      "license_file": "integrations/mattpocock/LICENSE",
+      "mount_path": "integrations/mattpocock",
+      "adapter_type": "AGENT_COLLABORATION_DIAGNOSIS_ADAPTER",
+      "skills_imported": [
+        "dex-mattpocock-adapter"
+      ],
+      "last_sync_date": "2026-10-23",
       "status": "ACTIVE_VERIFIED"
     }
   ]
