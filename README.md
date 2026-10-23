@@ -4,7 +4,7 @@
 
 High-reliability engineering workflows for coding agents, featuring a Polyglot Script Engine, SkillOps 100-point quality verification, and seven segregated upstream sources. Discover relevant skills through catalog metadata, verify instructions with real execution fixtures, and enforce immutable quality gates.
 
-[![CI](https://github.com/nguyenducanhst2022-png/dex-engineering-skills/actions/workflows/validate.yml/badge.svg?branch=feat%2Fdex-500-skills)](https://github.com/nguyenducanhst2022-png/dex-engineering-skills/actions/workflows/validate.yml)
+[![CI](https://github.com/nguyenducanhst2022-png/dex-engineering-skills/actions/workflows/validate.yml/badge.svg?branch=main)](https://github.com/nguyenducanhst2022-png/dex-engineering-skills/actions/workflows/validate.yml)
 [![Version](https://img.shields.io/badge/version-10.0.0-blue)](docs/quality/BASELINE_V10.md)
 [![Skills](https://img.shields.io/badge/native_skills-501-blue)](SKILLS_INDEX.md)
 [![Quality Score](https://img.shields.io/badge/quality_score-85.4%2F100-brightgreen)](docs/quality/SKILL_AUDIT_V10.json)
