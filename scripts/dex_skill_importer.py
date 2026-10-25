@@ -583,7 +583,11 @@ def cmd_rollback(args):
             print(f"Skipping '{target}': Not found in imported skills ledger.")
             continue
 
-        target_dir = os.path.join(SKILLS_DIR, target)
+        skills_root = os.path.realpath(SKILLS_DIR)
+        target_dir = os.path.realpath(os.path.join(SKILLS_DIR, target))
+        if os.path.dirname(target_dir) != skills_root:
+            print(f"  [SKIPPED UNSAFE PATH] {target!r}")
+            continue
         backup_file = os.path.join(BACKUP_DIR, f"{target}.bak")
 
         if os.path.exists(backup_file):

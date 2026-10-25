@@ -26,7 +26,7 @@
 | 13 | **Zero Regressions** | Baseline comparison | **PASS** | All 301 previous skills preserved with unchanged functionality. |
 | 14 | **Documentation Synchronized** | Inspection | **PASS** | `README.md`, `SKILLS_INDEX.md`, `ROUTING_MATRIX.md`, `ARCHITECTURE.md`, `INSTALL.md`, `CHANGELOG.md`, `THIRD_PARTY_NOTICES.md` fully updated. |
 | 15 | **Git Diff Cleanliness** | `git status` / `git diff` | **PASS** | All files cleanly tracked, no secrets, temporary builders excluded or preserved in scripts. |
-| 16 | **Release Readiness Verified** | `VALIDATION_REPORT.md` | **PASS** | All 15 Quality Gates (QG-01 to QG-15) confirmed PASS. |
+| 16 | **Release Readiness Verified** | `docs/audits/VALIDATION_REPORT.md` | **PASS** | All 15 Quality Gates (QG-01 to QG-15) confirmed PASS. |
 
 ---
 
