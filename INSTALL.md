@@ -18,7 +18,6 @@ python -m pip install -r requirements-dev.txt
 
 pytest is the only dependency; the scripts use the standard library.
 
-> **Pending:** once the planned CI patch lands, the dev install becomes `python -m pip install -r requirements-dev.txt` (pinned pytest + ruff), and CI adds a ruff lint job. `requirements-dev.txt` does not exist on `main` yet.
 
 ## 2. Run the tests and checks
 
