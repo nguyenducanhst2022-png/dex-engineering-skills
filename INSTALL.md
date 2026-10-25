@@ -16,7 +16,7 @@ python3 -m venv .venv
 python -m pip install -r requirements-dev.txt
 ```
 
-pytest is the only dependency; the scripts use the standard library.
+Dev dependencies are pytest and ruff; the scripts use the standard library.
 
 
 ## 2. Run the tests and checks
