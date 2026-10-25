@@ -18,7 +18,7 @@ dex-engineering-skills/
 ├── integrations/                      # Segregated Third-Party Upstream Integrations
 │   ├── aas/                           # Agentic Awesome Skills (MIT)
 │   ├── mattpocock/                    # Matt Pocock Skills (MIT)
-│   ├── rea/                           # Reverse Engineer Anything (Apache-2.0, MCP Adapter)
+│   ├── rea/                           # Reverse Engineer Anything (MIT, MCP Adapter)
 │   ├── reverse-skill/                 # Reverse Skill (MIT)
 │   ├── supabase/                      # Supabase Agent Skills (MIT)
 │   ├── superpowers/                   # Superpowers Skills (MIT)
