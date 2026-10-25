@@ -1,194 +1,78 @@
-# DEX Engineering Skills Framework v10.0 (Quality Maximum)
-
-**500 specialized skills + 1 master orchestrator, organized into 50 engineering groups.**
-
-High-reliability engineering workflows for coding agents, featuring a Polyglot Script Engine, SkillOps 100-point quality verification, and seven segregated upstream sources. Discover relevant skills through catalog metadata, verify instructions with real execution fixtures, and enforce immutable quality gates.
+# DEX Engineering Skills Framework v10.0
 
 [![CI](https://github.com/nguyenducanhst2022-png/dex-engineering-skills/actions/workflows/validate.yml/badge.svg?branch=main)](https://github.com/nguyenducanhst2022-png/dex-engineering-skills/actions/workflows/validate.yml)
-[![Version](https://img.shields.io/badge/version-10.0.0-blue)](docs/quality/BASELINE_V10.md)
-[![Skills](https://img.shields.io/badge/native_skills-501-blue)](SKILLS_INDEX.md)
-[![Quality Score](https://img.shields.io/badge/quality_score-85.4%2F100-brightgreen)](docs/quality/SKILL_AUDIT_V10.json)
-[![Tests](https://img.shields.io/badge/tests-1701_passed-brightgreen)](docs/quality/BASELINE_V10.md)
-[![Routing](https://img.shields.io/badge/routing_fixtures-25%2F25-brightgreen)](docs/quality/DEX_V10_ROUTING_FIXTURES.json)
 
-## What's included
+A catalog of **501 native agent skills**: 500 specialists in 50 groups (A–AX, ten skills each, IDs 001–500) plus one root router, `dex-master-orchestrator`. Eight external adapters live under `integrations/` and are not part of the native count.
 
-- 500 specialists across Groups A-AX and one native root router, `dex-master-orchestrator`.
-- 11 language adapters: Python, TypeScript, JavaScript, PowerShell, Bash, Rust, Go, C++, C#, Java and PHP.
-- 8 external adapters under `integrations/`, excluded from the native count.
-- Canonical inventory checks, structural validation, routing fixtures and upstream provenance verification.
-- Automated CI for Windows, Linux and macOS.
+Skills use the YAML frontmatter + Markdown format of the [Agent Skills specification](https://agentskills.io/specification). DEX's 14-section body structure is a repository convention, not a spec requirement.
 
-v10 delivers Quality Maximum across all 500 skills in Groups A-AX while preserving identifiers 001-500. Use the [skills index](SKILLS_INDEX.md) to find individual workflows.
+## Layout
+
+| Path | Contents |
+|:---|:---|
+| `.agents/skills/<name>/SKILL.md` | The 501 native skills |
+| `integrations/` | 7 upstream sources (8 adapters), kept separate from native skills |
+| `manifests/` | `native-skills.json` (canonical IDs), `dex-skills.json` (discovered files), `upstream-sources.json` (pins, license hashes) |
+| `scripts/` | Validation, audit, routing evaluation; `scripts/polyglot/dex.py` CLI |
+| `tests/` | pytest suite |
+| `docs/quality/`, `docs/audits/` | Audit records and evidence |
+| `.github/workflows/validate.yml` | CI on Ubuntu, Windows and macOS (Python 3.12) |
+
+Find individual skills in the [skills index](SKILLS_INDEX.md). Group/domain mapping is in the index and [`manifests/native-skills.json`](manifests/native-skills.json).
 
 ## Quick start
 
-The v10 implementation is on `feat/dex-500-skills`:
-
 ```sh
-git clone --branch feat/dex-500-skills https://github.com/nguyenducanhst2022-png/dex-engineering-skills.git
+git clone https://github.com/nguyenducanhst2022-png/dex-engineering-skills.git
 cd dex-engineering-skills
-python -m venv .venv
-```
-
-Activate `.venv` using `.venv\Scripts\Activate.ps1` in Windows PowerShell or `source .venv/bin/activate` on Linux/macOS, then run:
-
-```sh
-python -m pip install pytest==8.3.5
-python scripts/polyglot/dex.py skills status --format json
-python scripts/validate_skills.py
-```
-
-Open the repository in your coding-agent workspace and start with [dex-master-orchestrator](.agents/skills/dex-master-orchestrator/SKILL.md). Host discovery and tool permissions depend on the host. Cloning does not install upstream runtimes or change global agent settings.
-
-## Engineering catalog
-
-Each group contains ten specialists; the master orchestrator is separate.
-
-| Group | Skill IDs | Domain |
-|:---|:---|:---|
-| A | 001-010 | Core Engineering |
-| B | 011-020 | Architecture & AI Agents |
-| C | 021-030 | Production Engineering |
-| D | 031-040 | Frontend Engineering |
-| E | 041-050 | Backend & Integration |
-| F | 051-060 | Data Engineering |
-| G | 061-070 | AI & LLM Engineering |
-| H | 071-080 | Developer Experience |
-| I | 081-090 | Security & Reliability |
-| J | 091-100 | Cloud & Infrastructure |
-| K | 101-110 | Mobile & Desktop Engineering |
-| L | 111-120 | Product & Operations Engineering |
-| M | 121-130 | Advanced Software Verification |
-| N | 131-140 | Advanced SRE & Distributed Systems |
-| O | 141-150 | Advanced Cloud Platform |
-| P | 151-160 | Language & Runtime Engineering |
-| Q | 161-170 | Advanced AI Systems |
-| R | 171-180 | Product Design & User Research |
-| S | 181-190 | Application Security Specialists |
-| T | 191-200 | SkillOps Engineering |
-| U | 201-210 | Visual Design Intelligence |
-| V | 211-220 | Advanced Web Experiences |
-| W | 221-230 | Browser Extensions & Automation |
-| X | 231-240 | Authorized Reverse Engineering |
-| Y | 241-250 | Protocols & Service Integration |
-| Z | 251-260 | AI Agent Operations |
-| AA | 261-270 | Advanced Data & Analytics |
-| AB | 271-280 | Native, Graphics & Game Engineering |
-| AC | 281-290 | Software Trust & Distribution |
-| AD | 291-300 | Advanced SkillOps Governance |
-| AE | 301-310 | Enterprise Software Architecture |
-| AF | 311-320 | Distributed Systems Deep Engineering |
-| AG | 321-330 | Applied AI Systems |
-| AH | 331-340 | Extended Polyglot Engineering |
-| AI | 341-350 | Advanced UI/UX Engineering |
-| AJ | 351-360 | Authorized Software Inspection |
-| AK | 361-370 | ML Platform & Data Systems |
-| AL | 371-380 | Developer Platform & Polyglot Tooling |
-| AM | 381-390 | Advanced Security & Trust |
-| AN | 391-400 | SkillOps Quality & Governance |
-| AO | 401-410 | Supabase & Advanced PostgreSQL |
-| AP | 411-420 | Autonomous Agent Engineering |
-| AQ | 421-430 | Streaming & Digital Media Systems |
-| AR | 431-440 | Chess & Native Performance |
-| AS | 441-450 | Windows & Desktop Systems |
-| AT | 451-460 | Platform Resilience & Infrastructure |
-| AU | 461-470 | Product Experience & Design Systems |
-| AV | 471-480 | Advanced TypeScript & Full Stack |
-| AW | 481-490 | Security, Privacy & Resilience Governance |
-| AX | 491-500 | SkillOps Intelligence & Scalability |
-
-The [canonical manifest](manifests/native-skills.json) defines stable identifiers and release targets. The [discovery manifest](manifests/dex-skills.json) records actual files.
-
-Skills follow the YAML frontmatter and Markdown format of the [Agent Skills specification](https://agentskills.io/specification). DEX's 14-section structure is a repository convention, not an external specification requirement.
-
-## Master orchestrator
-
-The master identifies the task, selects the smallest sufficient skill set, checks tools and permissions, coordinates execution and records evidence.
-
-| Mode | Typical work |
-|:---|:---|
-| QUICK | Narrow, reversible fixes and edits |
-| STANDARD | Features, refactoring and integrations |
-| STRICT | Changes with significant security, infrastructure, data-loss or release risk |
-
-Metadata is searched first; full instructions and references are loaded only when needed. External instructions remain subordinate to host and user instructions.
-
-## Polyglot Script Engine
-
-Adapters share argument-based command execution, normalized results, dry-run support and tool discovery. The executor provides capped stdout/stderr buffers, timeouts, secret redaction, an inherited-environment allowlist and best-effort process-tree cleanup.
-
-```sh
-python scripts/polyglot/dex.py doctor --format json
-python scripts/polyglot/dex.py test --lang python --cwd path/to/project --dry-run
-python scripts/polyglot/dex.py generate --lang typescript --task auth_middleware --out generated
-```
-
-Review the target project and its commands before execution. Missing tools return `TOOL_NOT_AVAILABLE`. Tool discovery alone does not prove runtime readiness: CMake is not a C++ compiler, and npx does not establish a TypeScript compiler. See the recorded [Python, JavaScript and PowerShell smoke checks](docs/audits/DEX_V9_RUNTIME_SMOKE.json).
-
-## SkillOps and verification
-
-Read-only catalog commands:
-
-```sh
-python scripts/polyglot/dex.py skills status --format json
-python scripts/polyglot/dex.py skills audit --format json
-python scripts/polyglot/dex.py skills plan --format json
-python scripts/polyglot/dex.py skills validate --format json
-python scripts/polyglot/dex.py skills report --format json
-```
-
-`validate` checks structure and canonical inventory. `report` returns nonzero while release blockers remain. Other lifecycle operations retain existing standalone scripts; the full unified interface is still being developed.
-
-Verification commands:
-
-```sh
+python3 -m venv .venv
+. .venv/bin/activate          # Windows PowerShell: .venv\Scripts\Activate.ps1
+python -m pip install -r requirements-dev.txt
 python -m pytest -q
 python scripts/validate_skills.py
-python scripts/audit_skills.py --export-v10
-python scripts/evaluate_routing_v10.py
+```
+
+See [INSTALL.md](INSTALL.md) for agent setup and the full set of checks.
+
+## Using the skills
+
+Open the repository in your coding-agent workspace (or point the agent's skills directory at `.agents/skills`) and start from [`dex-master-orchestrator`](.agents/skills/dex-master-orchestrator/SKILL.md). The orchestrator picks the smallest sufficient skill set and runs in one of three modes: QUICK (small reversible edits), STANDARD (features, refactors, integrations) or STRICT (security, infrastructure, data-loss or release risk). Skill discovery and tool permissions depend on the host agent; cloning installs no runtimes and changes no global settings.
+
+## Polyglot CLI
+
+`scripts/polyglot/dex.py` wraps adapters for Python, TypeScript, JavaScript, PowerShell, Bash, Rust, Go, C++, C#, Java and PHP, plus read-only catalog commands:
+
+```sh
+python scripts/polyglot/dex.py doctor --format json          # which toolchains exist on this host
+python scripts/polyglot/dex.py skills status --format json
+python scripts/polyglot/dex.py skills validate --format json
 python scripts/polyglot/dex.py verify --skill dex-development-workflow
 ```
 
-| Recorded check | Result | Evidence |
-|:---|:---|:---|
-| Native structural validation | 501/501 | [Validation Report](docs/quality/BASELINE_V10.md) |
-| External adapter structure | 8/8 | [Validation Report](docs/quality/BASELINE_V10.md) |
-| Quality audit (0 warnings, 0 defects) | 501/501 (85.4/100 avg) | [Audit JSON](docs/quality/SKILL_AUDIT_V10.json) |
-| Regression & functional tests | 1,701 passed | [Pytest](tests/test_functional_v10.py) |
-| v10 dynamic routing fixtures | 25/25 passed | [Fixtures](docs/quality/DEX_V10_ROUTING_FIXTURES.json) |
-| Dangling references remediated | 0 remaining | [Defect Register](docs/quality/DEFECT_REGISTER.md) |
-| Configured upstream pins | 7/7 verified | [Provenance](docs/audits/DEX_V9_PROVENANCE_RECHECK.json) |
-| Stored upstream license bytes | 7/7 match | [Provenance](docs/audits/DEX_V9_PROVENANCE_RECHECK.json) |
+Missing toolchains are reported as `TOOL_NOT_AVAILABLE`; finding a tool does not prove the runtime is usable.
 
-The V10 Quality Maximum release certifies all 501 skills with verified zero-defect structural and reference integrity, backed by automated functional test fixtures and an evidence-based 100-point quality score.
+## Status
+
+Structural validation (501/501 native, 8/8 integrations), the quality audit (avg 85.4/100), 25/25 routing fixtures and 1,702 tests pass. The catalog itself reports `"release": "NOT_READY"`: domain runtime/cross-host evaluation, upstream provenance/licensing review, and independent semantic/content review are still open (`python scripts/polyglot/dex.py skills report --format json` exits 1 until they are resolved).
+
 ## Upstream integrations
 
-External adapters remain separate from native skills. These commits are verified reference baselines; they do not retroactively authenticate historical imports.
-
-| Source | Pinned commit | Root license | Directory |
+| Source | Pinned commit | License | Directory |
 |:---|:---|:---|:---|
-| [Agentic Awesome Skills](https://github.com/sickn33/agentic-awesome-skills) | [8bda5fa7](https://github.com/sickn33/agentic-awesome-skills/commit/8bda5fa7264cafe8259fc8212550d13bf690bfb0) | MIT | `integrations/aas/` |
-| [Reverse Skill](https://github.com/zhaoxuya520/reverse-skill) | [cab634bd](https://github.com/zhaoxuya520/reverse-skill/commit/cab634bd855fc287f6e420c1f36fd1a6b9245960) | MIT | `integrations/reverse-skill/` |
-| [Reverse Engineer Anything (REA)](https://github.com/morluto/rea) | [e32a0494](https://github.com/morluto/rea/commit/e32a0494d42dedd5e79ca341d20c53f07479d9bb) | MIT | `integrations/rea/` |
-| [UI/UX Pro Max](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) | [04cfb449](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/commit/04cfb449bd8494811ad63e94172a308fa25a551a) | MIT | `integrations/ui-ux-pro-max/` |
-| [Supabase Agent Skills](https://github.com/supabase/agent-skills) | [c9be0e93](https://github.com/supabase/agent-skills/commit/c9be0e931b7930f7d02126d04774d904c381e7d7) | MIT | `integrations/supabase/` |
-| [Superpowers](https://github.com/obra/superpowers) | [2ce8aa15](https://github.com/obra/superpowers/commit/2ce8aa15d05bd57213e6f746f953aafb7ded7a8b) | MIT | `integrations/superpowers/` |
-| [Matt Pocock Skills](https://github.com/mattpocock/skills) | [5beb35b0](https://github.com/mattpocock/skills/commit/5beb35b040e3de97e54fa9e386d7e42d15c295c2) | MIT | `integrations/mattpocock/` |
+| [Agentic Awesome Skills](https://github.com/sickn33/agentic-awesome-skills) | `8bda5fa7` | MIT | `integrations/aas/` |
+| [Reverse Skill](https://github.com/zhaoxuya520/reverse-skill) | `cab634bd` | MIT | `integrations/reverse-skill/` |
+| [REA](https://github.com/morluto/rea) | `e32a0494` | MIT | `integrations/rea/` |
+| [UI/UX Pro Max](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) | `04cfb449` | MIT | `integrations/ui-ux-pro-max/` |
+| [Supabase Agent Skills](https://github.com/supabase/agent-skills) | `c9be0e93` | MIT | `integrations/supabase/` |
+| [Superpowers](https://github.com/obra/superpowers) | `2ce8aa15` | MIT | `integrations/superpowers/` |
+| [Matt Pocock Skills](https://github.com/mattpocock/skills) | `5beb35b0` | MIT | `integrations/mattpocock/` |
 
-The [source manifest](manifests/upstream-sources.json) records exact SHAs, license hashes and prior pin history. Exact upstream license text is stored in each source's `UPSTREAM_LICENSE`. During API rate limits, the verifier can check exact-SHA commit patch headers and retrieve pinned license bytes. It does not install or execute upstream code.
+Full SHAs and license hashes: [`manifests/upstream-sources.json`](manifests/upstream-sources.json). Each source's license text is in its `UPSTREAM_LICENSE`.
 
 ## Documentation
 
-- [Skills index](SKILLS_INDEX.md)
-- [Installation guide](INSTALL.md) and [architecture](ARCHITECTURE.md)
-- [V10 Baseline Quality Audit](docs/quality/BASELINE_V10.md)
-- [V10 Skill Audit Ledger](docs/quality/SKILL_AUDIT_V10.json)
-- [V10 Defect Register](docs/quality/DEFECT_REGISTER.md)
-- [Dynamic Routing Matrix](ROUTING_MATRIX.md)
-- [Third-party notices](THIRD_PARTY_NOTICES.md)
-- [Changelog](CHANGELOG.md)
+[Skills index](SKILLS_INDEX.md) · [Install](INSTALL.md) · [Architecture](ARCHITECTURE.md) · [Routing matrix](ROUTING_MATRIX.md) · [V10 baseline](docs/quality/BASELINE_V10.md) · [Defect register](docs/quality/DEFECT_REGISTER.md) · [Third-party notices](THIRD_PARTY_NOTICES.md) · [Changelog](CHANGELOG.md)
 
 ## License
 
-DEX Engineering Skills Framework uses the [MIT License](LICENSE). Upstream material retains its own license and attribution requirements.
+[MIT](LICENSE). Upstream material keeps its own license and attribution terms.
