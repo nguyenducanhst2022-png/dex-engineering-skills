@@ -26,13 +26,13 @@ Lifecycle states, computed per skill:
 - **verified-current**: latest validation run succeeded AND run timestamp is within the freshness window (default 30 days) AND environment fingerprint matches current host fingerprint.
 - **verified-stale**: latest run succeeded but older than the window, or environment differs (old success is not current verification).
 - **failing**: latest run has nonzero exit code; report the exit code and failing command.
-- **unverified**: no run record exists at all.
+- **unverified**: no run record exists at all, or the latest run record exists but its recorded content hash no longer matches the skill's current content hash (content changed after validation, so the run no longer attests to what is on disk).
 - **missing**: skill present in manifest but no artifact on disk, or vice versa (orphan artifact) — these are distinct reconciliation defects.
 
 Separate usage dimension, independent of lifecycle state (so `sum(states)` over lifecycle states still equals the manifest length):
 - **usage-known / usage-unknown**: usage counter present or absent. Unknown usage is not zero usage; never render it as 0.
 
-All aggregate percentages must preserve denominators: show "471/501 implemented" plus "331 of 471 have validation evidence; 29 usage unknown". Never collapse categories into a single "production-ready" figure.
+All aggregate percentages must preserve denominators: show "471/501 implemented" plus "331 of 471 have validation evidence; 375 of 471 usage unknown". Never collapse categories into a single "production-ready" figure.
 
 ## 6. Step-by-Step Execution Workflow
 1. Snapshot inputs: `catalog_manifest_hash=$(sha256sum catalog/manifest.json | cut -d' ' -f1)`; record tool versions (`python --version`, runner versions). Reproduce ambiguity in an isolated fixture: copy 3–5 representative skills plus their evidence into a scratch dir (`fixture/`) so downstream logic can be tested without touching the live catalog.

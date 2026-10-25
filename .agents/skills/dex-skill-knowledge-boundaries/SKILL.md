@@ -59,7 +59,7 @@ Distinguish **owning skills** (one per decision, mandatory) from **supporting sk
 - **Silent ownership changes.** Editing the matrix without recording which routing outcomes changed. Always diff old vs. new classification on the labeled set.
 
 ## 9. Quality Gates & Acceptance Criteria
-- Every decision appearing in the labeled task set maps to exactly one owning skill; zero `CONTESTED`, zero `UNOWNED` entries in the final matrix.
+- Every decision appearing in the dev set (see the split step in §6) maps to exactly one owning skill; zero `CONTESTED`, zero `UNOWNED` entries in the final matrix. Decisions that appear only in the held-out set and lack an owner in the matrix are not silently added; they are reported as gaps in the unresolved-cases list and routed to follow-up.
 - Re-classification on the held-out portion of the task set (see the split step in §6): false activations ≤ 5%, missed activations ≤ 5%, where each rate is the count of that misclassification divided by the number of held-out tasks. If the held-out set is smaller than 20 tasks, report exact counts instead of percentages.
 - Every handoff is explicit and testable: a fixture exists where skill A's output triggers skill B, and running the fixture demonstrates the transfer.
 - Completion requires: the matrix artifact, the classification run output (actual command output, not summaries), the reproduction fixture, and a stated list of unresolved cases.
