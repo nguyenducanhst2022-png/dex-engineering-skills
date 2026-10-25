@@ -27,7 +27,7 @@ Collect and record before executing:
 1. **API schema artifact**: OpenAPI/Swagger spec, JSON Schema files, protobuf definitions, or GraphQL SDL. Record the exact file path and version/commit.
 2. **Authorized test environment**: a local or dedicated staging deployment with synthetic data only. Confirm written authorization/scope.
 3. **Approved limits**: maximum body bytes (raw and decoded), max nesting depth, max string/array length, pagination ceiling, CPU/memory budget per request, and max request rate for the test harness. Get these from the platform owner, not guessed.
-4. **Monitoring**: access to process metrics (memory RSS, CPU time) or an instrumented test client measuring per-request latency and allocation. Example: launch the service locally under `/usr/bin/time -v` so the *server* process's RSS/CPU are measured, or poll its `/metrics` endpoint; timing `curl` only measures the client.
+4. **Monitoring**: access to process metrics (memory RSS, CPU time) or an instrumented test client measuring per-request latency and allocation. Measure the *server* process live during the fixture run — poll `VmRSS` from `/proc/<server-pid>/status`, run `ps -o rss=,%cpu= -p <server-pid>` in a sampling loop, or scrape the service's `/metrics` endpoint — and take deltas around each request; timing `curl` only measures the client.
 5. **Toolchain**: HTTP client with streaming and compression control (`curl`, `httpx`, `requests`), a JSON generator for nested/oversized payloads (e.g., Python `json` + recursion), and the test runner (`pytest`, `k6` at low VU only if approved).
 6. **Baseline**: normal valid request(s) that must still succeed after all abuse fixtures run.
 
