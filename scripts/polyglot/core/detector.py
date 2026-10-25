@@ -7,6 +7,7 @@ Calculates confidence scores (0.0 to 1.0) and probes runtime availability.
 
 import os
 import shutil
+import sys
 import platform
 import subprocess
 from pathlib import Path
@@ -86,6 +87,11 @@ def probe_tool(tool_name: str) -> Dict[str, Any]:
                 break
     else:
         resolved = shutil.which(tool_name)
+
+    # Many Linux/macOS hosts ship only `python3`; fall back to it, then to the
+    # running interpreter, so the Python toolchain is not reported missing.
+    if not resolved and tool_name == "python":
+        resolved = shutil.which("python3") or sys.executable or None
 
     if not resolved:
         return {

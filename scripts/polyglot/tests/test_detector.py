@@ -26,3 +26,11 @@ def test_detect_all_11_fixtures(lang):
     assert len(detected) > 0, f"Must detect language in {lang} fixture"
     detected_langs = [d["language"] for d in detected]
     assert lang in detected_langs, f"Expected {lang} in {detected_langs}"
+
+def test_probe_python_falls_back_when_only_python3(monkeypatch):
+    import shutil as _sh
+    real = _sh.which
+    monkeypatch.setattr(_sh, "which", lambda n, *a, **k: None if n == "python" else real(n, *a, **k))
+    info = probe_tool("python")
+    assert info["available"] is True
+    assert info["path"]
