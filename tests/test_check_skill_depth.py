@@ -24,3 +24,14 @@ def test_flags_repeated_description_and_counts_own(tmp_path):
 def test_repo_runs_report_only():
     assert csd.main.__name__ == "main"
     assert len(csd.analyze(csd.SKILLS_DIR)) > 0
+
+
+def test_flags_unknown_related_skill(tmp_path):
+    body = "# a\n## 13. Related\ndex-real-one, dex-made-up\n## 14. Example\nx.\n"
+    _skill(tmp_path, "dex-a", "A.", body)
+    res = csd.analyze(tmp_path, known={"dex-a", "dex-real-one"})
+    assert res[0]["unknown_related"] == ["dex-made-up"]
+
+
+def test_repo_has_no_unknown_related():
+    assert [r for r in csd.analyze(csd.SKILLS_DIR) if r["unknown_related"]] == []
