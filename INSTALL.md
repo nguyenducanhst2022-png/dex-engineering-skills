@@ -24,7 +24,7 @@ Dev dependencies are pytest and ruff; the scripts use the standard library.
 Keep the venv **activated** while running these: a toolchain detector uses `shutil.which("python")`, so it needs `python` on `PATH`.
 
 ```sh
-python -m pytest -q                                              # 1,702 tests
+python -m pytest -q                                              # 1,706 tests
 python scripts/validate_skills.py                               # 501 native + 8 integrations
 python scripts/audit_skills.py --export-v10                     # rewrites docs/quality/SKILL_AUDIT_V10.json
 python scripts/evaluate_routing_v10.py                          # 25 routing fixtures
